@@ -124,7 +124,9 @@ export default class Auth extends Component {
                           {({ getRootProps, getInputProps }) => (
                             <div className="icon-container" {...getRootProps()}>
                               <input {...getInputProps()} />
-                              <Button className="border_none" loading={this.state.upload} shape="circle" icon="download" />
+                              <Button className="border_none" loading={this.state.upload} shape="circle">
+                                <i className="ion-edit"></i>
+                              </Button>
                             </div>
                           )}
                         </ReactDropzone>

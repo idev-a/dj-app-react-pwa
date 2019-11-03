@@ -7,11 +7,11 @@ import { Button } from 'antd';
 export default class Homepage extends Component {
   render() {
     return (
-      <div className="overlay-img">
-        <Navbar />
+      <div className="bg-colored">
         <section className="section-adjust flex-center">
-          <div className="container-adjust">
-            <div>
+          <div className="container-adjust overlay-img">
+            <Navbar />
+            <div className="pd-res">
               <div>
                 <img className="full-width logo-realign" src="../img/hearbk.png" alt="" />
               </div>
