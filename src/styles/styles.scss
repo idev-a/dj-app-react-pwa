@@ -287,7 +287,7 @@ $bg-color: #103545;
 }
 
 .section-adjust {
-  height: 100vh;
+  min-height: 100vh;
   width: 100%;
 }
 
@@ -310,6 +310,7 @@ $bg-color: #103545;
 
 .bg-colored {
   background-color: #103545;
+  min-height: 100vh;
 }
 
 .error-logger {
