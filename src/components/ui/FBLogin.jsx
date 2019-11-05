@@ -27,7 +27,7 @@ export default class FBLogin extends Component {
   render() {
     return (
       <FacebookLogin
-        appId="1428952303931743"
+        appId="335464914014129"
         cssClass="ant-btn ant-btn-lg border-rad-none btn-facebook mb-2"
         callback={this.facebookLogin}
         // scope="public_profile, email, user_birthday"
