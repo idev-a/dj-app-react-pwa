@@ -106,7 +106,7 @@ export default class Auth extends Component {
             <Button onClick={this.onSwitch.bind(this)} className={this.state.show1 ? 'half-width btn-switch btn-switch-bottom text-bold' : 'half-width btn-switch text-bold'}>LOGIN</Button>
           </div>
           <div className="flex-center-auth">
-            <div className="container-adjust pd-res">
+            <div style={{ padding: '0 1rem' }} className="container-adjust">
               {
                 this.state.show ? (
                   <Form onSubmit={this.register.bind(this)}>
