@@ -30,7 +30,7 @@ export default class FBLogin extends Component {
         appId="335464914014129"
         cssClass="ant-btn ant-btn-lg border-rad-none btn-facebook mb-2"
         callback={this.facebookLogin}
-        scope="public_profile, email, user_birthday"
+        scope="email"
         render={renderProps => (
           <Button size="large" onClick={renderProps.onClick}>Login with facebook</Button>
         )}
