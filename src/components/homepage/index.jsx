@@ -7,9 +7,9 @@ import { Button } from 'antd';
 export default class Homepage extends Component {
   render() {
     return (
-      <div className="bg-colored overlay-img">
+      <div className="bg-colored">
         <section className="section-adjust flex-center">
-          <div className="container-adjust">
+          <div className="container-adjust overlay-img">
             <Navbar />
             <div className="pd-res">
               <div>

@@ -300,7 +300,8 @@ $bg-color: #103545;
 }
 
 .container-adjust {
-  width: 90%;
+  width: 100%;
+  padding: 0 1rem;
 }
 
 .flex-center-auth {
@@ -346,6 +347,7 @@ $bg-color: #103545;
 @media(min-width: 769px) {
   .container-adjust {
     width: 26rem;
+    padding: 0rem;
   }
 
   .flex-center-auth {
