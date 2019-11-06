@@ -125,7 +125,12 @@ export default class Auth extends Component {
                             <div className="icon-container" {...getRootProps()}>
                               <input {...getInputProps()} />
                               <Button className="border_none" loading={this.state.upload} shape="circle">
-                                <i className="ion-edit"></i>
+                                {/* <i className="anticon ion-edit"></i> */}
+                                {
+                                  this.state.upload === false ? (
+                                    <img className="anticon" src="../img/pencil.png" alt=""/>
+                                  ) : null
+                                }
                               </Button>
                             </div>
                           )}
