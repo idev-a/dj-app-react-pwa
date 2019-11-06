@@ -4,6 +4,7 @@ import HomePage from '../components/homepage';
 import Reset from '../components/reset';
 import Forgot from '../components/forgot';
 import Auth from '../components/auth';
+import ListenerPreferences from '../components/listenerPreferences'
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
@@ -16,6 +17,7 @@ export default class AppRouter extends Component {
       <div>
         <Switch>
           <Route path="/" component={HomePage} exact={true}/>
+          <Route path="/listener-preferences" component={ListenerPreferences} exact={true}/>
           <Route path="/auth" component={Auth} exact={true}/>
           <Route path="/forgot" component={Forgot} exact={true}/>
           <Route path="/reset" component={Reset} exact={true}/>
