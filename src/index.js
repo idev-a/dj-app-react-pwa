@@ -20,9 +20,9 @@ const isIos = () => {
 const isInStandaloneMode = () => ('standalone' in window.navigator) && (window.navigator.standalone);
 
 // Checks if should display install popup notification:
-if (isIos() && !isInStandaloneMode()) {
-  alert('Add to homescreen to get better experience')
-}
+// if (isIos() && !isInStandaloneMode()) {
+//   alert('Add to homescreen to get better experience')
+// }
 
 const store = createStore(reducers, composeEnhancer(applyMiddleware(thunk)));
 
