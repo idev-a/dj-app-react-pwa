@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import HomePage from '../components/homepage';
 import Reset from '../components/reset';
 import Forgot from '../components/forgot';
@@ -13,6 +13,8 @@ export default class AppRouter extends Component {
   componentWillMount() {
     AOS.init()
   }
+
+
   render() {
     return (
       <div>
