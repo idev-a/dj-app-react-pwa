@@ -29,7 +29,11 @@ const defaultValues = {
     genres: ["hip-hop"]
 }
 
-
+/*
+* Todo: implement formik, post edit request for current user,
+*  mapstate to props
+* 
+* */
 const Preferences = (props) => {
     const [state, setState] = useState({...defaultValues});
     return (
