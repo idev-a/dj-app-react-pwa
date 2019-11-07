@@ -20,6 +20,7 @@ export const Tag = props => <div {...props} style={{
     {props.selected && <X />}
 </div>
 
+/* TODO normalize tags input */
 export const TagsInput = props => {
     const [state, setState] = useState({visible: false,
         tags: [],

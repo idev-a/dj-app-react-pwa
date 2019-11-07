@@ -25,12 +25,8 @@ const defaultValues = {
         state: "MA",
     },
     gender: "male",
-    dob:{
-        month: 3,
-        day: 23,
-        year: 1995,
-    },
-    genres: []
+    dob: new Date(),
+    genres: ["hip-hop"]
 }
 
 
