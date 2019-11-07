@@ -1,11 +1,17 @@
 import React, { Component } from 'react';
 import { Button, Form, Icon, Checkbox } from 'antd';
 import ReactDropzone from 'react-dropzone';
-import { Link } from 'react-router-dom';
+import {Link, Redirect} from 'react-router-dom';
 import api from '../../config';
 import axios from 'axios';
+import {connect} from 'react-redux'
 
-export default class Auth extends Component {
+const mapDispatchToProps = dispatch => {
+  return {
+    setUser: (user) => dispatch({ type: 'SET_CURRENT_USER', payload: {token: user.token, } }),
+  }
+}
+class Auth extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -25,7 +31,8 @@ export default class Auth extends Component {
       item: '',
       upload: false,
       isLoading: false,
-      loading: false
+      loading: false,
+      redirect: false
     }
     this.typing = this.typing.bind(this);
     this.onDrop = this.onDrop.bind(this)
@@ -72,6 +79,7 @@ export default class Auth extends Component {
     axios.post(`${api}/api/users/signup`, this.state)
       .then((res) => {
         if (res.data.success) {
+          this.props.setUser(res.data)
           this.setState({ errorRegister: res.data.message, isLoading: false })
         }
       })
@@ -85,14 +93,25 @@ export default class Auth extends Component {
     axios.post(`${api}/api/users/login`, this.state)
       .then((res) => {
         if (res.data.success) {
-          this.setState({ errorLogin: res.data.message, loading: false })
+          console.log(res.data)
+          this.props.setUser(res.data)
+
+          this.setState({ errorLogin: res.data.message, loading: false, redirect: true })
         }
       })
       .catch((e) => {
+        console.log(e)
         this.setState({ errorLogin: e.response.data.message })
       })
   }
   render() {
+    if (this.state.redirect){
+      return <Redirect
+          to={{
+            pathname: "/listener-preferences",
+          }}
+      />
+    }
     return (
       <div className="bg-colored">
         <section className="full-section">
@@ -193,3 +212,8 @@ export default class Auth extends Component {
     )
   }
 }
+
+export default connect(
+    null,
+    mapDispatchToProps
+)(Auth)
