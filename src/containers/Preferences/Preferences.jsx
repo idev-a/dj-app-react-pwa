@@ -5,8 +5,6 @@ import  './Preferences.styles.scss';
 import {Button, Collapse, Drawer, Icon, Input, Typography} from "antd";
 import {LocationSearch} from '../../components/geoSearch'
 import { Select, Radio } from 'antd';
-import genres from './genres'
-import {without} from 'lodash'
 import {HITCard, MapIcon, PROCard} from "../../components/vectorComponents";
 import {TagsInput} from "../../components/tags";
 import {Banner} from "../../components/banner";
@@ -32,7 +30,7 @@ const defaultValues = {
 /*
 * Todo: implement formik, post edit request for current user,
 *  mapstate to props
-* 
+*
 * */
 const Preferences = (props) => {
     const [state, setState] = useState({...defaultValues});
