@@ -22,8 +22,7 @@ export const Tag = props => <div {...props} style={{
 
 /* TODO normalize tags input */
 export const TagsInput = props => {
-    const [state, setState] = useState({visible: false,
-        tags: [],
+    const [state, setState] = useState({visible: false
     });
     const onClose = () => setState({...state, visible: false})
     const showDrawer = () => {
@@ -33,19 +32,19 @@ export const TagsInput = props => {
         });
     }
     const selectedTags = <div style={{display: 'flex', flexWrap: 'wrap', margin: "18.5px 0" }}>
-        {state.tags.map((genre, i) => <Tag
+        {props.value.map((genre, i) => <Tag
             value={genre}
             key={i}
             selected
             bg={!state.visible && '#D19C7B'}
             onClick={() => {
-                setState({...state, tags: without(state.tags, genre)})
+                props.handleChange(without(props.value, genre))
             }} />)}
     </div>
     return (
         <div style={{
             height: state.visible ? 550: 'auto',
-            overflow: state.visible ?'hidden':"scroll",
+            overflow: state.visible ?'hidden':"auto",
             position: 'relative',
             borderRadius: 5,
             textAlign: 'center',
@@ -85,8 +84,8 @@ export const TagsInput = props => {
                 </div>
                 <div style={{display: 'flex', flexWrap: 'wrap'}}>
                     {genres.map((genre, i) => <Tag value={genre} key={i} onClick={() => {
-                        if (!state.tags.includes(genre)){
-                            setState({...state, tags: [...state.tags, genre]})
+                        if (!props.value.includes(genre)){
+                            props.handleChange([...props.value, genre])
                         }
                     }} />)}
                 </div>
