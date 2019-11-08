@@ -213,7 +213,8 @@ const Preferences = props => {
                   justifyContent: "center",
                   alignItems: "center",
                   height: 60,
-                  border: "none"
+                  border: "none",
+                    ':focus': {background: 'green'}
                 }}
               >
                 Rate New Tracks
