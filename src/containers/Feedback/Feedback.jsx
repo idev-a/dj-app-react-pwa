@@ -109,10 +109,11 @@ const Feedback = props => {
             </CardSection>
             <div className={'billingSection'}>
                 <Text className={'billingSectionText'}>Total Order:</Text>
-                <Text className={'billingSectionText'}>$5</Text>
+                <Text className={'billingSectionText'}>${state.feedbackPrice==0?'1':'5'}</Text>
             </div>
             <div className={"payNowButton"}>
                 <Text className={'addCardButtonText'}>Pay Now</Text>
+                <Icon type="arrow-right" style={{ fontSize: 24, color: '#ffffff' }} />
             </div>
           </div>
         </div>
