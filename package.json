@@ -17,6 +17,7 @@
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
     "react-dropzone": "^10.1.10",
+    "react-facebook": "^8.0.4",
     "react-facebook-login": "^4.1.1",
     "react-geocode": "^0.2.1",
     "react-geosuggest": "^2.12.1",
