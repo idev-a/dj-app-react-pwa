@@ -5,6 +5,7 @@ import "./Feedback.styles.scss";
 import { Button, Collapse, Drawer, Icon, Input, Typography } from "antd";
 import { LocationSearch } from "../../components/geoSearch";
 import { Select, Radio } from "antd";
+import Popup from "reactjs-popup";
 import { HITCard, MapIcon, PROCard } from "../../components/vectorComponents";
 import { TagsInput } from "../../components/tags";
 import { BannerWithSub } from "../../components/bannerWithSub";
@@ -67,12 +68,52 @@ const Feedback = props => {
             </CardSection>
             <CardSection title="Select Payment">
                 <Text className={'addMusicText'}>Credit Card</Text>
-                <div className={'addCardSection'}>
-                    <img src={card}/>
-                    <Text className={'addCardSectionText'}>Add a new Card</Text>
-                </div>
+                <Popup trigger={
+                    <div className={'addCardSection'}>
+                        <img src={card}/>
+                        <Text className={'addCardSectionText'}>Add a new Card</Text>
+                    </div>
+                }
+                    modal
+                    contentStyle={{width: '336px', borderRadius: '20px'}}
+                    closeOnDocumentClick>
+                    <div className="modal">
+                        <div className={'modalHeader'}>
+                            <Text className={'cardSectionHeaderTitle'}>Add a new Card</Text>
+                        </div>
+                        <div className="modalBody">
+                            <Input
+                                placeholder='4257 5552 4895 5949'
+                                className={'cardBoxInput'}
+                            />
+                            <Input
+                                placeholder='Card Holder Name'
+                                className={'cardBoxInput'}
+                            />
+                            <div className={'twoCardContainer'}>
+                                <Input
+                                    placeholder='CVV'
+                                    className={'cardBoxInput marginRight5'}
+                                />
+                                <Input
+                                    placeholder='MM/YY'
+                                    className={'cardBoxInput marginLeft5'}
+                                />
+                            </div>
+                            <div className={"addCardButton"}>
+                                <Text className={'addCardButtonText'}>ADD CARD</Text>
+                            </div>
+                        </div>
+                    </div>
+                </Popup>
             </CardSection>
-
+            <div className={'billingSection'}>
+                <Text className={'billingSectionText'}>Total Order:</Text>
+                <Text className={'billingSectionText'}>$5</Text>
+            </div>
+            <div className={"payNowButton"}>
+                <Text className={'addCardButtonText'}>Pay Now</Text>
+            </div>
           </div>
         </div>
       </section>

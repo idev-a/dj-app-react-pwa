@@ -167,14 +167,14 @@
 }
 
 .cardSection{
-    margin: 30px 0px 50px 0px;
+    margin: 37px 0px 50px 0px;
     width: 100%;
     border-radius: 20px;
     box-shadow: 0px 11px 27px 5px #a7a7a7;
 }
 .cardSectionHeader{
     background: rgb(27, 53, 67);
-    border-radius: 25px 25px 0px 0px;
+    border-radius: 20px 20px 0px 0px;
     height: 50px;
 }
 .cardSectionHeaderTitle{
@@ -234,6 +234,7 @@
     border-radius: 4px;
     padding: 14px;
     margin-top: 15px;
+    cursor: pointer;
 }
 
 .addCardSectionText{
@@ -241,4 +242,70 @@
     font-size: 15px;
     font-weight: 600;
     color: #cacaca;
+}
+.modal{
+    min-height: 200px;
+}
+.modalHeader{
+    background-color: rgb(27, 53, 67);;
+    margin: -6px;
+    border-radius: 20px 20px 0px 0px;
+    height: 50px;
+}
+.modalBody{
+    margin: 30px 10px;
+}
+.cardBoxInput{
+    height: 50px;
+    margin: 7px 0px;
+    border: 2px solid #70707054;
+}
+.twoCardContainer{
+    display: flex;
+}
+.marginLeft5{
+    margin-left: 5px;
+}
+.marginRight5{
+    margin-right: 5px;
+}
+.addCardButton{
+    margin: 20px 0px;
+    background-color: #1B3543;
+    height: 50px;
+    border-radius: 4px;
+    justify-content: center;
+    text-align: center;
+    padding-top: 13px;
+}
+.addCardButtonText{
+    font-size: 15px;
+    color: #ffffff;
+    font-weight: 600;
+}
+.billingSection{
+    background: white;
+    padding: 12px 38px;
+    box-shadow: 0px 2px 19px 5px #a7a7a7;
+    border-radius: 20px;
+    margin-bottom: 37px;
+    display: flex;
+    justify-content: space-between;
+}
+.billingSectionText{
+    font-size: 16px;
+    font-weight: 600;
+}
+.payNowButton{
+    margin: 20px 0px;
+    background-color: #1B3543;
+    height: 50px;
+    border-radius: 4px;
+    padding-top: 15px;
+    padding-left: 15px;
+}
+.payNowButtonText{
+    font-size: 13px;
+    color: #ffffff;
+    font-weight: 600;
 }
