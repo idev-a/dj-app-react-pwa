@@ -18,7 +18,7 @@ export default [
 "Latin",
 "Metal",
 "Piano",
-"PopRap",
+"Pop","Rap",
 "R&B",
 "Soul",
 "Reggae",

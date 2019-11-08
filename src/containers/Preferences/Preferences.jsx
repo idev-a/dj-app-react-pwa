@@ -21,9 +21,9 @@ const defaultValues = {
   },
   gender: "male",
   dob: {
-      day: '03',
-      month: '03',
-      year: '1995'
+      day: null,
+      month: null,
+      year: null,
   },
   genres: ["hip-hop"]
 };
@@ -40,9 +40,10 @@ const Preferences = props => {
       setState({...state, dob: {...state.dob, [field]: val}})
   }
   const handleSave = () => {
+    console.log(state)
       fetch(`${api}/api/users/user/update/`, {
           method: "POST",
-          body: JSON.stringify({profile: state}),
+          body: JSON.stringify(state),
           headers: {
               'x-access-token': props.token,
           }
