@@ -150,7 +150,7 @@ const Preferences = props => {
                   fontSize: 20
                 }}
               >
-                Enter your city{" "}
+                Enter Location{" "}
               </Title>
               <div className={"preference-input"}>
                 <div style={{ position: "relative" }}>
