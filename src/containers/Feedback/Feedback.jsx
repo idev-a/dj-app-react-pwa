@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import "./Preferences.styles.scss";
+import "./Feedback.styles.scss";
 import { Button, Collapse, Drawer, Icon, Input, Typography } from "antd";
 import { LocationSearch } from "../../components/geoSearch";
 import { Select, Radio } from "antd";
 import { HITCard, MapIcon, PROCard } from "../../components/vectorComponents";
 import { TagsInput } from "../../components/tags";
-import { Banner } from "../../components/banner";
+import { BannerWithSub } from "../../components/bannerWithSub";
 import { DatePicker } from "../../components/datepicker";
 import api from '../../config';
 const { Option } = Select;
@@ -31,7 +31,7 @@ const defaultValues = {
 /*
  *
  * */
-const Preferences = props => {
+const Feedback = props => {
   const [state, setState] = useState({ ...defaultValues });
   const handleChange = field => val => {
       setState({...state, [field]: val})
@@ -54,59 +54,11 @@ const Preferences = props => {
     <div className="bg-colored">
       <section className="section-adjust flex-center">
         <div style={{ background: "white" }}>
-          <Banner />
+          <BannerWithSub />
           <div className={"wrapper"}>
-              {/* not sure why I made this an SVG will replace soontm*/}
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="329"
-              height="78"
-              viewBox="0 0 329 78"
-            >
-              <text
-                id="Social_Me"
-                data-name="Social Me"
-                fill="#1b3543"
-                font-size="24"
-                font-family="Montserrat-SemiBold, Montserrat"
-                font-weight="600"
-              >
-                <tspan x="0" y="23">
-                  What type of feedback{" "}
-                </tspan>
-                <tspan x="0" y="59">
-                  would you like to give?
-                </tspan>
-              </text>
-            </svg>
-
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "space-between"
-              }}
-            >
-              <div
-                onClick={() => {
-                  setState({ ...state, feedbackType: "HIT" });
-                }}
-              >
-                <HITCard
-                  styles={{ marginLeft: 0 }}
-                  selected={state.feedbackType === "HIT"}
-                />
-              </div>
-              <div
-                onClick={() => {
-                  console.log("state clc", state);
-                  setState({ ...state, feedbackType: "PRO" });
-                }}
-              >
-                <PROCard
-                  styles={{ marginRight: 0 }}
-                  selected={state.feedbackType === "PRO"}
-                />
-              </div>
+            <div className={'textSectionContainer'}>
+                <Text className={'textSectionTitle'}>How it works:</Text>
+                <Text className={'textSectionSubTitle'}>Paste a link to your track and we'll share your <br/>music with people looking to discover new music. <br /> Each listener will rate your track a HIT, <br/>a MISS or just COOL. Once all the rating are in, <br/>we'll share the results with you! </Text>
             </div>
 
             <div style={{ marginTop: "37px" }}>
@@ -295,4 +247,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Preferences);
+)(Feedback);

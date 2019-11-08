@@ -6,6 +6,7 @@ import Forgot from '../components/forgot';
 import Auth from '../components/auth';
 import PrivateRoute from '../components/privateRoute';
 import Preferences from '../containers/Preferences'
+import Feedback from '../containers/Feedback'
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
@@ -21,6 +22,7 @@ export default class AppRouter extends Component {
         <Switch>
           <Route path="/" component={HomePage} exact={true}/>
           <PrivateRoute path="/listener-preferences" component={Preferences} exact={true}/>
+          <PrivateRoute path="/listener-feedback" component={Feedback} exact={true}/>
           <Route path="/auth" component={Auth} exact={true}/>
           <Route path="/forgot" component={Forgot} exact={true}/>
           <Route path="/reset" component={Reset} exact={true}/>
