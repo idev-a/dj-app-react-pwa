@@ -11,6 +11,7 @@ import { BannerWithSub } from "../../components/bannerWithSub";
 import { CardSection } from "../../components/cardSection";
 import { DatePicker } from "../../components/datepicker";
 import soundCloud  from "../../assets/img/feedback/Group 132.png"
+import card from "../../assets/img/feedback/Group 108.png"
 import api from '../../config';
 import { T } from "antd/lib/upload/utils";
 const { Option } = Select;
@@ -64,7 +65,13 @@ const Feedback = props => {
                     <Text className={`priceingBoxText ${state.feedbackPrice==1 ? 'priceSelectedTextColor' : ''}`}>$5 for 100 Ratings</Text>
                 </div>
             </CardSection>
-            <CardSection title="Select Payment" />
+            <CardSection title="Select Payment">
+                <Text className={'addMusicText'}>Credit Card</Text>
+                <div className={'addCardSection'}>
+                    <img src={card}/>
+                    <Text className={'addCardSectionText'}>Add a new Card</Text>
+                </div>
+            </CardSection>
 
           </div>
         </div>
