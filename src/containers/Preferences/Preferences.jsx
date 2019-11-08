@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import "./Preferences.styles.scss";
-import { Button, Collapse, Drawer, Icon, Input, Typography } from "antd";
+import {Button, Collapse, Drawer, Icon, Input, Modal, Typography} from "antd";
 import { LocationSearch } from "../../components/geoSearch";
 import { Select, Radio } from "antd";
 import { HITCard, MapIcon, PROCard } from "../../components/vectorComponents";
@@ -32,7 +32,7 @@ const defaultValues = {
  *
  * */
 const Preferences = props => {
-  const [state, setState] = useState({ ...defaultValues });
+  const [state, setState] = useState({ ...defaultValues, saved: false, modal: false });
   const handleChange = field => val => {
       setState({...state, [field]: val})
   }
@@ -48,11 +48,45 @@ const Preferences = props => {
               'Accept': 'application/json',
               'Content-Type': 'application/json'
           }
-      }).then(res => console.log(res))
+      }).then(res => setState({...state, saved: true}))
   }
-  console.log(state, props)
-  return (
+    const showModal = () => {
+        setState({
+            ...state,
+            modal: true,
+        });
+    };
+
+    const handleOk = e => {
+        console.log(e);
+        setState({
+            ...state,
+            modal: false,
+        });
+    };
+
+    const handleCancel = e => {
+        console.log(e);
+        setState({
+            ...state,
+            modal: false,
+        });
+    };
+
+
+    return (
     <div className="bg-colored">
+        <Modal
+            // title="Basic Modal"
+            visible={state.modal}
+            onOk={handleOk}
+            onCancel={handleCancel}
+        >
+           <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%', height: '100%'}}>
+               Pro Requests are coming soon!
+           </div>
+
+        </Modal>
       <section className="section-adjust flex-center">
         <div style={{ background: "white" }}>
           <Banner />
@@ -98,10 +132,7 @@ const Preferences = props => {
                 />
               </div>
               <div
-                onClick={() => {
-                  console.log("state clc", state);
-                  setState({ ...state, feedbackType: "PRO" });
-                }}
+                onClick={showModal}
               >
                 <PROCard
                   styles={{ marginRight: 0 }}
@@ -119,7 +150,7 @@ const Preferences = props => {
                   fontSize: 20
                 }}
               >
-                Enter Location{" "}
+                Enter your city{" "}
               </Title>
               <div className={"preference-input"}>
                 <div style={{ position: "relative" }}>
@@ -189,9 +220,10 @@ const Preferences = props => {
               <button
                 style={{
                   marginTop: 17,
-                  background: "#F7F7F7",
-                  color: "#5F6669",
+                background: state.saved ? '#49BA72':"#F7F7F7",
+                color: state.saved ? 'white': "#5F6669",
                   width: "100%",
+
                   display: "flex",
                   justifyContent: "center",
                   alignItems: "center",
@@ -206,8 +238,6 @@ const Preferences = props => {
               <button
                 style={{
                   marginTop: 17,
-                  background: "#F7F7F7",
-                  color: "#5F6669",
                   width: "100%",
                   display: "flex",
                   justifyContent: "center",
