@@ -40,14 +40,15 @@ const Preferences = props => {
       setState({...state, dob: {...state.dob, [field]: val}})
   }
   const handleSave = () => {
-    console.log(state)
-      fetch(`${api}/api/users/user/update/`, {
+      fetch(`${api}/api/users/user/update`, {
           method: "POST",
-          body: JSON.stringify(state),
+          body: JSON.stringify({...state, address: state.location.formatted_address, dob: `${state.dob.year}-${state.dob.month}-${state.dob.day}`}),
           headers: {
               'x-access-token': props.token,
+              'Accept': 'application/json',
+              'Content-Type': 'application/json'
           }
-      })
+      }).then(res => console.log(res))
   }
   console.log(state, props)
   return (
