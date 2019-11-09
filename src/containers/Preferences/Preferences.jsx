@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import "./Preferences.styles.scss";
-import { Button, Collapse, Drawer, Icon, Input, Typography } from "antd";
+import {Button, Collapse, Drawer, Icon, Input, Modal, Typography} from "antd";
 import { LocationSearch } from "../../components/geoSearch";
 import { Select, Radio } from "antd";
 import { HITCard, MapIcon, PROCard } from "../../components/vectorComponents";
@@ -25,14 +25,14 @@ const defaultValues = {
       month: null,
       year: null,
   },
-  genres: ["hip-hop"]
+  genres: [""]
 };
 
 /*
  *
  * */
 const Preferences = props => {
-  const [state, setState] = useState({ ...defaultValues });
+  const [state, setState] = useState({ ...defaultValues, saved: false, modal: false });
   const handleChange = field => val => {
       setState({...state, [field]: val})
   }
@@ -40,18 +40,72 @@ const Preferences = props => {
       setState({...state, dob: {...state.dob, [field]: val}})
   }
   const handleSave = () => {
-    console.log(state)
-      fetch(`${api}/api/users/user/update/`, {
+      fetch(`${api}/api/users/user/update`, {
           method: "POST",
-          body: JSON.stringify(state),
+          body: JSON.stringify({...state, address: state.location.formatted_address, dob: `${state.dob.year}-${state.dob.month}-${state.dob.day}`}),
           headers: {
               'x-access-token': props.token,
+              'Accept': 'application/json',
+              'Content-Type': 'application/json'
           }
-      })
+      }).then(res => setState({...state, saved: true}))
   }
-  console.log(state, props)
-  return (
+    const showModal = () => {
+        setState({
+            ...state,
+            modal: true,
+        });
+    };
+
+    const handleOk = e => {
+        console.log(e);
+        setState({
+            ...state,
+            modal: false,
+        });
+    };
+
+    const handleCancel = e => {
+        console.log(e);
+        setState({
+            ...state,
+            modal: false,
+        });
+    };
+
+
+    return (
     <div className="bg-colored">
+        <Modal
+            // title="Basic Modal"
+            style={{
+                div: {
+                    ".ant-modal-footer": {display: 'none !important'},
+                    padding: 0,
+                }
+
+            }}
+            className={'pro-modal'}
+            visible={state.modal}
+            onOk={handleOk}
+            onCancel={handleCancel}
+            footer={null}
+        >
+           <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center',
+
+               paddingLeft: 77,
+               paddingRight: 77,
+           }}
+
+                className={'pro-modal'}
+
+           >
+               PRO Requests are coming soon!!!
+
+
+           </div>
+
+        </Modal>
       <section className="section-adjust flex-center">
         <div style={{ background: "white" }}>
           <Banner />
@@ -97,10 +151,7 @@ const Preferences = props => {
                 />
               </div>
               <div
-                onClick={() => {
-                  console.log("state clc", state);
-                  setState({ ...state, feedbackType: "PRO" });
-                }}
+                onClick={showModal}
               >
                 <PROCard
                   styles={{ marginRight: 0 }}
@@ -188,9 +239,10 @@ const Preferences = props => {
               <button
                 style={{
                   marginTop: 17,
-                  background: "#F7F7F7",
-                  color: "#5F6669",
+                background: state.saved ? '#49BA72':"#F7F7F7",
+                color: state.saved ? 'white': "#5F6669",
                   width: "100%",
+
                   display: "flex",
                   justifyContent: "center",
                   alignItems: "center",
@@ -205,14 +257,13 @@ const Preferences = props => {
               <button
                 style={{
                   marginTop: 17,
-                  background: "#F7F7F7",
-                  color: "#5F6669",
                   width: "100%",
                   display: "flex",
                   justifyContent: "center",
                   alignItems: "center",
                   height: 60,
-                  border: "none"
+                  border: "none",
+                    ':focus': {background: 'green'}
                 }}
               >
                 Rate New Tracks

@@ -17,6 +17,7 @@ export const LocationSearch = props => {
             onPlaceSelected={props.handleChange}
             types={['(cities)']}
             input={Input}
+            placeholder={'Enter your city'}
             suffix={<Icon type="info-circle" style={{ color: 'rgba(0,0,0,.45)' }} />}
         />
     )
