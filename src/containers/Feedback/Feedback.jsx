@@ -39,7 +39,7 @@ const Feedback = props => {
     <div className="bg-colored">
       <section className="section-adjust flex-center">
         <div style={{ background: "white" }}>
-          <BannerWithSub />
+          <BannerWithSub Title="Submit a Hit" SubTitle="Let’s get your music heard!" />
           <div className={"wrapper"}>
             <div className={'textSectionContainer'}>
                 <Text className={'textSectionTitle'}>How it works:</Text>
@@ -108,7 +108,7 @@ const Feedback = props => {
                 </Popup>
             </CardSection>
             <div className={'billingSection'}>
-                <Text className={'billingSectionText'}>Total Order:</Text>
+                <Text className={'billingSectionText'}>Order Total:</Text>
                 <Text className={'billingSectionText'}>${state.feedbackPrice==0?'1':'5'}</Text>
             </div>
             <div className={"payNowButton"}>

@@ -217,6 +217,7 @@ const Preferences = props => {
               >
                 Rate New Tracks
               </button>
+              <a href="/listener-feedback">
               <button
                 style={{
                   background: "#1B3543",
@@ -232,12 +233,12 @@ const Preferences = props => {
                   border: "none"
                 }}
                 onClick={()=>{console.log("click event !")}}
-              >
-                <div>Order Feedback</div>
+              >  
+                  <div>Order Feedback</div>
                 <div>
                   <Icon type="arrow-right" style={{ fontSize: 24 }} />
                 </div>
-              </button>
+              </button></a>
             </div>
             <div
               style={{
