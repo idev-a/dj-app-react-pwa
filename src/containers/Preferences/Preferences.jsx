@@ -25,7 +25,7 @@ const defaultValues = {
       month: null,
       year: null,
   },
-  genres: ["hip-hop"]
+  genres: [""]
 };
 
 /*
