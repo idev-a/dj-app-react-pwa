@@ -1,3 +1,3 @@
-import Feedback from './Feedback';
+import Discover from './Discover';
 
-export default Feedback;
+export default Discover;

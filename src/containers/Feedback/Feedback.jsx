@@ -10,11 +10,13 @@ import { HITCard, MapIcon, PROCard } from "../../components/vectorComponents";
 import { TagsInput } from "../../components/tags";
 import { BannerWithSub } from "../../components/bannerWithSub";
 import { CardSection } from "../../components/cardSection";
+import { PopUp } from "../../components/popUp";
 import { DatePicker } from "../../components/datepicker";
 import soundCloud  from "../../assets/img/feedback/Group 132.png"
 import card from "../../assets/img/feedback/Group 108.png"
 import api from '../../config';
 import { T } from "antd/lib/upload/utils";
+import { red } from "ansi-colors";
 const { Option } = Select;
 const { Title, Text } = Typography;
 
@@ -43,7 +45,7 @@ const Feedback = props => {
           <div className={"wrapper"}>
             <div className={'textSectionContainer'}>
                 <Text className={'textSectionTitle'}>How it works:</Text>
-                <Text className={'textSectionSubTitle'}>Paste a link to your track and we'll share your <br/>music with people looking to discover new music. <br /> Each listener will rate your track a HIT, <br/>a MISS or just COOL. Once all the rating are in, <br/>we'll share the results with you! </Text>
+                <Text className={'textSectionSubTitle'}>Paste a link to your track and we’ll share your music with people looking to discover new music. Each listener will rate your track a HIT, a MISS or just COOL. Once all the ratings are in, we’ll share the results with you!</Text>
             </div>
 
             <CardSection title="Start Campaign Now">
@@ -68,53 +70,59 @@ const Feedback = props => {
             </CardSection>
             <CardSection title="Select Payment">
                 <Text className={'addMusicText'}>Credit Card</Text>
-                <Popup trigger={
+                <PopUp 
+                title="Add a new Card"
+                trigger={
                     <div className={'addCardSection'}>
-                        <img src={card}/>
-                        <Text className={'addCardSectionText'}>Add a new Card</Text>
+                          <img src={card}/>
+                          <Text className={'addCardSectionText'}>Add a new Card</Text>
                     </div>
                 }
-                    modal
-                    contentStyle={{width: '336px', borderRadius: '20px'}}
-                    closeOnDocumentClick>
-                    <div className="modal">
-                        <div className={'modalHeader'}>
-                            <Text className={'cardSectionHeaderTitle'}>Add a new Card</Text>
-                        </div>
-                        <div className="modalBody">
-                            <Input
-                                placeholder='4257 5552 4895 5949'
-                                className={'cardBoxInput'}
-                            />
-                            <Input
-                                placeholder='Card Holder Name'
-                                className={'cardBoxInput'}
-                            />
-                            <div className={'twoCardContainer'}>
-                                <Input
-                                    placeholder='CVV'
-                                    className={'cardBoxInput marginRight5'}
-                                />
-                                <Input
-                                    placeholder='MM/YY'
-                                    className={'cardBoxInput marginLeft5'}
-                                />
-                            </div>
-                            <div className={"addCardButton"}>
-                                <Text className={'addCardButtonText'}>ADD CARD</Text>
-                            </div>
-                        </div>
+                >
+                    <Input
+                        placeholder='4257 5552 4895 5949'
+                        className={'cardBoxInput'}
+                    />
+                    <Input
+                        placeholder='Card Holder Name'
+                        className={'cardBoxInput'}
+                    />
+                    <div className={'twoCardContainer'}>
+                        <Input
+                            placeholder='CVV'
+                            className={'cardBoxInput marginRight5'}
+                        />
+                        <Input
+                            placeholder='MM/YY'
+                            className={'cardBoxInput marginLeft5'}
+                        />
                     </div>
-                </Popup>
+                    <div className={"addCardButton"}>
+                        <Text className={'addCardButtonText'}>ADD CARD</Text>
+                    </div>
+                </PopUp>
             </CardSection>
             <div className={'billingSection'}>
                 <Text className={'billingSectionText'}>Order Total:</Text>
                 <Text className={'billingSectionText'}>${state.feedbackPrice==0?'1':'5'}</Text>
             </div>
-            <div className={"payNowButton"}>
-                <Text className={'addCardButtonText'}>Pay Now</Text>
-                <Icon type="arrow-right" style={{ fontSize: 24, color: '#ffffff' }} />
-            </div>
+            
+            <PopUp 
+                title="Error"
+                trigger={
+                  <div className={"payNowButton"}>
+                      <Text className={'addCardButtonText'}>Pay Now</Text>
+                      <Icon type="arrow-right" style={{ fontSize: 24, color: '#ffffff' }} />
+                  </div>
+                }
+              >
+                <div className="errorPayment">
+                    <Icon type="close-circle" style={{fontSize: 24,color: 'red'}}></Icon>
+                    <Text className={'marginTop15'}>Please re-check your payment details and try again</Text>
+                </div>
+            </PopUp>
+              
+
           </div>
         </div>
       </section>

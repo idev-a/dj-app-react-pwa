@@ -295,6 +295,7 @@
 .billingSectionText{
     font-size: 16px;
     font-weight: 900;
+    color: #344356;
 }
 .payNowButton{
     margin: 20px 0px;
@@ -305,9 +306,15 @@
     display: flex;
     justify-content: space-between;
     padding: 15px;
+    cursor: pointer;
 }
 .payNowButtonText{
     font-size: 13px;
     color: #ffffff;
     font-weight: 600;
+}
+.errorPayment{
+  display: grid;
+  padding: 0px 25px;
+  text-align: center;
 }
