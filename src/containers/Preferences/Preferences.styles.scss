@@ -1,5 +1,16 @@
 @import "../../styles/colors";
-
+.ant-radio-button-wrapper {
+  border: 2px solid $bg-color !important;
+  border-radius: 5px !important;
+  opacity: .3 ;
+  font-family: Lato !important;
+}
+.pro-modal {
+  font-size: 20px;
+  height: 191px;
+  width: 345px;
+  font-family: 'Montserrat', sans-serif;
+}
 .svg-banner {
   background-image: url("../../assets/img/listenerpreferences/Header-Background.svg");
   min-height: 146px;
@@ -32,9 +43,9 @@
     height: 60px;
     margin-right: auto;
   }
-  input, button {
+  input, button, .ant-radio-button-wrapper {
     border: 2px solid $bg-color !important;
-    border-radius: 5px;
+    border-radius: 5px !important;
     opacity: .3 ;
     font-family: Lato !important;
   }

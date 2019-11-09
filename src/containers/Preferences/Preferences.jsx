@@ -78,12 +78,31 @@ const Preferences = props => {
     <div className="bg-colored">
         <Modal
             // title="Basic Modal"
+            style={{
+                div: {
+                    ".ant-modal-footer": {display: 'none !important'},
+                    padding: 0,
+                }
+
+            }}
+            className={'pro-modal'}
             visible={state.modal}
             onOk={handleOk}
             onCancel={handleCancel}
+            footer={null}
         >
-           <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%', height: '100%'}}>
-               Pro Requests are coming soon!
+           <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center',
+
+               paddingLeft: 77,
+               paddingRight: 77,
+           }}
+
+                className={'pro-modal'}
+
+           >
+               PRO Requests are coming soon!!!
+
+
            </div>
 
         </Modal>
