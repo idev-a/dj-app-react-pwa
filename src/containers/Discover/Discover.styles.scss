@@ -1,38 +1,103 @@
 @import "../../styles/colors";
 
-// .svg-banner {
-//   background-image: url("../../assets/img/listenerpreferences/Header-Background.svg");
-//   min-height: 146px;
-//   padding-top: 55px;
-//   display: flex;
-//   justify-content: space-between;
-//   padding-left: 20.4px;
-//   padding-right: 20.4px;
 
-// }
-// .svg-banner-long {
-//     background-image: url("../../assets/img/feedback/Header-Background.png");
-//     min-height: 175px;
-//     padding-top: 55px;
-//     display: flex;
-//     justify-content: space-between;
-//     padding-left: 20.4px;
-//     padding-right: 20.4px;
-//     background-repeat: round;
-  
-//   }
-// .banner-title {
-//   color: #FFFFFF !important;
-//   font-size: 20px;
-// }
+.wrapperContainer{
+  background-color: white;
+  width: 26rem;
+  margin: 0 auto;
+}
 
-// .page-indicator {
-//   color: #FFFFFF;
-//   opacity: .3;
-//   font-family: Lato;
-// }
 
-// .wrapper {
-//   margin: 45px 23px 0px 23px;
-// }
+.headerMenu{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+}
+.headerMenuLeft{
+  background-color: #1B3543;
+    width: 158px;
+    height: 44px;
+    border-radius: 0px 25px 25px 0px;
+    padding: 8px 0px 0px 15px;
+}
+.headerMenuLeftIcon{
+  padding-right: 20px;
+}
+.headerMenuLeftText{
+  color: #ffffff;
+  font-size: 18px;
+}
 
+.title15{
+  text-align: center;
+}
+
+.title15Text{
+  font-weight: bold;
+}
+.roundCardContainer{
+  margin: 20px;
+  padding: 18px;
+  border-radius: 20px;
+  box-shadow: 0px 11px 27px 5px #a7a7a7;
+}
+.profileSection{
+  background: url('../../assets//img/discover/23ni1sqr.png') center;
+  background-size: cover;
+  padding: 40px 20px 20px 20px;
+  border-radius: 20px;
+  text-align: center;
+}
+.profileSectionUserName{
+  font-size: 14px;
+  color: #ffffff;
+  display: block;
+  padding-top: 12px;
+}
+.playerSection{
+  text-align: center;
+  padding-bottom: 15px;
+}
+.activityContainer{
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+  cursor: pointer;
+}
+.activiyButtonContainer{
+  padding: 10px;
+  border: 1px solid #D19C78;
+  border-radius: 50px;
+}
+.activiyButton{
+  width: 16px;
+  height: 18px;
+  margin: 10px;
+}
+.activityInfo{
+  display: grid;
+  text-align: center;
+  padding: 8px 0px;
+}
+.activityInfoNumber{
+  font-size: 14px;
+  font-weight: bold;
+}
+.activityInfoStatus{
+  font-size: 9px;
+  margin-top: 3px;
+  background-color: #D19C78;
+  border-radius: 8px;
+  color: #ffffff;
+}
+.mainmenuContainer{
+  padding: 10px;
+  border-radius:50px;
+}
+.mainMenuSelected{
+  background-color: #1B3543;
+}
+.mainMenuPadding{
+  background-color: white;
+  margin-top: 37px;
+}
