@@ -58,10 +58,15 @@ const SwipeWrapper = () => {
     console.log(position, data);
   }
   return (
-	  <Cards onEnd={() => console.log("Ënd")
+    <Cards
+    alertRight={<h1 className="alert-right-text">COOL</h1>}
+    alertTop={<h1 className="alert-right-text">HITS</h1>}
+    alertLeft={<h1 className="alert-right-text">MISS</h1>}
+    onEnd={() => console.log("Ënd")
     } className='master-root'>
         {data.map((item, index) => 
-          <Card 
+          <Card
+            
             onSwipeTop={() => changeShowDiv(index, "Top")}
             onSwipeLeft={() => changeShowDiv(index, "Left")} 
             onSwipeRight={() => changeShowDiv(index, "Right")}>
@@ -73,6 +78,9 @@ const SwipeWrapper = () => {
                   <TextSection text={item.name} paddingTop="33px" paddingBottom="2px" size="20px" color="#1B3543" weight="bold"/>
                   <TextSection text={item.fullName} color="#1B3543" paddingTop="0px" paddingBottom="20px" size="12px"/>
                   <div className={'playerSection'}>
+                  <audio className="audio-element">
+                    <source src="https://api.coderrocketfuel.com/assets/pomodoro-times-up.mp3"></source>
+                  </audio>
                     <img src={equlizer}/>
                   </div>
                 </RoundCard>
@@ -104,9 +112,9 @@ const Discover = props => {
                   <Text>Menu 2</Text>
                 </div>
               </div>
-              <TextSection text="Discover & Rate New Tracks" paddingTop="20px" paddingBottom="20px" size="15px"/>
+              <TextSection text="Discover & Rate New Tracks" paddingTop="20px" paddingBottom="5px" size="15px"/>
               <SwipeWrapper/>
-              <RoundCard top="50px">
+              <RoundCard top="20px">
                   <TextSection text="My Activity" paddingTop="0px" paddingBottom="2px" size="18px" color="#1B3543" weight="bold"/>
                   <div className="activityContainer">
                     <div>

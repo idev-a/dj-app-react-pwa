@@ -151,21 +151,22 @@
 .alert-right {
   top: 0;
   right: 0;
-  background: green;
+  background: #00800087;
   border-top-left-radius: 50px;
   border-bottom-left-radius: 50px;
+  transition: 0.5s;
 }
 
 .alert-left {
   top: 0;
   left: 0;
-  background: red;
+  background: #ff000085;
   border-top-right-radius: 50px;
   border-bottom-right-radius: 50px;
 }
 
 .alert-top {
-  background: purple;
+  background:#800080ba;
   border-radius: 50px;
   transform: translate(-50%, 0);
   margin-left: 50%;
@@ -178,4 +179,9 @@
   border-radius: 50px;
   transform: translate(-50%, 0);
   margin-left: 50%;
+ }
+ .alert-right-text{
+  color: white;
+  padding: 13px 0px 5px 63px;
+  font-weight: bold;
  }
