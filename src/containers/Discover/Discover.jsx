@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import PropTypes from "prop-types";
+import Cards, { Card } from 'react-swipe-card';
+import PropTypes, { number } from "prop-types";
 import { connect } from "react-redux";
 import "./Discover.styles.scss";
 import { Button, Collapse, Drawer, Icon, Input, Typography } from "antd";
@@ -19,6 +20,67 @@ import { T } from "antd/lib/upload/utils";
 import { from } from "rxjs";
 const { Option } = Select;
 const { Title, Text } = Typography;
+
+
+var data = [{
+    name: "King Push",
+    fullName: "Vess Dynamick 1",
+    userName: "@vessdynamick",
+    trackLink: "",
+    show: true,
+  }, {
+    name: "King Push 1",
+    fullName: "Vess Dynamick 4",
+    userName: "@vessdynamick",
+    trackLink: "",
+    show: false,
+  },{
+    name: "King Push 2",
+    fullName: "Vess Dynamick3",
+    userName: "@vessdynamick",
+    trackLink: "",
+    show: false,
+  },{
+    name: "King Push 3",
+    fullName: "Vess Dynamick 4",
+    userName: "@vessdynamick",
+    trackLink: "",
+    show: false,
+  }];
+
+const SwipeWrapper = () => {
+
+  function changeShowDiv(number, position){
+    if(number< data.length-1){
+      data[number].show = false
+      data[number+1].show = true
+    }
+    console.log(position, data);
+  }
+  return (
+	  <Cards onEnd={() => console.log("Ënd")
+    } className='master-root'>
+        {data.map((item, index) => 
+          <Card 
+            onSwipeTop={() => changeShowDiv(index, "Top")}
+            onSwipeLeft={() => changeShowDiv(index, "Left")} 
+            onSwipeRight={() => changeShowDiv(index, "Right")}>
+                <RoundCard>
+                  <div className="profileSection">
+                      <img src={profilePicture}/>
+                      <Text className="profileSectionUserName">{item.userName}</Text>
+                  </div>
+                  <TextSection text={item.name} paddingTop="33px" paddingBottom="2px" size="20px" color="#1B3543" weight="bold"/>
+                  <TextSection text={item.fullName} color="#1B3543" paddingTop="0px" paddingBottom="20px" size="12px"/>
+                  <div className={'playerSection'}>
+                    <img src={equlizer}/>
+                  </div>
+                </RoundCard>
+          </Card>
+        )}
+      </Cards>
+  )
+}
 
 const defaultValues = {
   feedbackPrice: 0,
@@ -43,17 +105,7 @@ const Discover = props => {
                 </div>
               </div>
               <TextSection text="Discover & Rate New Tracks" paddingTop="20px" paddingBottom="20px" size="15px"/>
-              <RoundCard>
-                <div className="profileSection">
-                    <img src={profilePicture}/>
-                    <Text className="profileSectionUserName">@vessdynamick</Text>
-                </div>
-                <TextSection text="King Push" paddingTop="33px" paddingBottom="2px" size="20px" color="#1B3543" weight="bold"/>
-                <TextSection text="Vess Dynamick" color="#1B3543" paddingTop="0px" paddingBottom="20px" size="12px"/>
-                <div className={'playerSection'}>
-                  <img src={equlizer}/>
-                </div>
-              </RoundCard>
+              <SwipeWrapper/>
               <RoundCard top="50px">
                   <TextSection text="My Activity" paddingTop="0px" paddingBottom="2px" size="18px" color="#1B3543" weight="bold"/>
                   <div className="activityContainer">
