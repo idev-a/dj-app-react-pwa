@@ -14,6 +14,7 @@ import start1 from "../../assets/img/discover/dolar.png"
 import start2 from "../../assets/img/discover/star.png"
 import start3 from "../../assets/img/discover/graph.png"
 import {BottomMenu} from "../../components/bottomMenu"
+import {GroupButton} from "../../components/groupButton"
 
 import api from '../../config';
 import { T } from "antd/lib/upload/utils";
@@ -109,7 +110,7 @@ const Discover = props => {
                   <Text className={'headerMenuLeftText'}>Submit</Text>
                 </div>
                 <div>
-                  <Text>Menu 2</Text>
+                <GroupButton />
                 </div>
               </div>
               <TextSection text="Discover & Rate New Tracks" paddingTop="20px" paddingBottom="5px" size="15px"/>
