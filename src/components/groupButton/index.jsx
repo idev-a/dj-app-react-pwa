@@ -8,10 +8,10 @@ export const GroupButton = (props) => {
         <div>
         <div className="groupButton">
             <div className={'groupButtonLeft'}>
-                <Text className={'groupButtonText'}>HITS</Text>
+                <Text className={'groupButtonText'}>PRO</Text>
             </div>
             <div className={'groupButtonRight groupButtonSelected'}>
-                <Text className={'groupButtonText'}>PRO</Text>
+                <Text className={'groupButtonText'}>HITS</Text>
             </div>
         </div>
         <div className={'groupButtonRatio'}>

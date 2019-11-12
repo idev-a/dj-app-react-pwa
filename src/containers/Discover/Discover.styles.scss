@@ -71,7 +71,7 @@
   border-radius: 50px;
 }
 .activiyButton{
-  width: 16px;
+  width: 19px;
   height: 18px;
   margin: 10px;
 }
@@ -151,25 +151,27 @@
 .alert-right {
   top: 0;
   right: 0;
-  background: #00800087;
+  background: #49BA7D;
   border-top-left-radius: 50px;
   border-bottom-left-radius: 50px;
-  transition: 0.5s;
+  transition: 1s;
 }
 
 .alert-left {
   top: 0;
   left: 0;
-  background: #ff000085;
+  background: #d1d1d1;
   border-top-right-radius: 50px;
   border-bottom-right-radius: 50px;
+  transition: 1s;
 }
 
 .alert-top {
-  background:#800080ba;
+  background:#103545;
   border-radius: 50px;
   transform: translate(-50%, 0);
   margin-left: 50%;
+  transition: 1s;
  }
 
  .alert-bottom {
@@ -244,7 +246,7 @@
   margin: 25px 65px 20px 65px;
  }
  .playing{
-    padding: 13px 16px 13px 19px;
+    padding: 14px 16px 14px 19px;
     background-color: #D19C78;
     border-radius: 27px;
     cursor: pointer;
