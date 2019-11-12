@@ -946,6 +946,13 @@
   resolved "https://registry.yarnpkg.com/@csstools/normalize.css/-/normalize.css-9.0.1.tgz#c27b391d8457d1e893f1eddeaf5e5412d12ffbb5"
   integrity sha512-6It2EVfGskxZCQhuykrfnALg7oVeiI6KclWSmGDqB0AiInVrTGB9Jp9i4/Ad21u9Jde/voVQz6eFX/eSg/UsPA==
 
+"@dschoon/react-waves@^3.0.0":
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/@dschoon/react-waves/-/react-waves-3.0.0.tgz#7ff819ee63216e9fd8df8129a62755a456a6805e"
+  integrity sha512-cTyEXm2ctIgNa50/kdIVKnQ3AP5gHJPYBFqj4AaDga0atYOeTuTZAvoiqO8CAMhecOuBjY6myy3GUFtt//cs/Q==
+  dependencies:
+    wavesurfer.js "^3.2.0"
+
 "@google/maps@^1.0.2":
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/@google/maps/-/maps-1.0.2.tgz#5100e29f3ef7f0384a9210c486dde8c6c8b4c8ea"
@@ -12061,6 +12068,11 @@ watchpack@^1.6.0:
     chokidar "^2.0.2"
     graceful-fs "^4.1.2"
     neo-async "^2.5.0"
+
+wavesurfer.js@^3.2.0:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/wavesurfer.js/-/wavesurfer.js-3.2.0.tgz#c316f3bd1b9f0f4d26188c6865a57e29a13efedc"
+  integrity sha512-P75SSpYTpzpCKFKjxmHkdp2jGpcm4neaGncBGV/jzfI5FPSIfl5mXTTZlZFpJhs7To+NI34Dj5y661JI43HEzA==
 
 wbuf@^1.1.0, wbuf@^1.7.3:
   version "1.7.3"

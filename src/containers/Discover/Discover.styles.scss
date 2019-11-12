@@ -231,3 +231,25 @@
     position: absolute;
     cursor: default;
  }
+ .react-waves{
+   width: 336px;
+   margin: 0px 0px 0px -22px
+ }
+
+ .playerControlSection{
+  display: flex;
+  width: 200px;
+  text-align: center;
+  justify-content: space-between;
+  margin: 25px 65px 20px 65px;
+ }
+ .playing{
+    padding: 13px 16px 13px 19px;
+    background-color: #D19C78;
+    border-radius: 27px;
+    cursor: pointer;
+ }
+ .playerControl{
+  padding-top: 7px;
+  cursor: pointer;
+ }
