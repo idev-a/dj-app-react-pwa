@@ -8,7 +8,7 @@ import {TextSection} from '../../components/textSection';
 import {RoundCard} from '../../components/roundCard'
 import { Select, Radio } from "antd";
 import headerMenuIcon from "../../assets/img/discover/Group 147.png"
-import equlizer from "../../assets/img/discover/Group 134.png"
+import equlizer from "../../assets/img/discover/Equalizer.png"
 import profilePicture from "../../assets/img/discover/oh4js6qs.png"
 import start1 from "../../assets/img/discover/dolar.png"
 import start2 from "../../assets/img/discover/star.png"
