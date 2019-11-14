@@ -13,7 +13,9 @@ class CheckoutForm extends Component {
   
 
   async submit(ev) {
-    let {token} = await this.props.stripe.createToken({name: "Name"});
+    let {token} = await this.props.stripe.createToken({name: this.state.accountName});
+    console.log(token);
+    
     this.props.CardInformation(token);
   }
   handleChange(event) {

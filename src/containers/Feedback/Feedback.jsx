@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, Component } from "react";
 import {Elements, StripeProvider} from 'react-stripe-elements';
 import CheckoutForm from './CheckoutForm';
 import PropTypes from "prop-types";
@@ -22,113 +22,222 @@ import { red } from "ansi-colors";
 const { Option } = Select;
 const { Title, Text } = Typography;
 
-const defaultValues = {
-  feedbackPrice: 0,
-  cardInformation: {},
-  openPOP: false
-};
-
-/*
- *
- * */
-const Feedback = props => {
-const [state, setState] = useState({ ...defaultValues });
-
-
-const CardInfo = (cardInformation) => {
-    setState({...state, 'cardInformation': {...cardInformation}}) 
-    setState({...state, 'openPOP': false}) 
-}
-
-  const changePriceSelector1 = () => {
-    setState({...state, 'feedbackPrice': 1})      
+class Feedback extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { feedbackPrice: 0, openPOP: false};
   }
-  const changePriceSelector0 = () => {
-    setState({...state, 'feedbackPrice': 0})    
-  }
+  render() {
+    const CardInfo = (cardInformation) => {
+      this.setState({'cardInformation': cardInformation}) 
+        closeCardPopoup()
+    }
 
-  const openCardPopoup = () => {
-    setState({...state, 'openPOP': true})    
-  }
-  return (
-    <div className="bg-colored">
-      <section className="section-adjust flex-center">
-        <div style={{ background: "white" }}>
-          <BannerWithSub Title="Submit a Hit" SubTitle="Let’s get your music heard!" />
-          <div className={"wrapper"}>
-            <div className={'textSectionContainer'}>
-                <Text className={'textSectionTitle'}>How it works:</Text>
-                <Text className={'textSectionSubTitle'}>Paste a link to your track and we’ll share your music with people looking to discover new music. Each listener will rate your track a HIT, a MISS or just COOL. Once all the ratings are in, we’ll share the results with you!</Text>
-            </div>
+      const changePriceSelector1 = () => {
+        this.setState({'feedbackPrice': 1})      
+      }
+      const changePriceSelector0 = () => {
+        this.setState({'feedbackPrice': 0})    
+      }
 
-            <CardSection title="Start Campaign Now">
-                <Text className={'addMusicText'}>Add Your Music</Text>
-                <div>
-                    <Input
-                        placeholder='Music Link'
-                        className={'startCampaignInput'}
-                    />
-                    <Icon className={'startCampaignInputIcon'} type="link" style={{ fontSize: 24 }} />
-                    
-                </div>
-                <img src={soundCloud}/>
-            </CardSection>
-            <CardSection title="Select # of Listeners">
-                <div className={`priceingBox ${state.feedbackPrice==0 ? 'priceSelected' : ''}`} onClick={changePriceSelector0}>
-                    <Text className={`priceingBoxText ${state.feedbackPrice==0 ? 'priceSelectedTextColor' : ''}`}>$1 for 10 Ratings</Text>
-                </div>
-                <div className={`priceingBox marginTop15 ${state.feedbackPrice==1 ? 'priceSelected' : ''}`} onClick={changePriceSelector1}>
-                    <Text className={`priceingBoxText ${state.feedbackPrice==1 ? 'priceSelectedTextColor' : ''}`}>$5 for 100 Ratings</Text>
-                </div>
-            </CardSection>
-            <CardSection title="Select Payment">
-                <Text className={'addMusicText'}>Credit Card</Text>
-                <div className={'addCardSection'} onClick={openCardPopoup}>
-                      <img src={card}/>
-                      <Text className={'addCardSectionText'}>Add a new Card</Text>
-                </div>
-                <PopUp 
-                title="Add a new Card"
-                open={state.openPOP}
-                >
-                  <StripeProvider apiKey="pk_test_TYooMQauvdEDq54NiTphI7jx">
-                    <div>
-                      <Elements>
-                        <CheckoutForm CardInformation={CardInfo} />
-                      </Elements>
-                    </div>
-                  </StripeProvider>
-                </PopUp>
-            </CardSection>
-            <div className={'billingSection'}>
-                <Text className={'billingSectionText'}>Order Total:</Text>
-                <Text className={'billingSectionText'}>${state.feedbackPrice==0?'1':'5'}</Text>
-            </div>
-            
-
-
-            <PopUp 
-                title="Error"
-                trigger={
-                  <div className={"payNowButton"}>
-                  <Text className={'addCardButtonText'}>Pay Now</Text>
-                  <Icon type="arrow-right" style={{ fontSize: 24, color: '#ffffff' }} />
+      const openCardPopoup = () => {
+        this.setState({'openPOP': true})    
+      }
+      const closeCardPopoup = () => {
+        this.setState({'openPOP': false})    
+      }
+    return(
+      <div className="bg-colored">
+        <section className="section-adjust flex-center">
+          <div style={{ background: "white" }}>
+            <BannerWithSub Title="Submit a Hit" SubTitle="Let’s get your music heard!" />
+            <div className={"wrapper"}>
+              <div className={'textSectionContainer'}>
+                  <Text className={'textSectionTitle'}>How it works:</Text>
+                  <Text className={'textSectionSubTitle'}>Paste a link to your track and we’ll share your music with people looking to discover new music. Each listener will rate your track a HIT, a MISS or just COOL. Once all the ratings are in, we’ll share the results with you!</Text>
               </div>
-                }
-              >
-                <div className="errorPayment">
-                    <Icon type="close-circle" style={{fontSize: 24,color: 'red'}}></Icon>
-                    <Text className={'marginTop15'}>Please re-check your payment details and try again</Text>
+
+              <CardSection title="Start Campaign Now">
+                  <Text className={'addMusicText'}>Add Your Music</Text>
+                  <div>
+                      <Input
+                          placeholder='Music Link'
+                          className={'startCampaignInput'}
+                      />
+                      <Icon className={'startCampaignInputIcon'} type="link" style={{ fontSize: 24 }} />
+                      
+                  </div>
+                  <img src={soundCloud}/>
+              </CardSection>
+              <CardSection title="Select # of Listeners">
+                  <div className={`priceingBox ${this.state.feedbackPrice==0 ? 'priceSelected' : ''}`} onClick={changePriceSelector0}>
+                      <Text className={`priceingBoxText ${this.state.feedbackPrice==0 ? 'priceSelectedTextColor' : ''}`}>$1 for 10 Ratings</Text>
+                  </div>
+                  <div className={`priceingBox marginTop15 ${this.state.feedbackPrice==1 ? 'priceSelected' : ''}`} onClick={changePriceSelector1}>
+                      <Text className={`priceingBoxText ${this.state.feedbackPrice==1 ? 'priceSelectedTextColor' : ''}`}>$5 for 100 Ratings</Text>
+                  </div>
+              </CardSection>
+              <CardSection title="Select Payment">
+                  <Text className={'addMusicText'}>Credit Card</Text>
+                  <div className={'addCardSection'} onClick={openCardPopoup}>
+                        <img src={card}/>
+                        <Text className={'addCardSectionText'}>Add a new Card</Text>
+                  </div>
+                  <PopUp 
+                  title="Add a new Card"
+                  open={this.state.openPOP}
+                  >
+                    <StripeProvider apiKey="pk_test_TYooMQauvdEDq54NiTphI7jx">
+                      <div>
+                        <Elements>
+                          <CheckoutForm CardInformation={CardInfo} />
+                        </Elements>
+                      </div>
+                    </StripeProvider>
+                  </PopUp>
+              </CardSection>
+              <div className={'billingSection'}>
+                  <Text className={'billingSectionText'}>Order Total:</Text>
+                  <Text className={'billingSectionText'}>${this.state.feedbackPrice==0?'1':'5'}</Text>
+              </div>
+              
+              <div className={"payNowButton"} onClick={()=>console.log(this.props)}>
+                    <Text className={'addCardButtonText'}>Pay Now</Text>
+                    <Icon type="arrow-right" style={{ fontSize: 24, color: '#ffffff' }} />
+              </div>
+
+
+              {/* <PopUp 
+                  title="Error"
+                  trigger={
+                    <div className={"payNowButton"}>
+                    <Text className={'addCardButtonText'}>Pay Now</Text>
+                    <Icon type="arrow-right" style={{ fontSize: 24, color: '#ffffff' }} />
                 </div>
-            </PopUp>
+                  }
+                >
+                  <div className="errorPayment">
+                      <Icon type="close-circle" style={{fontSize: 24,color: 'red'}}></Icon>
+                      <Text className={'marginTop15'}>Please re-check your payment details and try again</Text>
+                  </div>
+              </PopUp> */}
+                
+
+            </div>
+          </div>
+        </section>
+      </div>
+
+    )
+  }
+
+}
+// const Feedback = props => {
+// const [state, setState] = useState({ ...defaultValues });
+
+
+// const CardInfo = (cardInformation) => {
+//     setState({...state, ...cardInformation}) 
+//     closeCardPopoup()
+//     console.log(state)
+// }
+
+//   const changePriceSelector1 = () => {
+//     setState({...state, 'feedbackPrice': 1})      
+//   }
+//   const changePriceSelector0 = () => {
+//     setState({...state, 'feedbackPrice': 0})    
+//   }
+
+//   const openCardPopoup = () => {
+//     setState({...state, 'openPOP': true})    
+//   }
+//   const closeCardPopoup = () => {
+//     setState({...state, 'openPOP': false})    
+//   }
+//   return (
+    // <div className="bg-colored">
+    //   <section className="section-adjust flex-center">
+    //     <div style={{ background: "white" }}>
+    //       <BannerWithSub Title="Submit a Hit" SubTitle="Let’s get your music heard!" />
+    //       <div className={"wrapper"}>
+    //         <div className={'textSectionContainer'}>
+    //             <Text className={'textSectionTitle'}>How it works:</Text>
+    //             <Text className={'textSectionSubTitle'}>Paste a link to your track and we’ll share your music with people looking to discover new music. Each listener will rate your track a HIT, a MISS or just COOL. Once all the ratings are in, we’ll share the results with you!</Text>
+    //         </div>
+
+    //         <CardSection title="Start Campaign Now">
+    //             <Text className={'addMusicText'}>Add Your Music</Text>
+    //             <div>
+    //                 <Input
+    //                     placeholder='Music Link'
+    //                     className={'startCampaignInput'}
+    //                 />
+    //                 <Icon className={'startCampaignInputIcon'} type="link" style={{ fontSize: 24 }} />
+                    
+    //             </div>
+    //             <img src={soundCloud}/>
+    //         </CardSection>
+    //         <CardSection title="Select # of Listeners">
+    //             <div className={`priceingBox ${state.feedbackPrice==0 ? 'priceSelected' : ''}`} onClick={changePriceSelector0}>
+    //                 <Text className={`priceingBoxText ${state.feedbackPrice==0 ? 'priceSelectedTextColor' : ''}`}>$1 for 10 Ratings</Text>
+    //             </div>
+    //             <div className={`priceingBox marginTop15 ${state.feedbackPrice==1 ? 'priceSelected' : ''}`} onClick={changePriceSelector1}>
+    //                 <Text className={`priceingBoxText ${state.feedbackPrice==1 ? 'priceSelectedTextColor' : ''}`}>$5 for 100 Ratings</Text>
+    //             </div>
+    //         </CardSection>
+    //         <CardSection title="Select Payment">
+    //             <Text className={'addMusicText'}>Credit Card</Text>
+    //             <div className={'addCardSection'} onClick={openCardPopoup}>
+    //                   <img src={card}/>
+    //                   <Text className={'addCardSectionText'}>Add a new Card</Text>
+    //             </div>
+    //             <PopUp 
+    //             title="Add a new Card"
+    //             open={state.openPOP}
+    //             >
+    //               <StripeProvider apiKey="pk_test_TYooMQauvdEDq54NiTphI7jx">
+    //                 <div>
+    //                   <Elements>
+    //                     <CheckoutForm CardInformation={CardInfo} />
+    //                   </Elements>
+    //                 </div>
+    //               </StripeProvider>
+    //             </PopUp>
+    //         </CardSection>
+    //         <div className={'billingSection'}>
+    //             <Text className={'billingSectionText'}>Order Total:</Text>
+    //             <Text className={'billingSectionText'}>${state.feedbackPrice==0?'1':'5'}</Text>
+    //         </div>
+            
+    //         <div className={"payNowButton"} onClick={()=>console.log(state)}>
+    //               <Text className={'addCardButtonText'}>Pay Now</Text>
+    //               <Icon type="arrow-right" style={{ fontSize: 24, color: '#ffffff' }} />
+    //         </div>
+
+
+    //         {/* <PopUp 
+    //             title="Error"
+    //             trigger={
+    //               <div className={"payNowButton"}>
+    //               <Text className={'addCardButtonText'}>Pay Now</Text>
+    //               <Icon type="arrow-right" style={{ fontSize: 24, color: '#ffffff' }} />
+    //           </div>
+    //             }
+    //           >
+    //             <div className="errorPayment">
+    //                 <Icon type="close-circle" style={{fontSize: 24,color: 'red'}}></Icon>
+    //                 <Text className={'marginTop15'}>Please re-check your payment details and try again</Text>
+    //             </div>
+    //         </PopUp> */}
               
 
-          </div>
-        </div>
-      </section>
-    </div>
-  );
-};
+    //       </div>
+    //     </div>
+    //   </section>
+    // </div>
+//   );
+// };
 
 const mapStateToProps = state => ({
   // blabla: state.blabla,
