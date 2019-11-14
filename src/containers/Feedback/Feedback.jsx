@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import {Elements, StripeProvider} from 'react-stripe-elements';
+import CheckoutForm from './CheckoutForm';
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import "./Feedback.styles.scss";
@@ -22,13 +24,21 @@ const { Title, Text } = Typography;
 
 const defaultValues = {
   feedbackPrice: 0,
+  cardInformation: {},
+  openPOP: false
 };
 
 /*
  *
  * */
 const Feedback = props => {
-  const [state, setState] = useState({ ...defaultValues });
+const [state, setState] = useState({ ...defaultValues });
+
+
+const CardInfo = (cardInformation) => {
+    setState({...state, 'cardInformation': {...cardInformation}}) 
+    setState({...state, 'openPOP': false}) 
+}
 
   const changePriceSelector1 = () => {
     setState({...state, 'feedbackPrice': 1})      
@@ -36,7 +46,10 @@ const Feedback = props => {
   const changePriceSelector0 = () => {
     setState({...state, 'feedbackPrice': 0})    
   }
-  console.log(state, props)
+
+  const openCardPopoup = () => {
+    setState({...state, 'openPOP': true})    
+  }
   return (
     <div className="bg-colored">
       <section className="section-adjust flex-center">
@@ -70,36 +83,21 @@ const Feedback = props => {
             </CardSection>
             <CardSection title="Select Payment">
                 <Text className={'addMusicText'}>Credit Card</Text>
+                <div className={'addCardSection'} onClick={openCardPopoup}>
+                      <img src={card}/>
+                      <Text className={'addCardSectionText'}>Add a new Card</Text>
+                </div>
                 <PopUp 
                 title="Add a new Card"
-                trigger={
-                    <div className={'addCardSection'}>
-                          <img src={card}/>
-                          <Text className={'addCardSectionText'}>Add a new Card</Text>
-                    </div>
-                }
+                open={state.openPOP}
                 >
-                    <Input
-                        placeholder='4257 5552 4895 5949'
-                        className={'cardBoxInput'}
-                    />
-                    <Input
-                        placeholder='Card Holder Name'
-                        className={'cardBoxInput'}
-                    />
-                    <div className={'twoCardContainer'}>
-                        <Input
-                            placeholder='CVV'
-                            className={'cardBoxInput marginRight5'}
-                        />
-                        <Input
-                            placeholder='MM/YY'
-                            className={'cardBoxInput marginLeft5'}
-                        />
+                  <StripeProvider apiKey="pk_test_TYooMQauvdEDq54NiTphI7jx">
+                    <div>
+                      <Elements>
+                        <CheckoutForm CardInformation={CardInfo} />
+                      </Elements>
                     </div>
-                    <div className={"addCardButton"}>
-                        <Text className={'addCardButtonText'}>ADD CARD</Text>
-                    </div>
+                  </StripeProvider>
                 </PopUp>
             </CardSection>
             <div className={'billingSection'}>
@@ -107,13 +105,15 @@ const Feedback = props => {
                 <Text className={'billingSectionText'}>${state.feedbackPrice==0?'1':'5'}</Text>
             </div>
             
+
+
             <PopUp 
                 title="Error"
                 trigger={
                   <div className={"payNowButton"}>
-                      <Text className={'addCardButtonText'}>Pay Now</Text>
-                      <Icon type="arrow-right" style={{ fontSize: 24, color: '#ffffff' }} />
-                  </div>
+                  <Text className={'addCardButtonText'}>Pay Now</Text>
+                  <Icon type="arrow-right" style={{ fontSize: 24, color: '#ffffff' }} />
+              </div>
                 }
               >
                 <div className="errorPayment">

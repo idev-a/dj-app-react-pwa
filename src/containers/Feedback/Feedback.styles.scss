@@ -257,7 +257,7 @@
 }
 .cardBoxInput{
     height: 50px;
-    margin: 7px 0px;
+    margin: 4px 0px;
     border: 2px solid #70707054;
 }
 .twoCardContainer{
@@ -317,4 +317,43 @@
   display: grid;
   padding: 0px 25px;
   text-align: center;
+}
+
+
+
+input,
+.StripeElement {
+  display: block;
+  margin: 10px 0 10px 0;
+  max-width: 500px;
+  padding: 18px 14px;
+  font-size: 1em;
+  font-family: 'Source Code Pro', monospace;
+  box-shadow: rgba(50, 50, 93, 0.14902) 0px 1px 3px, rgba(0, 0, 0, 0.0196078) 0px 1px 0px;
+  outline: 0;
+  border-radius: 4px;
+  background: white;
+  border: 2px solid #70707054;
+  width: 100%;
+}
+
+.cardInputLeft{
+  width: 100%;
+  margin-left: 5px;
+}
+.cardInputRight{
+  width: 100%;
+  margin-right: 5px;
+}
+
+.basicButton{
+  margin: 20px 0px;
+    background-color: #1B3543 !important;
+    height: 50px;
+    border-radius: 4px;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    color: #fff !important;
+    font-weight: bold;
 }

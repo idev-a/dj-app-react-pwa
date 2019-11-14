@@ -7,6 +7,7 @@ const { Text,  } = Typography;
 export const PopUp = (props) => {
     return (
         <Popup trigger={props.trigger}
+            open={props.open}
             modal
             contentStyle={{width: '336px', borderRadius: '20px'}}
             closeOnDocumentClick>
