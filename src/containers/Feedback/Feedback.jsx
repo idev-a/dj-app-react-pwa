@@ -13,7 +13,6 @@ import { TagsInput } from "../../components/tags";
 import { BannerWithSub } from "../../components/bannerWithSub";
 import { CardSection } from "../../components/cardSection";
 import { PopUp } from "../../components/popUp";
-import { DatePicker } from "../../components/datepicker";
 import soundCloud  from "../../assets/img/feedback/Group 132.png"
 import card from "../../assets/img/feedback/Group 108.png"
 import api from '../../config';
@@ -30,7 +29,7 @@ class Feedback extends Component {
   render() {
     const CardInfo = (cardInformation) => {
       this.setState({'cardInformation': cardInformation}) 
-        closeCardPopoup()
+      closeCardPopoup()
     }
 
       const changePriceSelector1 = () => {
@@ -46,6 +45,23 @@ class Feedback extends Component {
       const closeCardPopoup = () => {
         this.setState({'openPOP': false})    
       }
+      const paymentSubmit = () => {
+
+        let userInfo = localStorage.get('userInfo')
+        console.log(userInfo);
+        
+        // fetch(`${api}/api/users/user/update`, {
+        //     method: "POST",
+        //     body: JSON.stringify({...state, address: state.location.formatted_address, dob: `${state.dob.year}-${state.dob.month}-${state.dob.day}`}),
+        //     headers: {
+        //         'x-access-token': props.token,
+        //         'Accept': 'application/json',
+        //         'Content-Type': 'application/json'
+        //     }
+        // }).then((res) =>{
+        //     console.log(res)
+        // })
+    }
     return(
       <div className="bg-colored">
         <section className="section-adjust flex-center">
@@ -101,7 +117,7 @@ class Feedback extends Component {
                   <Text className={'billingSectionText'}>${this.state.feedbackPrice==0?'1':'5'}</Text>
               </div>
               
-              <div className={"payNowButton"} onClick={()=>console.log(this.props)}>
+              <div className={"payNowButton"} onClick={()=>paymentSubmit()}>
                     <Text className={'addCardButtonText'}>Pay Now</Text>
                     <Icon type="arrow-right" style={{ fontSize: 24, color: '#ffffff' }} />
               </div>
@@ -245,7 +261,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  // fnBlaBla: () => dispatch(action.name()),
+  //fnBlaBla: () => dispatch(action.name()),
 });
 
 export default connect(

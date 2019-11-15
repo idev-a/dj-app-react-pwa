@@ -27,7 +27,7 @@ export default class AppRouter extends Component {
           <PrivateRoute path="/listener-discover" component={Discover} exact={true}/>
           <Route path="/auth" component={Auth} exact={true}/>
           <Route path="/forgot" component={Forgot} exact={true}/>
-          <Route path="/reset" component={Reset} exact={true}/>
+          {/* <Route path="/reset" component={Reset} exact={true}/> */}
         </Switch>
       </div>
     )

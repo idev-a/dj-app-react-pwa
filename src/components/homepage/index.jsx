@@ -31,10 +31,10 @@ export default class Homepage extends Component {
                 <FBLogin />
               </div>
               <div className="text-center mb-1">
-                <Link className="text-primary text-bold">Trouble Logging In?</Link>
+                <Link to="/" className="text-primary text-bold" >Trouble Logging In?</Link>
               </div>
               <div className="text-center">
-                <p className="p-small text-white">By clicking Login, you agree to our Terms, Learn how we process your data in our <Link className="text-primary">Privacy Policy</Link> and <Link className="text-primary">Cookie Policy</Link></p>
+                <p className="p-small text-white">By clicking Login, you agree to our Terms, Learn how we process your data in our <Link to="/" className="text-primary">Privacy Policy</Link> and <Link to="/" className="text-primary">Cookie Policy</Link></p>
               </div>
             </div>
           </div>
