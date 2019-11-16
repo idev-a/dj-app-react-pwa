@@ -1,17 +1,15 @@
 import React, { useState } from "react";
-import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import "./Preferences.styles.scss";
-import {Button, Collapse, Drawer, Icon, Input, Modal, Typography} from "antd";
+import {Modal, Typography} from "antd";
 import { LocationSearch } from "../../components/geoSearch";
-import { Select, Radio } from "antd";
+import { Icon, Radio } from "antd";
 import { HITCard, MapIcon, PROCard } from "../../components/vectorComponents";
 import { TagsInput } from "../../components/tags";
 import { Banner } from "../../components/banner";
 import { DatePicker } from "../../components/datepicker";
 import api from '../../config';
-const { Option } = Select;
-const { Title, Text } = Typography;
+const { Title } = Typography;
 
 const defaultValues = {
   feedbackType: "HIT",
@@ -121,9 +119,9 @@ const Preferences = props => {
                 id="Social_Me"
                 data-name="Social Me"
                 fill="#1b3543"
-                font-size="24"
-                font-family="Montserrat-SemiBold, Montserrat"
-                font-weight="600"
+                fontSize="24"
+                fontFamily="Montserrat-SemiBold, Montserrat"
+                fontWeight="600"
               >
                 <tspan x="0" y="23">
                   What type of feedback{" "}

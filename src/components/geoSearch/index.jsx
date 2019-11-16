@@ -1,12 +1,10 @@
-import React, { Component, useState } from 'react';
-import {useScript} from "../../hooks";
+import React, { useState } from 'react';
 import Autocomplete from 'react-google-autocomplete';
 import {Icon, Input} from "antd";
 
 
 export const LocationSearch = props => {
-    const [state, setState] = useState(null);
-    console.log(state)
+    const [state] = useState(null);
     return (
         <Autocomplete
             style={{

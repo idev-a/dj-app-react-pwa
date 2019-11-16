@@ -23,7 +23,7 @@ class CheckoutForm extends Component {
   }
 errorHandler =()=>{
     let msg ="";
-    msg = this.state.cardNumber ? '' : "Card Number," + this.state.accountName==""? "Name,":''+ this.state.cardExpiry ? '' : "Expire Date,"+this.state.cardCvc ? '' : "CVC," +"is Requied !"
+    msg = this.state.cardNumber ? '' : "Card Number," + this.state.accountName===""? "Name,":''+ this.state.cardExpiry ? '' : "Expire Date,"+(this.state.cardCvc ? '' : "CVC,") +"is Requied !"
     this.setState({errorText: msg})
     
 }

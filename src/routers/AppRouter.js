@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import {BrowserRouter, Route, Switch} from 'react-router-dom';
+import { Route, Switch} from 'react-router-dom';
 import HomePage from '../components/homepage';
-import Reset from '../components/reset';
+// import Reset from '../components/reset';
 import Forgot from '../components/forgot';
 import Auth from '../components/auth';
 import PrivateRoute from '../components/privateRoute';
