@@ -1,7 +1,7 @@
 
 let DataFromLocal = JSON.parse(localStorage.getItem('userInfo'))
 let initialState = {
-  isAuthenticated: DataFromLocal.success ? DataFromLocal.success : false,
+  isAuthenticated: DataFromLocal ? DataFromLocal.success : false,
   user: DataFromLocal ? DataFromLocal : {}
 }
 
