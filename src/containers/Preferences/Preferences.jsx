@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import "./Preferences.styles.scss";
+import { useHistory } from "react-router-dom";
 import {Modal, Typography} from "antd";
 import { LocationSearch } from "../../components/geoSearch";
 import { Icon, Radio } from "antd";
@@ -30,6 +31,7 @@ const defaultValues = {
  *
  * */
 const Preferences = props => {
+  let history = useHistory();
   const [state, setState] = useState({ ...defaultValues, saved: false, modal: false });
   const handleChange = field => val => {
       setState({...state, [field]: val})
@@ -70,6 +72,10 @@ const Preferences = props => {
             modal: false,
         });
     };
+
+    function gotoFeedBack() {
+      history.push("/listener-feedback");
+    }
 
 
     return (
@@ -266,28 +272,15 @@ const Preferences = props => {
               >
                 Rate New Tracks
               </button>
-              <a href="/listener-feedback">
               <button
-                style={{
-                  background: "#1B3543",
-                  color: "white",
-                  marginTop: 17,
-                  width: "100%",
-                  display: "flex",
-                  justifyContent: "space-between",
-                  alignItems: "center",
-                  height: 60,
-                  fontSize: 16,
-                  padding: "0 24px",
-                  border: "none"
-                }}
-                onClick={()=>{console.log("click event !")}}
+                className={'buttonChangeRoute'}
+                onClick={gotoFeedBack}
               >  
                   <div>Order Feedback</div>
                 <div>
                   <Icon type="arrow-right" style={{ fontSize: 24 }} />
                 </div>
-              </button></a>
+              </button>
             </div>
             <div
               style={{

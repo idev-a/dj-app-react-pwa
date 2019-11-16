@@ -19,6 +19,7 @@
   justify-content: space-between;
   padding-left: 20.4px;
   padding-right: 20.4px;
+  // width: 101%;
 
 }
 .banner-title {
@@ -135,4 +136,19 @@
   &:checked, &:focus, &:active {
     opacity: 1;
   }
+}
+
+.buttonChangeRoute{
+  background-color: #1B3543;
+  color: white;
+  margin-top: 17px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+  font-size: 16px;
+  padding: 0px 20px;
+  border: none;
+  cursor: pointer;
 }
