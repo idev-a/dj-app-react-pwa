@@ -55,18 +55,24 @@ class Feedback extends Component {
         }
 
         
-        // fetch(`${api}/api/feedback/add`, {
-        //     method: "POST",
-        //     body: JSON.stringify({...state, address: state.location.formatted_address, dob: `${state.dob.year}-${state.dob.month}-${state.dob.day}`}),
-        //     headers: {
-        //         'x-access-token': props.token,
-        //         'Accept': 'application/json',
-        //         'Content-Type': 'application/json'
-        //     }
-        // }).then((res) =>{
-        //     console.log(res)
-        // })
-        this.setState({messagePopUp: false, popUpTitle : "", popUpType: 1, popUpText:""})
+        fetch(`${api}/api/feedback/add`, {
+            method: "POST",
+            body: JSON.stringify({email: this.props.email, trackId:this.state.trackId, paymentToken:this.state.cardInformation.id, type: this.state.feedbackPrice}),
+            headers: {
+                'x-access-token': this.props.token,
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            }
+        }).then((res) =>{
+            if(res.status===201){
+              this.setState({messagePopUp: true, popUpTitle : "Payment Success", popUpType: 1, popUpText:"Thank you for your order."})
+              setTimeout(()=>{ this.setState({messagePopUp: false,}) }, 3000)
+            }else{
+              this.setState({messagePopUp: true, popUpTitle : "Error", popUpType: 0, popUpText:"Please re-check your payment details and try again"})
+              setTimeout(()=>{ this.setState({messagePopUp: false,}) }, 3000)
+            }
+        })
+        
     }
     return(
       <div className="bg-colored">
@@ -91,7 +97,7 @@ class Feedback extends Component {
                       <Icon className={'startCampaignInputIcon'} type="link" style={{ fontSize: 24 }} />
                       
                   </div>
-                  <img src={soundCloud}/>
+                  <img src={soundCloud} alt="soundCloud"/>
               </CardSection>
               <CardSection title="Select # of Listeners">
                   <div className={`priceingBox ${this.state.feedbackPrice===0 ? 'priceSelected' : ''}`} onClick={changePriceSelector0}>
@@ -103,6 +109,15 @@ class Feedback extends Component {
               </CardSection>
               <CardSection title="Select Payment">
                   <Text className={'addMusicText'}>Credit Card</Text>
+                  {
+                    this.state.cardInformation && this.state.cardInformation.id ? (
+                      <div className={'addCardSection'} onClick={openCardPopoup}>
+                        <img src={card} alt={'Add a new Card'}/>
+                    <Text className={'addCardSectionText'}>{this.state.cardInformation.card.brand} Card</Text>
+                      </div>
+                    ): ''
+                  }
+
                   <div className={'addCardSection'} onClick={openCardPopoup}>
                         <img src={card} alt={'Add a new Card'}/>
                         <Text className={'addCardSectionText'}>Add a new Card</Text>
@@ -122,7 +137,7 @@ class Feedback extends Component {
               </CardSection>
               <div className={'billingSection'}>
                   <Text className={'billingSectionText'}>Order Total:</Text>
-                  <Text className={'billingSectionText'}>${this.state.feedbackPrice==0?'1':'5'}</Text>
+                  <Text className={'billingSectionText'}>${this.state.feedbackPrice===0?'1':'5'}</Text>
               </div>
               
               <div className={"payNowButton"} onClick={()=>paymentSubmit()}>
