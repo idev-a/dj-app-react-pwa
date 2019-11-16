@@ -93,14 +93,18 @@ class Auth extends Component {
     axios.post(`${api}/api/users/login`, this.state)
       .then((res) => {
         if (res.data.success) {
-          console.log(res.data)
           this.props.setUser(res.data)
-
+          console.log(this.state)
+          let storableData = {
+              success: true,
+              email: this.state.email1,
+              token: res.data.token
+          }
+          localStorage.setItem('userInfo', JSON.stringify(storableData))
           this.setState({ errorLogin: res.data.message, loading: false, redirect: true })
         }
       })
       .catch((e) => {
-        console.log(e)
         this.setState({ errorLogin: e.response.data.message })
       })
   }
