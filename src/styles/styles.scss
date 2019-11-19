@@ -323,6 +323,55 @@
   padding: 0 1rem;
 }
 
+.addtohomescreen-container {
+  position: absolute;
+  top: 82%;
+  background: #FFF;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-height: 150px;
+  .hearbkicon {
+    width: 80px;
+    height: 80px;
+    margin: 10px 10px 0px 10px;
+  }
+  .captionWrapper {
+    margin-top: 25px;
+    .title {
+      font-weight: 900;
+      color: #13192C;
+      font-size: 19px;
+    }
+    .website {
+      color: #D19C78;
+      font-size: 17px;
+    }
+  }
+  .addToHomeScreenIcon {
+    width: 15px;
+    height: 20px;
+  }
+  .addToHomeScreenCaption {
+     margin-top: 15px;
+     padding-bottom: 10px;
+     font-size: 11.5px;
+     .addToHomeScreenText {
+       color: #13192C;
+       font-weight: 900;
+     }
+  }
+  .closeIcon {
+    height: 32px;
+    width: 32px;
+    margin: 10px 10px 0px 0px;
+  }
+}
+
+.mainWrapper {
+  position: relative;
+}
+
 @media(max-width: 769px) {
   // .container-adjust {
   //   padding: 0 1rem;
