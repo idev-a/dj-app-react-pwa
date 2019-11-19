@@ -84,7 +84,7 @@ const SwipeWrapper = () => {
                       <img src={profilePicture}/>
                       <Text className="profileSectionUserName">{item.userName}</Text>
                   </div>
-                  <TextSection text={item.name} paddingTop="33px" paddingBottom="2px" size="20px" color="#1B3543" weight="bold"/>
+                  <TextSection text={item.name} paddingTop="25px" paddingBottom="2px" size="20px" color="#1B3543" weight="bold"/>
                   <TextSection text={item.fullName} color="#1B3543" paddingTop="0px" paddingBottom="20px" size="12px"/>
                   <ReactWaves
                     audioFile={africa}
@@ -146,9 +146,9 @@ const Discover = props => {
                 <GroupButton />
                 </div>
               </div>
-              <TextSection text="Discover & Rate New Tracks" paddingTop="30px" paddingBottom="5px" size="15px"/>
+              <TextSection text="Discover & Rate New Tracks" paddingTop="25px" paddingBottom="5px" size="15px"/>
               <SwipeWrapper/>
-              <RoundCard top="20px">
+              {/* <RoundCard top="20px">
                   <TextSection text="My Activity" paddingTop="0px" paddingBottom="2px" size="18px" color="#1B3543" weight="bold"/>
                   <div className="activityContainer">
                     <div>
@@ -179,7 +179,7 @@ const Discover = props => {
                       </div>
                     </div>
                   </div>
-              </RoundCard>
+              </RoundCard> */}
               <BottomMenu/>
             </div>
         </div>
