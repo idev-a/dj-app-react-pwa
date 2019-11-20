@@ -36,7 +36,7 @@
   font-weight: bold;
 }
 .roundCardContainer{
-  margin: 26px;
+  margin: 25px 40px;
   padding: 18px;
   border-radius: 20px;
   background-color: #ffffff;
@@ -105,8 +105,8 @@
 
 .master-root {
   position: relative;
-  min-height: 580px;
-  max-height: 404px;
+  min-height: 430px;
+  max-height: 430px;
   width: 100%;
   overflow: inherit;
   z-index: 1;
@@ -243,7 +243,7 @@
   width: 200px;
   text-align: center;
   justify-content: space-between;
-  margin: 25px 65px 20px 65px;
+  margin: 7px 62px 9px 41px;
  }
  .playing{
     padding: 14px 16px 14px 19px;
@@ -255,5 +255,16 @@
   padding-top: 7px;
   cursor: pointer;
  }
-
+.profileImage{
+  width: 50px;
+}
+.bottomMenuContainer{
+  text-align: center;
+  position: fixed;
+  width: 26rem;
+  bottom: 9px;
+}
+.react-waves {
+  width: 322px;
+}
  

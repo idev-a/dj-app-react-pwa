@@ -76,16 +76,17 @@ const SwipeWrapper = () => {
     } className='master-root'>
         {data.map((item, index) => 
           <Card
+            key={item._id}
             onSwipeTop={() => changeShowDiv(index, "Top")}
             onSwipeLeft={() => changeShowDiv(index, "Left")} 
             onSwipeRight={() => changeShowDiv(index, "Right")}>
                 <RoundCard>
                   <div className="profileSection">
-                      <img src={profilePicture}/>
+                      <img className={'profileImage'} src={profilePicture}/>
                       <Text className="profileSectionUserName">{item.userName}</Text>
                   </div>
                   <TextSection text={item.name} paddingTop="25px" paddingBottom="2px" size="20px" color="#1B3543" weight="bold"/>
-                  <TextSection text={item.fullName} color="#1B3543" paddingTop="0px" paddingBottom="20px" size="12px"/>
+                  <TextSection text={item.fullName} color="#1B3543" paddingTop="0px" paddingBottom="0px" size="12px"/>
                   <ReactWaves
                     audioFile={africa}
                     className='react-waves'
@@ -94,8 +95,8 @@ const SwipeWrapper = () => {
                       barWidth: 2,
                       barHeight: 2,
                       cursorWidth: 1,
-                      height: 80,
-                      width: 350,
+                      height: 50,
+                      width: 225,
                       hideScrollbar: true,
                       progressColor: '#3788B2',
                       normalize: true,
@@ -180,8 +181,8 @@ const Discover = props => {
                     </div>
                   </div>
               </RoundCard> */}
-              <BottomMenu/>
             </div>
+            <BottomMenu/>
         </div>
       </section>
     </div>
