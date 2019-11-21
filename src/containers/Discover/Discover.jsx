@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import Cards, { Card } from 'react-swipe-card';
-import ReactWaves from '@dschoon/react-waves';
-import africa from '../../assets/sound/track.mp3';
-import PropTypes, { number } from "prop-types";
+import { Line } from 'rc-progress';
 import { connect } from "react-redux";
 import "./Discover.styles.scss";
 import { Button, Collapse, Drawer, Icon, Input, Typography } from "antd";
@@ -16,6 +14,7 @@ import start1 from "../../assets/img/discover/dolar.png"
 import start2 from "../../assets/img/discover/star.png"
 import start3 from "../../assets/img/discover/graph.png"
 import start from "../../assets/img/discover/play.png"
+import pause from "../../assets/img/discover/pause.png"
 import next from "../../assets/img/discover/next.png"
 import previous from "../../assets/img/discover/previous.png"
 import {BottomMenu} from "../../components/bottomMenu"
@@ -29,30 +28,29 @@ const { Title, Text } = Typography;
 
 
 var data = [{
+    _id: "12345",
     name: "King Push",
     fullName: "Vess Dynamick 1",
     userName: "@vessdynamick",
-    trackLink: "",
+    trackLink: "https://drive.google.com/file/d/1F5W57IQSE4EP-qpS5wubes1M1tSY2HW5/view?usp=sharing",
     show: true,
   }, {
+    _id: "12346",
     name: "King Push 1",
     fullName: "Vess Dynamick 4",
     userName: "@vessdynamick",
-    trackLink: "",
+    trackLink: "https://drive.google.com/file/d/1jFd2httckYmKQcKMUSp88chCDlN4wDr8/view?usp=sharing",
     show: false,
-  },{
+  },
+  {
+    _id: "12347",
     name: "King Push 2",
     fullName: "Vess Dynamick3",
     userName: "@vessdynamick",
-    trackLink: "",
+    trackLink: "https://drive.google.com/file/d/1R5AhC2Lfk_JFpjOccMtMVe-MG26lwu4q/view?usp=sharing",
     show: false,
-  },{
-    name: "King Push 3",
-    fullName: "Vess Dynamick 4",
-    userName: "@vessdynamick",
-    trackLink: "",
-    show: false,
-  }];
+  }
+];
 
 const SwipeWrapper = () => {
   const [state, setState] = useState({ ...data });
@@ -62,10 +60,22 @@ const SwipeWrapper = () => {
       data[number+1].show = true
     }
   }
-  function playPause(id){
-    data[id].show = data[id].show ? false : true;
-    console.log(this.state);
-    
+
+  function getBlobUrlofTracks(urlDrive){
+    var res = urlDrive.match(/[-\w]{25,}/)
+    let url = `http://docs.google.com/uc?export=open&id=${res[0]}`;
+    return url;
+  }
+  function playSong(id){
+    var music = document.getElementById(id);
+    var playPause = document.getElementById(`img${id}`);
+    if (music.paused) {
+      music.play();
+      playPause.src = pause
+    } else {
+      music.pause();
+      playPause.src = start
+    }    
   }
   return (
     <Cards
@@ -87,8 +97,11 @@ const SwipeWrapper = () => {
                   </div>
                   <TextSection text={item.name} paddingTop="25px" paddingBottom="2px" size="20px" color="#1B3543" weight="bold"/>
                   <TextSection text={item.fullName} color="#1B3543" paddingTop="0px" paddingBottom="0px" size="12px"/>
-                  <ReactWaves
-                    audioFile={africa}
+                   <audio controls="controls" id={item._id} className={'DisplayNone'}>
+                      <source src={getBlobUrlofTracks(item.trackLink)} type="audio/mp3" />
+                  </audio> 
+                  {/* <ReactWaves
+                    audioFile={getBlobUrlofTracks(item.trackLink)}
                     className='react-waves'
                     options={{
                       barGap: 2,
@@ -108,13 +121,14 @@ const SwipeWrapper = () => {
                     playing={item.show}
                     pos={0}
                     onPosChange={()=>console.log("chan")}
-                  />
+                  /> */}
+                  <Line className={'progressbar'} percent="10" strokeWidth="4" strokeColor="#D3D3D3" />
                   <div className={'playerControlSection'}>
                     <div className={'playerControl'}>
                       <img src={previous}/>
                     </div>
-                    <div className={'playing'} onClick={()=>playPause(index)}>
-                      <img src={start}/>
+                    <div className={'playing'}>
+                      <img id={`img${item._id}`} src={start} alt="Hi" onClick={()=>playSong(item._id)}/>
                     </div>
                     <div className={'playerControl'}>
                       <img src={next}/>

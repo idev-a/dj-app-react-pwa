@@ -240,16 +240,21 @@
 
  .playerControlSection{
   display: flex;
-  width: 200px;
   text-align: center;
   justify-content: space-between;
-  margin: 7px 62px 9px 41px;
+  margin: 15px 30px 6px 30px;
  }
  .playing{
-    padding: 14px 16px 14px 19px;
-    background-color: #D19C78;
-    border-radius: 27px;
-    cursor: pointer;
+  position: sticky;
+  padding: 14px 16px 14px 16px;
+  background-color: #D19C78;
+  border-radius: 27px;
+  cursor: pointer;
+  width: 46px;
+  height: 46px;
+ }
+ .DisplayNone{
+   display: none;
  }
  .playerControl{
   padding-top: 7px;
@@ -267,4 +272,6 @@
 .react-waves {
   width: 322px;
 }
- 
+.progressbar{
+  margin: 25px 15px 10px 15px;
+}
