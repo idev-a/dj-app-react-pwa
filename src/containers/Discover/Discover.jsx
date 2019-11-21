@@ -32,14 +32,14 @@ var data = [{
     name: "King Push",
     fullName: "Vess Dynamick 1",
     userName: "@vessdynamick",
-    trackLink: "https://drive.google.com/file/d/1F5W57IQSE4EP-qpS5wubes1M1tSY2HW5/view?usp=sharing",
+    trackLink: "https://drive.google.com/file/d/1R5AhC2Lfk_JFpjOccMtMVe-MG26lwu4q/view?usp=sharing",
     show: true,
   }, {
     _id: "12346",
     name: "King Push 1",
     fullName: "Vess Dynamick 4",
     userName: "@vessdynamick",
-    trackLink: "https://drive.google.com/file/d/1jFd2httckYmKQcKMUSp88chCDlN4wDr8/view?usp=sharing",
+    trackLink: "https://drive.google.com/file/d/1R5AhC2Lfk_JFpjOccMtMVe-MG26lwu4q/view?usp=sharing",
     show: false,
   },
   {
@@ -97,9 +97,13 @@ const SwipeWrapper = () => {
                   </div>
                   <TextSection text={item.name} paddingTop="25px" paddingBottom="2px" size="20px" color="#1B3543" weight="bold"/>
                   <TextSection text={item.fullName} color="#1B3543" paddingTop="0px" paddingBottom="0px" size="12px"/>
-                   <audio controls="controls" id={item._id} className={'DisplayNone'}>
+                  <div className={'embededContainer'}>
+                      <iframe width="100%" height="166" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https://soundcloud.com/mrsuicidesheep/novo-amor-anchor"></iframe>
+                   
+                  </div>
+                  {/* <audio controls="controls" id={item._id} className={'DisplayNone'}>
                       <source src={getBlobUrlofTracks(item.trackLink)} type="audio/mp3" />
-                  </audio> 
+                  </audio>  */}
                   {/* <ReactWaves
                     audioFile={getBlobUrlofTracks(item.trackLink)}
                     className='react-waves'
@@ -122,7 +126,7 @@ const SwipeWrapper = () => {
                     pos={0}
                     onPosChange={()=>console.log("chan")}
                   /> */}
-                  <Line className={'progressbar'} percent="10" strokeWidth="4" strokeColor="#D3D3D3" />
+                  {/* <Line className={'progressbar'} percent="10" strokeWidth="4" strokeColor="#D3D3D3" />
                   <div className={'playerControlSection'}>
                     <div className={'playerControl'}>
                       <img src={previous}/>
@@ -133,7 +137,7 @@ const SwipeWrapper = () => {
                     <div className={'playerControl'}>
                       <img src={next}/>
                     </div>
-                  </div>
+                  </div> */}
                 </RoundCard>
           </Card>
         )}

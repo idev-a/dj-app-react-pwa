@@ -55,7 +55,7 @@ class Feedback extends Component {
         }
 
         
-        fetch(`${api}/api/feedback/add`, {
+        fetch(`https://hearbk-server.herokuapp.com/api/feedback/add`, {
             method: "POST",
             body: JSON.stringify({email: this.props.email, trackId:this.state.trackId, paymentToken:this.state.cardInformation.id, type: this.state.feedbackPrice}),
             headers: {
