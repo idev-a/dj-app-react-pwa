@@ -259,7 +259,7 @@ const Preferences = props => {
                 Save
               </button>
               <button
-                onClick={() => history.push('/listener-feedback')}
+                onClick={() => history.push('/listener-discover')}
                 style={{
                   marginTop: 17,
                   width: "100%",
