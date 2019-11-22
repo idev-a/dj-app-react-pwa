@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, Component } from "react";
 import Cards, { Card } from 'react-swipe-card';
 import { Line } from 'rc-progress';
 import { connect } from "react-redux";
@@ -18,6 +18,7 @@ import pause from "../../assets/img/discover/pause.png"
 import next from "../../assets/img/discover/next.png"
 import previous from "../../assets/img/discover/previous.png"
 import {BottomMenu} from "../../components/bottomMenu"
+import axios from 'axios';
 import {GroupButton} from "../../components/groupButton"
 
 import api from '../../config';
@@ -27,46 +28,38 @@ const { Option } = Select;
 const { Title, Text } = Typography;
 
 
-var data = [{
-    _id: "12345",
-    name: "King Push",
-    fullName: "Vess Dynamick 1",
-    userName: "@vessdynamick",
-    trackLink: "https://drive.google.com/file/d/1R5AhC2Lfk_JFpjOccMtMVe-MG26lwu4q/view?usp=sharing",
-    show: true,
-  }, {
-    _id: "12346",
-    name: "King Push 1",
-    fullName: "Vess Dynamick 4",
-    userName: "@vessdynamick",
-    trackLink: "https://drive.google.com/file/d/1R5AhC2Lfk_JFpjOccMtMVe-MG26lwu4q/view?usp=sharing",
-    show: false,
-  },
-  {
-    _id: "12347",
-    name: "King Push 2",
-    fullName: "Vess Dynamick3",
-    userName: "@vessdynamick",
-    trackLink: "https://drive.google.com/file/d/1R5AhC2Lfk_JFpjOccMtMVe-MG26lwu4q/view?usp=sharing",
-    show: false,
-  }
-];
 
-const SwipeWrapper = () => {
-  const [state, setState] = useState({ ...data });
-  function changeShowDiv(number, position){
-    if(number< data.length-1){
-      data[number].show = false
-      data[number+1].show = true
-    }
+class Discover extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { tracks:[] };
+  }
+  componentWillMount() {
+    axios.get('https://hearbk-server.herokuapp.com/api/feedback/all')
+    .then((res) => {
+      this.setState({ tracks : res.data.feedbacks})
+      console.log("all submits",res.data.feedbacks)
+    })
+    .catch((e) => {
+      console.log("submit error",e)
+    })
   }
 
-  function getBlobUrlofTracks(urlDrive){
+  changeShowDiv=(number, position)=>{
+    console.log(number, position);
+    
+    // if(number< data.length-1){
+    //   data[number].show = false
+    //   data[number+1].show = true
+    // }
+  }
+
+  getBlobUrlofTracks=(urlDrive)=>{
     var res = urlDrive.match(/[-\w]{25,}/)
     let url = `http://docs.google.com/uc?export=open&id=${res[0]}`;
     return url;
   }
-  function playSong(id){
+  playSong=(id)=>{
     var music = document.getElementById(id);
     var playPause = document.getElementById(`img${id}`);
     if (music.paused) {
@@ -77,80 +70,8 @@ const SwipeWrapper = () => {
       playPause.src = start
     }    
   }
-  return (
-    <Cards
-    alertRight={<h1 className="alert-right-text">HIT</h1>}
-    alertTop={<h1 className="alert-right-text">COOL</h1>}
-    alertLeft={<h1 className="alert-right-text">MISS</h1>}
-    onEnd={() => console.log("Ënd")
-    } className='master-root'>
-        {data.map((item, index) => 
-          <Card
-            key={item._id}
-            onSwipeTop={() => changeShowDiv(index, "Top")}
-            onSwipeLeft={() => changeShowDiv(index, "Left")} 
-            onSwipeRight={() => changeShowDiv(index, "Right")}>
-                <RoundCard>
-                  <div className="profileSection">
-                      <img className={'profileImage'} src={profilePicture}/>
-                      <Text className="profileSectionUserName">{item.userName}</Text>
-                  </div>
-                  <TextSection text={item.name} paddingTop="25px" paddingBottom="2px" size="20px" color="#1B3543" weight="bold"/>
-                  <TextSection text={item.fullName} color="#1B3543" paddingTop="0px" paddingBottom="0px" size="12px"/>
-                  <div className={'embededContainer'}>
-                      <iframe width="100%" height="166" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https://soundcloud.com/mrsuicidesheep/novo-amor-anchor"></iframe>
-                   
-                  </div>
-                  {/* <audio controls="controls" id={item._id} className={'DisplayNone'}>
-                      <source src={getBlobUrlofTracks(item.trackLink)} type="audio/mp3" />
-                  </audio>  */}
-                  {/* <ReactWaves
-                    audioFile={getBlobUrlofTracks(item.trackLink)}
-                    className='react-waves'
-                    options={{
-                      barGap: 2,
-                      barWidth: 2,
-                      barHeight: 2,
-                      cursorWidth: 1,
-                      height: 50,
-                      width: 225,
-                      hideScrollbar: true,
-                      progressColor: '#3788B2',
-                      normalize: true,
-                      responsive: true,
-                      waveColor: '#D8D8D8',
-                    }}
-                    volume={1}
-                    zoom={1}
-                    playing={item.show}
-                    pos={0}
-                    onPosChange={()=>console.log("chan")}
-                  /> */}
-                  {/* <Line className={'progressbar'} percent="10" strokeWidth="4" strokeColor="#D3D3D3" />
-                  <div className={'playerControlSection'}>
-                    <div className={'playerControl'}>
-                      <img src={previous}/>
-                    </div>
-                    <div className={'playing'}>
-                      <img id={`img${item._id}`} src={start} alt="Hi" onClick={()=>playSong(item._id)}/>
-                    </div>
-                    <div className={'playerControl'}>
-                      <img src={next}/>
-                    </div>
-                  </div> */}
-                </RoundCard>
-          </Card>
-        )}
-      </Cards>
-  )
-}
 
-const defaultValues = {
-  feedbackPrice: 0,
-};
-
-const Discover = props => {
-  const [state, setState] = useState({ ...defaultValues });
+ render(){
   return (
     <div className="bg-colored">
       <section className="section-adjust flex-center">
@@ -166,50 +87,45 @@ const Discover = props => {
                 </div>
               </div>
               <TextSection text="Discover & Rate New Tracks" paddingTop="25px" paddingBottom="5px" size="15px"/>
-              <SwipeWrapper/>
-              {/* <RoundCard top="20px">
-                  <TextSection text="My Activity" paddingTop="0px" paddingBottom="2px" size="18px" color="#1B3543" weight="bold"/>
-                  <div className="activityContainer">
-                    <div>
-                      <div className="activiyButtonContainer">
-                          <img className={'activiyButton'} src={start2}/>
-                      </div>
-                      <div className={'activityInfo'}>
-                        <Text className={'activityInfoNumber'}>10,000+</Text>
-                        <Text className={'activityInfoStatus'}>POINTS</Text>
-                      </div>
-                    </div>
-                    <div>
-                      <div className="activiyButtonContainer">
-                          <img className={'activiyButton'} src={start1}/>
-                      </div>
-                      <div className={'activityInfo'}>
-                        <Text className={'activityInfoNumber'}>$1,000</Text>
-                        <Text className={'activityInfoStatus'}>EARNINGS</Text>
-                      </div>
-                    </div>
-                    <div>                    
-                      <div className="activiyButtonContainer">
-                          <img className={'activiyButton'} src={start3}/>
-                      </div>
-                      <div className={'activityInfo'}>
-                        <Text className={'activityInfoNumber'}>103</Text>
-                        <Text className={'activityInfoStatus'}>TRACKS</Text>
-                      </div>
-                    </div>
-                  </div>
-              </RoundCard> */}
+              <Cards
+                alertRight={<h1 className="alert-right-text">HIT</h1>}
+                alertTop={<h1 className="alert-right-text">COOL</h1>}
+                alertLeft={<h1 className="alert-right-text">MISS</h1>}
+                onEnd={() => console.log("Ënd")
+                } className='master-root'>
+                    {this.state.tracks.map((item, index) => 
+                          <Card
+                          key={item._id}
+                          onSwipeTop={() => this.changeShowDiv(index, "Top")}
+                          onSwipeLeft={() => this.changeShowDiv(index, "Left")} 
+                          onSwipeRight={() => this.changeShowDiv(index, "Right")}>
+                              <RoundCard>
+                                <div className="profileSection">
+                                    <img className={'profileImage'} src={profilePicture}/>
+                                    <Text className="profileSectionUserName">{item.userName}</Text>
+                                </div>
+                                <TextSection text={item.name} paddingTop="25px" paddingBottom="2px" size="20px" color="#1B3543" weight="bold"/>
+                                <TextSection text={item.fullName} color="#1B3543" paddingTop="0px" paddingBottom="0px" size="12px"/>
+                                <div className={'embededContainer'}>
+                                    <iframe width="100%" height="166" scrolling="no" frameborder="no" src={`https://w.soundcloud.com/player/?url=${item.trackId}`}></iframe>
+                                </div>
+                              </RoundCard>
+                        </Card>
+                    )}
+              </Cards>
             </div>
             <BottomMenu/>
         </div>
       </section>
     </div>
   );
+ }
 };
 
 const mapStateToProps = state => ({
   // blabla: state.blabla,
-    token: state.auth.user.token
+  token: state.auth.user.token,
+  email: state.auth.user.email
 });
 
 const mapDispatchToProps = dispatch => ({
