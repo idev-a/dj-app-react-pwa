@@ -48,10 +48,23 @@ class Discover extends Component {
   changeShowDiv=(number, position)=>{
     console.log(number, position);
     
-    // if(number< data.length-1){
-    //   data[number].show = false
-    //   data[number+1].show = true
-    // }
+            
+    fetch(`https://hearbk-server.herokuapp.com/api/discover/add`, {
+        method: "POST",
+        body: JSON.stringify({feedbackId: number, status: position, email:this.props.email}),
+        headers: {
+            'x-access-token': this.props.token,
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        }
+    }).then((res) =>{
+        if(res.status===201){
+          console.log('posted')
+        }else{
+          console.log('posted error')
+        }
+    })
+  
   }
 
   getBlobUrlofTracks=(urlDrive)=>{
@@ -96,9 +109,9 @@ class Discover extends Component {
                     {this.state.tracks.map((item, index) => 
                           <Card
                           key={item._id}
-                          onSwipeTop={() => this.changeShowDiv(index, "Top")}
-                          onSwipeLeft={() => this.changeShowDiv(index, "Left")} 
-                          onSwipeRight={() => this.changeShowDiv(index, "Right")}>
+                          onSwipeTop={() => this.changeShowDiv(item._id, 1)}
+                          onSwipeLeft={() => this.changeShowDiv(item._id, 0)} 
+                          onSwipeRight={() => this.changeShowDiv(item._id, 2)}>
                               <RoundCard>
                                 <div className="profileSection">
                                     <img className={'profileImage'} src={profilePicture}/>
