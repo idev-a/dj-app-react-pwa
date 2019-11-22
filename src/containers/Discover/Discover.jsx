@@ -1,7 +1,7 @@
 import React, { useState, Component } from "react";
 import Cards, { Card } from 'react-swipe-card';
-import { Line } from 'rc-progress';
 import { connect } from "react-redux";
+import { Link }  from "react-router-dom";
 import "./Discover.styles.scss";
 import { Button, Collapse, Drawer, Icon, Input, Typography } from "antd";
 import {TextSection} from '../../components/textSection';
@@ -93,7 +93,7 @@ class Discover extends Component {
               <div className={'headerMenu'}>
                 <div className={'headerMenuLeft'}>
                   <img className={'headerMenuLeftIcon'} src={headerMenuIcon}/>
-                  <Text className={'headerMenuLeftText'}>Submit</Text>
+                  <Link to="/listener-feedback"><Text className={'headerMenuLeftText'}>Submit</Text></Link>
                 </div>
                 <div>
                 <GroupButton />

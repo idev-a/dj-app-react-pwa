@@ -33,9 +33,9 @@ const Homepage = (props) =>  {
                     </Button>
                   </Link>
                 </div>
-                <div className="flex-center">
+                {/* <div className="flex-center">
                   <FBLogin />
-                </div>
+                </div> */}
                 <div className="text-center mb-1">
                   <Link to="/" className="text-primary text-bold" >Trouble Logging In?</Link>
                 </div>
