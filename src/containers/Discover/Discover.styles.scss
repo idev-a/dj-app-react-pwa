@@ -14,9 +14,12 @@
     margin-top: 45px;
 }
 .headerMenuLeft{
+  display: flex;
+  flex-direction: row;
   background-color: #1B3543;
     width: 158px;
-    height: 44px;
+    height: auto;
+    min-height: 44px;
     border-radius: 0px 25px 25px 0px;
     padding: 8px 0px 0px 15px;
 }
@@ -26,8 +29,24 @@
 .headerMenuLeftText{
   color: #ffffff;
   font-size: 18px;
+  &.logoutText {
+    padding-left: 25px;
+    padding-top: 10px;
+    color: #333;
+    background: #fff;
+    width: 100%;
+    flex-shrink: 0;
+    a {
+      text-decoration: none;
+      color: #49BA7D;
+    }
+  }
 }
 
+.headerActionsContainer {
+  display: flex;
+  flex-direction: column;
+}
 .title15{
   text-align: center;
 }

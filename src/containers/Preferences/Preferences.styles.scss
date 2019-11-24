@@ -106,6 +106,9 @@
     opacity: 1;
     color: $bg-color !important;
   }
+  .ant-radio-button {
+    opacity: 0 !important;
+  }
 }
 
 .tag-select:first-child {

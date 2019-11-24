@@ -5,6 +5,7 @@ import {Link, Redirect} from 'react-router-dom';
 import api from '../../config';
 import axios from 'axios';
 import {connect} from 'react-redux'
+import BackArrowIcon from '../common/BackArrowIcon';
 
 const mapDispatchToProps = dispatch => {
   return {
@@ -120,6 +121,9 @@ class Auth extends Component {
       <div className="bg-colored">
         <section className="full-section">
           <div className="curve-design">
+            <Link to="/">
+              <BackArrowIcon className="backArrow" />
+            </Link>
             <div>
               <img className="img-auth" src="../img/hearbk.png" alt="" />
             </div>

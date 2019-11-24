@@ -113,7 +113,7 @@ class Feedback extends Component {
                     this.state.cardInformation && this.state.cardInformation.id ? (
                       <div className={'addCardSection'} onClick={openCardPopoup}>
                         <img src={card} alt={'Add a new Card'}/>
-                    <Text className={'addCardSectionText'}>{this.state.cardInformation.card.brand} Card</Text>
+                    <Text className={'addCardSectionText'}>{`**** ${this.state.cardInformation.card.last4}`}</Text>
                       </div>
                     ): ''
                   }
@@ -125,6 +125,7 @@ class Feedback extends Component {
                   <PopUp 
                   title="Add a new Card"
                   open={this.state.openPOP}
+                  closeClick={() => { this.setState({ openPOP: false })}}
                   >
                     <StripeProvider apiKey="pk_test_HhCQqzIxD2wH7EXferZHg18W">
                       <div>

@@ -57,12 +57,17 @@
 }
 
 .curve-design {
+  display: flex;
+  flex-direction: row;
   height: 13vh;
   background-color: #103545;
   border-bottom-right-radius: 73% 13vh;
   border-bottom-left-radius: 27% 1vh;
   border-top-right-radius: 50% 0px;
   border-top-left-radius: 50% 0px;
+  .backArrow {
+    padding: 35px 0px 0px 10px;
+  }
 }
 
 .btn-submit-form {

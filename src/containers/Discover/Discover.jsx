@@ -2,6 +2,7 @@ import React, { useState, Component } from "react";
 import Cards, { Card } from 'react-swipe-card';
 import { connect } from "react-redux";
 import { Link }  from "react-router-dom";
+import cx from "classnames";
 import "./Discover.styles.scss";
 import { Button, Collapse, Drawer, Icon, Input, Typography } from "antd";
 import {TextSection} from '../../components/textSection';
@@ -32,7 +33,10 @@ const { Title, Text } = Typography;
 class Discover extends Component {
   constructor(props) {
     super(props);
-    this.state = { tracks:[] };
+    this.state = { 
+      tracks:[],
+      showLogout: false, 
+    };
   }
   componentWillMount() {
     axios.get('https://hearbk-server.herokuapp.com/api/feedback/all')
@@ -92,13 +96,21 @@ class Discover extends Component {
             <div className="wrapperContainer">
               <div className={'headerMenu'}>
                 <div className={'headerMenuLeft'}>
-                  <img className={'headerMenuLeftIcon'} src={headerMenuIcon}/>
-                  <Link to="/listener-feedback"><Text className={'headerMenuLeftText'}>Submit</Text></Link>
+                  <div role="button" onClick={() => this.setState({ showLogout: !this.state.showLogout })}><img className={'headerMenuLeftIcon'} src={headerMenuIcon}/></div>
+                  <div className={ "headerActionsContainer"}>
+                    <Link to="/listener-feedback">
+                      <Text className={'headerMenuLeftText'}>Submit</Text>
+                    </Link>
+                  </div>
                 </div>
                 <div>
                 <GroupButton />
                 </div>
               </div>
+              {this.state.showLogout &&
+                    <div className={cx('headerMenuLeftText', 'logoutText')}>
+                      <Link to="/">Logout</Link>
+                    </div>}
               <TextSection text="Discover & Rate New Tracks" paddingTop="25px" paddingBottom="5px" size="15px"/>
               <Cards
                 alertRight={<h1 className="alert-right-text">HIT</h1>}
