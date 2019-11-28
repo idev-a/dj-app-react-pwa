@@ -1,32 +1,22 @@
-import React, { useState, Component } from "react";
+import React, { Component } from "react";
 import Cards, { Card } from 'react-swipe-card';
 import { connect } from "react-redux";
 import { Link }  from "react-router-dom";
 import cx from "classnames";
 import "./Discover.styles.scss";
-import { Button, Collapse, Drawer, Icon, Input, Typography } from "antd";
+import { Typography } from "antd";
 import {TextSection} from '../../components/textSection';
 import {RoundCard} from '../../components/roundCard'
-import { Select, Radio } from "antd";
 import headerMenuIcon from "../../assets/img/discover/Group 147.png"
-import equlizer from "../../assets/img/discover/Equalizer.png"
 import profilePicture from "../../assets/img/discover/oh4js6qs.png"
-import start1 from "../../assets/img/discover/dolar.png"
-import start2 from "../../assets/img/discover/star.png"
-import start3 from "../../assets/img/discover/graph.png"
 import start from "../../assets/img/discover/play.png"
 import pause from "../../assets/img/discover/pause.png"
-import next from "../../assets/img/discover/next.png"
-import previous from "../../assets/img/discover/previous.png"
 import {BottomMenu} from "../../components/bottomMenu"
 import axios from 'axios';
 import {GroupButton} from "../../components/groupButton"
 
 import api from '../../config';
-import { T } from "antd/lib/upload/utils";
-import { from } from "rxjs";
-const { Option } = Select;
-const { Title, Text } = Typography;
+const { Text } = Typography;
 
 
 
@@ -39,7 +29,7 @@ class Discover extends Component {
     };
   }
   componentWillMount() {
-    axios.get('https://hearbk-server.herokuapp.com/api/feedback/all')
+    axios.get(`${api}/api/feedback/all`)
     .then((res) => {
       this.setState({ tracks : res.data.feedbacks})
       console.log("all submits",res.data.feedbacks)
@@ -53,7 +43,7 @@ class Discover extends Component {
     console.log(number, position);
     
             
-    fetch(`https://hearbk-server.herokuapp.com/api/discover/add`, {
+    fetch(`${api}/api/discover/add`, {
         method: "POST",
         body: JSON.stringify({feedbackId: number, status: position, email:this.props.email}),
         headers: {
@@ -132,7 +122,7 @@ class Discover extends Component {
                                 <TextSection text={item.name} paddingTop="25px" paddingBottom="2px" size="20px" color="#1B3543" weight="bold"/>
                                 <TextSection text={item.fullName} color="#1B3543" paddingTop="0px" paddingBottom="0px" size="12px"/>
                                 <div className={'embededContainer'}>
-                                    <iframe width="100%" height="166" scrolling="no" frameborder="no" src={`https://w.soundcloud.com/player/?url=${item.trackId}`}></iframe>
+                                    <iframe width="100%" height="166" scrolling="no" frameborder="no" src={item.trackId}></iframe>
                                 </div>
                               </RoundCard>
                         </Card>

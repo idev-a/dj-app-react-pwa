@@ -7,9 +7,9 @@ import { Icon, Input, Typography } from "antd";
 import { BannerWithSub } from "../../components/bannerWithSub";
 import { CardSection } from "../../components/cardSection";
 import { PopUp } from "../../components/popUp";
-import soundCloud  from "../../assets/img/feedback/Group 132.png"
+import youtube  from "../../assets/img/youtube.png"
 import card from "../../assets/img/feedback/Group 108.png"
-import {MessagePopUp} from "../../components/messagePopUp"
+import { MessagePopUp } from "../../components/messagePopUp"
 import api from '../../config';
 
 const { Text } = Typography;
@@ -17,7 +17,16 @@ const { Text } = Typography;
 class Feedback extends Component {
   constructor(props) {
     super(props);
-    this.state = { feedbackPrice: 0, openPOP: false, trackId: null, messagePopUp: false, popUpTitle:"",popUpType:"",popUpText:"" };
+    this.state = { 
+      feedbackPrice: 0,
+      openPOP: false,
+      trackId: null,
+      messagePopUp: false,
+      popUpTitle:"",
+      popUpType:"",
+      popUpText:"",
+      selectedMediaType: "youTube",
+    };
   }
   render() {
     const CardInfo = (cardInformation) => {
@@ -55,7 +64,7 @@ class Feedback extends Component {
         }
 
         
-        fetch(`https://hearbk-server.herokuapp.com/api/feedback/add`, {
+        fetch(`${api}/api/feedback/add`, {
             method: "POST",
             body: JSON.stringify({email: this.props.email, trackId:this.state.trackId, paymentToken:this.state.cardInformation.id, type: this.state.feedbackPrice}),
             headers: {
@@ -87,7 +96,7 @@ class Feedback extends Component {
 
               <CardSection title="Start Campaign Now">
                   <Text className={'addMusicText'}>Add Your Music</Text>
-                  <div>
+                  <div className={'addTrackWrapper'}>
                       <Input
                           placeholder='Track ID'
                           className={'startCampaignInput'}
@@ -97,14 +106,18 @@ class Feedback extends Component {
                       <Icon className={'startCampaignInputIcon'} type="link" style={{ fontSize: 24 }} />
                       
                   </div>
-                  <img src={soundCloud} alt="soundCloud"/>
+                  <div className={'youTubeWrapper'}>
+                    <img src={youtube} alt="youTube" className={'youTubeLogo'}/>
+                    <span className={'youTubeText'}>Youtube</span>
+                  </div>
+                  
               </CardSection>
               <CardSection title="Select # of Listeners">
-                  <div className={`priceingBox ${this.state.feedbackPrice===0 ? 'priceSelected' : ''}`} onClick={changePriceSelector0}>
-                      <Text className={`priceingBoxText ${this.state.feedbackPrice===0 ? 'priceSelectedTextColor' : ''}`}>$1 for 10 Ratings</Text>
+                  <div className={`priceingBox ${this.state.feedbackPrice === 0 ? 'priceSelected' : ''}`} onClick={changePriceSelector0}>
+                      <Text className={`priceingBoxText ${this.state.feedbackPrice === 0 ? 'priceSelectedTextColor' : ''}`}>$1 for 10 Ratings</Text>
                   </div>
-                  <div className={`priceingBox marginTop15 ${this.state.feedbackPrice===1 ? 'priceSelected' : ''}`} onClick={changePriceSelector1}>
-                      <Text className={`priceingBoxText ${this.state.feedbackPrice===1 ? 'priceSelectedTextColor' : ''}`}>$5 for 100 Ratings</Text>
+                  <div className={`priceingBox marginTop15 ${this.state.feedbackPrice === 1 ? 'priceSelected' : ''}`} onClick={changePriceSelector1}>
+                      <Text className={`priceingBoxText ${this.state.feedbackPrice === 1 ? 'priceSelectedTextColor' : ''}`}>$5 for 100 Ratings</Text>
                   </div>
               </CardSection>
               <CardSection title="Select Payment">
