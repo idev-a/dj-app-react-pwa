@@ -112,7 +112,7 @@ const Preferences = props => {
         </Modal>
       <section className="section-adjust flex-center">
         <div style={{ background: "white" }}>
-          <Banner />
+          <Banner title="Listener Preferences" subtitle="1/5" />
           <div className={"wrapper"}>
               {/* not sure why I made this an SVG will replace soontm*/}
             <svg
