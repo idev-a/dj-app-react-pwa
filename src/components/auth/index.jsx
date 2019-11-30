@@ -9,7 +9,7 @@ import BackArrowIcon from '../common/BackArrowIcon';
 
 const mapDispatchToProps = dispatch => {
   return {
-    setUser: (user) => dispatch({ type: 'SET_CURRENT_USER', payload: {token: user.token, } }),
+    setUser: (user) => dispatch({ type: 'SET_CURRENT_USER', payload: {token: user.token, email: user.email } }),
   }
 }
 class Auth extends Component {

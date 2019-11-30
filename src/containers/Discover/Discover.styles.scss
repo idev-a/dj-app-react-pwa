@@ -1,9 +1,13 @@
 @import "../../styles/colors";
 
+.container {
+  background: #fff;
+  width: 100%;
+  max-width: 416px;
+}
 
 .wrapperContainer{
   background-color: white;
-  width: 26rem;
   margin: 0 auto;
 }
 
@@ -124,8 +128,7 @@
 
 .master-root {
   position: relative;
-  min-height: 430px;
-  max-height: 430px;
+  max-height: 60%;  
   width: 100%;
   overflow: inherit;
   z-index: 1;
@@ -285,8 +288,9 @@
 .bottomMenuContainer{
   text-align: center;
   position: fixed;
-  width: 26rem;
+  width: 100%;
   bottom: 9px;
+  max-width: inherit;
 }
 .react-waves {
   width: 322px;

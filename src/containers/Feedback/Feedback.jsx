@@ -86,7 +86,7 @@ class Feedback extends Component {
     return(
       <div className="bg-colored">
         <section className="section-adjust flex-center">
-          <div style={{ background: "white" }}>
+          <div className="container">
             <BannerWithSub Title="Submit a Hit" SubTitle="Let’s get your music heard!" />
             <div className={"wrapper"}>
               <div className={'textSectionContainer'}>
