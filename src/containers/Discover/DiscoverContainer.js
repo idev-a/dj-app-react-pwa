@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { fetchTracksAction, postFeedback } from "../../actions";
 import Component from "./DiscoverComponent";
-import { setState } from "expect/build/jestMatchersObject";
 const Discover = (props) => {
   const { email, token, fetchTracksActionDispatch, tracks } = props;
   const [showlogOut, setShowLogout] = useState(false);
@@ -37,6 +36,13 @@ const mapStateToProps = (state) => ({
   token: state.auth.user.token,
   email: state.auth.user.email,
 });
+
+
+Discover.propTypes = {
+  tracks: PropTypes.array,
+  token: PropTypes.string,
+  email: PropTypes.string,
+}
 
 export default connect(
   mapStateToProps,

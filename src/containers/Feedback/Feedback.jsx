@@ -128,7 +128,7 @@ class Feedback extends Component {
               </div>
 
               <CardSection title="Start Campaign Now">
-                  <Text className={'addMusicText'}>Add Your Music</Text>
+                  <Text className={'addMusicText'}>Add your You tube video url</Text>
                   <div className={'addTrackWrapper'}>
                       <Input
                           placeholder='Track ID'
