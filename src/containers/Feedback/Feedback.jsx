@@ -42,7 +42,9 @@ class Feedback extends Component {
       }
     }).then((res) => {
       if (res.data) {
-        this.setState({savedCard: {last4 : res.data.cardInfo.lastDigits, customerId: res.data.cardInfo.customerId}, cardSelect: 1})        
+        if(res.data.cardInfo.lastDigits){
+          this.setState({savedCard: {last4 : res.data.cardInfo.lastDigits, customerId: res.data.cardInfo.customerId}, cardSelect: 1}) 
+        }       
       }
     });
 
