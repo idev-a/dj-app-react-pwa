@@ -10,6 +10,8 @@ import { PopUp } from "../../components/popUp";
 import youtube  from "../../assets/img/youtube.png"
 import card from "../../assets/img/feedback/Group 108.png"
 import { MessagePopUp } from "../../components/messagePopUp"
+import axios from 'axios';
+
 import api from '../../config';
 
 const { Text } = Typography;
@@ -26,11 +28,29 @@ class Feedback extends Component {
       popUpType:"",
       popUpText:"",
       selectedMediaType: "youTube",
+      savedCard:{},
+      cardSelect: 0,
     };
+  }
+  componentWillMount() {
+
+    axios.get(`${api}/api/feedback/getSavedCard`, {
+      headers: {
+        'x-access-token': this.props.token,
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      }
+    }).then((res) => {
+      if (res.data) {
+        this.setState({savedCard: {last4 : res.data.cardInfo.lastDigits, customerId: res.data.cardInfo.customerId}, cardSelect: 1})        
+      }
+    });
+
+
   }
   render() {
     const CardInfo = (cardInformation) => {
-      this.setState({'cardInformation': cardInformation}) 
+      this.setState({'cardInformation': cardInformation, cardSelect: 0}) 
       closeCardPopoup()
     }
 
@@ -49,7 +69,6 @@ class Feedback extends Component {
       }
       const handleChange =(event)=> {
         this.setState({ trackId: event.target.value});
-        console.log(event.target.value)
       }
       const paymentSubmit = () => {
         if(!this.state.trackId){
@@ -57,16 +76,28 @@ class Feedback extends Component {
           setTimeout(()=>{ this.setState({messagePopUp: false,}) }, 3000)
           return;
         }
-        if(!this.state.cardInformation){
+        var paymentToken;
+        var lastDigits;
+        var exiting;
+        if(this.state.cardSelect===1){
+          paymentToken = this.state.savedCard.customerId;
+          lastDigits = this.state.savedCard.last4;
+          exiting = true
+        }else{
+          paymentToken = this.state.cardInformation.id;
+          lastDigits = this.state.cardInformation.card.last4;
+          exiting = false;
+        }
+        if(!paymentToken){
           this.setState({messagePopUp: true, popUpTitle : "No Card Information Found", popUpType: 1, popUpText:"Card Information is a required filed, its cannot be empty !"})
           setTimeout(()=>{ this.setState({messagePopUp: false,}) }, 3000)
           return;
         }
 
-        
+
         fetch(`${api}/api/feedback/add`, {
             method: "POST",
-            body: JSON.stringify({email: this.props.email, trackId:this.state.trackId, paymentToken:this.state.cardInformation.id, type: this.state.feedbackPrice}),
+            body: JSON.stringify({email: this.props.email, trackId:this.state.trackId, paymentToken: paymentToken, type: this.state.feedbackPrice, lastDigits: lastDigits, exiting: exiting}),
             headers: {
                 'x-access-token': this.props.token,
                 'Accept': 'application/json',
@@ -75,10 +106,10 @@ class Feedback extends Component {
         }).then((res) =>{
             if(res.status===201){
               this.setState({messagePopUp: true, popUpTitle : "Payment Success", popUpType: 1, popUpText:"Thank you for your order."})
-              setTimeout(()=>{ this.setState({messagePopUp: false,}) }, 3000)
+              setTimeout(()=>{ this.setState({messagePopUp: false,}) }, 1000)
             }else{
               this.setState({messagePopUp: true, popUpTitle : "Error", popUpType: 0, popUpText:"Please re-check your payment details and try again"})
-              setTimeout(()=>{ this.setState({messagePopUp: false,}) }, 3000)
+              setTimeout(()=>{ this.setState({messagePopUp: false,}) }, 1000)
             }
         })
         
@@ -122,6 +153,14 @@ class Feedback extends Component {
               </CardSection>
               <CardSection title="Select Payment">
                   <Text className={'addMusicText'}>Credit Card</Text>
+                  {
+                    this.state.savedCard.last4 ? (
+                      <div className={'addCardSection'}>
+                        <img src={card} alt={'Add a new Card'}/>
+                        <Text className={'addCardSectionText'}>{`**** ${this.state.savedCard.last4}`}</Text>
+                      </div>
+                    ): null
+                  }
                   {
                     this.state.cardInformation && this.state.cardInformation.id ? (
                       <div className={'addCardSection'} onClick={openCardPopoup}>
