@@ -34,7 +34,7 @@ class Feedback extends Component {
   }
   componentWillMount() {
 
-    axios.get(`${api}/api/feedback/getSavedCard`, {
+    axios.get(`https://hearbk-server.herokuapp.com/api/feedback/getSavedCard`, {
       headers: {
         'x-access-token': this.props.token,
         'Accept': 'application/json',
