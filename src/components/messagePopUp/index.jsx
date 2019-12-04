@@ -19,7 +19,7 @@ export const MessagePopUp = (props) => {
                 <div className="modalBody">
                     <div className="errorPayment">
                         <Icon type={props.type? 'check-circle':'close-circle' } style={{fontSize: 24,color: 'red'}}></Icon>
-                        <Text className={'marginTop15'}>{props.text}</Text>
+                        <div className={'marginTop15'} dangerouslySetInnerHTML={{__html: props.text}}></div>
                     </div>
                 </div>
             </div>
