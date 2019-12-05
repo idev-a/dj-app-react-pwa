@@ -91,7 +91,7 @@ const FeedbackContainer = (props) => {
         mediaType: selectedMediaType,
       };
       const response = await postPayment(reqBody, token);
-      if (response.status === 201) {
+      if (response.ok) {
         if (selectedMediaType === content.MEDIA_TYPE_UPLOAD) {
             const resData = await response.json();
             const formData = new FormData();

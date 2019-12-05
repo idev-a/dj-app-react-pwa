@@ -258,8 +258,8 @@ const Preferences = props => {
               >
                 Save
               </button>
-              <button
-                onClick={() => history.push('/listener-discover')}
+              {/* <button
+                onClick={() => history.push('/listener-feedback')}
                 style={{
                   marginTop: 17,
                   width: "100%",
@@ -272,7 +272,7 @@ const Preferences = props => {
                 }}
               >
                 Rate New Tracks
-              </button>
+              </button> */}
               <button
                 className={'buttonChangeRoute'}
                 onClick={gotoFeedBack}

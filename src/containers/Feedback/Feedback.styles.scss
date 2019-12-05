@@ -46,7 +46,7 @@
   input, button {
     border: 2px solid $bg-color !important;
     border-radius: 5px;
-    opacity: .3 ;
+    opacity: .5 ;
     font-family: Lato !important;
   }
   input {
@@ -60,7 +60,7 @@
     color: $bg-color;
   }
   input + div{
-    opacity: 0.3;
+    opacity: 0.5;
     position: absolute;
     top: 15px;
     right: 26.5px;

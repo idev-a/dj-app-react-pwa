@@ -37,7 +37,7 @@ const Component = (props) => {
               <div className={"addTrackWrapper"}>
                 {props.selectedMediaType === content.MEDIA_TYPE_YOUTUBE ? (
                   <Input
-                    placeholder="Track ID"
+                    placeholder="Paste your YouTube url"
                     className={"startCampaignInput"}
                     onChange={props.handleTrackUrlChange}
                     value={props.trackUrl}

@@ -113,7 +113,7 @@ class Auth extends Component {
     if (this.state.redirect){
       return <Redirect
           to={{
-            pathname: "/listener-discover",
+            pathname: "/listener-feedback",
           }}
       />
     }

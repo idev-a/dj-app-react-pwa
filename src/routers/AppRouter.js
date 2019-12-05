@@ -34,11 +34,11 @@ export default class AppRouter extends Component {
             component={Feedback}
             exact={true}
           />
-          <PrivateRoute
+          {/*<PrivateRoute
             path="/listener-discover"
             component={Discover}
             exact={true}
-          />
+          />*/}
           <Route path="/auth" component={Auth} exact={true} />
           <Route path="/forgot" component={Forgot} exact={true} />
           <Route path="/track" component={Track} exact={true} />
