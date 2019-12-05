@@ -81,11 +81,11 @@ class Auth extends Component {
       .then((res) => {
         if (res.data.success) {
           this.props.setUser(res.data)
-          this.setState({ errorRegister: res.data.message, isLoading: false })
+          this.props.history.push('/listener-preferences')
         }
       })
       .catch((e) => {
-        this.setState({ errorRegister: e.response.data.message })
+        this.setState({ errorRegister: e.response.data.message, loading: false })
       })
   }
   login(e) {
