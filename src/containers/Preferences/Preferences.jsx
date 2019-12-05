@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 import "./Preferences.styles.scss";
 import { useHistory } from "react-router-dom";
-import {Modal, Typography} from "antd";
+import { Modal, Typography } from "antd";
 import { LocationSearch } from "../../components/geoSearch";
 import { Icon, Radio } from "antd";
 import { HITCard, MapIcon, PROCard } from "../../components/vectorComponents";
@@ -112,7 +112,7 @@ const Preferences = props => {
         </Modal>
       <section className="section-adjust flex-center">
         <div style={{ background: "white" }}>
-          <Banner title="Listener Preferences" subtitle="1/5" />
+          <Banner title="Listener Preferences" />
           <div className={"wrapper"}>
               {/* not sure why I made this an SVG will replace soontm*/}
             <svg
