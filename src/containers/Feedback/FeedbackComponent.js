@@ -1,6 +1,6 @@
 import React from "react";
 import { Elements, StripeProvider } from "react-stripe-elements";
-import { Icon, Input, Typography } from "antd";
+import { Icon, Input, Typography, Button } from "antd";
 import content from "./Feedback.content";
 import CheckoutForm from "./CheckoutForm";
 import "./Feedback.styles.scss";
@@ -162,13 +162,13 @@ const Component = (props) => {
               </Text>
             </div>
 
-            <div className={"payNowButton"} onClick={props.submitPayment}>
+            <Button loading={props.loading} className={"payNowButton"} onClick={props.submitPayment}>
               <Text className={"addCardButtonText"}>Pay Now</Text>
               <Icon
                 type="arrow-right"
                 style={{ fontSize: 24, color: "#ffffff" }}
               />
-            </div>
+            </Button>
 
             <MessagePopUp
               title={props.messageContent.popUpTitle}

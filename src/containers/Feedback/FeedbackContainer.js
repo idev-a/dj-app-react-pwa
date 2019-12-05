@@ -30,6 +30,7 @@ const FeedbackContainer = (props) => {
   const [showCreditCardPopUp, setShowCreditPopUp] = useState(false);
   const [messageContent, setMessageContent] = useState({});
   const [uploadFile, setUploadFile] = useState(undefined);
+  const [loading, setLoading] = useState(false);
 
   const handleShowMessagePopUp = useCallback((value) => {
     setShowMessagePopUp(value);
@@ -44,7 +45,6 @@ const FeedbackContainer = (props) => {
   };
 
   const handleFileUpload = (e) => {
-      debugger;
       if (e.target.files && e.target.files.length > 0) {
           setUploadFile(e.target.files[0]);
       }
@@ -77,7 +77,11 @@ const FeedbackContainer = (props) => {
   };
 
   const submitPayment = async () => {
+    if (loading) {
+      return;
+    }
     if (validateForm()) {
+      setLoading(true);
       const paymentToken = cardInformation.id;
       const exiting = false;
       const last4Digits = cardInformation.card && cardInformation.card.last4;
@@ -106,19 +110,21 @@ const FeedbackContainer = (props) => {
       } else {
         setMessageContent(content.MESSAGE_PAYMENT_FAILURE);
       }
+      setLoading(false);
     }
     setShowMessagePopUp(true);
     setTimeout(() => setShowMessagePopUp(false), 10000);
   };
 
-  useEffect(() => {
-    if (token) {
-      fetchSavedCardDispatch(token);
-    }
-  }, [fetchSavedCardDispatch, token]);
+  // useEffect(() => {
+  //   if (token) {
+  //     fetchSavedCardDispatch(token);
+  //   }
+  // }, [fetchSavedCardDispatch, token]);
 
   return (
     <FeedbackComponent
+      loading={loading}
       showCreditCardPopUp={showCreditCardPopUp}
       showMessagePopUp={showMessagePopUp}
       trackUrl={trackUrl}
