@@ -36,7 +36,9 @@
 .logoContainer {
     background-color: $main-1;
     height: 20%;
-    padding: 27px 0px 27px 30px;
+    margin: 27px 0px 27px 30px;
+    height: 32px;
+    width: 186px;
 }
 
 .headingContainer {
@@ -68,10 +70,14 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        .silverButtonSvg {
+        background-color: #46515F;
+        .launchButton {
             height: 50px;
             max-width:324px;
-            width: 70%;
+            width: 100%;
+            border: none;
+            color: $main-1;
+            background-color: inherit;
         }
 
     }
@@ -140,13 +146,27 @@
 }
 
 .hearBKFooter {
+    position: relative;
     background-color: $main-5;
     display: flex;
     height: 147px;
     align-items: center;
     justify-content: center; 
     .hearBKIcon {
-        width: 36px;
-        height: 20px;
+        width: 50px;
+        height: 40px;
+    }
+    .buttonWrapper {
+        position: absolute;
+        top: -20px;
+        .launchButton {
+            background-image: linear-gradient(73deg,#10B6F9, #44B987);
+            color: $main-1;
+            font-size: $font-size-normal;
+            letter-spacing: 1.4px;
+            border: none;
+            width: 22em;
+            height: 3em;
+        }
     }
 }

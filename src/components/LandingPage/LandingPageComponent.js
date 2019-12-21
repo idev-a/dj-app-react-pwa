@@ -1,22 +1,15 @@
 import React from "react";
 import cx from "classnames";
 import content from "./content";
-import { ReactComponent as Logo } from "../../assets/icon/Logo.svg";
-import { ReactComponent as ListenMusic } from "../../assets/icon/ListenMusic.svg";
-import { ReactComponent as MattersMost } from "../../assets/icon/MattersMost.svg";
-import { ReactComponent as MusicianFirst } from "../../assets/icon/MusicianFirst.svg";
-import { ReactComponent as SilverButton } from "../../assets/icon/SilverButton.svg";
-import { ReactComponent as HearBk } from "../../assets/icon/hearbk.svg";
-
-import "./LandingPage.style.scss";
+import Icon from "../../common/IconComponent";
 import LandingPageFooter from "./LandingPageFooter";
+import Button from "../../common/Button";
+import "./LandingPage.style.scss";
 
 const Component = (props) => {
   return (
     <div className="landingPageContainer">
-      <div className="logoContainer">
-        <Logo />
-      </div>
+        <Icon className={cx("logoContainer")} iconName={"HearBKTextLogo"}/>
       <div className="headingContainer">
         <div
           className="mainHeading"
@@ -24,12 +17,12 @@ const Component = (props) => {
         ></div>
         <div className="mainDescription">{content.MAIN_DESCRIPTION}</div>
         <div role="button" className="silverButtonContainer">
-          <SilverButton className="silverButtonSvg" />
+            <Button className="launchButton" buttonText="LAUNCH APP"/>
         </div>
       </div>
       <div className="listenMusicContainer">
         <div className="listenMusicIconContainer">
-          <ListenMusic className="listenMusicIcon" />
+          <Icon className={cx("listenMusicIcon")} iconName={"ListenMusic"}/>
         </div>
         <div className="listenMusicSubTitle">
           {content.LISTEN_MUSIC_SUBTITLE}
@@ -41,19 +34,26 @@ const Component = (props) => {
       </div>
       <div className="matterMostContainer">
         <div className="matterMostIconContainer">
-          <MattersMost className="matterMostIcon"/>
+          <Icon className={cx("matterMostIcon")} iconName={"mattersMost"}/>
         </div>
         <div className="matterMostSubtitle">{content.MOST_MATTER_SUBTITLE}</div>
         <div className="matterMostHeader">{content.MOST_MATTER_HEADER}</div>
         <div className="matterMostDescription">{content.MOST_MATTER_DESCRIPTION}</div>
       </div>
       <div className="musicianFirstContainer">
-        <div className="musicianFirstIcon"><MusicianFirst /></div>
+        <div className="musicianFirstIconContainer">
+          <Icon className={cx("musicianFirstIcon")} iconName={"MusicianFirst"}/>
+        </div>
         <div className="musicianFirstSubtitle">{content.MUSICIAN_FIRST_SUBTITLE}</div>
         <div className="musicianFirstHeader">{content.MUSICIAN_FIRST_HEADER}</div>
         <div className="musicianFirstDescription">{content.MUSICIAN_FIRST_DESCRIPTION}</div>
       </div>
-      <div className="hearBKFooter"><HearBk /></div>
+      <div className="hearBKFooter">
+        <Icon iconName={"HearBKLogo"} className={"hearBKIcon"}/>
+        <div className="buttonWrapper">
+          <Button className="launchButton" buttonText="LAUNCH APP"/>
+        </div>
+      </div>
       <LandingPageFooter />
     </div>
   );

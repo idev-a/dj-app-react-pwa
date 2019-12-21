@@ -1,17 +1,15 @@
 import React from 'react';
-import { ReactComponent as FacebookIcon } from "../../../assets/icon/facebook.svg";
-import { ReactComponent as TwitterIcon } from "../../../assets/icon/twitter.svg";
-import { ReactComponent as YouTubeIcon } from "../../../assets/icon/youtube.svg";
 import './LandingPageFooter.styles.scss';
 import content from './content';
+import IconComponent from '../../../common/IconComponent';
 
 const LandingPageFooter = () => {
     return (
         <div className="landingPageFooterContainer">
             <div className="socialMediaActionContainer">
-                <div><FacebookIcon /></div>
-                <div><TwitterIcon /></div>
-                <div><YouTubeIcon /></div>
+                <IconComponent iconName="facebook" className="socialMediaIcon"/>
+                <IconComponent iconName="twitter" className="socialMediaIcon"/>
+                <IconComponent iconName="youtube" className="socialMediaIcon"/>
             </div>
             <div className="footerMenuContainer">
                 <div className="footerMenuColumn">
