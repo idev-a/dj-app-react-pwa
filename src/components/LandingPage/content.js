@@ -1,6 +1,6 @@
 export default {
     LOGO_TITLE: `HEARBK`,
-    MAIN_HEADING: `IT'S NOT ENOUGH TO GET YOUR MUSIC <strong>HEARD</strong>. FIND OUT WHAT THEY THINK.`,
+    MAIN_HEADING: `IT'S NOT ENOUGH TO GET YOUR MUSIC <strong>HEARD</strong>. FIND OUT WHAT THEY <strong>THINK</strong>.`,
     MAIN_DESCRIPTION: `HEARBK is a groundbreaking music app that turns listener data into feedback musicians can use to grow their fanbase.`,
     LAUNCH_BUTTON_TEXT: `LAUNCH APP`,
     LISTEN_MUSIC_SUBTITLE: `Discover the value of`,
