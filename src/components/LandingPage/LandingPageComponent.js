@@ -5,11 +5,13 @@ import Icon from "../../common/IconComponent";
 import LandingPageFooter from "./LandingPageFooter";
 import Button from "../../common/Button";
 import "./LandingPage.style.scss";
+import HearBKHeader from "../../common/HearBKHeader";
+import HearBKIcon from "../../common/HearBKIcon";
 
 const Component = (props) => {
   return (
     <div className="landingPageContainer">
-        <Icon className={cx("logoContainer")} iconName={"HearBKTextLogo"}/>
+        <HearBKHeader />
       <div className="headingContainer">
         <div
           className="mainHeading"
@@ -17,7 +19,7 @@ const Component = (props) => {
         ></div>
         <div className="mainDescription">{content.MAIN_DESCRIPTION}</div>
         <div role="button" className="silverButtonContainer">
-            <Button className="launchButton" buttonText="LAUNCH APP"/>
+            <Button className="silverLaunchButton" buttonText={content.LAUNCH_BUTTON_TEXT}></Button>
         </div>
       </div>
       <div className="listenMusicContainer">
@@ -49,9 +51,9 @@ const Component = (props) => {
         <div className="musicianFirstDescription">{content.MUSICIAN_FIRST_DESCRIPTION}</div>
       </div>
       <div className="hearBKFooter">
-        <Icon iconName={"HearBKLogo"} className={"hearBKIcon"}/>
+        <HearBKIcon />
         <div className="buttonWrapper">
-          <Button className="launchButton" buttonText="LAUNCH APP"/>
+          <Button className="launchButton" buttonText={content.LAUNCH_BUTTON_TEXT}></Button>
         </div>
       </div>
       <LandingPageFooter />
