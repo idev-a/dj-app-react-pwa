@@ -1,0 +1,250 @@
+@import "../../scss/variables.scss";
+@import "../../scss/common.styles.scss";
+
+.listenerPreferencesContainer {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    width: 100%;
+    height: 812px;
+    padding: 40px 20px 0em 20px;
+    background: #ECF0FF;
+    text-align: center;
+}
+.menuIconContainer {
+    position: absolute;
+    left: 20px;
+}
+.listenerPreferencesHeaderA {
+    margin: 10px 0 5px 0;
+    font-size: 18px;
+    font-weight: 700;
+}
+.listenerPreferencesHeaderB {
+    font-size: 18px;
+    font-weight: 300;
+}
+.listenerPreferencesDescription {
+    padding: 25px 0;
+    font-size: 12px;
+    color: #6B798C;
+}
+.requestBoxesContainer {
+    display: flex;
+    justify-content: space-between;
+}
+.requestBox {
+    width: 45%;
+    padding: 30px 0;
+    color: #6B798C;
+    border: 2pt solid #8B9CB2;
+    text-align: center;
+}
+.requestBox:hover {
+    cursor: pointer;
+}
+.requestBox > * {
+    pointer-events: none;
+}
+.requestBox > label, .requestBox > ul {
+    font-size: $font-size-small;
+    font-weight: 700;
+}
+.requestBox > ul {
+    padding: 0;
+    font-weight: 300;
+    list-style: none;
+}
+.requestBox > ul > li {
+    display: flex;
+    margin: 20px 0 0 20px;
+    font-weight: 300;
+}
+.checkIconContainer {
+    margin: 0 5px 0 0;
+}
+
+// details container starts here
+
+.detailsContainer {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: white;
+    text-align: left;
+    box-shadow: 0 1pt 6pt #00000029;
+    line-height: 3.5;
+}
+.detailsContainer > .inputField {
+    width: 100%;
+    font-weight: 500;
+    font-size: $font-size-normal;
+    border: none;
+    box-shadow: 0px 1px #00000029;
+    line-height: 3;
+}
+.detailsHeader {
+    font-weight: 700;
+    font-size: $font-size-normal;
+}
+.containerLabel {
+    font-size: 11px;
+    color: #6B798C;
+    opacity: .4;
+}
+#city {
+    color: #100F0F;
+    margin-bottom: 10px;
+}
+.genderBoxRow {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+.genderBoxSelectors {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+    font-size: $font-size-small;
+    color: #6B798C;
+    border: 2pt solid #E4E7F4;
+}
+.genderBoxSelectors:hover {
+    cursor: pointer;
+}
+.genderBoxSelectors.selected {
+    color: white;
+    background: #46515F;
+    border-color: #46515F;
+}
+#dateOfBirth {
+    width: initial;
+    margin-bottom: 10px;
+    color: #100F0F;
+    opacity: .3;
+}
+.genresLabel {
+    position: relative;
+}
+.addCircleIcon {
+    position: absolute;
+    right: 0;
+    bottom: -35px;
+}
+#favouriteGenres {
+    position: relative;
+    color: #100F0F;
+    opacity: .3;
+}
+.tagsContainer {
+    display: flex;
+    flex-flow: row wrap;
+    margin-bottom: 10px;
+}
+.tags {
+    margin: 3px;
+    padding: 0 10px;
+    font-size: 9px;
+    border: 1pt solid #6B798C;
+    border-radius: 30px;
+}
+.tags.selected {
+    color: white;
+    background: #8B9CB2;
+    border-color: #8B9CB2;
+}
+
+// price container starts here
+
+.priceContainer {
+    @extend .detailsContainer;
+    margin-bottom: 20px;
+    padding: 20px;
+    line-height: 1.5;
+}
+.priceTitle {
+    @extend .detailsHeader;
+    margin-bottom: 10px;
+}
+.priceDescription {
+    font-size: $font-size-small;
+    margin-bottom: 30px;
+}
+.priceLabel {
+    position: relative;
+}
+.priceSign {
+    position: absolute;
+    bottom: -30px;
+    color: #100F0F;
+    font-size: $font-size-normal;
+    opacity: .3;
+}
+#price {
+    width: initial;
+    margin-bottom: 20px;
+}
+.sendMeDescriptionA {
+    @extend .priceDescription;
+    margin: 10px 0;
+}
+.sendMeDescriptionBIntro {
+    @extend .priceDescription;
+}
+.sendMeDescriptionBMain {
+    color: #6B798C;
+    font-size: $font-size-small;
+    font-style: italic;
+}
+.sendMeTitleContainer {
+    margin-top: 20px;
+}
+.sendMeTitleA {
+    color: #100F0F;
+    font-weight: 700;
+    font-size: $font-size-normal;
+}
+.sendMeTitleB {
+    color: #100F0F;
+    font-size: $font-size-normal;
+    opacity: .3;
+}
+.bioLabel {
+    margin: 10px 0;
+}
+.describeYourselfTitle {
+    @extend .sendMeTitleB;
+}
+
+.rateButton {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 15px;
+    color: white;
+    font-size: $font-size-normal;
+    background: linear-gradient(74deg, #10B6F9, #44B987);
+    box-shadow: 0pt 3pt 6pt #00000029;
+}
+.rateButton:hover {
+    cursor: pointer;
+}
+.feedbackButton {
+    @extend .rateButton;
+    margin-bottom: 40px;
+}
+
+textarea {
+    border: none;
+    border-radius: 0;
+    background-color: transparent;
+    resize: none;
+    outline: none;
+}
+.clicked {
+    color: white !important;
+    background: #46515F;
+    border-color: #46515F;
+}
+.hidden {
+    display: none;
+}
