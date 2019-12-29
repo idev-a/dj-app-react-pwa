@@ -11,7 +11,7 @@ export default (props) => {
       <Switch>
         <Route path="/" component={LandingPage} exact />
         <Route path="/auth" component={AuthContainer} exact />
-        <Route path="/users/home" component={ListenerPreferencesContainer} exact />
+        <Route path="/preferences" component={ListenerPreferencesContainer} exact />
       </Switch>
     </BrowserRouter>
   );

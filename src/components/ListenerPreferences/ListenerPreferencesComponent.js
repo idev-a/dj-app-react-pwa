@@ -10,7 +10,7 @@ import addcircle from "../../assets/img/listenerpreferences/add_circle-24px.svg"
 import InputField from "../../common/InputField";
 import TextAreaField from "../../common/TextAreaField";
 
-const ListenerPreferencesComponent = ({ city, dateOfBirth, favouriteGenres, price, sendMe, describeSelf, onInputChange }) => {
+const ListenerPreferencesComponent = ({ city, dateOfBirth, favouriteGenres, tags, price, sendMe, describeSelf, onInputChange }) => {
     const handleClickRequestBoxes = (e) => {
         const el = e.target;
         el.classList.toggle('clicked');
@@ -21,10 +21,17 @@ const ListenerPreferencesComponent = ({ city, dateOfBirth, favouriteGenres, pric
         }
         if (document.getElementById('hitRequestBox').classList.contains('clicked') || document.getElementById('proRequestBox').classList.contains('clicked')) {
             document.querySelector('.listenerPreferencesContainer').style.height = 'initial';
-            document.querySelector('.detailsContainer').classList.remove('hidden');
-            document.querySelector('.priceContainer').classList.remove('hidden');
             document.querySelector('.rateButton').classList.remove('hidden');
             document.querySelector('.feedbackButton').classList.remove('hidden');
+            if (document.getElementById('hitRequestBox').classList.contains('clicked') && document.getElementById('proRequestBox').classList.contains('clicked')) {
+                document.querySelector('.detailsContainer').classList.remove('hidden');
+                document.querySelector('.priceContainer').classList.remove('hidden');
+            } else {
+                document.querySelector('.detailsContainer').classList.remove('hidden');
+                if (!document.querySelector('.priceContainer').classList.contains('hidden')) {
+                    document.querySelector('.priceContainer').classList.add('hidden');
+                }
+            }
         } else {
             document.querySelector('.listenerPreferencesContainer').style.height = '812px';
             if (!document.querySelector('.detailsContainer').classList.contains('hidden')) {
@@ -46,6 +53,99 @@ const ListenerPreferencesComponent = ({ city, dateOfBirth, favouriteGenres, pric
         document.querySelectorAll('.genderBoxSelectors').forEach(box => box.classList.remove('selected'));
         el.classList.add('selected');
     }
+    const handleClickToggleAddList = (e, type) => {
+        const el = e.target;
+        if (type === "genres") {
+            if (!document.querySelector('.addTagsList').classList.add('hidden')) {
+                document.querySelector('.addTagsList').classList.add('hidden');
+            }
+            const offsetY = el.getBoundingClientRect().top;
+            const halfWindowY = window.innerHeight/2;
+            document.querySelector('.addGenresList').classList.toggle('hidden');
+            if (offsetY < halfWindowY) {
+                document.querySelector('.addGenresList').style.top = "30px";
+                document.querySelector('.addGenresList').style.bottom = "initial";
+            } else {
+                document.querySelector('.addGenresList').style.top = "initial";
+                document.querySelector('.addGenresList').style.bottom = "-20px";
+            }
+        } else {
+            if (!document.querySelector('.addGenresList').classList.add('hidden')) {
+                document.querySelector('.addGenresList').classList.add('hidden');
+            }
+            const offsetY = el.getBoundingClientRect().top;
+            const halfWindowY = window.innerHeight/2;
+            document.querySelector('.addTagsList').classList.toggle('hidden');
+            if (offsetY < halfWindowY) {
+                document.querySelector('.addTagsList').style.top = "30px";
+                document.querySelector('.addTagsList').style.bottom = "initial";
+            } else {
+                document.querySelector('.addTagsList').style.top = "initial";
+                document.querySelector('.addTagsList').style.bottom = "-20px";
+            }
+        }
+    }
+    const handleClickAddGenres = (e) => {
+        const el = e.target;
+        document.querySelectorAll('.addGenresSelectedLis').forEach((li) => {
+            if (el.innerHTML === li.innerHTML) {
+                li.classList.toggle('hidden');
+            }
+        });
+    }
+    const handleClickAddTags = (e) => {
+        const el = e.target;
+        document.querySelectorAll('.addTagsSelectedLis').forEach((li) => {
+            if (el.innerHTML === li.innerHTML) {
+                li.classList.toggle('hidden');
+            }
+        });
+    }
+
+    const genderBoxArray = content.GENDER.map((gender, i) => {
+        if (i === 0) {
+            return (
+                <div onClick={(e) => handleClickGenderBoxes(e)} className="genderBoxSelectors selected">
+                    {gender}
+                </div>
+            )
+        } else {
+            return (
+                <div onClick={(e) => handleClickGenderBoxes(e)} className="genderBoxSelectors">
+                    {gender}
+                </div>
+            )
+        }
+    })
+    const addGenresArray = content.FAVOURITE_GENRES.map((genre) => {
+        return (
+            <li onClick={(e) => handleClickAddGenres(e)} className="addGenresLis">
+                {genre}
+            </li>
+        )
+    });
+    const addGenresSelectedArray = content.FAVOURITE_GENRES.map((genre) => {
+        return (
+            <li onClick={(e) => handleClickAddGenres(e)} className="addGenresSelectedLis hidden">
+                {genre}
+            </li>
+        )
+    });
+    const addTagsArray = content.TAGS.map((tag) => {
+        return (
+            <li onClick={(e) => handleClickAddTags(e)} className="addTagsLis">
+                {tag}
+            </li>
+        )
+    });
+    const addTagsSelectedArray = content.TAGS.map((tag) => {
+        return (
+            <li onClick={(e) => handleClickAddTags(e)} className="addTagsSelectedLis hidden">
+                {tag}
+            </li>
+        )
+    });
+
     return (
         <div className="listenerPreferencesContainer">
             <div className="menuIconContainer">
@@ -138,15 +238,7 @@ const ListenerPreferencesComponent = ({ city, dateOfBirth, favouriteGenres, pric
                     {content.GENDER_LABEL}
                 </div>
                 <div className="genderBoxRow">
-                    <div onClick={(e) => handleClickGenderBoxes(e)} className="genderBoxSelectors selected">
-                        {content.GENDER_MALE}
-                    </div>
-                    <div onClick={(e) => handleClickGenderBoxes(e)} className="genderBoxSelectors">
-                        {content.GENDER_FEMALE}
-                    </div>
-                    <div onClick={(e) => handleClickGenderBoxes(e)} className="genderBoxSelectors">
-                        {content.GENDER_NON_BINARY}
-                    </div>
+                    {genderBoxArray}
                 </div>
                 <div className="containerLabel">
                     {content.DOB_LABEL}
@@ -160,62 +252,46 @@ const ListenerPreferencesComponent = ({ city, dateOfBirth, favouriteGenres, pric
                 />
                 <div className="containerLabel genresLabel">
                     {content.FAVOURITE_GENRES_LABEL}
-                    <img className="addCircleIcon" src={addcircle} alt="" />
                 </div>
-                <InputField 
-                    id="favouriteGenres"
-                    onChange={onInputChange}
-                    value={favouriteGenres}
-                    placeholder={content.FAVOURITE_GENRES_SEARCH}
-                    className="inputField"
-                />
+                <div className="addCircleIconContainer">
+                    <img className="addCircleIcon" src={addcircle} alt="" />
+                    <ul className="addGenresList hidden">
+                        {addGenresArray}
+                    </ul>
+                </div>
+                <div onClick={(e) => handleClickToggleAddList(e, "genres")} className="inputFieldContainer">
+                    <InputField 
+                        id="favouriteGenres"
+                        onChange={onInputChange}
+                        value={favouriteGenres}
+                        placeholder={content.FAVOURITE_GENRES_SEARCH}
+                        className="inputField"
+                    />
+                </div>
+                <ul className="selectedGenresContainer">
+                    {addGenresSelectedArray}
+                </ul>
                 <div className="containerLabel">
                     {content.TAGS_LABEL}
                 </div>
-                <div className="tagsContainer">
-                    <div className="tags selected">
-                        PRODUCER
-                    </div>
-                    <div className="tags">
-                        SONGWRITER
-                    </div>
-                    <div className="tags">
-                        ARTIST
-                    </div>
-                    <div className="tags">
-                        DJ
-                    </div>
-                    <div className="tags">
-                        JOURNALIST
-                    </div>
-                    <div className="tags">
-                        PODCASTER
-                    </div>
-                    <div className="tags">
-                        ENTHUSIAST
-                    </div>
-                    <div className="tags">
-                        BLOGGER
-                    </div>
-                    <div className="tags">
-                        EXECUTIVE
-                    </div>
-                    <div className="tags">
-                        A&R
-                    </div>
-                    <div className="tags">
-                        PUBLICIST
-                    </div>
-                    <div className="tags">
-                        INFLUENCER
-                    </div>
-                    <div className="tags">
-                        MANAGER
-                    </div>
-                    <div className="tags">
-                        MARKETER
-                    </div>
+                <div className="addCircleIconContainer">
+                    <img className="addCircleIcon" src={addcircle} alt="" />
+                    <ul className="addTagsList hidden">
+                        {addTagsArray}
+                    </ul>
                 </div>
+                <div onClick={(e) => handleClickToggleAddList(e, "tags")} className="inputFieldContainer">
+                    <InputField 
+                        id="tags"
+                        onChange={onInputChange}
+                        value={tags}
+                        placeholder={content.TAGS_SEARCH}
+                        className="inputField"
+                    />
+                </div>
+                <ul className="selectedTagsContainer">
+                    {addTagsSelectedArray}
+                </ul>
             </div>
             <div className="priceContainer hidden">
                 <div className="detailsHeader priceTitle">
@@ -244,7 +320,6 @@ const ListenerPreferencesComponent = ({ city, dateOfBirth, favouriteGenres, pric
                 <div className="sendMeDescriptionA">
                     {content.SEND_ME_DESCRIPTION_A}
                 </div>
-                <br/>
                 <div className="sendMeDescriptionBContainer">
                     <span className="sendMeDescriptionBIntro">
                         e.g.
@@ -296,6 +371,7 @@ ListenerPreferencesComponent.defaultProps = {
     city: "",
     dateOfBirth: "",
     favouriteGenres: "",
+    tags: "",
     price: 5,
     sendMe: "",
     describeSelf: ""
