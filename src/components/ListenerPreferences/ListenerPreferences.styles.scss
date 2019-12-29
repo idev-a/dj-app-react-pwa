@@ -1,4 +1,3 @@
-@import "../../scss/variables.scss";
 @import "../../scss/common.styles.scss";
 
 .listenerPreferencesContainer {
@@ -7,300 +6,309 @@
     flex-direction: column;
     width: 100%;
     height: 812px;
-    padding: 40px 20px 0em 20px;
-    background: #ECF0FF;
+    padding: 40px 20px 20px 20px;
+    background: $main-5;
     text-align: center;
-}
-.menuIconContainer {
-    position: absolute;
-    left: 20px;
-}
-.listenerPreferencesHeaderA {
-    margin: 10px 0 5px 0;
-    font-size: 18px;
-    font-weight: 700;
-}
-.listenerPreferencesHeaderB {
-    font-size: 18px;
-    font-weight: 300;
-}
-.listenerPreferencesDescription {
-    padding: 25px 0;
-    font-size: 12px;
-    color: #6B798C;
-}
-.requestBoxesContainer {
-    display: flex;
-    justify-content: space-between;
-}
-.requestBox {
-    width: 45%;
-    padding: 30px 0;
-    color: #6B798C;
-    border: 2pt solid #8B9CB2;
-    text-align: center;
-}
-.requestBox:hover {
-    cursor: pointer;
-}
-.requestBox > * {
-    pointer-events: none;
-}
-.requestBox > label, .requestBox > ul {
-    font-size: $font-size-small;
-    font-weight: 700;
-}
-.requestBox > ul {
-    padding: 0;
-    font-weight: 300;
-    list-style: none;
-}
-.requestBox > ul > li {
-    display: flex;
-    margin: 20px 0 0 20px;
-    font-weight: 300;
-}
-.checkIconContainer {
-    margin: 0 5px 0 0;
-}
+    .menuIconContainer {
+        position: absolute;
+        left: 20px;
+        .menuIcon {
+            width: 24px;
+            height: 24px;
+        }
+    }
+    .listenerPreferencesHeaderA {
+        margin: 10px 0 5px 0;
+        font-size: 18px;
+        font-weight: 700;
+    }
+    .listenerPreferencesHeaderB {
+        font-size: 18px;
+        font-weight: 300;
+    }
+    .listenerPreferencesDescription {
+        padding: 25px 0;
+        font-size: 12px;
+        color: $main-2;
+    }
+    .requestBoxesContainer {
+        display: flex;
+        justify-content: space-between;
+        .requestBox {
+            width: 45%;
+            padding: 30px 0;
+            color: $main-2;
+            border: 2pt solid #8B9CB2;
+            text-align: center;
+            * {
+                pointer-events: none;
+            }
+            label, ul {
+                font-size: $font-size-small;
+                font-weight: 700;
+            }
+            ul {
+                padding: 0;
+                font-weight: 300;
+                list-style: none;
+            }
+            ul > li {
+                display: flex;
+                margin: 20px 0 0 20px;
+                font-weight: 300;
+            }
+            .checkIconContainer {
+                margin: 0 5px 0 0;
+                .checkIcon {
+                    width: 15px;
+                    height: 15px;
+                    background-size: contain !important;
+                }
+            }
+        }
+        .requestBox:hover {
+            cursor: pointer;
+        }
+        .selected {
+            color: $main-1;
+            background: #46515F;
+            border-color: #46515F;
+        }
+    }
 
-// details container starts here
+    // common local classes start here
 
-.detailsContainer {
-    margin: 20px 0;
-    padding: 10px 20px;
-    background: white;
-    text-align: left;
-    box-shadow: 0 1pt 6pt #00000029;
-    line-height: 3;
-}
-.detailsContainer > .inputField {
-    width: 100%;
-    padding-bottom: 10px;
-    font-weight: 500;
-    font-size: $font-size-normal;
-    box-shadow: 0px 1px #00000029;
-    line-height: 3;
-}
-.detailsHeader {
-    font-weight: 700;
-    font-size: $font-size-normal;
-}
-.containerLabel {
-    font-size: 11px;
-    color: #6B798C;
-    opacity: .4;
-}
-#city {
-    color: #100F0F;
-    margin-bottom: 10px;
-}
-.genderBoxRow {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 15px;
-}
-.genderBoxSelectors {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 30%;
-    font-size: $font-size-small;
-    color: #6B798C;
-    border: 2pt solid #E4E7F4;
-}
-.genderBoxSelectors:hover {
-    cursor: pointer;
-}
-.genderBoxSelectors.selected {
-    color: white;
-    background: #46515F;
-    border-color: #46515F;
-}
-#dateOfBirth {
-    width: initial;
-    margin-bottom: 10px;
-    color: #100F0F;
-    opacity: .3;
-}
-.addCircleIconContainer {
-    position: relative;
-}
-.addCircleIcon {
-    position: absolute;
-    right: 0;
-    bottom: -35px;
-    pointer-events: none;
-}
-.addGenresList {
-    position: absolute;
-    padding: 0 10px;
-    right: -10px;
-    width: 50%;
-    height: 45vh;
-    color: white;
-    font-size: $font-size-small;
-    background: #46515F;
-    list-style: none;
-    overflow-y: scroll;
-    z-index: 1000;
-}
-.addGenresLis:hover {
-    cursor: pointer;
-}
-.inputFieldContainer {
-    z-index: 10;
-}
-.inputFieldContainer:hover {
-    cursor: pointer;
-}
-#favouriteGenres {
-    position: relative;
-    width: 100%;
-    padding-bottom: 10px;
-    font-weight: 500;
-    font-size: 14px;
-    color: #100F0F;
-    box-shadow: 0px 1px #00000029;
-    line-height: 3;
-    opacity: .3;
-    pointer-events: none;
-}
-.selectedGenresContainer {
-    display: flex;
-    flex-flow: row wrap;
-    margin: 10px 0 0 0;
-    padding: 0;
-    list-style: none;
-}
-.addGenresSelectedLis {
-    margin: 3px;
-    padding: 0 10px;
-    font-size: 9px;
-    color: white;
-    background: #8B9CB2;
-    border: 1pt solid #8B9CB2;
-    border-radius: 30px;
-}
-.addGenresSelectedLis:hover {
-    cursor: pointer;
-}
-.addTagsList {
-    @extend .addGenresList;
-}
-.addTagsLis:hover {
-    cursor: pointer;
-}
-#tags {
-    @extend #favouriteGenres;
-}
-.selectedTagsContainer {
-    @extend .selectedGenresContainer;
-}
-.addTagsSelectedLis {
-    @extend .addGenresSelectedLis;
-}
+    .containerLabel {
+        font-size: 11px;
+        color: $main-2;
+        opacity: .4;
+    }
+    input, textarea {
+        border: none;
+        border-radius: 0;
+        background-color: transparent;
+        resize: none;
+        outline: none;
+    }
+    .inputField {
+        width: 100%;
+        padding-bottom: 10px;
+        font-weight: 500;
+        font-size: $font-size-normal;
+        box-shadow: 0px 1px #00000029;
+        line-height: 3;
+    }
+    .inputFieldContainer {
+        z-index: 10;
+    }
+    .inputFieldContainer:hover {
+        cursor: pointer;
+    }
+    .addCircleIconContainer {
+        position: relative;
+        .addCircleIcon {
+            position: absolute;
+            height: 24px;
+            width: 24px;
+            right: 0;
+            bottom: -35px;
+            pointer-events: none;
+        }
+    }
 
-// price container starts here
+    // details container starts here
 
-.priceContainer {
-    @extend .detailsContainer;
-    margin-top: 0;
-    margin-bottom: 20px;
-    padding: 20px;
-    line-height: 1.5;
-}
-.priceTitle {
-    @extend .detailsHeader;
-    margin-bottom: 10px;
-}
-.priceDescription {
-    font-size: $font-size-small;
-    margin-bottom: 10px;
-}
-.priceContainer > .containerLabel {
-    line-height: 3;
-}
-.priceLabel {
-    position: relative;
-}
-.priceSign {
-    position: absolute;
-    bottom: -43px;
-    color: #100F0F;
-    font-size: $font-size-normal;
-    opacity: .3;
-}
-#price {
-    width: initial;
-    margin-bottom: 10px;
-}
-.sendMeDescriptionA {
-    @extend .priceDescription;
-    margin-bottom: 0;
-    margin: 10px 0;
-}
-.sendMeDescriptionBContainer {
-    line-height: 1;
-}
-.sendMeDescriptionBIntro {
-    @extend .priceDescription;
-    margin-bottom: 0;
-}
-.sendMeDescriptionBMain {
-    color: #6B798C;
-    font-size: $font-size-small;
-    font-style: italic;
-}
-.sendMeTitleContainer {
-    margin-top: 20px;
-}
-.sendMeTitleA {
-    color: #100F0F;
-    font-weight: 700;
-    font-size: $font-size-normal;
-}
-.sendMeTitleB {
-    color: #100F0F;
-    font-size: $font-size-normal;
-    opacity: .3;
-}
-.bioLabel {
-    margin: 10px 0;
-}
-.describeYourselfTitle {
-    @extend .sendMeTitleB;
-}
+    .detailsContainer {
+        margin: 20px 0;
+        padding: 10px 20px;
+        background: $main-1;
+        text-align: left;
+        box-shadow: 0 1pt 6pt #00000029;
+        line-height: 3;
 
-.rateButton {
-    width: 100%;
-    margin-bottom: 10px;
-    padding: 15px;
-    color: white;
-    font-size: $font-size-normal;
-    background: linear-gradient(74deg, #10B6F9, #44B987);
-    box-shadow: 0pt 3pt 6pt #00000029;
-}
-.rateButton:hover {
-    cursor: pointer;
-}
-.feedbackButton {
-    @extend .rateButton;
-    margin-bottom: 40px;
-}
+        .detailsHeader {
+            font-weight: 700;
+            font-size: $font-size-normal;
+        }
+        #city {
+            color: $main-3;
+            margin-bottom: 10px;
+        }
+        .genderBoxRow {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            .genderBoxSelectors {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 30%;
+                font-size: $font-size-small;
+                color: $main-2;
+                border: 2pt solid $main-7;
+            }
+            .genderBoxSelectors:hover {
+                cursor: pointer;
+            }
+            .selected {
+                color: $main-1;
+                background: #46515F;
+                border-color: #46515F;
+            }
+        }
+        #dateOfBirth {
+            width: initial;
+            margin-bottom: 10px;
+            color: $main-3;
+            opacity: .3;
+        }
+        .addGenresList {
+            position: absolute;
+            padding: 0 10px;
+            right: -10px;
+            bottom: 0;
+            width: 50%;
+            height: 45vh;
+            color: $main-1;
+            font-size: $font-size-small;
+            background: #46515F;
+            list-style: none;
+            overflow-y: scroll;
+            z-index: 1000;
+            .addGenresLis:hover {
+                cursor: pointer;
+            }
+        }
+        #favouriteGenres {
+            position: relative;
+            width: 100%;
+            padding-bottom: 10px;
+            font-weight: 500;
+            font-size: 14px;
+            color: $main-3;
+            box-shadow: 0px 1px #00000029;
+            line-height: 3;
+            opacity: .3;
+            pointer-events: none;
+        }
+        .selectedGenresContainer {
+            display: flex;
+            flex-flow: row wrap;
+            margin: 10px 0 0 0;
+            padding: 0;
+            list-style: none;
+            .addGenresSelectedLis {
+                margin: 3px;
+                padding: 0 10px;
+                font-size: 9px;
+                color: $main-1;
+                background: #8B9CB2;
+                border: 1pt solid #8B9CB2;
+                border-radius: 30px;
+            }
+        }
+        .addGenresSelectedLis:hover {
+            cursor: pointer;
+        }
+        .addTagsList {
+            @extend .addGenresList;
+            .addTagsLis:hover {
+                cursor: pointer;
+            }
+        }
+        #tags {
+            @extend #favouriteGenres;
+        }
+        .selectedTagsContainer {
+            @extend .selectedGenresContainer;
+            .addTagsSelectedLis {
+                @extend .addGenresSelectedLis;
+            }
+        }
+    }
 
-input, textarea {
-    border: none;
-    border-radius: 0;
-    background-color: transparent;
-    resize: none;
-    outline: none;
-}
-.clicked {
-    color: white !important;
-    background: #46515F;
-    border-color: #46515F;
-}
-.hidden {
-    display: none;
+    // price container starts here
+
+    .priceContainer {
+        @extend .detailsContainer;
+        margin-top: 0;
+        margin-bottom: 20px;
+        padding: 20px;
+        line-height: 1.5;
+        .detailsHeader {
+            margin-bottom: 10px;
+        }
+        .priceDescription {
+            font-size: $font-size-small;
+            margin-bottom: 10px;
+        }
+        .containerLabel {
+            position: relative;
+            line-height: 3;
+        }
+        .priceSign {
+            position: absolute;
+            bottom: -43px;
+            color: $main-3;
+            font-size: $font-size-normal;
+            opacity: .3;
+        }
+        #price {
+            width: initial;
+            margin-bottom: 10px;
+        }
+        .sendMeDescriptionA {
+            @extend .priceDescription;
+            margin-bottom: 0;
+            margin: 10px 0;
+        }
+        .sendMeDescriptionBContainer {
+            line-height: 1;
+            .sendMeDescriptionBIntro {
+                @extend .priceDescription;
+                margin-bottom: 0;
+            }
+            .sendMeDescriptionBMain {
+                color: $main-2;
+                font-size: $font-size-small;
+                font-style: italic;
+            }
+        }
+        .sendMeTitleContainer {
+            margin-top: 20px;
+            .sendMeTitleA {
+                color: $main-3;
+                font-weight: 700;
+                font-size: $font-size-normal;
+            }
+            .sendMeTitleB {
+                color: $main-3;
+                font-size: $font-size-normal;
+                opacity: .3;
+            }
+        }
+        .bioLabel {
+            margin: 10px 0;
+        }
+        .describeYourselfTitle {
+            color: $main-3;
+            font-size: $font-size-normal;
+            opacity: .3;
+        }
+    }
+
+    // buttons start here
+
+    .launchButton {
+        width: 100%;
+        margin-bottom: 10px;
+        box-shadow: 0pt 3pt 6pt #00000029;
+    }
+    .launchButton:hover {
+        cursor: pointer;
+    }
+
+    .hidden {
+        display: none;
+    }
 }
