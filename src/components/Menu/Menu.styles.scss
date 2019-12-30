@@ -1,7 +1,7 @@
 @import "../../scss/common.styles.scss";
 
 .menuComponent {
-    position: relative;
+    position: absolute;
     .menuIconContainer {
         position: absolute;
         left: 20px;
@@ -17,9 +17,9 @@
     .menuSideNav {
         display: flex;
         flex-flow: column nowrap;
-        position: fixed;
+        position: absolute;
         width: 298px;
-        height: 100vh;
+        height: 812px;
         left: calc(33% - 300px);
         top: 0;
         padding: 0px;
@@ -28,7 +28,7 @@
         z-index: 100;
         .cancelIconContainer {
             position: absolute;
-            right: 25px;
+            right: 20px;
             top: 25px;
             .cancelIcon {
                 width: 24px;
@@ -44,7 +44,7 @@
             margin-top: 50px;
         }
         ul {
-            margin-top: 150px;
+            margin-top: 80px;
             list-style: none;
             li {
                 margin: 40px 0;
