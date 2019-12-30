@@ -1,23 +1,17 @@
 import React, { Component } from 'react';
 import ListenerPreferencesComponent from '../../components/ListenerPreferences/ListenerPreferencesComponent';
-import "./Listener.styles.scss";
 
 class ListenerPreferencesContainer extends Component {
-    constructor(props) {
-        super(props);
-        this.handleClickRequestBoxes = this.handleClickRequestBoxes.bind(this);
-        this.handleClickToggleAddList = this.handleClickToggleAddList.bind(this);
-        this.handleClickAddGenres = this.handleClickAddGenres.bind(this);
-        this.handleClickAddTags = this.handleClickAddTags.bind(this);
-        this.state = {
-            hitRequestBox: false,
-            proRequestBox: false,
-            genresList: false,
-            tagsList: false,
-            genresAdded: [],
-            tagsAdded: []
-        };
-    }
+    state = {
+        hitRequestBox: false,
+        proRequestBox: false,
+        genresList: false,
+        tagsList: false,
+        genresAdded: [],
+        tagsAdded: [],
+        toggle: "closed",
+        covered: ""
+    };
 
     handleClickRequestBoxes = (e) => {
         const el = e.target;
@@ -94,11 +88,25 @@ class ListenerPreferencesContainer extends Component {
                 tagsAdded: newList
             })
         } else {
-            const newList = this.state.genresAdded.filter(index => index !== tag);
+            const newList = this.state.tagsAdded.filter(index => index !== tag);
             this.setState({
                 tagsAdded: newList
             })
         } 
+    }
+
+    handleClickMenuToggle = (e) => {
+        if (this.state.toggle === "closed") {
+            this.setState({
+                toggle: "open",
+                covered: "covered"
+            })
+        } else {
+            this.setState({
+                toggle: "closed",
+                covered: ""
+            })
+        }
     }
 
     render() {
@@ -108,12 +116,15 @@ class ListenerPreferencesContainer extends Component {
                 handleClickToggleAddList={this.handleClickToggleAddList}
                 handleClickAddGenres={this.handleClickAddGenres}
                 handleClickAddTags={this.handleClickAddTags}
+                handleClickMenuToggle={this.handleClickMenuToggle}
                 hitRequestBox={this.state.hitRequestBox}
                 proRequestBox={this.state.proRequestBox}
                 genresList={this.state.genresList}
                 tagsList={this.state.tagsList}
                 genresAdded={this.state.genresAdded}
                 tagsAdded={this.state.tagsAdded}
+                toggle={this.state.toggle}
+                covered={this.state.covered}
             />
         );
     }
