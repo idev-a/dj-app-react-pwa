@@ -35,47 +35,51 @@ const ListenerPreferencesComponent = ({
             height: "initial"
         };
         containerContents = 
-        <div>
-            <DetailsContainerComponent 
-                handleClickToggleAddList={handleClickToggleAddList}
-                handleClickAddGenres={handleClickAddGenres}
-                handleClickAddTags={handleClickAddTags}
-                genresList={genresList}
-                tagsList={tagsList}
-                genresAdded={genresAdded}
-                tagsAdded={tagsAdded}
-            />
-            <div className="buttonWrapper">
-                <Button className="launchButton" buttonText={content.RATE_TRACKS_TEXT} ></Button>
+        <React.Fragment>
+            <div>
+                <DetailsContainerComponent 
+                    handleClickToggleAddList={handleClickToggleAddList}
+                    handleClickAddGenres={handleClickAddGenres}
+                    handleClickAddTags={handleClickAddTags}
+                    genresList={genresList}
+                    tagsList={tagsList}
+                    genresAdded={genresAdded}
+                    tagsAdded={tagsAdded}
+                />
+                <div className="buttonWrapper">
+                    <Button className="launchButton" buttonText={content.RATE_TRACKS_TEXT} ></Button>
+                </div>
+                <div className="buttonWrapper">
+                    <Button className="launchButton" buttonText={content.ORDER_FEEDBACK_TEXT} ></Button>
+                </div>
             </div>
-            <div className="buttonWrapper">
-                <Button className="launchButton" buttonText={content.ORDER_FEEDBACK_TEXT} ></Button>
-            </div>
-        </div>
+        </React.Fragment>
     }
     if (hitRequestBox && proRequestBox) {
         style = {
             height: "initial"
         };
         containerContents =
-        <div>
-            <DetailsContainerComponent 
-                handleClickToggleAddList={handleClickToggleAddList}
-                handleClickAddGenres={handleClickAddGenres}
-                handleClickAddTags={handleClickAddTags}
-                genresList={genresList}
-                tagsList={tagsList}
-                genresAdded={genresAdded}
-                tagsAdded={tagsAdded}
-            />
-            <PriceContainerComponent />
-            <div className="buttonWrapper">
-                <Button className="launchButton" buttonText={content.RATE_TRACKS_TEXT} ></Button>
+        <React.Fragment>
+            <div>
+                <DetailsContainerComponent 
+                    handleClickToggleAddList={handleClickToggleAddList}
+                    handleClickAddGenres={handleClickAddGenres}
+                    handleClickAddTags={handleClickAddTags}
+                    genresList={genresList}
+                    tagsList={tagsList}
+                    genresAdded={genresAdded}
+                    tagsAdded={tagsAdded}
+                />
+                <PriceContainerComponent />
+                <div className="buttonWrapper">
+                    <Button className="launchButton" buttonText={content.RATE_TRACKS_TEXT} ></Button>
+                </div>
+                <div className="buttonWrapper">
+                    <Button className="launchButton" buttonText={content.ORDER_FEEDBACK_TEXT} ></Button>
+                </div>
             </div>
-            <div className="buttonWrapper">
-                <Button className="launchButton" buttonText={content.ORDER_FEEDBACK_TEXT} ></Button>
-            </div>
-        </div>
+        </React.Fragment>
     }
     if (!hitRequestBox && !proRequestBox) {
         style = {
@@ -103,7 +107,7 @@ const ListenerPreferencesComponent = ({
                     {content.DESCRIPTION_B}
                 </div>
                 <div className="requestBoxesContainer">
-                    <div onClick={(e) => handleClickRequestBoxes(e)} className={`requestBox ${hitRequestBoxSelected}`} id="hitRequestBox">
+                    <div onClick={(e) => handleClickRequestBoxes(e)} className={cx("requestBox", hitRequestBoxSelected)} id="hitRequestBox">
                         <label>
                             {content.HIT_REQUESTS_TITLE}
                         </label>
@@ -128,7 +132,7 @@ const ListenerPreferencesComponent = ({
                             </li>
                         </ul>
                     </div>
-                    <div onClick={(e) => handleClickRequestBoxes(e)} className={`requestBox ${proRequestBoxSelected}`} id="proRequestBox">
+                    <div onClick={(e) => handleClickRequestBoxes(e)} className={cx("requestBox", proRequestBoxSelected)} id="proRequestBox">
                         <label>
                             {content.PRO_REQUESTS_TITLE}
                         </label>

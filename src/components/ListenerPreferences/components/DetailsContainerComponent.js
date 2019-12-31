@@ -23,60 +23,65 @@ const DetailsContainerComponent = ({
         const el = e.target;
         document.querySelectorAll('.genderBoxSelectors').forEach(box => box.classList.remove('selected'));
         el.classList.add('selected');
-    }
+    };
 
     const genderBoxArray = content.GENDER.map((gender, i) => {
-        if (i === 0) {
-            return (
-                <div onClick={(e) => handleClickGenderBoxes(e)} className="genderBoxSelectors selected">
-                    {gender}
-                </div>
-            )
-        } else {
-            return (
-                <div onClick={(e) => handleClickGenderBoxes(e)} className="genderBoxSelectors">
-                    {gender}
-                </div>
-            )
-        }
-    })
+        return (
+        <div onClick={(e) => handleClickGenderBoxes(e)}
+            className={`genderBoxSelectors ${i === 0 &&  'selected'}`}>
+            {gender}
+        </div>
+        )
+    });
     const addGenresArray = content.FAVOURITE_GENRES.map((genre) => {
         return (
-            <li onClick={(e) => handleClickAddGenres(e, genre)} className="addGenresLis">
-                {genre}
-            </li>
+            <React.Fragment>
+                <li onClick={(e) => handleClickAddGenres(e, genre)} className="addGenresLis">
+                    {genre}
+                </li>
+            </React.Fragment>
         )
     });
     const addGenresSelectedArray = genresAdded.map((genre) => {
         return (
-            <li onClick={(e) => handleClickAddGenres(e, genre)} className="addGenresSelectedLis">
-                {genre}
-            </li>
+            <React.Fragment>
+                <li onClick={(e) => handleClickAddGenres(e, genre)} className="addGenresSelectedLis">
+                    {genre}
+                </li>
+            </React.Fragment>
         )
     });
     const addTagsArray = content.TAGS.map((tag) => {
         return (
-            <li onClick={(e) => handleClickAddTags(e, tag)} className="addTagsLis">
-                {tag}
-            </li>
+            <React.Fragment>
+                <li onClick={(e) => handleClickAddTags(e, tag)} className="addTagsLis">
+                    {tag}
+                </li>
+            </React.Fragment>
         )
     });
     const addTagsSelectedArray = tagsAdded.map((tag) => {
         return (
-            <li onClick={(e) => handleClickAddTags(e, tag)} className="addTagsSelectedLis">
-                {tag}
-            </li>
+            <React.Fragment>
+                <li onClick={(e) => handleClickAddTags(e, tag)} className="addTagsSelectedLis">
+                    {tag}
+                </li>
+            </React.Fragment>
         )
     });
 
     let addGenresList = genresList ? 
-        <ul className="addGenresList">
-            {addGenresArray}
-        </ul> : "";
+        <React.Fragment>
+            <ul className="addGenresList">
+                {addGenresArray}
+            </ul>
+        </React.Fragment> : "";
     let addTagsList = tagsList ?
-        <ul className="addTagsList">
-            {addTagsArray}
-        </ul> : "";
+        <React.Fragment>
+            <ul className="addTagsList">
+                {addTagsArray}
+            </ul>
+        </React.Fragment> : "";
 
 
     return (

@@ -18,7 +18,7 @@ class ListenerPreferencesContainer extends Component {
         if (el.id === "hitRequestBox") {
             if (this.state.hitRequestBox === true) {
                 this.setState({
-                    hitRequestBox: false
+                    hitRequestBox: !this.state.hitRequestBox
                 })
             } else {
                 this.setState({
@@ -28,7 +28,7 @@ class ListenerPreferencesContainer extends Component {
         } else {
             if (this.state.proRequestBox === true) {
                 this.setState({
-                    proRequestBox: false
+                    proRequestBox: !this.state.proRequestBox
                 })
             } else {
                 this.setState({
@@ -43,7 +43,7 @@ class ListenerPreferencesContainer extends Component {
         if (type === "genres") {
             if (this.state.genresList === true) {
                 this.setState({
-                    genresList: false,
+                    genresList: !this.state.genresList,
                     tagsList: false
                 })
             } else {
@@ -61,7 +61,7 @@ class ListenerPreferencesContainer extends Component {
             } else {
                 this.setState({
                     genresList: false,
-                    tagsList: true
+                    tagsList: !this.state.tagsList
                 })
             }
         }

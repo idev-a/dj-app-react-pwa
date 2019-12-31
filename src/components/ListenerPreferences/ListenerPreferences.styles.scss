@@ -17,12 +17,12 @@
         font-weight: 700;
     }
     .listenerPreferencesHeaderB {
-        font-size: 18px;
+        font-size: $font-size-l;
         font-weight: 300;
     }
     .listenerPreferencesDescription {
         padding: 25px 0;
-        font-size: 12px;
+        font-size: $font-size-small;
         color: $main-2;
     }
     .requestBoxesContainer {
@@ -33,7 +33,7 @@
             width: 46%;
             padding: 30px 0;
             color: $main-2;
-            border: 2pt solid #8B9CB2;
+            border: 2pt solid $color-3;
             text-align: center;
             * {
                 pointer-events: none;
@@ -66,8 +66,8 @@
         }
         .selected {
             color: $main-1;
-            background: #46515F;
-            border-color: #46515F;
+            background: $color-2;
+            border-color: $color-2;
         }
     }
 
@@ -147,8 +147,8 @@
             }
             .selected {
                 color: $main-1;
-                background: #46515F;
-                border-color: #46515F;
+                background: $color-2;
+                border-color: $color-2;
             }
         }
         #dateOfBirth {
@@ -163,10 +163,10 @@
             right: -10px;
             bottom: 0;
             width: 50%;
-            height: 45vh;
+            height: 300px;
             color: $main-1;
             font-size: $font-size-small;
-            background: #46515F;
+            background: $color-2;
             list-style: none;
             overflow-y: scroll;
             z-index: 1000;
@@ -179,7 +179,7 @@
             width: 100%;
             padding-bottom: 10px;
             font-weight: 500;
-            font-size: 14px;
+            font-size: $font-size-normal;
             color: $main-3;
             box-shadow: 0px 1px #00000029;
             line-height: 3;
@@ -197,8 +197,8 @@
                 padding: 0 10px;
                 font-size: 9px;
                 color: $main-1;
-                background: #8B9CB2;
-                border: 1pt solid #8B9CB2;
+                background: $color-3;
+                border: 1pt solid $color-3;
                 border-radius: 30px;
             }
         }
