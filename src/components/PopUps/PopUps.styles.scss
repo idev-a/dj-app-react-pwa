@@ -21,7 +21,7 @@
         height: 24px;
         right: 25px;
         top: 25px;
-        opacity: .3;
+        opacity: 1;
     }
 }
 
@@ -31,4 +31,8 @@
     align-items: center;
     margin: 40px auto 18px auto;
     box-shadow: 0 3pt 6pt #00000029;
+    outline: none;
+}
+.launchButton:hover {
+    cursor: pointer;
 }

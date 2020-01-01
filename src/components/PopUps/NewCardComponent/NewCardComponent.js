@@ -15,10 +15,6 @@ const NewCardComponent = ({
 }) => {
     return (
         <div className="newCardContainer">
-            <div className="iconContainer">
-                <Icon className={cx("headerIcon")} iconName={"logo_hexagon"} />
-                <Icon className={cx("cancelIcon")} iconName={"cancel"} />
-            </div>
             <div className="newCardHeaderContainer">
                 {content.MAIN_HEADER}
             </div>

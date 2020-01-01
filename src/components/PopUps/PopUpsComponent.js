@@ -1,8 +1,10 @@
 import React from 'react';
+import cx from "classnames";
 import "./PopUps.styles.scss";
 import AddToHome from "../../containers/PopUps/AddToHome";
 import Cookie from "../../containers/PopUps/Cookie";
 import NewCard from "../../containers/PopUps/NewCard";
+import Icon from "../../common/IconComponent";
 
 const PopUpsComponent = ({ 
     addToHome, 
@@ -22,14 +24,18 @@ const PopUpsComponent = ({
 
     return (
         <div className="popUpContainer">
+            <div className="iconContainer">
+                <Icon className={cx("headerIcon")} iconName={"logo_hexagon"} />
+                <Icon className={cx("cancelIcon")} iconName={"cancel"} />
+            </div>
             {component}
         </div>
     );
 };
 
 PopUpsComponent.defaultProps = {
-    addToHome: true,
-    cookie: false,
+    addToHome: false,
+    cookie: true,
     newCard: false
 }
 
