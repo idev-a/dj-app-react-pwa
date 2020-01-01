@@ -2,7 +2,7 @@ import React from "react";
 import { Switch, BrowserRouter, Route } from "react-router-dom";
 import LandingPage from "./containers/LandingPage";
 import AuthContainer from "./containers/Auth/AuthContainer";
-import PopUpsContainer from "./containers/PopUps"
+import PopUpsContainer from "./containers/PopUps/PopUpsContainer";
 
 export default (props) => {
   return (
