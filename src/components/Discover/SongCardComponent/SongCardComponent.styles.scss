@@ -1,0 +1,45 @@
+@import "../Discover.styles.scss";
+
+.songCardComponentContainer {
+    .profilePicIconContainer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        width: 95px;
+        height: 95px;
+        left: calc(50% - 47.5px);
+        top: -47.5px;
+        border-radius: 50%;
+        background: linear-gradient(180deg, $main-7, #363D46);
+        .profilePicIcon {
+            width: 75px;
+            height: 75px;
+        }
+    }
+    .artistTagContainer {
+        margin-top: 65px;
+        font-size: $font-size-small;
+        font-weight: 500;
+    }
+    .songContainer {
+        display: flex;
+        flex-flow: column nowrap;
+        margin-top: 15px;
+        text-align: left;
+        .discoverIFrame {
+            width: 293px;
+            height: 191px;
+            align-self: center;
+        }
+        .songTitle {
+            margin: 10px 0 0 23px;
+            font-size: $font-size-normal;
+        }
+        .songLength {
+            @extend .songTitle;
+            font-size: $font-size-small;
+            opacity: .4;
+        }
+    }
+}

@@ -1,0 +1,52 @@
+@import "../../scss/common.styles.scss";
+
+.discoverComponentContainer {
+    position: relative;
+    width: 375px;
+    height: 812px;
+    background: #46515F;
+    text-align: center;
+    overflow: hidden;
+    .backgroundIcon {
+        position: absolute;
+        width: 467px;
+        height: 259px;
+        left: -60px;
+        margin-top: 245.4px;
+        opacity: .57;
+        z-index: 0;
+    }
+    .discoverComponentHeader {
+        .headerIcon {
+            width: 60px;
+            height: 33px;
+            margin: 33px auto 18px auto;
+        }
+        .title1 {
+            color: $main-1;
+            font-size: $font-size-l;
+            font-weight: 700;
+        }
+        .title2 {
+            @extend .title1;
+            font-weight: 300;
+        }
+    }
+    .songCardContainer {
+        position: absolute;
+        width: 342px;
+        height: 459px;
+        left: 16.5px;
+        top: 200px;
+        color: $main-1;
+        background: rgba(84, 98, 117, .57);
+        box-shadow: 0 1pt 6pt #00000029;
+        .bookmarkIcon {
+            position: absolute;
+            width: 14.37px;
+            height: 20.04px;
+            left: 22px;
+            top: 23px;
+        }
+    }
+}
