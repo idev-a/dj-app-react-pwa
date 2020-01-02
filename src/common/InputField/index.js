@@ -2,12 +2,15 @@ import React from "react";
 
 const InputField = ({
   id,
+  passableRef,
   className,
   placeholder,
   hasIcon,
   onChange,
   iconName,
   type,
+  disabled,
+  accept,
 }) => {
   let style;
   if (hasIcon) {
@@ -21,13 +24,21 @@ const InputField = ({
   return (
     <input
       id={id}
+      accept={accept}
+      ref={passableRef}
       className={className}
       style={style}
       onChange={onChange}
       placeholder={placeholder}
       type={type}
+      disabled={disabled}
     />
   );
+};
+
+InputField.defaultProps = {
+  disabled: false,
+  passableRef: null,
 };
 
 export default InputField;

@@ -1,3 +1,4 @@
+import localforage from "localforage";
 import api, { genericHeaders } from "../../config";
 
 const postRegisterUserURI = "/users/register";
@@ -34,6 +35,6 @@ export const authenticateUser = (requestData) => (dispatch) =>
   })
     .then((response) => response.json())
     .then(({ token }) => {
-      alert("User login successful");
+      localforage.setItem("x-access-token", token);
       dispatch({ type: AUTHENTICATE_USER_SUCCESS, payload: token });
     });
