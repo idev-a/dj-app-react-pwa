@@ -13,6 +13,10 @@
     border: none;
     width: 22em;
     height: 3em;
+    :disabled {
+      background-image: none !important;
+      background-color: $main-2 !important;
+    }
 }
 
 .inputContainer {
@@ -25,12 +29,6 @@
       box-shadow: #00000029 0px 1px 3px;
       margin-bottom: 10px;
     }
-    > input::placeholder {
-      font-size: $font-size-small -1;
-      color: $main-2;
-      font-weight: 500;
-      opacity: 30%;
-    }
 }
 
 .hearBKFooter {
@@ -39,4 +37,11 @@
   height: 147px;
   align-items: center;
   justify-content: center;
+}
+
+> input::placeholder {
+  font-size: $font-size-small -1;
+  color: $main-2;
+  font-weight: 500;
+  opacity: 30%;
 }

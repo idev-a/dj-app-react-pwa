@@ -1,0 +1,313 @@
+@import "../../scss/common.styles.scss";
+
+.listenerPreferencesBigContainer {
+    width: 100%;
+}
+.listenerPreferencesContainer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 812px;
+    background: $main-5;
+    text-align: center;
+    transition: 1s;
+    .listenerPreferencesHeaderA {
+        margin: 50px 0 5px 0;
+        font-size: 18px;
+        font-weight: 700;
+    }
+    .listenerPreferencesHeaderB {
+        font-size: $font-size-l;
+        font-weight: 300;
+    }
+    .listenerPreferencesDescription {
+        padding: 25px 0;
+        font-size: $font-size-small;
+        color: $main-2;
+    }
+    .requestBoxesContainer {
+        display: flex;
+        justify-content: space-between;
+        padding: 0 20px;
+        .requestBox {
+            width: 46%;
+            padding: 30px 0;
+            color: $main-2;
+            border: 2pt solid $color-4;
+            text-align: center;
+            * {
+                pointer-events: none;
+            }
+            label, ul {
+                font-size: $font-size-small;
+                font-weight: 700;
+            }
+            ul {
+                padding: 0;
+                font-weight: 300;
+                list-style: none;
+            }
+            ul > li {
+                display: flex;
+                margin: 20px 0 0 20px;
+                font-weight: 300;
+            }
+            .checkIconContainer {
+                margin: 0 5px 0 0;
+                .checkIcon {
+                    width: 15px;
+                    height: 15px;
+                    background-size: contain !important;
+                }
+            }
+        }
+        .requestBox:hover {
+            cursor: pointer;
+        }
+        .selected {
+            color: $main-1;
+            background: $main-9;
+            border-color: $main-9;
+        }
+    }
+
+    // common local classes start here
+
+    .containerLabel {
+        font-size: 11px;
+        color: $main-2;
+        opacity: .4;
+    }
+    input, textarea {
+        border: none;
+        border-radius: 0;
+        background-color: transparent;
+        resize: none;
+        outline: none;
+    }
+    .inputField {
+        width: 100%;
+        padding-bottom: 10px;
+        font-weight: 500;
+        font-size: $font-size-normal;
+        box-shadow: 0px 1px #00000029;
+        line-height: 3;
+    }
+    .inputFieldContainer {
+        z-index: 10;
+    }
+    .inputFieldContainer:hover {
+        cursor: pointer;
+    }
+    .addCircleIconContainer {
+        position: relative;
+        .addCircleIcon {
+            position: absolute;
+            height: 24px;
+            width: 24px;
+            right: 0;
+            bottom: -35px;
+            pointer-events: none;
+        }
+    }
+
+    // details container starts here
+
+    .detailsContainer {
+        margin: 20px;
+        padding: 10px 20px;
+        background: $main-1;
+        text-align: left;
+        box-shadow: 0 1pt 6pt #00000029;
+        line-height: 3;
+
+        .detailsHeader {
+            font-weight: 700;
+            font-size: $font-size-normal;
+        }
+        #city {
+            color: $main-3;
+            margin-bottom: 10px;
+        }
+        .genderBoxRow {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            .genderBoxSelectors {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 30%;
+                font-size: $font-size-small;
+                color: $main-2;
+                border: 2pt solid $main-7;
+            }
+            .genderBoxSelectors:hover {
+                cursor: pointer;
+            }
+            .selected {
+                color: $main-1;
+                background: $main-9;
+                border-color: $main-9;
+            }
+        }
+        #dateOfBirth {
+            width: initial;
+            margin-bottom: 10px;
+            color: $main-3;
+            opacity: .3;
+        }
+        .addGenresList {
+            position: absolute;
+            padding: 0 10px;
+            right: -10px;
+            bottom: 0;
+            width: 50%;
+            height: 300px;
+            color: $main-1;
+            font-size: $font-size-small;
+            background: $main-9;
+            list-style: none;
+            overflow-y: scroll;
+            z-index: 1000;
+            .addGenresLis:hover {
+                cursor: pointer;
+            }
+        }
+        #favouriteGenres {
+            position: relative;
+            width: 100%;
+            padding-bottom: 10px;
+            font-weight: 500;
+            font-size: $font-size-normal;
+            color: $main-3;
+            box-shadow: 0px 1px #00000029;
+            line-height: 3;
+            opacity: .3;
+            pointer-events: none;
+        }
+        .selectedGenresContainer {
+            display: flex;
+            flex-flow: row wrap;
+            margin: 10px 0 0 0;
+            padding: 0;
+            list-style: none;
+            .addGenresSelectedLis {
+                margin: 3px;
+                padding: 0 10px;
+                font-size: 9px;
+                color: $main-1;
+                background: $color-4;
+                border: 1pt solid $color-4;
+                border-radius: 30px;
+            }
+        }
+        .addGenresSelectedLis:hover {
+            cursor: pointer;
+        }
+        .addTagsList {
+            @extend .addGenresList;
+            .addTagsLis:hover {
+                cursor: pointer;
+            }
+        }
+        #tags {
+            @extend #favouriteGenres;
+        }
+        .selectedTagsContainer {
+            @extend .selectedGenresContainer;
+            .addTagsSelectedLis {
+                @extend .addGenresSelectedLis;
+            }
+        }
+    }
+
+    // price container starts here
+
+    .priceContainer {
+        @extend .detailsContainer;
+        margin-top: 0;
+        margin-bottom: 20px;
+        padding: 20px;
+        line-height: 1.5;
+        .detailsHeader {
+            margin-bottom: 10px;
+        }
+        .priceDescription {
+            font-size: $font-size-small;
+            margin-bottom: 10px;
+        }
+        .containerLabel {
+            position: relative;
+            line-height: 3;
+        }
+        .priceSign {
+            position: absolute;
+            bottom: -43px;
+            color: $main-3;
+            font-size: $font-size-normal;
+            opacity: .3;
+        }
+        #price {
+            width: initial;
+            margin-bottom: 10px;
+        }
+        .sendMeDescriptionA {
+            @extend .priceDescription;
+            margin-bottom: 0;
+            margin: 10px 0;
+        }
+        .sendMeDescriptionBContainer {
+            line-height: 1;
+            .sendMeDescriptionBIntro {
+                @extend .priceDescription;
+                margin-bottom: 0;
+            }
+            .sendMeDescriptionBMain {
+                color: $main-2;
+                font-size: $font-size-small;
+                font-style: italic;
+            }
+        }
+        .sendMeTitleContainer {
+            margin-top: 20px;
+            .sendMeTitleA {
+                color: $main-3;
+                font-weight: 700;
+                font-size: $font-size-normal;
+            }
+            .sendMeTitleB {
+                color: $main-3;
+                font-size: $font-size-normal;
+                opacity: .3;
+            }
+        }
+        .bioLabel {
+            margin: 10px 0;
+        }
+        .describeYourselfTitle {
+            color: $main-3;
+            font-size: $font-size-normal;
+            opacity: .3;
+        }
+    }
+
+    // buttons start here
+
+    .buttonWrapper {
+        padding: 0 20px;
+        .launchButton {
+            width: 100%;
+            margin-bottom: 10px;
+            box-shadow: 0pt 3pt 6pt #00000029;
+        }
+        .launchButton:hover {
+            cursor: pointer;
+        }
+    }
+}
+.covered {
+    background: $main-3;
+    opacity: .4;
+    transition: 1s;
+}
