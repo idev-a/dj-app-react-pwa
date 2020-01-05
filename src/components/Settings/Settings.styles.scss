@@ -125,7 +125,7 @@
         overflow: hidden;
         .subContainerHeader {
             position: relative;
-            margin: 18px 0 22px 0;
+            margin: 18px 0 18px 0;
             font-size: $font-size-normal;
             font-weight: 700;
             letter-spacing: 1.4pt;
@@ -236,13 +236,18 @@
         .inputFieldContainer {
             margin-bottom: 0;
         }
+        .priceContainer {
+            margin-top: 10px;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
     }
 
     .buttonWrapper {
         position: relative;
         margin-bottom: 40px;
         .launchButton.logoutButton {
-            width: 332px;
+            width: 90%;
             height: 56px;
             margin: 10px auto;
             background: $main-7;
@@ -250,6 +255,9 @@
             font-size: $font-size-normal;
             font-weight: 600;
             border: none;
+        }
+        .launchButton:hover {
+            cursor: pointer;
         }
         .exitToAppIcon {
             position: absolute;

@@ -46,7 +46,7 @@
             }
             ul > li {
                 display: flex;
-                margin: 20px 0 0 20px;
+                margin: 20px 0 0 30px;
                 font-weight: 300;
             }
             .checkIconContainer {
@@ -74,6 +74,13 @@
         text-align: left;
         box-shadow: 0 1pt 6pt #00000029;
         line-height: 3;
+    }
+    .priceContainer {
+        @extend .detailsContainer;
+        margin-top: 0;
+        margin-bottom: 20px;
+        padding: 20px;
+        line-height: 1.5;
     }
 
     .buttonWrapper {

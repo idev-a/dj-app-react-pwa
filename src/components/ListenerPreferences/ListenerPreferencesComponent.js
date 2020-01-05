@@ -51,7 +51,9 @@ const ListenerPreferencesComponent = ({
                 </div>
                 <Details />
             </div>
-            <Price />
+            <div className="priceContainer">
+                <Price />
+            </div>
             <div className="buttonWrapper">
                 <Button className="launchButton" buttonText={content.RATE_TRACKS_TEXT} ></Button>
             </div>

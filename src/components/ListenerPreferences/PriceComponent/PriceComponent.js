@@ -11,7 +11,7 @@ const PriceComponent = ({
     onInputChange
 }) => {
     return (
-        <div className="priceContainer">
+        <React.Fragment>
             <div className="detailsHeader">
                 {content.PRICE_LABEL}
             </div>
@@ -74,7 +74,7 @@ const PriceComponent = ({
                 value={describeSelf}
                 className="inputField"                
             />
-        </div>
+        </React.Fragment>
     )
 }
 

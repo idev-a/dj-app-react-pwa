@@ -7,6 +7,7 @@ import InputField from "../../common/InputField";
 import Button from "../../common/Button";
 import PaymentCard from "./components/PaymentCardComponent";
 import Details from "../../containers/ListenerPreferences/Details";
+import Price from "../../containers/ListenerPreferences/Price";
 
 const SettingsComponent = ({ 
     displayName, 
@@ -190,6 +191,9 @@ const SettingsComponent = ({
                     </span>
                 </div>
                 <Details />
+                <div className="priceContainer">
+                    <Price />
+                </div>
             </div>
             <div className="buttonWrapper">
                 <Button className="launchButton logoutButton" buttonText={content.LOGOUT}></Button>
