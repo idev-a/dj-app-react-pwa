@@ -4,11 +4,11 @@ import content from "./content";
 import "./PaymentCardComponent.styles.scss";
 import Icon from "../../../common/IconComponent";
 
-const PaymentCardComponent = ({}) => {
+const PaymentCardComponent = (props) => {
     return (
         <div className="paymentCard">
             <div className="cancelIconContainer">
-                <Icon className={cx("cancelIcon")} iconName={"cancel"} />
+                <Icon className={cx("cancelIcon")} iconName={"Cancel"} />
             </div>
             <div className="selectCircleIconContainer">
                 <div className="selectCircleIcon">

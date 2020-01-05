@@ -1,0 +1,157 @@
+@import "../../../scss/common.styles.scss";
+
+
+#city {
+    color: $main-3;
+    margin-bottom: 10px;
+}
+.genderBoxRow {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    .genderBoxButtonWrapper {
+        .genderBoxSelectors {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 90px;
+            height: 40px;
+            font-size: $font-size-small;
+            color: $main-2;
+            border: 2pt solid $main-7;
+        }
+        .genderBoxSelectors:hover {
+            cursor: pointer;
+        }
+        .selected {
+            color: $main-1;
+            background: $main-2;
+            border-color: $main-2;
+        }
+    }
+}
+#dateOfBirth {
+    width: initial;
+    margin-bottom: 10px;
+    color: $main-3;
+    opacity: .3;
+}
+.addGenresList {
+    position: absolute;
+    padding: 0 10px;
+    right: -10px;
+    bottom: 0;
+    width: 50%;
+    height: 300px;
+    color: $main-1;
+    font-size: $font-size-small;
+    background: $main-9;
+    list-style: none;
+    overflow-y: scroll;
+    z-index: 1000;
+    .addGenresLis {
+        color: $main-1;
+    }
+    .addGenresLis:hover {
+        cursor: pointer;
+    }
+}
+#favouriteGenres {
+    position: relative;
+    width: 100%;
+    padding-bottom: 10px;
+    font-weight: 500;
+    font-size: $font-size-normal;
+    color: $main-3;
+    box-shadow: 0px 1px #00000029;
+    line-height: 3;
+    opacity: .3;
+    pointer-events: none;
+}
+.selectedGenresContainer {
+    display: flex;
+    flex-flow: row wrap;
+    margin: 10px 0 0 0;
+    padding: 0;
+    list-style: none;
+    line-height: initial;
+    .addGenresSelectedLis {
+        height: 23px;
+        margin: 3px;
+        padding: 0 10px;
+        font-size: 9px;
+        color: $main-1;
+        background: $color-4;
+        border: 1pt solid $color-4;
+        border-radius: 30px;
+    }
+}
+.addGenresSelectedLis:hover {
+    cursor: pointer;
+}
+.addTagsList {
+    @extend .addGenresList;
+    .addTagsLis {
+        @extend .addGenresLis;
+    }
+    .addTagsLis:hover {
+        cursor: pointer;
+    }
+}
+#tags {
+    @extend #favouriteGenres;
+}
+.selectedTagsContainer {
+    @extend .selectedGenresContainer;
+    .addTagsSelectedLis {
+        @extend .addGenresSelectedLis;
+    }
+}
+
+.containerLabel {
+    font-size: 11px;
+    color: $main-2;
+    opacity: .4;
+}
+.inputField {
+    width: 100%;
+    padding-bottom: 10px;
+    font-weight: 500;
+    font-size: $font-size-normal;
+    box-shadow: 0px 1px #00000029;
+    line-height: 3;
+}
+.inputFieldContainer {
+    z-index: 10;
+}
+.inputFieldContainer:hover {
+    cursor: pointer;
+}
+.addCircleIconContainer {
+    position: relative;
+    .addCircleIcon {
+        position: absolute;
+        height: 24px;
+        width: 24px;
+        right: 0;
+        bottom: -35px;
+        pointer-events: none;
+    }
+}
+.detailsHeader {
+    font-weight: 700;
+    font-size: $font-size-normal;
+}
+input, textarea {
+    border: none;
+    border-radius: 0;
+    background-color: transparent;
+    resize: none;
+    outline: none;
+}
+button {
+    padding: 0;
+    background: transparent;
+    border: none;
+    outline: none;
+}

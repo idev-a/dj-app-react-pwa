@@ -1,0 +1,95 @@
+@import "../../scss/common.styles.scss";
+
+.listenerPreferencesContainer {
+    display: flex;
+    flex-direction: column;
+    width: 407px;
+    height: 812px;
+    background: $main-5;
+    text-align: center;
+    transition: 1s;
+    .listenerPreferencesHeaderA {
+        margin: 50px 0 5px 0;
+        font-size: 18px;
+        font-weight: 700;
+    }
+    .listenerPreferencesHeaderB {
+        font-size: $font-size-l;
+        font-weight: 300;
+    }
+    .listenerPreferencesDescription {
+        padding: 25px 0;
+        font-size: $font-size-small;
+        color: $main-2;
+    }
+    .requestBoxesContainer {
+        display: flex;
+        justify-content: space-between;
+        padding: 0 20px;
+        .requestBox {
+            width: 46%;
+            padding: 30px 0;
+            color: $main-2;
+            border: 2pt solid $color-4;
+            text-align: center;
+            * {
+                pointer-events: none;
+            }
+            label, ul {
+                font-size: $font-size-small;
+                font-weight: 700;
+            }
+            ul {
+                padding: 0;
+                font-weight: 300;
+                list-style: none;
+            }
+            ul > li {
+                display: flex;
+                margin: 20px 0 0 20px;
+                font-weight: 300;
+            }
+            .checkIconContainer {
+                margin: 0 5px 0 0;
+                .checkIcon {
+                    width: 15px;
+                    height: 15px;
+                    background-size: contain !important;
+                }
+            }
+        }
+        .requestBox:hover {
+            cursor: pointer;
+        }
+        .selected {
+            color: $main-1;
+            background: $main-9;
+            border-color: $main-9;
+        }
+    }
+    .detailsContainer {
+        margin: 20px;
+        padding: 10px 20px;
+        background: $main-1;
+        text-align: left;
+        box-shadow: 0 1pt 6pt #00000029;
+        line-height: 3;
+    }
+
+    .buttonWrapper {
+        padding: 0 20px;
+        .launchButton {
+            width: 100%;
+            margin-bottom: 10px;
+            box-shadow: 0pt 3pt 6pt #00000029;
+        }
+        .launchButton:hover {
+            cursor: pointer;
+        }
+    }
+}
+.covered {
+    background: $main-3;
+    opacity: .4;
+    transition: 1s;
+}

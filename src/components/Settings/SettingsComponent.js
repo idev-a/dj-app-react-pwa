@@ -6,9 +6,16 @@ import Icon from "../../common/IconComponent";
 import InputField from "../../common/InputField";
 import Button from "../../common/Button";
 import PaymentCard from "./components/PaymentCardComponent";
+import Details from "../../containers/ListenerPreferences/Details";
 
-const SettingsComponent = ({ displayName, username, email, password, onInputChange }) => {
-    
+const SettingsComponent = ({ 
+    displayName, 
+    username, 
+    email, 
+    password, 
+    onInputChange
+}) => {
+
     const toggleExpand = (e) => {
         const el = e.target;
         el.parentNode.classList.toggle('expand');
@@ -175,13 +182,18 @@ const SettingsComponent = ({ displayName, username, email, password, onInputChan
                     <Button className="launchButton" buttonText={content.SUBCONTAINER4_BUTTON_TEXT} ></Button>
                 </div>
             </div>
-            <div className="settingsSubContainers">
+            <div className="settingsSubContainers detailsComponent">
                 <div onClick={(e) => toggleExpand(e)} className="subContainerHeader">
                     {content.SUBCONTAINER5_LABEL}
                     <span className="expandIcon">
                         +
                     </span>
                 </div>
+                <Details />
+            </div>
+            <div className="buttonWrapper">
+                <Button className="launchButton logoutButton" buttonText={content.LOGOUT}></Button>
+                <Icon className={cx("exitToAppIcon")} iconName={"exittoapp_blue"} />
             </div>
         </div>
     );
