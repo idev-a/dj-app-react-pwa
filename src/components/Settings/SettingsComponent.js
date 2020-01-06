@@ -196,8 +196,7 @@ const SettingsComponent = ({
                 </div>
             </div>
             <div className="buttonWrapper">
-                <Button className="launchButton logoutButton" buttonText={content.LOGOUT}></Button>
-                <Icon className={cx("exitToAppIcon")} iconName={"exittoapp_blue"} />
+                <Button className="launchButton logoutButton" hasIcon={true} iconName={"exittoapp_blue"} buttonText={content.LOGOUT}></Button>
             </div>
         </div>
     );
