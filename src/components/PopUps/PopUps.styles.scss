@@ -1,0 +1,38 @@
+@import "../../scss/common.styles.scss";
+
+.popUpContainer {
+    position: relative;
+    width: 343px;
+    margin: 156px 16px 0 16px;
+    background: $main-5;
+}
+
+.iconContainer {
+    .headerIcon {
+        position: absolute;
+        width: 74px;
+        height: 65px;
+        left: calc(50% - 34.5px);
+        top: -30px;
+    }
+    .cancelIcon {
+        position: absolute;
+        width: 24px;
+        height: 24px;
+        right: 25px;
+        top: 25px;
+        opacity: 1;
+    }
+}
+
+.launchButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 40px auto 18px auto;
+    box-shadow: 0 3pt 6pt #00000029;
+    outline: none;
+}
+.launchButton:hover {
+    cursor: pointer;
+}
