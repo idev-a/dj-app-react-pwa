@@ -98,7 +98,7 @@ const UploadTrackForm = ({
           onChange={onInputChange}
           placeholder={content.TRACK_GENRE_PLACEHOLDER}
         />
-        <IconComponent className="addGenreIcon" iconName="AddCircle" />
+        <IconComponent className="addGenreIcon" iconName="addcircle" />
       </div>
       <div className="ratingsContainer">
         <div className="ratingsText">{content.RATINGS_TEXT}</div>

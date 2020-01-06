@@ -24,7 +24,7 @@ const TrackPaymentDetails = ({
           className="cancelIcon"
           isIcon
           onClick={removePayment}
-          iconName="Cancel"
+          iconName="cancel"
         />
       </div>
     </div>
