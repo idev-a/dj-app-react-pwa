@@ -243,22 +243,22 @@
         }
     }
 
-    .buttonWrapper {
+    .launchButton.logoutButton {
+        display: flex;
         position: relative;
+        justify-content: center;
         width: 90%;
         height: 56px;
         margin: 10px auto;
         background: $main-7;
-        .launchButton.logoutButton {
-            width: 100%;
-            height: 100%;
-            color: $main-9;
-            font-size: $font-size-normal;
-            font-weight: 600;
+        color: $main-9;
+        font-size: $font-size-normal;
+        font-weight: 600;
+        .exitToAppIcon {
+            width: 17px;
+            height: 17px;
+            margin-left: 5px;
         }
-    }
-    .buttonWrapper:hover {
-        cursor: pointer;
     }
 
     .expand {
