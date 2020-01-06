@@ -211,24 +211,29 @@
         display: flex;
         position: relative;
 <<<<<<< HEAD
+<<<<<<< HEAD
         justify-content: center;
+=======
+>>>>>>> restyled Button to include hasIcon
         width: 90%;
         height: 56px;
         margin: 10px auto;
         background: $main-7;
+<<<<<<< HEAD
         color: $main-9;
         font-size: $font-size-normal;
         font-weight: 600;
 =======
         margin-bottom: 40px;
+=======
+>>>>>>> restyled Button to include hasIcon
         .launchButton.logoutButton {
-            width: 90%;
-            height: 56px;
-            margin: 10px auto;
-            background: $main-7;
+            width: 100%;
+            height: 100%;
             color: $main-9;
             font-size: $font-size-normal;
             font-weight: 600;
+<<<<<<< HEAD
             border: none;
         }
         .launchButton:hover {
@@ -239,7 +244,12 @@
             width: 17px;
             height: 17px;
             margin-left: 5px;
+=======
+>>>>>>> restyled Button to include hasIcon
         }
+    }
+    .buttonWrapper:hover {
+        cursor: pointer;
     }
 
     .expand {

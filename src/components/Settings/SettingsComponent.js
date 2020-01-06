@@ -205,6 +205,7 @@ const SettingsComponent = (props) => {
             </div>
 >>>>>>> minor adjustments
             <div className="buttonWrapper">
+<<<<<<< HEAD
                 <Button 
                     className="launchButton logoutButton" 
                     hasIcon={true} 
@@ -212,6 +213,9 @@ const SettingsComponent = (props) => {
                     iconName="exittoapp_blue" 
                     buttonText={content.LOGOUT}
                 ></Button>
+=======
+                <Button className="launchButton logoutButton" hasIcon={true} iconName={"exittoapp_blue"} buttonText={content.LOGOUT}></Button>
+>>>>>>> restyled Button to include hasIcon
             </div>
         </div>
     );
