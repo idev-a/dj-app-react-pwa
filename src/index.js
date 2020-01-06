@@ -8,11 +8,11 @@ import store from "./state/store";
 import "./style.scss";
 const App = () => {
   return (
-    <div className={cx("mainContainer")}>
+    <main className={cx("mainContainer")}>
       <Provider store={store}>
         <Router />
       </Provider>
-    </div>
+    </main>
   );
 };
 

@@ -1,0 +1,90 @@
+@import "../../scss/common.styles.scss";
+
+.menuComponent {
+    position: absolute;
+    .menuIconContainer {
+        position: absolute;
+        left: 20px;
+        top: 40px;
+        .menuIcon {
+            width: 24px;
+            height: 24px;
+        }
+        .menuIcon:hover {
+            cursor: pointer;
+        }
+    }
+    .menuSideNav {
+        display: flex;
+        flex-flow: column nowrap;
+        position: absolute;
+        width: 298px;
+        height: 812px;
+        left: calc(33% - 300px);
+        top: 0;
+        padding: 0px;
+        background: $main-5;
+        transition: 1s;
+        z-index: 100;
+        .cancelIconContainer {
+            position: absolute;
+            right: 20px;
+            top: 25px;
+            .cancelIcon {
+                width: 24px;
+                height: 24px;
+            }
+            .cancelIcon:hover {
+                cursor: pointer;
+            }
+        }
+        .logoContainer {
+            width: 133px;
+            height: 23px;
+            margin-top: 50px;
+        }
+        ul {
+            margin-top: 80px;
+            list-style: none;
+            li {
+                margin: 40px 0;
+            }
+            .menuLinks {
+                color: $main-2;
+                font-size: $font-size-normal;
+                font-weight: 500;
+                text-decoration: none;
+            }
+        }
+        .buttonWrapper {
+            display: flex;
+            position: absolute;
+            justify-content: center;
+            align-items: center;
+            align-self: center;
+            width: 256px;
+            height: 50px;
+            bottom: 25px;
+            background: linear-gradient(73deg, $main-3, #B4C4D9);
+            box-shadow: 0 3pt 6pt #00000029;
+            .launchButton {
+                width: 250px;
+                height: 46px;
+                font-size: $font-size-small;
+                color: $main-2;
+                background: $main-5;
+            }
+            .launchButton:hover {
+                cursor: pointer;
+            }
+        }
+    }
+    .open {
+        transform: translateX(300px);
+        transition: 1s;
+    }
+    .close {
+        transform: translateY(-300px);
+        transition: 1s;
+    }
+}
