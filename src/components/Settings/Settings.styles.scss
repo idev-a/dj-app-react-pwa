@@ -72,7 +72,7 @@
             }
         }
         .points {
-            display: flex;
+            display: none;
             flex-flow: column nowrap;
             justify-content: space-between;
             width: 105px;
@@ -81,7 +81,7 @@
         .status {
             display: flex;
             flex-flow: column nowrap;
-            margin-top: 10px;
+            margin: 10px auto 0 auto;
             line-height: 3;
             .statusBox {
                 display: flex;

@@ -3,11 +3,14 @@ import api, { genericHeaders } from "../../config";
 
 const postRegisterUserURI = "/users/register";
 const postAuthenticateUserURI = "/users/authenticate";
+const updateUserURI = "/user/update";
 
 export const REGISTER_USER_SUCCESS = "REGISTER_USER_SUCCESS";
 export const REGISTER_USER_FAILURE = "REGISTER_USER_FAILURE";
 export const AUTHENTICATE_USER_SUCCESS = "AUTHENTICATE_USER_SUCCESS";
-export const AUTHENTICATE_USER_FALIURE = "AUTHENTICATE_USER_FAILURE";
+export const AUTHENTICATE_USER_FAILURE = "AUTHENTICATE_USER_FAILURE";
+export const UPDATE_USER_SUCCESS = "UPDATE_USER_SUCCESS";
+export const UPDATE_USER_FAILURE = "UPDATE_USER_FAILURE";
 
 export const registerUserAction = (requestData) => (dispatch) =>
   fetch(`${api}${postRegisterUserURI}`, {
@@ -38,3 +41,21 @@ export const authenticateUser = (requestData) => (dispatch) =>
       localforage.setItem("x-access-token", token);
       dispatch({ type: AUTHENTICATE_USER_SUCCESS, payload: token });
     });
+
+export const updateUserInfo = (requestData) => (dispatch) => 
+  fetch(`${api}${updateUserURI}`, {
+    method: "PATCH",
+    header: genericHeaders(),
+    body: JSON.stringify(requestData)
+  })
+    .then((response) => response.json())
+    .then(() => {
+      alert("User update successful");
+      dispatch({
+        type: UPDATE_USER_SUCCESS,
+        payload: requestData
+      });
+    })
+    .catch(() => {
+      alert("User update failed")
+    })
