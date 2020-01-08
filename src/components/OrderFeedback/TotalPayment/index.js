@@ -30,22 +30,37 @@ const TrackPaymentDetails = ({
     </div>
   );
 };
-const TotalPaymentComponent = () => {
+const TotalPaymentComponent = ({ tracks, handleRemoveTrack, isAddPremium }) => {
   return (
     <div className="totalPaymentContainer">
       <div className="totalPaymentHeader">{content.TOTAL_PAY_TEXT}</div>
       <div className="trackPaymentContainer">
-        <TrackPaymentDetails
-          trackTitle="Track Title"
-          trackGenre="Genre"
-          amount={1}
-        />
+        {tracks.filter((t) => t.trackTitle.length > 0).map(t =>  <TrackPaymentDetails
+          trackTitle={t.trackTitle}
+          trackGenre={t.trackGenre || ""}
+          amount={t.selectedFeedback}
+          removePayment={() => handleRemoveTrack(t.index)}
+        />)}
+        {isAddPremium && (
+          <TrackPaymentDetails
+            trackTitle="Premium subscription / 1 year"
+            amount={99}
+            removePayment={() => handleRemoveTrack("premium")}
+          />
+        )}
       </div>
       <div className="totalAmountContainer">
         <div className="currency">{content.CURRENCY}</div>
         <div className="amountContainer">
-            <span className="amount">1</span>
-            <span className="decimalPart">.00</span>
+          <span className="amount">
+            {tracks.reduce((total, track) => {
+              if (track.trackTitle.length > 0) {
+                return total + track.selectedFeedback;
+              }
+              return total;
+            }, 0) + (isAddPremium ? 99 : 0)}
+          </span>
+          <span className="decimalPart">.00</span>
         </div>
       </div>
     </div>

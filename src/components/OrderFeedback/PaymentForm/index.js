@@ -14,7 +14,7 @@ import "./styles.scss";
 
 const PaymentForm = ({
   accountName,
-  saveCardDetails,
+  isSaveCardDetails,
   shouldCreateToken,
   onInputChange,
   stripe,
@@ -45,7 +45,7 @@ const PaymentForm = ({
         <CardNumberElement
           className="titleInput"
           placeholder={content.CARD_NUMBER_PLACEHOLDER}
-          onChange={handlePaymentFormError}
+          onReady={handlePaymentFormError}
         />
         <div className="cardDetailsContainer">
           <div>
@@ -53,7 +53,7 @@ const PaymentForm = ({
             <CardExpiryElement
               className="titleInput"
               placeholder={content.EXPIRY_DATE_PLACEHOLDER}
-              onChange={handlePaymentFormError}
+              onReady={handlePaymentFormError}
             />
           </div>
           <div>
@@ -61,7 +61,7 @@ const PaymentForm = ({
             <CardCVCElement
               className="titleInput"
               placeholder={content.CVC_PLACEHOLDER}
-              handlePaymentFormError={handlePaymentFormError}
+              onReady={handlePaymentFormError}
             />
           </div>
         </div>
@@ -69,7 +69,7 @@ const PaymentForm = ({
           <Checkbox
             className="checkBoxStyle"
             name="saveCardDetails"
-            checked={saveCardDetails}
+            checked={isSaveCardDetails}
             onChange={onInputChange}
           />
           <div className="saveCardText">{content.SAVE_CARD_TEXT}</div>
