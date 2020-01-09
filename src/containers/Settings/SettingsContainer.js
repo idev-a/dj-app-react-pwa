@@ -4,7 +4,7 @@ import SettingsComponent from "../../components/Settings/SettingsComponent";
 import { updateUserInfo } from "../../state/actions/userActions";
 import { userSelector } from "../../state/selectors/users";
 
-const SettingsContainer = (props) => {
+const SettingsContainer = ({ updateUser }) => {
     return (
         <SettingsComponent
 
