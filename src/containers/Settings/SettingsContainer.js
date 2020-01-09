@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from "react-redux";
 import SettingsComponent from "../../components/Settings/SettingsComponent";
 
-const SettingsContainer = (props) => {
+const SettingsContainer = ({ updateUser }) => {
     return (
         <SettingsComponent
 
