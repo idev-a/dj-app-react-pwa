@@ -1,8 +1,8 @@
 import React from 'react';
 import cx from "classnames";
 import content from "./content";
-import "./PaymentCardComponent.styles.scss";
-import Icon from "../../../common/IconComponent";
+import "./styles.scss";
+import Icon from "../../../../common/IconComponent";
 
 const PaymentCardComponent = (props) => {
     return (
