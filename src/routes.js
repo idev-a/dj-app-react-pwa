@@ -5,7 +5,7 @@ import AuthContainer from "./containers/Auth/AuthContainer";
 import Discover from "./containers/Discover";
 import OrderFeedbackContainer from "./containers/OrderFeedback/OrderFeedback";
 import ListenerPreferencesContainer from "./containers/ListenerPreferences";
-
+import SettingsContainer from "./containers/Settings";
 
 export default (props) => {
   return (
@@ -16,6 +16,7 @@ export default (props) => {
         <Route path="/discover" component={Discover} exact />
         <Route path="/feedback" component={OrderFeedbackContainer} exact />
         <Route path="/preferences" component={ListenerPreferencesContainer} exact />
+        <Route path="/settings" component={SettingsContainer} exact />
       </Switch>
     </BrowserRouter>
   );
