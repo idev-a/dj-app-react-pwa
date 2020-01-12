@@ -56,7 +56,6 @@ const ListenerPreferencesComponent = ({
         };
         containerContents = 
         <React.Fragment>
-<<<<<<< HEAD
             <DetailsForm 
                 handleClickToggleAddList={handleClickToggleAddList}
                 handleClickAddGenres={handleClickAddGenres}
@@ -67,17 +66,6 @@ const ListenerPreferencesComponent = ({
                 tagsAdded={tagsAdded}
             />
             <PriceForm />
-=======
-            <div className="detailsContainer">
-                <div className="detailsHeader">
-                    {content.DETAILS_TITLE}
-                </div>
-                <Details />
-            </div>
-            <div className="priceContainer">
-                <Price />
-            </div>
->>>>>>> minor adjustments
             <div className="buttonWrapper">
                 <Button
                 className="launchButton"
