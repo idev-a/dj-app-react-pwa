@@ -7,16 +7,20 @@ import Button from "../../../common/Button";
 import IconComponent from "../../../common/IconComponent";
 import { ENUMS } from "../../../utils";
 const UploadTrackForm = ({
+  index,
   trackTitle,
   trackUrl,
   mediaType,
-  onInputChange,
-  handleFeedbackChange,
+  handleTrackChanges,
   selectedFeedback,
-  handleMediaTypeChange,
 }) => {
   const fileUploadEl = useRef(null);
-  const [mediaTypeState, setMediaTypeState] = useState(mediaType);
+  const handleTrackDetailsUpdate = useCallback(
+    (e) => {
+      handleTrackChanges(e, index);
+    },
+    [index, handleTrackChanges]
+  );
   const getFileUploadInputGroup = () => (
     <InputField
       accept=".mp3"
@@ -24,51 +28,53 @@ const UploadTrackForm = ({
       id="fileUpload"
       type="file"
       className="titleInput"
-      value={trackUrl}
-      onChange={onInputChange}
+      onChange={handleTrackDetailsUpdate}
       placeholder={content.YOU_TUBE_LINK_PLACEHOLDER}
     />
   );
-  const handleUploadFile = useCallback(() => {
-    if (mediaTypeState === ENUMS.MEDIA_TYPE_YOUTUBE) {
-      setMediaTypeState(ENUMS.MEDIA_TYPE_FILEUPLOAD);
-      handleMediaTypeChange(ENUMS.MEDIA_TYPE_FILEUPLOAD);
+
+  const handleUploadButtonClick = useCallback(() => {
+    if (mediaType === ENUMS.MEDIA_TYPE_YOUTUBE) {
+      handleTrackDetailsUpdate({ id: "mediaType", value: ENUMS.MEDIA_TYPE_FILEUPLOAD }, index);
       setTimeout(() => fileUploadEl.current.click(), 500);
     } else {
-      setMediaTypeState(ENUMS.MEDIA_TYPE_YOUTUBE);
-      handleMediaTypeChange(ENUMS.MEDIA_TYPE_YOUTUBE);
+      handleTrackDetailsUpdate({ id: "mediaType", value: ENUMS.MEDIA_TYPE_FILEUPLOAD }, index);
     }
-  }, [mediaTypeState, handleMediaTypeChange]);
+  }, [index, mediaType, handleTrackDetailsUpdate]);
+
+  const handleSelectedFeedback = useCallback((args) => {
+    handleTrackDetailsUpdate({ id: "selectedFeedback", value: args }, index);
+  }, [handleTrackDetailsUpdate, index]);
   return (
     <section className="uploadTrackFormContainer">
       <header className="uploadTrackHeaderContainer">
         <div className="uploadTrackHeaderText">
           {content.UPLOAD_TRACK_HEADER}
         </div>
-        <div className="uploadTrackNumber">Track</div>
+        <div className="uploadTrackNumber">{`Track ${index+1}`}</div>
       </header>
       <div className="trackInputContainer">
-        <label for="titleName" className="titleLabel">
+        <label htmlFor="titleName" className="titleLabel">
           {content.TITLE_LABEL}
         </label>
         <InputField
           id="trackTitle"
           className="titleInput"
           value={trackTitle}
-          onChange={onInputChange}
+          onChange={handleTrackDetailsUpdate}
           placeholder={content.TITLE_INPUT_PLACEHOLDER}
         />
         <label for="trackUrl" className="titleLabel">
-          {mediaTypeState === ENUMS.MEDIA_TYPE_YOUTUBE
+          {mediaType === ENUMS.MEDIA_TYPE_YOUTUBE
             ? content.YOU_TUBE_LABEL
             : content.FILE_TO_UPLOAD_LABEL}
         </label>
-        {mediaTypeState === ENUMS.MEDIA_TYPE_YOUTUBE ? (
+        {mediaType === ENUMS.MEDIA_TYPE_YOUTUBE ? (
           <InputField
             id="trackUrl"
             className="titleInput"
             value={trackUrl}
-            onChange={onInputChange}
+            onChange={handleTrackDetailsUpdate}
             placeholder={content.YOU_TUBE_LINK_PLACEHOLDER}
           />
         ) : (
@@ -79,11 +85,11 @@ const UploadTrackForm = ({
       <div className="buttonWrapper">
         <Button
           buttonText={
-            mediaTypeState === ENUMS.MEDIA_TYPE_YOUTUBE
+            mediaType === ENUMS.MEDIA_TYPE_YOUTUBE
               ? content.UPLOAD_YOUR_TRACK
               : content.ADD_YOUTUBE_URL
           }
-          onClick={handleUploadFile}
+          onClick={handleUploadButtonClick}
           className="uploadButton"
         />
       </div>
@@ -95,7 +101,7 @@ const UploadTrackForm = ({
           id="trackGenre"
           className="titleInput"
           value={trackTitle}
-          onChange={onInputChange}
+          onChange={handleTrackDetailsUpdate}
           placeholder={content.TRACK_GENRE_PLACEHOLDER}
         />
         <IconComponent className="addGenreIcon" iconName="AddCircle" />
@@ -109,7 +115,7 @@ const UploadTrackForm = ({
               "ratingsButton",
               selectedFeedback === 1 && "isSelected"
             )}
-            onClick={() => handleFeedbackChange(1)}
+            onClick={() => handleSelectedFeedback(1)}
           />
           <Button
             buttonText={content.RATINGS_TIER_100}
@@ -117,7 +123,7 @@ const UploadTrackForm = ({
               "ratingsButton",
               selectedFeedback === 5 && "isSelected"
             )}
-            onClick={() => handleFeedbackChange(5)}
+            onClick={() => handleSelectedFeedback(5)}
           />
         </div>
       </div>

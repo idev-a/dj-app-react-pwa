@@ -14,9 +14,9 @@
     border-bottom: 1px $color-2 solid;
   }
   .trackPaymentContainer {
-    padding: 24px 0px 26px 0px;
+    padding-bottom: 26px;
     .trackPaymentComponent {
-      padding: 0px 15px 8px 24px;
+      padding: 15px 15px 15px 24px;
       display: flex;
       flex-direction: row;
       justify-content: space-between;

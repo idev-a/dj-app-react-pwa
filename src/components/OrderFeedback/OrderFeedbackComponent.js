@@ -10,19 +10,18 @@ import PaymentForm from "./PaymentForm";
 import Button from "../../common/Button";
 
 const OrderFeedbackComponent = ({
+  tracks,
   accountName,
-  trackUrl,
-  trackTitle,
-  mediaType,
+  isAddPremium,
   onInputChange,
   onSubmitFeedback,
   saveCardInformation,
   shouldCreateToken,
   isPaymentFormReady,
-  handleFeedbackChange,
-  selectedFeedback,
-  handleMediaTypeChange,
+  handleTrackChanges,
   handlePaymentFormError,
+  handleAddAnotherTrack,
+  isSaveCardDetails,
 }) => {
   return (
     <div className="orderFeedbackContainer">
@@ -43,27 +42,33 @@ const OrderFeedbackComponent = ({
           <p>{content.HIT_CAMPAIGN_DESCRIPTION1}</p>
         </div>
       </section>
-      <UploadTrackForm
-        trackTitle={trackTitle}
-        trackUrl={trackUrl}
-        mediaType={mediaType}
-        onInputChange={onInputChange}
-        handleFeedbackChange={handleFeedbackChange}
-        selectedFeedback={selectedFeedback}
-        handleMediaTypeChange={handleMediaTypeChange}
-      />
-      <div className="addAnotherTrack" role="button">
+      {tracks.map(
+        ({ trackTitle, trackUrl, mediaType, selectedFeedback }, index) => (
+          <UploadTrackForm
+            index={index}
+            trackTitle={trackTitle}
+            trackUrl={trackUrl}
+            mediaType={mediaType}
+            handleTrackChanges={handleTrackChanges}
+            selectedFeedback={selectedFeedback}
+          
+          />
+        )
+      )}
+      <div className="addAnotherTrack" role="button" onClick={handleAddAnotherTrack}>
         {content.ADD_ANOTHER_TRACK}
       </div>
-      <UpgradeToPro onInputChange={onInputChange} />
-      <TotalPaymentComponent onInputChange={onInputChange} />
+      <UpgradeToPro onInputChange={onInputChange} isAddPremium={isAddPremium} />
+      <TotalPaymentComponent handleRemoveTrack={() => {}} tracks={tracks} isAddPremium={isAddPremium} />
       <StripeProvider apiKey="pk_test_HhCQqzIxD2wH7EXferZHg18W">
         <Elements>
           <PaymentForm
+            onInputChange={onInputChange}
             accountName={accountName}
             submitPayment={saveCardInformation}
             shouldCreateToken={shouldCreateToken}
             handlePaymentFormError={handlePaymentFormError}
+            isSaveCardDetails={isSaveCardDetails}
           />
         </Elements>
       </StripeProvider>
