@@ -11,7 +11,7 @@ const PriceContainerComponent = ({
     onInputChange
 }) => {
     return (
-        <section className="formContainer">
+        <React.Fragment>
             <header className="formHeaderContainer">
                 <div className="formHeaderText">
                     {content.PRICE_LABEL}
@@ -78,7 +78,7 @@ const PriceContainerComponent = ({
                     onChange={onInputChange}
                 />
             </div>
-        </section>
+        </React.Fragment>
     )
 }
 

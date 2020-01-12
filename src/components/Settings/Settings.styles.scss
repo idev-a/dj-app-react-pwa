@@ -10,7 +10,7 @@
         position: relative;
         flex-flow: column nowrap;
         align-items: center;
-        height: 196px;
+        height: 220px;
         background: url("../../assets/img/settings/MaskGroup.png") 0% 0% / cover no-repeat;
         .exitIcon {
             position: absolute;
@@ -35,7 +35,7 @@
             align-items: center;
             width: 95px;
             height: 95px;
-            top: 98px;
+            top: 125px;
             border-radius: 50%;
             background: linear-gradient(180deg, $main-7, #363D46);
             .profilePicIcon {

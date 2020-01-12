@@ -3,8 +3,8 @@ import cx from "classnames";
 import content from "./content";
 import Icon from "../../common/IconComponent";
 import "./ListenerPreferences.styles.scss";
-import DetailsForm from "./DetailsForm";
-import PriceForm from "./PriceForm";
+import DetailsContainer from "../../containers/ListenerPreferences/Details";
+import PriceContainer from "../../containers/ListenerPreferences/Price";
 import Button from "../../common/Button";
 
 const ListenerPreferencesComponent = ({ 
@@ -32,40 +32,22 @@ const ListenerPreferencesComponent = ({
         };
         containerContents = 
         <React.Fragment>
-            <DetailsForm 
-                handleClickToggleAddList={handleClickToggleAddList}
-                handleClickAddGenres={handleClickAddGenres}
-                handleClickAddTags={handleClickAddTags}
-                genresList={genresList}
-                tagsList={tagsList}
-                genresAdded={genresAdded}
-                tagsAdded={tagsAdded}
-            />
-            <div className="buttonWrapper">
-                <Button className="launchButton" buttonText={content.RATE_TRACKS_TEXT} ></Button>
-                <Button className="launchButton" buttonText={content.ORDER_FEEDBACK_TEXT} ></Button>
-            </div>
-            <div className="buttonWrapper">
-                <Button className="launchButton" buttonText={content.ORDER_FEEDBACK_TEXT} ></Button>
-            </div>
-        </React.Fragment>;
-    }
-    if (hitRequestBox && proRequestBox) {
-        style = {
-            height: "initial"
-        };
-        containerContents = 
-        <React.Fragment>
-            <DetailsForm 
-                handleClickToggleAddList={handleClickToggleAddList}
-                handleClickAddGenres={handleClickAddGenres}
-                handleClickAddTags={handleClickAddTags}
-                genresList={genresList}
-                tagsList={tagsList}
-                genresAdded={genresAdded}
-                tagsAdded={tagsAdded}
-            />
-            <PriceForm />
+            <section className="formContainer">
+                <header className="formHeaderContainer">
+                    <div className="formHeaderText">
+                        {content.DETAILS_TITLE}
+                    </div>
+                </header>
+                <DetailsContainer 
+                    handleClickToggleAddList={handleClickToggleAddList}
+                    handleClickAddGenres={handleClickAddGenres}
+                    handleClickAddTags={handleClickAddTags}
+                    genresList={genresList}
+                    tagsList={tagsList}
+                    genresAdded={genresAdded}
+                    tagsAdded={tagsAdded}
+                />
+            </section>
             <div className="buttonWrapper">
                 <Button
                 className="launchButton"
@@ -80,8 +62,46 @@ const ListenerPreferencesComponent = ({
                 disabled={""}
                 />
             </div>
+        </React.Fragment>;
+    }
+    if (hitRequestBox && proRequestBox) {
+        style = {
+            height: "initial"
+        };
+        containerContents = 
+        <React.Fragment>
+            <section className="formContainer">
+                <header className="formHeaderContainer">
+                    <div className="formHeaderText">
+                        {content.DETAILS_TITLE}
+                    </div>
+                </header>
+                <DetailsContainer 
+                    handleClickToggleAddList={handleClickToggleAddList}
+                    handleClickAddGenres={handleClickAddGenres}
+                    handleClickAddTags={handleClickAddTags}
+                    genresList={genresList}
+                    tagsList={tagsList}
+                    genresAdded={genresAdded}
+                    tagsAdded={tagsAdded}
+                />
+            </section>
+            <section className="formContainer">
+                <PriceContainer />
+            </section>
             <div className="buttonWrapper">
-                <Button className="launchButton" buttonText={content.ORDER_FEEDBACK_TEXT} ></Button>
+                <Button
+                className="launchButton"
+                buttonText={content.RATE_TRACKS_TEXT}
+                onClick={""}
+                disabled={""}
+                />
+                <Button
+                className="launchButton"
+                buttonText={content.ORDER_FEEDBACK_TEXT}
+                onClick={""}
+                disabled={""}
+                />
             </div>
         </React.Fragment>;
     }

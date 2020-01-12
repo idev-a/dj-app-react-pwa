@@ -1,8 +1,8 @@
 import React from 'react';
 import content from "./content";
 import "./styles.scss";
-import Details from "../../../containers/ListenerPreferences/Details";
-import Price from "../../../containers/ListenerPreferences/Price";
+import DetailsContainer from "../../../containers/ListenerPreferences/Details";
+import PriceContainer from "../../../containers/ListenerPreferences/Price";
 
 const ListenerPreferencesForm = ({ toggleExpand }) => {
     return (
@@ -15,9 +15,9 @@ const ListenerPreferencesForm = ({ toggleExpand }) => {
                     {content.SUBCONTAINER5_LABEL}
                 </div>
             </header>
-            <Details />
+            <DetailsContainer />
             <div className="priceContainer">
-                <Price />
+                <PriceContainer />
             </div>
         </section>
     );

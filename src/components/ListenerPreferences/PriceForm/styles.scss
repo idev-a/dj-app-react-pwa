@@ -2,7 +2,7 @@
 
 .formContainer{
     .formHeaderContainer {
-        display: initial;
+        display: initial !important;
         .formHeaderDescription {
             margin-top: 20px;
             font-size: $font-size-small;
