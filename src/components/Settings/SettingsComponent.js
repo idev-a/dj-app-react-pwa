@@ -206,16 +206,24 @@ const SettingsComponent = (props) => {
 >>>>>>> minor adjustments
             <div className="buttonWrapper">
 <<<<<<< HEAD
+<<<<<<< HEAD
                 <Button 
                     className="launchButton logoutButton" 
                     hasIcon={true} 
+=======
+                <Button 
+                    className="launchButton logoutButton" 
+>>>>>>> changed Button icon incorporation method
                     iconClassName="exitToAppIcon" 
                     iconName="exittoapp_blue" 
                     buttonText={content.LOGOUT}
                 ></Button>
+<<<<<<< HEAD
 =======
                 <Button className="launchButton logoutButton" hasIcon={true} iconName={"exittoapp_blue"} buttonText={content.LOGOUT}></Button>
 >>>>>>> restyled Button to include hasIcon
+=======
+>>>>>>> changed Button icon incorporation method
             </div>
         </div>
     );

@@ -212,13 +212,18 @@
         position: relative;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         justify-content: center;
 =======
 >>>>>>> restyled Button to include hasIcon
+=======
+        justify-content: center;
+>>>>>>> changed Button icon incorporation method
         width: 90%;
         height: 56px;
         margin: 10px auto;
         background: $main-7;
+<<<<<<< HEAD
 <<<<<<< HEAD
         color: $main-9;
         font-size: $font-size-normal;
@@ -240,16 +245,21 @@
             cursor: pointer;
         }
 >>>>>>> minor adjustments
+=======
+        color: $main-9;
+        font-size: $font-size-normal;
+        font-weight: 600;
+>>>>>>> changed Button icon incorporation method
         .exitToAppIcon {
             width: 17px;
             height: 17px;
             margin-left: 5px;
+<<<<<<< HEAD
 =======
 >>>>>>> restyled Button to include hasIcon
+=======
+>>>>>>> changed Button icon incorporation method
         }
-    }
-    .buttonWrapper:hover {
-        cursor: pointer;
     }
 
     .expand {
