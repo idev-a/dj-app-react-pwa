@@ -45,13 +45,16 @@ const ListenerPreferencesComponent = ({
                 <Button className="launchButton" buttonText={content.RATE_TRACKS_TEXT} ></Button>
                 <Button className="launchButton" buttonText={content.ORDER_FEEDBACK_TEXT} ></Button>
             </div>
-        </React.Fragment>
+            <div className="buttonWrapper">
+                <Button className="launchButton" buttonText={content.ORDER_FEEDBACK_TEXT} ></Button>
+            </div>
+        </React.Fragment>;
     }
     if (hitRequestBox && proRequestBox) {
         style = {
             height: "initial"
         };
-        containerContents =
+        containerContents = 
         <React.Fragment>
             <DetailsForm 
                 handleClickToggleAddList={handleClickToggleAddList}
@@ -77,7 +80,10 @@ const ListenerPreferencesComponent = ({
                 disabled={""}
                 />
             </div>
-        </React.Fragment>
+            <div className="buttonWrapper">
+                <Button className="launchButton" buttonText={content.ORDER_FEEDBACK_TEXT} ></Button>
+            </div>
+        </React.Fragment>;
     }
     if (!hitRequestBox && !proRequestBox) {
         style = {

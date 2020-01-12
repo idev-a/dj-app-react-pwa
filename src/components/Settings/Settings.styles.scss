@@ -1,9 +1,9 @@
 @import "../../scss/common.styles.scss";
 
 .settingsContainer {
+    width: 100%;
     height: 812px;
     background: $main-5;
-    text-align: center;
     overflow-y: scroll;
     .settingsHeadingContainer {
         display: flex;
@@ -11,7 +11,7 @@
         flex-flow: column nowrap;
         align-items: center;
         height: 196px;
-        background: url("../../assets/img/settings/MaskGroup.png") 0% 0% / contain no-repeat;
+        background: url("../../assets/img/settings/MaskGroup.png") 0% 0% / cover no-repeat;
         .exitIcon {
             position: absolute;
             width: 20px;
@@ -29,25 +29,25 @@
             letter-spacing: .7pt;
         }
         .profilePicIconContainer {
+            display: flex;
             position: absolute;
+            justify-content: center;
+            align-items: center;
             width: 95px;
             height: 95px;
-            top: 88px;
+            top: 98px;
             border-radius: 50%;
             background: linear-gradient(180deg, $main-7, #363D46);
             .profilePicIcon {
-                position: absolute;
-                width: 105px;
-                height: 105px;
-                left: -2px;
-                top: -2px;
+                width: 90px;
+                height: 90px;
             }
         }
     }
     .settingsStatusContainer {
         display: flex;
         justify-content: space-between;
-        margin: 0 26.5px 10px 26.5px;
+        margin: 0px 26.5px 10px 26.5px;
         .subHeaderLabel {
             color: #9CAEC7;
             font-size: 10px;
@@ -71,7 +71,7 @@
             }
         }
         .points {
-            display: flex;
+            display: none;
             flex-flow: column nowrap;
             justify-content: space-between;
             width: 105px;
@@ -80,7 +80,7 @@
         .status {
             display: flex;
             flex-flow: column nowrap;
-            margin-top: 10px;
+            margin: 10px auto 0 auto;
             line-height: 3;
             .statusBox {
                 display: flex;
@@ -114,62 +114,18 @@
             @extend .points;
         }
     }
-    .settingsSubContainers {
-        height: 65px;
-        margin: 10px 22px;
-        background: $main-1;
-        box-shadow: 0 1pt 6pt #00000029;
-        padding: 0 22px;
-        text-align: left;
+    .formContainer {
+        height: 16px;
         overflow: hidden;
-        .subContainerHeader {
+        .formHeaderContainer {
             position: relative;
-            margin: 22px 0 22px 0;
-            font-size: $font-size-normal;
-            font-weight: 700;
-            letter-spacing: 1.4pt;
-            line-height: 1.5;
             .expandIcon {
                 position: absolute;
                 right: 0;
+                pointer-events: none;
             }
-        }
-        .subContainerHeader:hover {
-            cursor: pointer;
-        }
-        .subContainerLabel {
-            color: $main-2;
-            margin-top: 15px;
-            font-size: 11px;
-            letter-spacing: 1.1pt;
-            line-height: 1;
-            opacity: .4;
-        }
-        .inputFieldContainer {
-            margin-bottom: 30px;
-            input {
-                width: 100%;
-                color: $main-3;
-                font-size: $font-size-normal;
-                border: none;
-                border-bottom: 1px solid rgba(107, 121, 140, .4);
-                border-radius: 0;
-                background-color: transparent;
-                resize: none;
-                outline: none;
-                box-sizing: border-box;
-                line-height: 3;
-            }
-            ::-webkit-input-placeholder { /* Edge */
-                opacity: .3;
-            }
-            
-            :-ms-input-placeholder { /* Internet Explorer 10-11 */
-                opacity: .3;
-            }
-            
-            ::placeholder {
-                opacity: .3;
+            .formHeaderText {
+                pointer-events: none;
             }
         }
         .buttonWrapper {
@@ -179,9 +135,8 @@
             align-self: center;
             width: 100%;
             height: 50px;
-            margin: 0 0 30px 0;
             background: linear-gradient(74deg, $main-3, #B4C4D9);
-            box-shadow: 0 3pt 6pt #00000029;
+            box-shadow: 0 3px 6px #00000029;
             .launchButton {
                 width: 98%;
                 height: 46px;
@@ -193,37 +148,23 @@
                 cursor: pointer;
             }
         }
+    }
 
-        .subscriptionRenewBox {
-            display: flex;
-            flex-flow: column nowrap;
-            align-items: center;
-            padding: 20px 0 10px 0;
-            border: 2pt solid $main-7;
-            line-height: 1.5;
-            .subscriptionRenewBoxLabel {
-                color: $main-2;
-                font-size: $font-size-small;
-                font-weight: 500;
-                line-height: 2;
-            }
-            .subscriptionRenewBoxDate {
-                color: $main-3;
-                font-size: $font-size-normal;
-                font-weight: 700;
-            }
-            .subscriptionRenewBoxAmount {
-                color: #9CAEC7;
-                font-size: 21px;
-                font-weight: 200;
-            }
-        }
-        .subscriptionDescription {
-            width: 244px;
-            color: $main-2;
-            font-size: $font-size-small;
-            text-align: center;
-            margin: 40px auto;
+    .launchButton.logoutButton {
+        display: flex;
+        position: relative;
+        justify-content: center;
+        width: 90%;
+        height: 56px;
+        margin: 10px auto;
+        background: $main-7;
+        color: $main-9;
+        font-size: $font-size-normal;
+        font-weight: 600;
+        .exitToAppIcon {
+            width: 17px;
+            height: 17px;
+            margin-left: 5px;
         }
     }
 

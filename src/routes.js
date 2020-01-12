@@ -3,7 +3,7 @@ import { Switch, BrowserRouter, Route } from "react-router-dom";
 import LandingPage from "./containers/LandingPage";
 import AuthContainer from "./containers/Auth/AuthContainer";
 import Discover from "./containers/Discover";
-import OrderFeedbackContainer from "./containers/OrderFeedback/OrderFeedback";
+import OrderFeedbackContainer from "./containers/OrderFeedback";
 import ListenerPreferencesContainer from "./containers/ListenerPreferences";
 import SettingsContainer from "./containers/Settings";
 
