@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-import DetailsComponent from "../../../components/ListenerPreferences/DetailsComponent/DetailsComponent";
+import DetailsForm from "../../../components/ListenerPreferences/DetailsForm";
 
 class DetailsContainer extends Component {
     state = {
@@ -54,7 +54,7 @@ class DetailsContainer extends Component {
 
     render() {
         return (
-            <DetailsComponent 
+            <DetailsForm 
                 handleClickToggleAddList={this.handleClickToggleAddList}
                 handleClickAddGenres={this.handleClickAddGenres}
                 handleClickAddTags={this.handleClickAddTags}

@@ -1,6 +1,6 @@
 import React from 'react';
 import cx from "classnames";
-import content from "../content";
+import content from "./content";
 import "./styles.scss";
 import Icon from "../../../common/IconComponent";
 import InputField from "../../../common/InputField";

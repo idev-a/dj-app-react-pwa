@@ -1,5 +1,5 @@
 import React from 'react';
-import content from "../content";
+import content from "./content";
 import "./styles.scss";
 import InputField from "../../../common/InputField";
 import TextAreaField from "../../../common/TextAreaField";

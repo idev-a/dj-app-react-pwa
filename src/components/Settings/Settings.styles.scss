@@ -119,14 +119,6 @@
         overflow: hidden;
         .formHeaderContainer {
             position: relative;
-<<<<<<< HEAD
-=======
-            margin: 18px 0 18px 0;
-            font-size: $font-size-normal;
-            font-weight: 700;
-            letter-spacing: 1.4pt;
-            line-height: 1.5;
->>>>>>> minor adjustments
             .expandIcon {
                 position: absolute;
                 right: 0;
@@ -156,109 +148,23 @@
                 cursor: pointer;
             }
         }
-<<<<<<< HEAD
-=======
-
-        .subscriptionRenewBox {
-            display: flex;
-            flex-flow: column nowrap;
-            align-items: center;
-            padding: 20px 0 10px 0;
-            border: 2pt solid $main-7;
-            line-height: 1.5;
-            .subscriptionRenewBoxLabel {
-                color: $main-2;
-                font-size: $font-size-small;
-                font-weight: 500;
-                line-height: 2;
-            }
-            .subscriptionRenewBoxDate {
-                color: $main-3;
-                font-size: $font-size-normal;
-                font-weight: 700;
-            }
-            .subscriptionRenewBoxAmount {
-                color: #9CAEC7;
-                font-size: 21px;
-                font-weight: 200;
-            }
-        }
-        .subscriptionDescription {
-            width: 244px;
-            color: $main-2;
-            font-size: $font-size-small;
-            text-align: center;
-            margin: 40px auto;
-        }
-    }
-    .detailsComponent {
-        line-height: 3;
-        .subContainerHeader + .containerLabel {
-            line-height: initial;
-        }
-        .inputFieldContainer {
-            margin-bottom: 0;
-        }
-        .priceContainer {
-            margin-top: 10px;
-            margin-bottom: 20px;
-            line-height: 1.5;
-        }
->>>>>>> minor adjustments
     }
 
     .launchButton.logoutButton {
         display: flex;
         position: relative;
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
         justify-content: center;
-=======
->>>>>>> restyled Button to include hasIcon
-=======
-        justify-content: center;
->>>>>>> changed Button icon incorporation method
         width: 90%;
         height: 56px;
         margin: 10px auto;
         background: $main-7;
-<<<<<<< HEAD
-<<<<<<< HEAD
         color: $main-9;
         font-size: $font-size-normal;
         font-weight: 600;
-=======
-        margin-bottom: 40px;
-=======
->>>>>>> restyled Button to include hasIcon
-        .launchButton.logoutButton {
-            width: 100%;
-            height: 100%;
-            color: $main-9;
-            font-size: $font-size-normal;
-            font-weight: 600;
-<<<<<<< HEAD
-            border: none;
-        }
-        .launchButton:hover {
-            cursor: pointer;
-        }
->>>>>>> minor adjustments
-=======
-        color: $main-9;
-        font-size: $font-size-normal;
-        font-weight: 600;
->>>>>>> changed Button icon incorporation method
         .exitToAppIcon {
             width: 17px;
             height: 17px;
             margin-left: 5px;
-<<<<<<< HEAD
-=======
->>>>>>> restyled Button to include hasIcon
-=======
->>>>>>> changed Button icon incorporation method
         }
     }
 

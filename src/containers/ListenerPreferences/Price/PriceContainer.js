@@ -1,10 +1,10 @@
 import React from 'react';
 import { connect } from "react-redux";
-import PriceComponent from "../../../components/ListenerPreferences/PriceComponent/PriceComponent";
+import PriceForm from "../../../components/ListenerPreferences/PriceForm";
 
 const PriceContainer = (props) => {
     return (
-        <PriceComponent/>
+        <PriceForm />
     );
 };
 
