@@ -19,7 +19,8 @@ const TextAreaField = ({
     };
   }
   return (
-    <textarea
+    <textarea 
+      rows="8"
       id={id}
       className={className}
       style={style}

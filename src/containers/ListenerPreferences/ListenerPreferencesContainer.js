@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from "react-redux";
 import ListenerPreferencesComponent from '../../components/ListenerPreferences/ListenerPreferencesComponent';
 
 class ListenerPreferencesContainer extends Component {
@@ -16,54 +17,28 @@ class ListenerPreferencesContainer extends Component {
     handleClickRequestBoxes = (e) => {
         const el = e.target;
         if (el.id === "hitRequestBox") {
-            if (this.state.hitRequestBox === true) {
-                this.setState({
-                    hitRequestBox: !this.state.hitRequestBox
-                })
-            } else {
-                this.setState({
-                    hitRequestBox: true
-                })
-            }
+            this.setState({
+                hitRequestBox: !this.state.hitRequestBox
+            })
         } else {
-            if (this.state.proRequestBox === true) {
-                this.setState({
-                    proRequestBox: !this.state.proRequestBox
-                })
-            } else {
-                this.setState({
-                    proRequestBox: true
-                })
-            }
+            this.setState({
+                proRequestBox: !this.state.proRequestBox
+            })
         }
     }
 
     handleClickToggleAddList = (e, type) => {
-        const el = e.target;
+        console.log('hi');
         if (type === "genres") {
-            if (this.state.genresList === true) {
-                this.setState({
-                    genresList: !this.state.genresList,
-                    tagsList: false
-                })
-            } else {
-                this.setState({
-                    genresList: true,
-                    tagsList: false
-                })
-            }
+            this.setState({
+                genresList: !this.state.genresList,
+                tagsList: false
+            });
         } else {
-            if (this.state.tagsList === true) {
-                this.setState({
-                    genresList: false,
-                    tagsList: false
-                })
-            } else {
-                this.setState({
-                    genresList: false,
-                    tagsList: !this.state.tagsList
-                })
-            }
+            this.setState({
+                genresList: false,
+                tagsList: !this.state.tagsList
+            });
         }
     }
 
@@ -130,4 +105,15 @@ class ListenerPreferencesContainer extends Component {
     }
 }
 
-export default ListenerPreferencesContainer;
+const mapStateToProps = (state) => ({
+
+});
+
+const mapActions = (dispatch) => ({
+
+});
+
+export default connect (
+    mapStateToProps,
+    mapActions
+)(ListenerPreferencesContainer);

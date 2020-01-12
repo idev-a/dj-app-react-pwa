@@ -1,7 +1,13 @@
 export default {
+    MENU_LABEL: "MAIN MENU",
+    SEARCH: "Search",
     DISCOVER: "Discover",
-    LISTENER_PREFERENCES: "Listener Preferences",
     ORDER_FEEDBACK: "Order Feedback",
+    ORDER_HISTORY: "Order History",
     SETTINGS: "Settings",
+    MORE_LABEL: "MORE",
+    MENU_MORE_1: "Listener Preferencess",
+    MENU_MORE_2: "Give PRO Feedback",
+    MENU_MORE_3: "Give Listener Ratings",
     LOGOUT: "LOGOUT"
 }

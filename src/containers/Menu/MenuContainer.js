@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from "react-redux";
 import MenuComponent from "../../components/Menu/MenuComponent";
 
 const MenuContainer = ({
@@ -13,4 +14,15 @@ const MenuContainer = ({
     )
 }
 
-export default MenuContainer;
+const mapStateToProps = (state) => ({
+
+});
+
+const mapActions = (dispatch) => ({
+
+});
+
+export default connect (
+    mapStateToProps,
+    mapActions
+)(MenuContainer);

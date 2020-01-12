@@ -2,9 +2,10 @@ import React from "react";
 import { Switch, BrowserRouter, Route } from "react-router-dom";
 import LandingPage from "./containers/LandingPage";
 import AuthContainer from "./containers/Auth/AuthContainer";
-import OrderFeedbackContainer from "./containers/OrderFeedback";
 import Discover from "./containers/Discover";
-import ListenerPreferencesContainer from "./containers/ListenerPreferences/ListenerPreferencesContainer";
+import OrderFeedbackContainer from "./containers/OrderFeedback/OrderFeedback";
+import ListenerPreferencesContainer from "./containers/ListenerPreferences";
+
 
 export default (props) => {
   return (

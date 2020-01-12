@@ -14,35 +14,54 @@ const MenuComponent = ({
     return (
         <div className="menuComponent">
             <div onClick={(e) => handleClickMenuToggle(e)} className="menuIconContainer">
-                <Icon className={cx("menuIcon")} iconName={"menu"} />
+                <Icon className={cx("menuIcon")} iconName="menu" />
             </div>
             <div className={`menuSideNav ${toggle}`}>
                 <div onClick={(e) => handleClickMenuToggle(e)} className="cancelIconContainer">
-                    <Icon className={cx("cancelIcon")} iconName={"cancel"} />
+                    <Icon className={cx("cancelIcon")} iconName="cancel" />
                 </div>
                 <HearBKHeader />
-                <ul className="menuLinksList">
-                    <li className="menuLinksLis">
+                <div className="menuBody">
+                    <label className="menuLabel">
+                        {content.MENU_LABEL}
+                    </label>
+                    <ul className="menuLinksList">
+                        <Link to="/search" className="menuLinks">
+                            <Icon className="menuLinkIcons menuSearchIcon" iconName="search" />
+                            {content.SEARCH}
+                        </Link>
                         <Link to="/discover" className="menuLinks">
+                            <Icon className="menuLinkIcons" iconName="discover" />
                             {content.DISCOVER}
                         </Link>
-                    </li>
-                    <li className="menuLinksLis">
-                        <Link to="/preferences" className="menuLinks">
-                            {content.LISTENER_PREFERENCES}
-                        </Link>
-                    </li>
-                    <li className="menuLinksLis">
                         <Link to="/feedback" className="menuLinks">
+                            <Icon className="menuLinkIcons" iconName="feedback" />
                             {content.ORDER_FEEDBACK}
                         </Link>
-                    </li>
-                    <li className="menuLinksLis">
+                        <Link to="/order-history" className="menuLinks">
+                            <Icon className="menuLinkIcons" iconName="history" />
+                            {content.ORDER_HISTORY}
+                        </Link>
                         <Link to="/settings" className="menuLinks">
+                            <Icon className="menuLinkIcons" iconName="settings" />
                             {content.SETTINGS}
                         </Link>
-                    </li>
-                </ul>
+                    </ul>
+                    <label className="menuLabel">
+                        {content.MORE_LABEL}
+                    </label>
+                    <ul className="menuMoreList">
+                        <Link to="/preferences" className="menuLinks">
+                            {content.MENU_MORE_1}
+                        </Link>
+                        <Link to="" className="menuLinks">
+                            {content.MENU_MORE_2}
+                        </Link>
+                        <Link to="" className="menuLinks">
+                            {content.MENU_MORE_3}
+                        </Link>
+                    </ul>
+                </div>
                 <div className="buttonWrapper">
                     <Button className="launchButton" buttonText={content.LOGOUT} ></Button>
                 </div>
