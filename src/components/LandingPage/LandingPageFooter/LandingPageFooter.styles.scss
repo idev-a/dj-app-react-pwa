@@ -26,9 +26,10 @@
         .footerMenuColumn {
             display: flex;
             flex-direction: column;
-            div {
+            a {
                 font-size: $font-size-small;
                 color: $main-1;
+                text-decoration: none;
             }
         }
     }

@@ -2,6 +2,7 @@ import React from 'react';
 import './LandingPageFooter.styles.scss';
 import content from './content';
 import IconComponent from '../../../common/IconComponent';
+import { Link } from "react-router-dom";
 
 const LandingPageFooter = () => {
     return (
@@ -13,14 +14,14 @@ const LandingPageFooter = () => {
             </div>
             <div className="footerMenuContainer">
                 <div className="footerMenuColumn">
-                    <div>{content.ABOUT_US}</div>
-                    <div>{content.MANAGE_PREFERENCES}</div>
-                    <div>{content.TERMS_AND_CONDITIONS}</div>
+                    <Link to="/hq/about-us/">{content.ABOUT_US}</Link>
+                    <Link to="/hq/manage-preferences/">{content.MANAGE_PREFERENCES}</Link>
+                    <Link to="/hq/terms-conditions/">{content.TERMS_AND_CONDITIONS}</Link>
                 </div>
                 <div className="footerMenuColumn">
-                    <div>{content.COOKIE_POLICY}</div>
-                    <div>{content.PRIVACY_POLICY}</div>
-                    <div>{content.REFUND_POLICY}</div>
+                    <Link to="/hq/cookie-policy/">{content.COOKIE_POLICY}</Link>
+                    <Link to="/hq/privacy-policy/">{content.PRIVACY_POLICY}</Link>
+                    <Link to="/hq/refund-policy/">{content.REFUND_POLICY}</Link>
                 </div>
             </div>
         </div>
