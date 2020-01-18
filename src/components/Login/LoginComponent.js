@@ -47,7 +47,7 @@ const LoginComponent = ({ email, password, onInputChange, loginUser }) => {
           onClick={loginUser}
         ></Button>
       </div>
-      <div className="forgotPassword">
+      <div className="forgotPassword" style={{ display: "none" }}>
         <span>{content.FORGOT_PASSWORD}</span>
       </div>
     </div>
