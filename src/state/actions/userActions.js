@@ -5,6 +5,7 @@ const postRegisterUserURI = "/users/register";
 const postAuthenticateUserURI = "/users/authenticate";
 const postPreferencesURI = "/users";
 const updateUserURI = "/settings/update";
+const getOrderHistoryUrl = "/orders/history";
 
 export const REGISTER_USER_SUCCESS = "REGISTER_USER_SUCCESS";
 export const REGISTER_USER_FAILURE = "REGISTER_USER_FAILURE";
@@ -14,6 +15,7 @@ export const UPDATE_USER_SUCCESS = "UPDATE_USER_SUCCESS";
 export const UPDATE_USER_FAILURE = "UPDATE_USER_FAILURE";
 export const GET_USER_SUCCESS = "GET_USER_SUCCESS";
 export const GET_USER_FAILURE = "GET_USER_FAILURE";
+export const GET_HISTORY_SUCCESS = "GET_HISTORY_SUCCESS";
 
 export const registerUserAction = (requestData) => (dispatch) =>
   fetch(`${api}${postRegisterUserURI}`, {
@@ -72,8 +74,8 @@ export const postListenerPreferences = (payload, navigateToPath) => (
 };
 export const updateUserInfo = (requestData) => (dispatch) => 
   fetch(`${api}${updateUserURI}`, {
-    method: "PATCH",
-    header: genericHeaders(),
+    method: "POST",
+    header: authHeaders(),
     body: JSON.stringify(requestData)
   })
     .then((response) => response.json())
@@ -87,3 +89,16 @@ export const updateUserInfo = (requestData) => (dispatch) =>
     .catch(() => {
       alert("User update failed")
     });
+
+export const getOrderHistory = () => (dispatch) => 
+  fetch(`${api}${getOrderHistoryUrl}`, {
+    method: "GET",
+    headers: authHeaders()
+  })
+    .then((res) => res.json())
+    .then((requestData) => {
+      dispatch({
+        type: GET_HISTORY_SUCCESS,
+        payload: requestData
+      })
+    })
