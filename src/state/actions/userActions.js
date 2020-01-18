@@ -1,8 +1,9 @@
-import localforage from "localforage";
-import api, { genericHeaders } from "../../config";
+import history from "../../history";
+import api, { genericHeaders, formDataHeader, authHeaders } from "../../config";
 
 const postRegisterUserURI = "/users/register";
 const postAuthenticateUserURI = "/users/authenticate";
+const postPreferencesURI = "/users";
 const updateUserURI = "/settings/update";
 
 export const REGISTER_USER_SUCCESS = "REGISTER_USER_SUCCESS";
@@ -22,7 +23,6 @@ export const registerUserAction = (requestData) => (dispatch) =>
   })
     .then((response) => response.json())
     .then(() => {
-      alert("User registration successful");
       dispatch({
         type: REGISTER_USER_SUCCESS,
         payload: requestData,
@@ -40,10 +40,36 @@ export const authenticateUser = (requestData) => (dispatch) =>
   })
     .then((response) => response.json())
     .then(({ token }) => {
-      localforage.setItem("x-access-token", token);
+      history.push("/preferences");
+      localStorage.setItem("x-access-token", token);
       dispatch({ type: AUTHENTICATE_USER_SUCCESS, payload: token });
     });
 
+export const uploadUserProfile = (fileToUpload, email) => {
+  const formData = new FormData();
+  formData.append("profileImage", fileToUpload);
+  formData.append("email", email);
+  return fetch(`${api}${postAuthenticateUserURI}`, {
+    method: "POST",
+    headers: formDataHeader(),
+    body: formData,
+  });
+};
+
+export const postListenerPreferences = (payload, navigateToPath) => (
+  dispatch
+) => {
+  const requestHeaders = authHeaders();
+  return fetch(`${api}${postPreferencesURI}`, {
+    method: "POST",
+    headers: requestHeaders,
+    body: JSON.stringify(payload),
+  })
+    .then((res) => res.json())
+    .then(() => { 
+      history.push(navigateToPath);
+    });
+};
 export const updateUserInfo = (requestData) => (dispatch) => 
   fetch(`${api}${updateUserURI}`, {
     method: "PATCH",

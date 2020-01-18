@@ -3,15 +3,20 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import SignUpComponent from "../../components/SignUp/SignUpComponent";
 import "../../scss/common.styles.scss";
-import { registerUserAction } from "../../state/actions/userActions";
+import { registerUserAction, uploadUserProfile } from "../../state/actions/userActions";
 import { userSelector } from "../../state/selectors/users";
 
-const SignUpContainer = ({ registerUser }) => {
+const SignUpContainer = ({ registerUser, handleSuccess }) => {
   const [userData, setUserData] = useState({});
   const [fileToUpload, setFileToUpload] = useState(null);
   const handleNewUserRegister = useCallback(() => {
-    registerUser(userData);
-  }, [registerUser, userData]);
+    registerUser(userData).then(async() => {
+      const response =  await uploadUserProfile(fileToUpload,userData.email);
+      if (response.ok) {
+        handleSuccess();
+      }
+    });
+  }, [registerUser, userData, fileToUpload, handleSuccess]);
   const handleInputChange = (e) => {
     if (
       e.target.id === "profileImg" &&

@@ -15,10 +15,9 @@ const SignUpComponent = ({
   registerUser,
 }) => {
   const fileUploadRef = useRef(null);
-  const handleAddPhotoClick = useCallback(() => {
-    debugger;
-    fileUploadRef.current.focus();
-  }, [fileUploadRef]);
+  const handleAddPhotoClick = () => {
+    fileUploadRef.current.click();
+  };
 
   return (
     <div className="signUpContainer">
@@ -80,13 +79,13 @@ const SignUpComponent = ({
           iconName="addphoto"
           onClick={handleAddPhotoClick}
         />
-        <input
-          name="profileImg"
-          ref={fileUploadRef}
-          id="fileUploadInput"
-          style={{ display: "none"}}
+        <InputField
+          accept=".mp3"
+          passableRef={fileUploadRef}
+          id="fileUpload"
           type="file"
-          onChange={onInputChange}
+          className="fileInputClass"
+          onChange={handleAddPhotoClick}
         />
       </div>
       <div className="buttonWrapper">

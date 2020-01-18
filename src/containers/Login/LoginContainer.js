@@ -8,7 +8,6 @@ const LoginContainer = ({ loginUser }) => {
   const [loginDetails, setLoginDetails] = useState({});
   const [isRememberUser, setIsRememberUser] = useState(false);
   const handleInputChange = (e) => {
-    debugger;
     if (e.target.name) {
       setIsRememberUser(e.target.checked);
     } else {

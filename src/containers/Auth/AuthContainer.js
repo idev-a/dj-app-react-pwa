@@ -10,7 +10,7 @@ const AuthContainer = (props) => {
   const [selectedTabIndex, setSelectedTabIndex] = useState(0);
   const renderComponent = useCallback(() => {
     return selectedTabIndex === 1 ? (
-      <SignUp {...props} />
+      <SignUp {...props} handleSuccess={() => setSelectedTabIndex(0)}/>
     ) : (
       <Login {...props} />
     );
