@@ -152,6 +152,12 @@ const OrderFeedbackContainer = ({
     console.log(e);
   }, []);
 
+  const [genresAddedArray, setGenresAdded] = useState([]);
+
+  const setAddGenre = useCallback((genre) => {
+    !genresAddedArray.includes(genre) ? setGenresAdded(prevState => prevState.concat(genre)) : setGenresAdded(prevState => prevState.filter(index => index !== genre));
+  }, [genresAddedArray]);
+
   return (
     <Component
       accountName={accountName}
@@ -167,6 +173,8 @@ const OrderFeedbackContainer = ({
       handleTrackChanges={handleTrackUpdates}
       isPaymentFormReady={true}
       handleAddAnotherTrack={dispatchAddNewTrack}
+      setAddGenre={setAddGenre}
+      genresAddedArray={genresAddedArray}
     />
   );
 };

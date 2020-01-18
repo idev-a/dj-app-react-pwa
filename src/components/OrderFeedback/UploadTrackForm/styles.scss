@@ -69,17 +69,62 @@
   .metaInputContainer {
     @extend .trackInputContainer;
     position: relative;
+    #trackGenre {
+      margin-bottom: 11px;
+    }
     .addGenreIcon {
       position: absolute;
       height: 24px;
       width: 24px;
-      right: 2%;
+      right: 0;
       top: 35%;
+    }
+    .addGenresList {
+      position: absolute;
+      padding: 0;
+      right: 0;
+      bottom: 50px;
+      width: 50%;
+      height: 300px;
+      color: $main-1;
+      font-size: $font-size-small;
+      background: $main-9;
+      list-style: none;
+      overflow-y: scroll;
+      z-index: 1000;
+      .addGenresLis {
+          padding: 10px;
+          background: transparent;
+          color: $main-1;
+          border: none;
+      }
+      .addGenresLis:hover {
+          cursor: pointer;
+      }
+    }
+  }
+  .selectedGenresContainer {
+    display: flex;
+    flex-flow: row wrap;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    line-height: initial;
+    .addGenresSelectedLis {
+        height: 23px;
+        margin: 3px;
+        padding: 0 10px;
+        font-size: 9px;
+        color: $main-1;
+        background: $color-4;
+        border: 1pt solid $color-4;
+        border-radius: 30px;
     }
   }
   .ratingsContainer {
     display: flex;
     flex-direction: column;
+    margin-top: 11px;
     .ratingsText {
       font-size: $font-size-small;
       color: $main-2;

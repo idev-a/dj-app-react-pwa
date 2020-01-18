@@ -22,6 +22,8 @@ const OrderFeedbackComponent = ({
   handlePaymentFormError,
   handleAddAnotherTrack,
   isSaveCardDetails,
+  setAddGenre,
+  genresAddedArray
 }) => {
   return (
     <div className="orderFeedbackContainer">
@@ -51,6 +53,8 @@ const OrderFeedbackComponent = ({
             mediaType={mediaType}
             handleTrackChanges={handleTrackChanges}
             selectedFeedback={selectedFeedback}
+            setAddGenre={setAddGenre}
+            genresAddedArray={genresAddedArray}
           
           />
         )
