@@ -1,12 +1,10 @@
 import React from 'react';
-import cx from "classnames";
 import content from "./content";
-import "./NewCard.styles.scss";
-import Icon from "../../../common/IconComponent";
+import "./styles.scss";
 import InputField from "../../../common/InputField";
 import Button from "../../../common/Button";
 
-const NewCardComponent = ({
+const NewCard = ({
     nameOnCard,
     cardNumber,
     expirationDate,
@@ -77,11 +75,11 @@ const NewCardComponent = ({
     );
 };
 
-NewCardComponent.defaultProps = {
+NewCard.defaultProps = {
     nameOnCard: "",
     cardNumber: "",
     expirationDate: "",
     cvc: ""
 };
 
-export default NewCardComponent;
+export default NewCard;

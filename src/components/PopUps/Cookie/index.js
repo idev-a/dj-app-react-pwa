@@ -1,15 +1,14 @@
 import React from 'react';
-import cx from "classnames";
 import content from "./content";
-import "./Cookie.styles.scss";
+import "./styles.scss";
 import Icon from "../../../common/IconComponent";
 import Button from "../../../common/Button";
 
-const CookieComponent = (props) => {
+const Cookie = (props) => {
     return (
         <div className="cookieContainer">
             <div className="mainIconContainer">
-                <Icon className={cx("mainIcon")} iconName={"COOKIE_1"} />
+                <Icon className="mainIcon" iconName="COOKIE_1" />
             </div>
             <div className="descriptionContainer">
                 <div className="description">
@@ -50,8 +49,8 @@ const CookieComponent = (props) => {
     );
 };
 
-CookieComponent.defaultProps = {
+Cookie.defaultProps = {
 
 };
 
-export default CookieComponent;
+export default Cookie;

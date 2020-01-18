@@ -1,42 +1,34 @@
 import React from 'react';
-import cx from "classnames";
 import "./PopUps.styles.scss";
-import AddToHome from "../../containers/PopUps/AddToHome";
-import Cookie from "../../containers/PopUps/Cookie";
-import NewCard from "../../containers/PopUps/NewCard";
 import Icon from "../../common/IconComponent";
+import AddToHome from "./AddToHome";
+import Cookie from "./Cookie";
+import NewCard from "./NewCard";
+import OrderProcessing from "./OrderProcessing";
+import Success from "./Success";
 
 const PopUpsComponent = ({ 
-    addToHome, 
-    cookie,
-    newCard
+    name
 }) => {
-    let component;
-    if (addToHome) {
-        component = <AddToHome />;
-    } else if (cookie) {
-        component = <Cookie />;
-    } else if (newCard) {
-        component = <NewCard />;
-    } else {
-        component = "";
-    }
-
     return (
         <div className="popUpContainer">
             <div className="iconContainer">
-                <Icon className={cx("headerIcon")} iconName={"logo_hexagon"} />
-                <Icon className={cx("cancelIcon")} iconName={"cancel"} />
+                <Icon className="headerIcon" iconName="logo_hexagon" />
+                <Icon className="cancelIcon" iconName="cancel" />
             </div>
-            {component}
+            {
+                name === "addToHome" ? <AddToHome /> : 
+                name === "cookie" ? <Cookie /> :
+                name === "newCard" ? <NewCard /> : 
+                name === "orderProcessing" ? <OrderProcessing /> : 
+                name === "success" ? <Success /> : ""
+            }
         </div>
     );
 };
 
 PopUpsComponent.defaultProps = {
-    addToHome: false,
-    cookie: true,
-    newCard: false
+
 }
 
 export default PopUpsComponent;

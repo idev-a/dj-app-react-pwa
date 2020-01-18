@@ -31,9 +31,7 @@ class SettingsContainer extends Component {
     
     render() {
         return (
-            <SettingsComponent
-    
-            />
+            <SettingsComponent />
         );
     }
 };

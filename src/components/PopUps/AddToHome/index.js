@@ -1,22 +1,21 @@
 import React from 'react';
-import cx from "classnames";
 import content from "./content";
-import "./AddToHome.styles.scss";
+import "./styles.scss";
 import Icon from "../../../common/IconComponent";
 import Button from "../../../common/Button";
 
-const AddToHomeComponent = (props) => {
+const AddToHome = (props) => {
     return (
         <div className="addToHomeContainer">
             <div className="homeHeader">
                 {content.MAIN_HEADER}
             </div>
             <div className="mainIconContainer">
-                <Icon className={cx("mainIcon")} iconName={"Group_48"} />
+                <Icon className="mainIcon" iconName="Group_48" />
             </div>
             <div className="descriptionContainer">
                 {content.DESCRIPTION_PART_1}
-                <Icon className={cx("installIcon")} iconName={"install"} />
+                <Icon className="installIcon" iconName="install" />
                 {content.DESCRIPTION_PART_2}
                 <br/>
                 <span className="descriptionBold">
@@ -37,8 +36,8 @@ const AddToHomeComponent = (props) => {
     );
 };
 
-AddToHomeComponent.defaultProps = {
+AddToHome.defaultProps = {
 
 };
 
-export default AddToHomeComponent;
+export default AddToHome;
