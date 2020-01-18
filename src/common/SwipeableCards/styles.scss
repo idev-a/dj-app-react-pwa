@@ -1,0 +1,25 @@
+@import "../../scss/variables.scss";
+
+.swipeTextLabel {
+    font-size: $font-size-l;
+    padding: 5px 20px;
+    border: 5px solid black;
+    position: absolute;
+    top: 60%;
+    right: 40%;
+    letter-spacing: 2px;
+    font-weight: 700;
+    border-radius: 5px;
+    &.hit {
+        border-color: $color-3;
+        color: $color-3
+    }
+    &.miss {
+        border-color: red;
+        color: red;
+    }
+    &.potential {
+        border-color: $color-1;
+        color: $color-1;
+    }
+}

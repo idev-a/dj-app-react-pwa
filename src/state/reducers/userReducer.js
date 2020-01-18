@@ -9,6 +9,7 @@ const initialState = {
   user: {},
   authToken: undefined,
   error: false,
+  isPremiumUser: false,
 };
 
 const reducer = (state = initialState, { type, payload }) => {

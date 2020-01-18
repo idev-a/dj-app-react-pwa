@@ -8,13 +8,14 @@ import OrderProcessing from "./OrderProcessing";
 import Success from "./Success";
 
 const PopUpsComponent = ({ 
-    name
+    name,
+    hasCloseIcon,
 }) => {
     return (
         <div className="popUpContainer">
             <div className="iconContainer">
                 <Icon className="headerIcon" iconName="logo_hexagon" />
-                <Icon className="cancelIcon" iconName="cancel" />
+                {hasCloseIcon && <Icon className="cancelIcon" iconName="cancel" />}
             </div>
             {
                 name === "addToHome" ? <AddToHome /> : 
@@ -28,7 +29,7 @@ const PopUpsComponent = ({
 };
 
 PopUpsComponent.defaultProps = {
-
+    hasCloseIcon: true,
 }
 
 export default PopUpsComponent;

@@ -42,7 +42,8 @@
             left: 5%;
             width: 90%;
             margin: 60px auto 0 auto;
-            transition: ease;
+            transition: ease 2s;
+            
             .songCardContainer {
                 height: 459px;
                 color: $main-1;
