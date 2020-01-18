@@ -1,5 +1,5 @@
 // const apiU = "https://hearbk-server.herokuapp.com";
-const api = "http://localhost:3000";
+const api = "https://hearbk-server-test.herokuapp.com";
 // const api = "https://hearbk.appspot.com";
 
 export const genericHeaders = () => ({
