@@ -4,7 +4,7 @@ export default {
   CARD_NUMBER_LABEL: "CARD NUMBER",
   CARD_NUMBER_PLACEHOLDER: "---- / ---- / ---- / ----",
   EXPIRY_DATE_LABEL: "EXPIRY DATE",
-  EXPIRY_DATE_PLACEHOLDER: "-- / ----",
+  EXPIRY_DATE_PLACEHOLDER: "-- / --",
   CVC_LABEL: "CVC",
   CVC_PLACEHOLDER: "---",
   SAVE_CARD_TEXT: "Save this card for future use",
