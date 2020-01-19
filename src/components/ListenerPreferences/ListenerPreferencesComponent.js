@@ -6,6 +6,7 @@ import "./ListenerPreferences.styles.scss";
 import DetailsForm from "./DetailsForm";
 import PriceForm from "./PriceForm";
 import Button from "../../common/Button";
+import Menu from "../Menu";
 
 const ListenerPreferencesComponent = ({
   handleClickRequestBoxes,
@@ -29,6 +30,10 @@ const ListenerPreferencesComponent = ({
   tagsAdded,
   handleButtonClick,
   handleGenderChange,
+  saveButtonIsShowing,
+  handleSaveFormData,
+  menuIsOpen,
+  handleClickMenuToggle
 }) => {
   let hitRequestBoxSelected = hitRequestBox ? "selected" : "";
   let proRequestBoxSelected = proRequestBox ? "selected" : "";
@@ -65,18 +70,31 @@ const ListenerPreferencesComponent = ({
             handleGenderChange={handleGenderChange}
           />
         </section>
-        <div className="buttonWrapper">
-          <Button
-            className="launchButton"
-            buttonText={content.RATE_TRACKS_TEXT}
-            onClick={() => handleButtonClick(true)}
-          ></Button>
-          <Button
-            className="launchButton"
-            buttonText={content.ORDER_FEEDBACK_TEXT}
-            onClick={() => handleButtonClick(false)}
-          ></Button>
-        </div>
+        {saveButtonIsShowing && (
+          <div className="buttonWrapper">
+            <Button
+              className="launchButton saveButton"
+              buttonText={content.SAVE}
+              onClick={() => handleSaveFormData()}
+            ></Button>
+          </div>
+        )}
+
+        {!saveButtonIsShowing && (
+          <div className="buttonWrapper">
+            <div className="buttonLabel">{content.BUTTON_LABEL}</div>
+            <Button
+              className="launchButton"
+              buttonText={content.RATE_TRACKS_TEXT}
+              onClick={() => handleButtonClick(true)}
+            ></Button>
+            <Button
+              className="launchButton"
+              buttonText={content.ORDER_FEEDBACK_TEXT}
+              onClick={() => handleButtonClick(false)}
+            ></Button>
+          </div>
+        )}
       </React.Fragment>
     );
   }
@@ -117,35 +135,43 @@ const ListenerPreferencesComponent = ({
             describeSelf={bio}
           />
         </section>
-        <div className="buttonWrapper">
-          <Button
-            className="launchButton"
-            buttonText={content.RATE_TRACKS_TEXT}
-            onClick={() => handleButtonClick(true)}
-            disabled={""}
-          />
-          <Button
-            className="launchButton"
-            buttonText={content.ORDER_FEEDBACK_TEXT}
-            onClick={() => handleButtonClick(false)}
-            disabled={""}
-          />
-        </div>
+        {saveButtonIsShowing && (
+          <div className="buttonWrapper">
+            <Button
+              className="launchButton saveButton"
+              buttonText={content.SAVE}
+              onClick={() => handleSaveFormData()}
+            ></Button>
+          </div>
+        )}
+
+        {!saveButtonIsShowing && (
+          <div className="buttonWrapper">
+            <div className="buttonLabel">{content.BUTTON_LABEL}</div>
+            <Button
+              className="launchButton"
+              buttonText={content.RATE_TRACKS_TEXT}
+              onClick={() => handleButtonClick(true)}
+            ></Button>
+            <Button
+              className="launchButton"
+              buttonText={content.ORDER_FEEDBACK_TEXT}
+              onClick={() => handleButtonClick(false)}
+            ></Button>
+          </div>
+        )}
       </React.Fragment>
     );
   }
-  if (!hitRequestBox && !proRequestBox) {
-    style = {
-      height: "812px",
-    };
-    containerContents = "";
-  }
 
   return (
-    <div className="listenerPreferencesContainer" style={style}>
-      <header className="listenerPreferencesHeader">
-        <Icon iconName="MenuIcon" className="menuIcon" />
-      </header>
+    <div className="listenerPreferencesContainer">
+      {/* <div onClick={() => handleClickMenuToggle(!menuIsOpen)} className="menuIconContainer">
+        <Icon iconName="menu" className="menuIcon" />
+      </div>
+      {menuIsOpen && (
+        <Menu handleClickMenuToggle={handleClickMenuToggle} />
+      )} */}
       <section className="listenerPreferencesHeaderText">
         <div>
           <strong>{content.HEADER_A}</strong>

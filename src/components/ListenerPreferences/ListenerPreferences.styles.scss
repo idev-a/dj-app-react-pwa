@@ -2,29 +2,26 @@
 
 .listenerPreferencesContainer {
     @extend .componentContainer;
+    position: relative;
     width: 100%;
-    height: 812px;
+    height: 100vh;
     background: $main-5;
     text-align: center;
-    .listenerPreferencesHeader {
-        display: flex;
-        flex-direction: row;
-        align-items: "center";
-        justify-content: space-between;
-        padding: 30px 17px 16px 17px;
-        .menuIcon {
-            height: $font-size-xxl;
-            width: $font-size-xxl;
-        }
+    overflow: scroll;
+    .menuIcon {
+        position: absolute;
+        height: $font-size-xxl;
+        width: $font-size-xxl;
+        left: 17px;
+        top: 30px;
     }
     .listenerPreferencesHeaderText {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        padding: 0 33%;
-        text-align: center;
-        width: 33%;
+        margin-top: 40px;
         font-size: $font-size-l;
+        text-align: center;
     }
     .listenerPreferencesDescription {
         padding: 25px 0;
@@ -34,13 +31,12 @@
     .requestBoxesContainer {
         display: flex;
         justify-content: space-between;
-        margin-bottom: 10px;
-        padding: 0 20px;
+        margin: 0 22px 10px 22px;
         .requestBox {
             display: flex;
             flex-flow: column nowrap;
             align-items: center;
-            width: 45%;
+            width: 48%;
             color: $main-2;
             border: 2pt solid $color-4;
             text-align: left;
@@ -49,21 +45,25 @@
                 pointer-events: none;
             }
             .requestBoxContents {
-                width: 60%;
-                margin: 40px;
-                padding-top: 12px;
+                margin: 35px 0 50px 0;
+                text-align: center;
                 label, ul {
                     font-size: $font-size-small;
                     font-weight: 700;
                 }
+                label {
+                    text-align: center;
+                    letter-spacing: 1.2px;
+                }
                 ul {
+                    margin: 11px 0 0 0;
                     padding: 0;
                     font-weight: 300;
                     list-style: none;
                 }
                 ul > li {
                     display: flex;
-                    margin-top: 10px;
+                    margin-top: 15px;
                     font-weight: 300;
                 }
                 .checkIconContainer {
@@ -94,8 +94,16 @@
             margin: 5px 0;
             box-shadow: 0pt 3pt 6pt #00000029;
         }
-        .launchButton:hover {
-            cursor: pointer;
+        .launchButton.saveButton {
+            background: $main-7;
+            color: $main-9;
+            font-size: $font-size-normal;
+            font-weight: 600;
+            text-align: center;
+            box-shadow: none;
+        }
+        .buttonLabel {
+            @extend .listenerPreferencesDescription;
         }
     }
 }

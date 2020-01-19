@@ -1,19 +1,21 @@
 import React, { useState } from 'react';
 import { connect } from "react-redux";
 import OrderFeedbackHistory from "../../components/OrderFeedbackHistory";
-import { userSelector } from "../../state/selectors/users";
 import { getOrderHistory } from '../../state/actions/userActions';
 import { orderHistorySelector } from '../../state/selectors/order';
 
 const OrderFeedbackHistoryContainer = ({ history = [] }) => {
 
     const [hitStats, setToggle] = useState(true);
+    const [menuIsOpen, handleClickMenuToggle] = useState(false);
 
     return (
         <OrderFeedbackHistory 
             hitStats={hitStats}
             setToggle={setToggle}
             data={history}
+            menuIsOpen={menuIsOpen}
+            handleClickMenuToggle={handleClickMenuToggle}
         />
     );
 };

@@ -8,13 +8,14 @@ import IconComponent from "../../../common/IconComponent";
 import { ENUMS } from "../../../utils";
 const UploadTrackForm = ({
   index,
+  genres = [],
   trackTitle,
   trackUrl,
   mediaType,
   handleTrackChanges,
   selectedFeedback,
   setAddGenre,
-  genresAddedArray
+  selectedGenre,
 }) => {
   const fileUploadEl = useRef(null);
   const handleTrackDetailsUpdate = useCallback(
@@ -56,7 +57,7 @@ const UploadTrackForm = ({
         <div className="uploadTrackHeaderText">
           {content.UPLOAD_TRACK_HEADER}
         </div>
-        <div className="uploadTrackNumber">{`Track ${index+1}`}</div>
+        <div className="uploadTrackNumber">{`TRACK ${index+1}`}</div>
       </header>
       <div className="trackInputContainer">
         <label htmlFor="titleName" className="titleLabel">
@@ -114,13 +115,16 @@ const UploadTrackForm = ({
         </div>
         {genresListIsOpen && (
           <ul className="addGenresList">
-            {content.FAVOURITE_GENRES.map((genre) => {
+            {genres.map((genre) => {
               return (
                 <div className="addGenresButtonWrapper">
                   <Button 
-                    buttonText={genre}
+                    buttonText={genre.name}
                     className="addGenresLis"
-                    onClick={() => setAddGenre(genre)}
+                    onClick={() =>{ 
+                      setAddGenre(genre, index);
+                      setOpenClosedGenres(false);
+                    }}
                   />
                 </div>
               );
@@ -128,19 +132,18 @@ const UploadTrackForm = ({
           </ul>
         )}
       </div>
-      {(genresAddedArray.length > 0) && (
+      {selectedGenre && (
         <ul className="selectedGenresContainer">
-          {genresAddedArray.map((genre) => {
-            return (
               <div className="addGenresSelectedButtonWrapper">
                 <Button 
-                  buttonText={genre.toUpperCase()}
+                  buttonText={selectedGenre.name.toUpperCase()}
                   className="addGenresSelectedLis"
-                  onClick={() => setAddGenre(genre)}
+                  onClick={() => {
+                    setOpenClosedGenres(false);
+                    setAddGenre(undefined);
+                  }}
                 />
               </div>
-            )
-          })}
         </ul>
       )}
       <div className="ratingsContainer">

@@ -6,6 +6,7 @@ const InputField = ({
   className,
   placeholder,
   hasIcon,
+  iconPosition,
   onChange,
   iconName,
   type,
@@ -14,12 +15,25 @@ const InputField = ({
 }) => {
   let style;
   if (hasIcon) {
-    style = {
-      background: `url('../../img/${iconName}.png') no-repeat`,
-      backgroundSize: "17px 17px",
-      backgroundPosition: "8px 16px",
-      paddingLeft: "30px",
-    };
+    switch (iconPosition) {
+      case "right": 
+        style = {
+          background: `url('../../img/${iconName}.png') no-repeat`,
+          backgroundSize: "17px 17px",
+          backgroundPosition: "100% 15%",
+          paddingRight: "30px"
+        }
+        break;
+      default: {
+        style = {
+          background: `url('../../img/${iconName}.png') no-repeat`,
+          backgroundSize: "17px 17px",
+          backgroundPosition: "8px 16px",
+          paddingLeft: "30px"
+        }
+        break;
+      }
+    }
   }
   return (
     <input

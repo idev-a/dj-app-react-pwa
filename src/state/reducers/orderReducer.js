@@ -4,6 +4,7 @@ import {
   UPDATE_TRACK_DETAILS,
   ADD_ANOTHER_TRACK,
   REMOVE_TRACK,
+  RESET_STATE,
 } from "../actions/orderActions";
 import { GET_HISTORY_SUCCESS } from "../actions/userActions";
 
@@ -13,6 +14,7 @@ const initialTrackState = {
   trackTitle: "",
   trackUrl: "",
   fileToUpload: undefined,
+  genreId: undefined,
 };
 
 const initialState = {
@@ -55,6 +57,10 @@ const reducer = (state = initialState, { type, payload, ...action }) => {
   }
   if (type === GET_HISTORY_SUCCESS) {
     return { ...state, orderHistory: payload };
+  }
+
+  if (type === RESET_STATE) {
+    return initialState;
   }
   return state;
 };

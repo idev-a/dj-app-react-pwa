@@ -4,7 +4,7 @@ import IconComponent from "../../common/IconComponent";
 import content from "./content";
 import "./styles.scss";
 import UploadTrackForm from "./UploadTrackForm";
-import UpgradeToPro from "./UpgradeToPro";
+import UpgradeToPremium from "./UpgradeToPremium";
 import TotalPaymentComponent from "./TotalPayment";
 import PaymentForm from "./PaymentForm";
 import Button from "../../common/Button";
@@ -13,6 +13,8 @@ import PopUpComponent from "../PopUps/PopUpsComponent";
 const OrderFeedbackComponent = ({
   tracks,
   accountName,
+  genres,
+  selectedGenre,
   isAddPremium,
   onInputChange,
   onSubmitFeedback,
@@ -24,15 +26,24 @@ const OrderFeedbackComponent = ({
   handleAddAnotherTrack,
   isSaveCardDetails,
   setAddGenre,
-  genresAddedArray,
   isProcessing,
   isSuccess,
+  handleRemoveTrack,
+  handleLogoClick,
+  handleRateTrackClick,
+  handlePlaceNewOrderClick,
+  closeSuccessPopUp,
 }) => {
   return (
     <div className="orderFeedbackContainer">
       <header className="orderFeedbackHeader">
         <IconComponent iconName="MenuIcon" className="menuIcon" />
-        <IconComponent iconName="HearBKSilverLogo" className="silverLogo" />
+        <Button
+          isIcon
+          iconName="HearBKSilverLogo"
+          className="silverLogo"
+          onClick={handleLogoClick}
+        />
       </header>
       <section className="orderFeedbackHeaderText">
         <div>
@@ -48,25 +59,39 @@ const OrderFeedbackComponent = ({
         </div>
       </section>
       {tracks.map(
-        ({ trackTitle, trackUrl, mediaType, selectedFeedback }, index) => (
+        (
+          { trackTitle, trackUrl, mediaType, selectedFeedback, genreId },
+          index
+        ) => (
           <UploadTrackForm
             index={index}
+            genres={genres}
             trackTitle={trackTitle}
             trackUrl={trackUrl}
             mediaType={mediaType}
             handleTrackChanges={handleTrackChanges}
             selectedFeedback={selectedFeedback}
             setAddGenre={setAddGenre}
-            genresAddedArray={genresAddedArray}
-          
+            selectedGenre={genres.find((g) => g._id === genreId)}
           />
         )
       )}
-      <div className="addAnotherTrack" role="button" onClick={handleAddAnotherTrack}>
+      <div
+        className="addAnotherTrack"
+        role="button"
+        onClick={handleAddAnotherTrack}
+      >
         {content.ADD_ANOTHER_TRACK}
       </div>
-      <UpgradeToPro onInputChange={onInputChange} isAddPremium={isAddPremium} />
-      <TotalPaymentComponent handleRemoveTrack={() => {}} tracks={tracks} isAddPremium={isAddPremium} />
+      <UpgradeToPremium
+        onInputChange={onInputChange}
+        isAddPremium={isAddPremium}
+      />
+      <TotalPaymentComponent
+        handleRemoveTrack={handleRemoveTrack}
+        tracks={tracks}
+        isAddPremium={isAddPremium}
+      />
       <StripeProvider apiKey="pk_test_HhCQqzIxD2wH7EXferZHg18W">
         <Elements>
           <PaymentForm
@@ -87,8 +112,19 @@ const OrderFeedbackComponent = ({
           disabled={!isPaymentFormReady}
         />
       </div>
-      {isProcessing && <PopUpComponent name="orderProcessing" hasCloseIcon={false}/>}
-      {isSuccess && <PopUpComponent name="success" />}
+      {isProcessing && (
+        <PopUpComponent name="orderProcessing" hasCloseIcon={false} />
+      )}
+      {isSuccess && (
+        <PopUpComponent
+          name="success"
+          handlers={{
+            rateTrackClick: handleRateTrackClick,
+            placeNewOrderClick: handlePlaceNewOrderClick,
+          }}
+          closeClick={closeSuccessPopUp}
+        />
+      )}
     </div>
   );
 };

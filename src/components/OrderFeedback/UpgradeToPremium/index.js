@@ -6,10 +6,12 @@ import IconComponent from "../../../common/IconComponent";
 import "./styles.scss";
 import "rc-checkbox/assets/index.css";
 
-const UpgradeToPro = ({ isAddPremium, onInputChange }) => {
+const UpgradeToPremium = ({ isAddPremium, onInputChange }) => {
   return (
-    <div className="upgradeToProContainer">
-      <div className="upgradeToProHeader">{content.UPGRADE_TO_PRO}</div>
+    <div className="upgradeToPremiumContainer">
+      <div className="upgradeToPremiumHeader">
+        {content.UPGRADE_TO} <span className="premiumHeader">{content.PREMIUM}</span>
+      </div>
       <div className="subscriptionContainer">
         <div className="insiderContainer">
           <div className="insiderText">{content.BECOME_AN_INSIDER}</div>
@@ -41,15 +43,15 @@ const UpgradeToPro = ({ isAddPremium, onInputChange }) => {
   );
 };
 
-UpgradeToPro.propTypes = {
+UpgradeToPremium.propTypes = {
   isAddPremium: PropTypes.bool,
   onInputChange: PropTypes.func,
 };
 
-UpgradeToPro.defaultProps = {
+UpgradeToPremium.defaultProps = {
   isAddPremium: false,
   onInputChange: () => {},
 };
 
 
-export default UpgradeToPro;
+export default UpgradeToPremium;

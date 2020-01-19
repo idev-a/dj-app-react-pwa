@@ -1,18 +1,21 @@
 @import "../../../scss/common.styles.scss";
 
-.upgradeToProContainer {
+.upgradeToPremiumContainer {
   @extend .componentContainer;
   background-color: $main-1;
   margin: 39px 22px 18px 22px;
   box-shadow: #00000029 0px 1px 6px;
 
-  .upgradeToProHeader {
+  .upgradeToPremiumHeader {
     font-size: $font-size-normal;
     letter-spacing: 1.4px;
     font-weight: 700;
     line-height: 22px;
     color: $main-3;
     padding: 20px 20px;
+    .premiumHeader {
+      color: $color-2;
+    }
   }
   .subscriptionContainer {
     background-color: $main-2;
@@ -70,7 +73,7 @@
   .proDescriptionContainer {
     background-color: $main-1;
     padding: 20px 20px;
-    border-bottom: 2px solid $main-8;
+    border-bottom: 1px solid $main-5;
     .description {
       font-size: $font-size-small;
       color: $main-2;
@@ -83,7 +86,7 @@
   .addPremiumContainer {
     display: flex;
     flex-direction: row;
-    padding: 20px 20px;
+    padding: 36px 24px;
     .checkBoxStyle {
       height: 20px;
       width: 20px;
@@ -91,7 +94,8 @@
     .addSubscriptionText {
         margin-left: 10px;
         font-size: $font-size-small - 1;
-        color: $main-2;
+        color: $main-9;
+        font-weight: 700;
     }
   }
 }

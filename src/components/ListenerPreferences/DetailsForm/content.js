@@ -1,5 +1,4 @@
 export default {
-    DETAILS_TITLE: `YOUR DETAILS`,
     CITY_LABEL: `CITY`,
     CHOOSE_CITY: `Type city`,
     GENDER_LABEL: `GENDER`,

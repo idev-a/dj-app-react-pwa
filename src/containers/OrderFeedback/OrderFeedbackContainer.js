@@ -1,4 +1,4 @@
-import React, { useCallback, useState, useMemo } from "react";
+import React, { useCallback, useState, useEffect } from "react";
 import { connect } from "react-redux";
 import Component from "../../components/OrderFeedback/OrderFeedbackComponent";
 import {
@@ -7,23 +7,35 @@ import {
   uploadAudioFileToIPFS,
   updateTrackDetails,
   addAnotherTrack,
+  removeTrack,
+  resetState,
 } from "../../state/actions/orderActions";
 import { orderSelector } from "../../state/selectors/order";
 import { ENUMS } from "../../utils";
+import { getGenres } from "../../state/actions/preferencesActions";
 
 const OrderFeedbackContainer = ({
   accountName,
   tracks,
+  genres,
   isSaveCardDetails,
   dispatchUpdate,
   dispatchTrackUpdate,
   dispatchAddNewTrack,
+  dispatchGetGenres,
+  dispatchRemoveTrack,
+  history,
+  dispatchResetState,
 }) => {
+  useEffect(() => {
+    dispatchGetGenres();
+  }, [dispatchGetGenres]);
+
   const [shouldCreateToken, setShouldCreateToken] = useState(false);
   const [isAddPremium, setAddPremium] = useState(false);
   const [isProcessing, setIsProcessing] = useState(false);
   const [isError, setIsError] = useState(true);
-  const [isSuccess, setIsSuccess] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(true);
   const getTotalAmount = useCallback(() => {
     const amount = tracks.reduce((total, track) => {
       return total + track.selectedFeedback;
@@ -57,6 +69,7 @@ const OrderFeedbackContainer = ({
       const tracksToUpload = tracks.map((track, index) => {
         delete track.fileToUpload;
         track.id = index;
+        track.genreId = [track.genreId];
         return track;
       });
       setIsProcessing(true);
@@ -156,15 +169,30 @@ const OrderFeedbackContainer = ({
     console.log(e);
   }, []);
 
-  const [genresAddedArray, setGenresAdded] = useState([]);
+  const [menuIsOpen, handleClickMenuToggle] = useState(false);
 
-  const setAddGenre = useCallback((genre) => {
-    !genresAddedArray.includes(genre) ? setGenresAdded(prevState => prevState.concat(genre)) : setGenresAdded(prevState => prevState.filter(index => index !== genre));
-  }, [genresAddedArray]);
+  const setAddGenre = useCallback(
+    (genre, index) => {
+      dispatchTrackUpdate({ genreId: genre._id }, index);
+    },
+    [dispatchTrackUpdate]
+  );
+
+  const handleRemoveTrack = useCallback(
+    (id) => {
+      if (id === "premium") {
+        setAddPremium(false);
+      } else {
+        dispatchRemoveTrack(id);
+      }
+    },
+    [dispatchRemoveTrack]
+  );
 
   return (
     <Component
       isProcessing={isProcessing}
+      genres={genres}
       isSuccess={isSuccess}
       accountName={accountName}
       tracks={tracks}
@@ -179,8 +207,20 @@ const OrderFeedbackContainer = ({
       handleTrackChanges={handleTrackUpdates}
       isPaymentFormReady={true}
       handleAddAnotherTrack={dispatchAddNewTrack}
+      menuIsOpen={menuIsOpen}
+      handleClickMenuToggle={handleClickMenuToggle}
       setAddGenre={setAddGenre}
-      genresAddedArray={genresAddedArray}
+      handleRemoveTrack={handleRemoveTrack}
+      handleLogoClick={() => history.push("/")}
+      handleRateTrackClick={() => {
+        history.push("/discover");
+        setIsSuccess(false);
+      }}
+      handlePlaceNewOrderClick={() => {
+        dispatchResetState();
+        setIsSuccess(false);
+      }}
+      closeSuccessPopUp={() => setIsSuccess(false)}
     />
   );
 };
@@ -190,6 +230,9 @@ const dispatchAction = (dispatch) => ({
   dispatchTrackUpdate: (payload, index) =>
     dispatch(updateTrackDetails(payload, index)),
   dispatchAddNewTrack: () => dispatch(addAnotherTrack()),
+  dispatchGetGenres: () => dispatch(getGenres()),
+  dispatchRemoveTrack: (id) => dispatch(removeTrack(id)),
+  dispatchResetState: () => dispatch(resetState())
 });
 
 export default connect(

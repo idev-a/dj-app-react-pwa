@@ -26,13 +26,17 @@ const DiscoverContainer = (props) => {
       feedbackId: tracks[componentIndex]._id,
       feedbackType,
     });
-    setComponentIndex(componentIndex + 1);
+    setTimeout(() => setComponentIndex(componentIndex + 1), 600);
   }, [componentIndex, tracks]);
+
+  const [menuIsOpen, handleClickMenuToggle] = useState(false);
 
   return (
     <DiscoverComponent
       track={tracks[componentIndex]}
       handleSwipeEnd={handleSwipeEnd}
+      menuIsOpen={menuIsOpen}
+      handleClickMenuToggle={handleClickMenuToggle}
     />
   );
 };

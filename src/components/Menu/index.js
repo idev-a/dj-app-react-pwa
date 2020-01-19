@@ -1,33 +1,31 @@
 import React from 'react';
-import cx from "classnames";
 import content from "./content";
 import Icon from "../../common/IconComponent";
-import "./Menu.styles.scss";
+import "./styles.scss";
 import HearBKHeader from "../../common/HearBKHeader";
 import { Link } from "react-router-dom";
 import Button from "../../common/Button";
 
 const MenuComponent = ({
     handleClickMenuToggle,
-    toggle
+    menuIsOpen
 }) => {
     return (
-        <div className="menuComponent">
-            <div onClick={(e) => handleClickMenuToggle(e)} className="menuIconContainer">
-                <Icon className={cx("menuIcon")} iconName="menu" />
-            </div>
-            <div className={`menuSideNav ${toggle}`}>
-                <div onClick={(e) => handleClickMenuToggle(e)} className="cancelIconContainer">
-                    <Icon className={cx("cancelIcon")} iconName="cancel" />
-                </div>
-                <HearBKHeader />
-                <div className="menuBody">
-                    <label className="menuLabel">
-                        {content.MENU_LABEL}
-                    </label>
-                    <ul className="menuLinksList">
+        <div className="menuBigContainer">
+            <div className="menuComponent">
+                <div className="menuSmallContainer">
+                    <div className="menuHeader">
+                        <div onClick={() => handleClickMenuToggle(menuIsOpen)} className="cancelIconContainer">
+                            <Icon className="cancelIcon" iconName="cancel" />
+                        </div>
+                        <HearBKHeader />
+                    </div>
+                    <ul className="menuBody">
+                        <label className="menuLabel">
+                            {content.MENU_LABEL}
+                        </label>
                         <Link to="/search" className="menuLinks">
-                            <Icon className="menuLinkIcons menuSearchIcon" iconName="search" />
+                            <Icon className="menuLinkIcons" iconName="search" />
                             {content.SEARCH}
                         </Link>
                         <Link to="/discover" className="menuLinks">
@@ -38,7 +36,7 @@ const MenuComponent = ({
                             <Icon className="menuLinkIcons" iconName="feedback" />
                             {content.ORDER_FEEDBACK}
                         </Link>
-                        <Link to="/order-history" className="menuLinks">
+                        <Link to="/history" className="menuLinks">
                             <Icon className="menuLinkIcons" iconName="history" />
                             {content.ORDER_HISTORY}
                         </Link>
@@ -47,10 +45,10 @@ const MenuComponent = ({
                             {content.SETTINGS}
                         </Link>
                     </ul>
-                    <label className="menuLabel">
-                        {content.MORE_LABEL}
-                    </label>
-                    <ul className="menuMoreList">
+                    <ul className="moreBody">
+                        <label className="menuLabel">
+                            {content.MORE_LABEL}
+                        </label>
                         <Link to="/preferences" className="menuLinks">
                             {content.MENU_MORE_1}
                         </Link>

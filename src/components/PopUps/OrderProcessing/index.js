@@ -7,7 +7,8 @@ const OrderProcessing = (props) => {
     return (
         <div className="orderProcessingContainer">
             <Icon className="refreshIcon" iconName="refresh" />
-            <p className="processingLabel">{content.PROCESSING}</p>
+            <p className="processingLabel">{content.PROCESSING} <br/>
+                {content.NO_REFESH_TEXT}</p>
         </div>
     );
 };

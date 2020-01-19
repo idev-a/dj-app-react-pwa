@@ -58,19 +58,19 @@
     margin-bottom: 30px;
     .currency {
       font-size: $font-size-xxl;
-      color: $color-3;
+      color: $color-5;
     }
     .amountContainer {
       position: relative;
       margin-right: 50px;
       .amount {
         font-size: 47px;
-        color: $color-3;
+        color: $color-5;
       }
       .decimalPart {
         position: absolute;
         font-size: $font-size-xxl;
-        color: $color-3;
+        color: $color-5;
         top: 5%;
       }
     }

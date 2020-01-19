@@ -4,6 +4,7 @@ export const UPDATE_DATA = "UPDATE_DATA";
 export const UPDATE_TRACK_DETAILS = "UPDATE_TRACK_DETAILS";
 export const ADD_ANOTHER_TRACK = "ADD_ANOTHER_TRACK";
 export const REMOVE_TRACK = "REMOVE_TRACK";
+export const RESET_STATE= "RESET_STATE";
 const orderFeedbackPostUrl = "/orders/feedback";
 const uploadTrackURI = "/orders/upload/track/";
 
@@ -35,3 +36,5 @@ export const uploadAudioFileToIPFS = (formData, feedbackId) =>
     method: "POST",
     body: formData,
   });
+
+  export const resetState = () => ({ type: RESET_STATE });
