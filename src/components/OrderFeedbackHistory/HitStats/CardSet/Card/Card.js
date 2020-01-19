@@ -58,7 +58,7 @@ const Card = ({ isOpen, cardData }) => {
               cardData.updated_on
             ).format("MM/DD/YYYY")}`}
           </div>
-          <span className="descriptionPercentage">{sorted[0]}% voted</span>
+          <span className="descriptionPercentage">{sorted[0] ? sorted[0] : 0}% voted</span>
           &nbsp;
           <span className="descriptionType">"{header.descriptionType}"</span>
         </div>
