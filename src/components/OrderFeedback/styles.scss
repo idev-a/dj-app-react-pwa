@@ -7,15 +7,15 @@
     height: 100%;
   .orderFeedbackHeader {
     display: flex;
+    position: relative;
     flex-direction: row;
     align-items: "center";
     justify-content: space-between;
-    padding: 30px 17px 0px 17px;
-    .menuIcon {
-        height: $font-size-xxl;
-        width: $font-size-xxl;
-    }
+    padding: 40px 17px 0px 17px;
     .silverLogo {
+        position: absolute;
+        right: 17px;
+        top: 30px;
         height: 40px;
         width: 40px;
     }
