@@ -11,7 +11,7 @@ import HearBKIcon from "../../common/HearBKIcon";
 const Component = (props) => {
   return (
     <div className="landingPageContainer">
-        <HearBKHeader />
+      <HearBKHeader />
       <div className="headingContainer">
         <div
           className="mainHeading"
@@ -19,12 +19,16 @@ const Component = (props) => {
         ></div>
         <div className="mainDescription">{content.MAIN_DESCRIPTION}</div>
         <div role="button" className="silverButtonContainer">
-            <Button className="silverLaunchButton" buttonText={content.LAUNCH_BUTTON_TEXT}></Button>
+          <Button
+            className="silverLaunchButton"
+            buttonText={content.LAUNCH_BUTTON_TEXT}
+            onClick={props.handleLaunchClick}
+          ></Button>
         </div>
       </div>
       <div className="listenMusicContainer">
         <div className="listenMusicIconContainer">
-          <Icon className={cx("listenMusicIcon")} iconName={"ListenMusic"}/>
+          <Icon className={cx("listenMusicIcon")} iconName={"ListenMusic"} />
         </div>
         <div className="listenMusicSubTitle">
           {content.LISTEN_MUSIC_SUBTITLE}
@@ -36,24 +40,39 @@ const Component = (props) => {
       </div>
       <div className="matterMostContainer">
         <div className="matterMostIconContainer">
-          <Icon className={cx("matterMostIcon")} iconName={"mattersMost"}/>
+          <Icon className={cx("matterMostIcon")} iconName={"mattersMost"} />
         </div>
         <div className="matterMostSubtitle">{content.MOST_MATTER_SUBTITLE}</div>
         <div className="matterMostHeader">{content.MOST_MATTER_HEADER}</div>
-        <div className="matterMostDescription">{content.MOST_MATTER_DESCRIPTION}</div>
+        <div className="matterMostDescription">
+          {content.MOST_MATTER_DESCRIPTION}
+        </div>
       </div>
       <div className="musicianFirstContainer">
         <div className="musicianFirstIconContainer">
-          <Icon className={cx("musicianFirstIcon")} iconName={"MusicianFirst"}/>
+          <Icon
+            className={cx("musicianFirstIcon")}
+            iconName={"MusicianFirst"}
+          />
         </div>
-        <div className="musicianFirstSubtitle">{content.MUSICIAN_FIRST_SUBTITLE}</div>
-        <div className="musicianFirstHeader">{content.MUSICIAN_FIRST_HEADER}</div>
-        <div className="musicianFirstDescription">{content.MUSICIAN_FIRST_DESCRIPTION}</div>
+        <div className="musicianFirstSubtitle">
+          {content.MUSICIAN_FIRST_SUBTITLE}
+        </div>
+        <div className="musicianFirstHeader">
+          {content.MUSICIAN_FIRST_HEADER}
+        </div>
+        <div className="musicianFirstDescription">
+          {content.MUSICIAN_FIRST_DESCRIPTION}
+        </div>
       </div>
       <div className="hearBKFooter">
         <HearBKIcon />
         <div className="buttonWrapper">
-          <Button className="launchButton" buttonText={content.LAUNCH_BUTTON_TEXT}></Button>
+          <Button
+            className="launchButton"
+            buttonText={content.LAUNCH_BUTTON_TEXT}
+            onClick={props.handleLaunchClick}
+          ></Button>
         </div>
       </div>
       <LandingPageFooter />
