@@ -37,7 +37,6 @@ const OrderFeedbackComponent = ({
   return (
     <div className="orderFeedbackContainer">
       <header className="orderFeedbackHeader">
-        <IconComponent iconName="MenuIcon" className="menuIcon" />
         <Button
           isIcon
           iconName="HearBKSilverLogo"

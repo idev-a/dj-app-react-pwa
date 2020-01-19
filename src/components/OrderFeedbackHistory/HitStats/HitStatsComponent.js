@@ -25,7 +25,7 @@ const HitStatsComponent = ({
                     </div>
                 </div>
                 <div className="mainHitStatsCols">
-                    {data.hitRate}<span className="colPercentSign">%</span>
+                    {Math.round(data.hitRate)}<span className="colPercentSign">%</span>
                     <div className="colTitles">
                         {content.COL_TITLE_3}
                     </div>

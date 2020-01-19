@@ -50,7 +50,7 @@ const Card = ({ isOpen, cardData }) => {
       >
         <span className="expandIcon">{!isExpanded ? "+" : "-"}</span>
         <Icon className="headerIcon" iconName={header.iconName} />
-        <div className="headerPercentageLabel">{sorted[0]}</div>
+        <div className="headerPercentageLabel">{sorted[0] ? sorted[0] : 0}</div>
         <div className="headerPercentSignLabel">%</div>
         <div className="descriptionContainer">
           <div className="descriptionDateRange">
@@ -94,7 +94,7 @@ const Card = ({ isOpen, cardData }) => {
                 className="colStatNumberLabel"
                 style={header.hits ? { color: "#0db6ff" } : {}}
               >
-                {cardData.stats.hit}%
+                {cardData.stats.hit ? cardData.stats.hit : 0}%
               </div>
               <div
                 className="colStatTypeLabel"
@@ -118,7 +118,7 @@ const Card = ({ isOpen, cardData }) => {
                 className="colStatNumberLabel"
                 style={header.misses ? { color: "#0db6ff" } : {}}
               >
-                {cardData.stats.miss}%
+                {cardData.stats.miss ? cardData.stats.miss : 0}%
               </div>
               <div
                 className="colStatTypeLabel"
@@ -142,7 +142,7 @@ const Card = ({ isOpen, cardData }) => {
                 className="colStatNumberLabel"
                 style={header.potential ? { color: "#0db6ff" } : {}}
               >
-                {cardData.stats.potential}%
+                {cardData.stats.potential ? cardData.stats.potential : 0}%
               </div>
               <div
                 className="colStatTypeLabel"
