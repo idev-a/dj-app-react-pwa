@@ -13,6 +13,8 @@ const UploadTrackForm = ({
   mediaType,
   handleTrackChanges,
   selectedFeedback,
+  setAddGenre,
+  genresAddedArray
 }) => {
   const fileUploadEl = useRef(null);
   const handleTrackDetailsUpdate = useCallback(
@@ -45,6 +47,9 @@ const UploadTrackForm = ({
   const handleSelectedFeedback = useCallback((args) => {
     handleTrackDetailsUpdate({ id: "selectedFeedback", value: args }, index);
   }, [handleTrackDetailsUpdate, index]);
+
+  const [genresListIsOpen, setOpenClosedGenres] = useState(false);
+
   return (
     <section className="uploadTrackFormContainer">
       <header className="uploadTrackHeaderContainer">
@@ -104,8 +109,40 @@ const UploadTrackForm = ({
           onChange={handleTrackDetailsUpdate}
           placeholder={content.TRACK_GENRE_PLACEHOLDER}
         />
-        <IconComponent className="addGenreIcon" iconName="AddCircle" />
+        <div onClick={() => setOpenClosedGenres(!genresListIsOpen)} className="formIconContainer">
+            <IconComponent className="addGenreIcon" iconName="AddCircle" />
+        </div>
+        {genresListIsOpen && (
+          <ul className="addGenresList">
+            {content.FAVOURITE_GENRES.map((genre) => {
+              return (
+                <div className="addGenresButtonWrapper">
+                  <Button 
+                    buttonText={genre}
+                    className="addGenresLis"
+                    onClick={() => setAddGenre(genre)}
+                  />
+                </div>
+              );
+            })}
+          </ul>
+        )}
       </div>
+      {(genresAddedArray.length > 0) && (
+        <ul className="selectedGenresContainer">
+          {genresAddedArray.map((genre) => {
+            return (
+              <div className="addGenresSelectedButtonWrapper">
+                <Button 
+                  buttonText={genre.toUpperCase()}
+                  className="addGenresSelectedLis"
+                  onClick={() => setAddGenre(genre)}
+                />
+              </div>
+            )
+          })}
+        </ul>
+      )}
       <div className="ratingsContainer">
         <div className="ratingsText">{content.RATINGS_TEXT}</div>
         <div className="ratingsButtonWrapper">

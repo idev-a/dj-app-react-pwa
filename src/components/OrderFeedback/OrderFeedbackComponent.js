@@ -23,6 +23,8 @@ const OrderFeedbackComponent = ({
   handlePaymentFormError,
   handleAddAnotherTrack,
   isSaveCardDetails,
+  setAddGenre,
+  genresAddedArray
   isProcessing,
   isSuccess,
 }) => {
@@ -54,6 +56,8 @@ const OrderFeedbackComponent = ({
             mediaType={mediaType}
             handleTrackChanges={handleTrackChanges}
             selectedFeedback={selectedFeedback}
+            setAddGenre={setAddGenre}
+            genresAddedArray={genresAddedArray}
           
           />
         )
