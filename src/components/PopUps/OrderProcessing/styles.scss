@@ -1,25 +1,33 @@
 @import "../../../scss/common.styles.scss";
 
 .popUpContainer {
-    .iconContainer {
-        .cancelIcon {
-            // display: none;
-        }
+  .iconContainer {
+    .cancelIcon {
+      // display: none;
     }
-    .orderProcessingContainer {
-        padding: 200px 118px 174px 118px;
-        .refreshIcon {
-            width: 57px;
-            height: 64px;
-            margin: auto;
+  }
+  .orderProcessingContainer {    .refreshIcon {
+      width: 57px;
+      height: 64px;
+      margin: auto;
+      animation: rotation 8s infinite linear;
+      @keyframes rotation {
+        from {
+          transform: rotate(0deg);
         }
-        .processingLabel {
-            margin-top: 96px;
-            color: $main-3;
-            font-size: $font-size-normal;
-            font-weight: 700;
-            letter-spacing: 1.4px;
-            text-align: center;
+        to {
+          transform: rotate(359deg);
         }
+      }
     }
+    }
+    .processingLabel {
+      margin-top: 96px;
+      color: $main-3;
+      font-size: $font-size-normal;
+      font-weight: 700;
+      letter-spacing: 1.4px;
+      text-align: center;
+      
+  }
 }
