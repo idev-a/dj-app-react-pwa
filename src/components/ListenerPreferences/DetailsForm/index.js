@@ -17,10 +17,8 @@ const DetailsComponent = ({
   city,
   dob,
   gender,
-  dateOfBirth,
-  favouriteGenres,
-  tags,
   genres,
+  tags,
   onInputChange,
   handleGenderChange,
 }) => {
@@ -81,6 +79,8 @@ const DetailsComponent = ({
     );
   });
 
+  console.log(addGenresArray);
+
   let addGenresList = genresList ? (
     <ul className="addGenresList">{addGenresArray}</ul>
   ) : (
@@ -110,9 +110,9 @@ const DetailsComponent = ({
         {content.DOB_LABEL}
       </label>
       <InputField
-        id="dateOfBirth"
+        id="dob"
         className="formInputField"
-        value={dateOfBirth}
+        value={dob}
         onChange={onInputChange}
         placeholder={content.DOB}
       />
@@ -126,15 +126,14 @@ const DetailsComponent = ({
         >
           <Icon className="addCircleIcon" iconName="AddCircle" />
         </div>
-        <label for="dateOfBirth" className="formInputLabel">
-          {content.DOB_LABEL}
-        </label>
+        {addGenresList}
+        </div>
         <InputField
-          id="dob"
+          id="genres"
           className="formInputField"
-          value={dob}
+          value={genres}
           onChange={onInputChange}
-          placeholder={content.DOB}
+          placeholder={content.FAVOURITE_GENRES_SEARCH}
         />
         <ul className="selectedGenresContainer">{addGenresSelectedArray}</ul>
         <label for="tagsInputs" className="formInputLabel">
@@ -157,7 +156,6 @@ const DetailsComponent = ({
           placeholder={content.TAGS_SEARCH}
         />
         <ul className="selectedTagsContainer">{addTagsSelectedArray}</ul>
-      </div>
     </div>
   );
 };

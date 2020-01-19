@@ -40,7 +40,7 @@ const UploadTrackForm = ({
       handleTrackDetailsUpdate({ id: "mediaType", value: ENUMS.MEDIA_TYPE_FILEUPLOAD }, index);
       setTimeout(() => fileUploadEl.current.click(), 500);
     } else {
-      handleTrackDetailsUpdate({ id: "mediaType", value: ENUMS.MEDIA_TYPE_FILEUPLOAD }, index);
+      handleTrackDetailsUpdate({ id: "mediaType", value: ENUMS.MEDIA_TYPE_YOUTUBE }, index);
     }
   }, [index, mediaType, handleTrackDetailsUpdate]);
 

@@ -9,6 +9,7 @@ import AccountForm from "./AccountForm";
 import PaymentAccountForm from "./PaymentAccountForm";
 import SubscriptionBox from "./SubscriptionBox";
 import ListenerPreferencesForm from "./ListenerPreferencesForm";
+import PopUps from "./../../containers/PopUps";
 
 const SettingsComponent = (props) => {
 

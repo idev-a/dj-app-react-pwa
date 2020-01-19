@@ -8,6 +8,7 @@ import UpgradeToPro from "./UpgradeToPro";
 import TotalPaymentComponent from "./TotalPayment";
 import PaymentForm from "./PaymentForm";
 import Button from "../../common/Button";
+import PopUpComponent from "../PopUps/PopUpsComponent";
 
 const OrderFeedbackComponent = ({
   tracks,
@@ -24,6 +25,8 @@ const OrderFeedbackComponent = ({
   isSaveCardDetails,
   setAddGenre,
   genresAddedArray
+  isProcessing,
+  isSuccess,
 }) => {
   return (
     <div className="orderFeedbackContainer">
@@ -84,6 +87,8 @@ const OrderFeedbackComponent = ({
           disabled={!isPaymentFormReady}
         />
       </div>
+      {isProcessing && <PopUpComponent name="orderProcessing" hasCloseIcon={false}/>}
+      {isSuccess && <PopUpComponent name="success" />}
     </div>
   );
 };

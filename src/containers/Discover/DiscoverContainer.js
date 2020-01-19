@@ -15,10 +15,11 @@ const DiscoverContainer = (props) => {
   const [componentIndex, setComponentIndex] = useState(0);
   const handleSwipeEnd = useCallback((e) => {
     let feedbackType = "HIT";
-    if (e.dir === "Left") {
+    if (e === "Left") {
+      debugger;
       feedbackType = "MISS";
     }
-    if (e.dir === "UP") {
+    if (e === "UP") {
       feedbackType = "POTENTIAL";
     }
     postDiscoverFeedback({
@@ -28,12 +29,12 @@ const DiscoverContainer = (props) => {
     setComponentIndex(componentIndex + 1);
   }, [componentIndex, tracks]);
 
-  return tracks.length > 0 ? (
+  return (
     <DiscoverComponent
       track={tracks[componentIndex]}
       handleSwipeEnd={handleSwipeEnd}
     />
-  ) : null;
+  );
 };
 
 const dispatchActions = (dispatch) => ({

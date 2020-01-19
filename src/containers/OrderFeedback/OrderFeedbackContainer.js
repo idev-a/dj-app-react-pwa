@@ -23,6 +23,7 @@ const OrderFeedbackContainer = ({
   const [isAddPremium, setAddPremium] = useState(false);
   const [isProcessing, setIsProcessing] = useState(false);
   const [isError, setIsError] = useState(true);
+  const [isSuccess, setIsSuccess] = useState(false);
   const getTotalAmount = useCallback(() => {
     const amount = tracks.reduce((total, track) => {
       return total + track.selectedFeedback;
@@ -83,7 +84,10 @@ const OrderFeedbackContainer = ({
               );
             }
           })
-        );
+        ).then(() => {
+          setIsProcessing(false);
+          setIsSuccess(true);
+        });
       }
     },
     [tracks, getTotalAmount, validateFormData, isAddPremium, isSaveCardDetails]
@@ -98,11 +102,11 @@ const OrderFeedbackContainer = ({
         if (e.target.name === "saveCardDetails") {
           payload = {
             [e.target.name]: e.target.checked,
-          }
+          };
         } else {
           payload = {
             [e.target.id]: e.target.value,
-          }
+          };
         }
         dispatchUpdate(payload);
       }
@@ -160,6 +164,8 @@ const OrderFeedbackContainer = ({
 
   return (
     <Component
+      isProcessing={isProcessing}
+      isSuccess={isSuccess}
       accountName={accountName}
       tracks={tracks}
       isSaveCardDetails={isSaveCardDetails}

@@ -1,4 +1,5 @@
 import React, { useCallback } from "react";
+import isEmpty from "lodash/isEmpty";
 import cx from "classnames";
 import content from "./content";
 import "./Discover.styles.scss";
@@ -61,13 +62,13 @@ const DiscoverComponent = ({ handleSwipeEnd, track }) => {
         <div className="title1">{content.TITLE_1}</div>
         <div className="title2">{content.TITLE_2}</div>
       </div>
-      <SwipeableCards
+      {!isEmpty(track) ? <SwipeableCards
         className="songCardOuterContainer"
         swipeThreshold={75}
         onSwipeEnd={handleSwipeEnd}
       >
         {getComponent()}
-      </SwipeableCards>
+      </SwipeableCards> : <h3 style={{color: "#FFF"}}>No more tracks to rate. Please come back later</h3>}
     </div>
   );
 };

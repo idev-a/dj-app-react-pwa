@@ -1,0 +1,25 @@
+@import "../../../scss/common.styles.scss";
+
+.popUpContainer {
+    .iconContainer {
+        .cancelIcon {
+            // display: none;
+        }
+    }
+    .orderProcessingContainer {
+        padding: 200px 118px 174px 118px;
+        .refreshIcon {
+            width: 57px;
+            height: 64px;
+            margin: auto;
+        }
+        .processingLabel {
+            margin-top: 96px;
+            color: $main-3;
+            font-size: $font-size-normal;
+            font-weight: 700;
+            letter-spacing: 1.4px;
+            text-align: center;
+        }
+    }
+}

@@ -3,8 +3,8 @@ import cx from "classnames";
 import content from "./content";
 import Icon from "../../common/IconComponent";
 import "./ListenerPreferences.styles.scss";
-import DetailsContainer from "../../containers/ListenerPreferences/Details";
-import PriceContainer from "../../containers/ListenerPreferences/Price";
+import DetailsForm from "./DetailsForm";
+import PriceForm from "./PriceForm";
 import Button from "../../common/Button";
 
 const ListenerPreferencesComponent = ({
@@ -17,9 +17,9 @@ const ListenerPreferencesComponent = ({
   proRequestBox,
   genresList,
   tagsList,
+  genres,
   tags,
   city,
-  genres,
   gender,
   dob,
   bio,
@@ -42,22 +42,29 @@ const ListenerPreferencesComponent = ({
     };
     containerContents = (
       <React.Fragment>
-        <DetailsContainer
-          city={city}
-          gender={gender}
-          dob={dob}
-          handleClickToggleAddList={handleClickToggleAddList}
-          handleClickAddGenres={handleClickAddGenres}
-          handleClickAddTags={handleClickAddTags}
-          genresList={genresList}
-          tagsList={tagsList}
-          genresAdded={genresAdded}
-          tagsAdded={tagsAdded}
-          tags={tags}
-          genres={genres}
-          onInputChange={onInputChange}
-          handleGenderChange={handleGenderChange}
-        />
+        <section className="formContainer">
+          <header className="formHeaderContainer">
+            <div className="formHeaderText">
+                {content.DETAILS_TITLE}
+            </div>
+          </header>
+          <DetailsForm
+            city={city}
+            gender={gender}
+            dob={dob}
+            handleClickToggleAddList={handleClickToggleAddList}
+            handleClickAddGenres={handleClickAddGenres}
+            handleClickAddTags={handleClickAddTags}
+            genresList={genresList}
+            tagsList={tagsList}
+            genresAdded={genresAdded}
+            tagsAdded={tagsAdded}
+            genres={genres}
+            tags={tags}
+            onInputChange={onInputChange}
+            handleGenderChange={handleGenderChange}
+          />
+        </section>
         <div className="buttonWrapper">
           <Button
             className="launchButton"
@@ -79,28 +86,37 @@ const ListenerPreferencesComponent = ({
     };
     containerContents = (
       <React.Fragment>
-        <DetailsContainer
-          city={city}
-          gender={gender}
-          dob={dob}
-          handleClickToggleAddList={handleClickToggleAddList}
-          handleClickAddGenres={handleClickAddGenres}
-          handleClickAddTags={handleClickAddTags}
-          genresList={genresList}
-          tagsList={tagsList}
-          genresAdded={genresAdded}
-          tagsAdded={tagsAdded}
-          tags={tags}
-          genres={genres}
-          onInputChange={onInputChange}
-          handleGenderChange={handleGenderChange}
-        />
-        <PriceContainer
-          onInputChange={onInputChange}
-          sendMe={sendMeText}
-          price={price}
-          describeSelf={bio}
-        />
+        <section className="formContainer">
+          <header className="formHeaderContainer">
+            <div className="formHeaderText">
+                {content.DETAILS_TITLE}
+            </div>
+          </header>
+          <DetailsForm
+            city={city}
+            gender={gender}
+            dob={dob}
+            handleClickToggleAddList={handleClickToggleAddList}
+            handleClickAddGenres={handleClickAddGenres}
+            handleClickAddTags={handleClickAddTags}
+            genresList={genresList}
+            tagsList={tagsList}
+            genresAdded={genresAdded}
+            tagsAdded={tagsAdded}
+            genres={genres}
+            tags={tags}
+            onInputChange={onInputChange}
+            handleGenderChange={handleGenderChange}
+          />
+        </section>
+        <section className="formContainer">
+          <PriceForm
+            onInputChange={onInputChange}
+            sendMe={sendMeText}
+            price={price}
+            describeSelf={bio}
+          />
+        </section>
         <div className="buttonWrapper">
           <Button
             className="launchButton"

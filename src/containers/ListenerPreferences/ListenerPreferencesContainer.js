@@ -69,7 +69,7 @@ class ListenerPreferencesContainer extends Component {
       favourite_genres: selectedGenres.map((genre) => genre._id),
       listener_tags: selectedTags.map((tag) => tag._id),
       city,
-      gender,
+      gender: gender.toLowerCase(),
       ...(proRequestBox && {
         price,
         bio,
@@ -140,6 +140,7 @@ class ListenerPreferencesContainer extends Component {
   };
 
   render() {
+    console.log(this.props.genres);
     return (
       <ListenerPreferencesComponent
         city={this.state.city}
