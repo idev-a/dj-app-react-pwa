@@ -9,6 +9,7 @@ const LandingPageFooter = () => {
       <div className="socialMediaActionContainer">
         <IconComponent iconName="facebook" className="socialMediaIcon" />
         <IconComponent iconName="twitter" className="socialMediaIcon" />
+        <IconComponent iconName="instagram" className="socialMediaIcon" />
         <IconComponent iconName="youtube" className="socialMediaIcon" />
       </div>
       <div className="footerMenuContainer">
