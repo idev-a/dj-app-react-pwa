@@ -1,5 +1,6 @@
 import React from 'react';
 import "./PopUps.styles.scss";
+import Button from "../../common/Button";
 import Icon from "../../common/IconComponent";
 import AddToHome from "./AddToHome";
 import Cookie from "./Cookie";
@@ -10,19 +11,21 @@ import Success from "./Success";
 const PopUpsComponent = ({ 
     name,
     hasCloseIcon,
+    handlers,
+    closeClick
 }) => {
     return (
         <div className="popUpContainer">
             <div className="iconContainer">
                 <Icon className="headerIcon" iconName="logo_hexagon" />
-                {hasCloseIcon && <Icon className="cancelIcon" iconName="cancel" />}
+                {hasCloseIcon && <Button isIcon className="cancelIcon" iconName="cancel" onClick={closeClick}/>}
             </div>
             {
                 name === "addToHome" ? <AddToHome /> : 
                 name === "cookie" ? <Cookie /> :
                 name === "newCard" ? <NewCard /> : 
                 name === "orderProcessing" ? <OrderProcessing /> : 
-                name === "success" ? <Success /> : ""
+                name === "success" ? <Success {...handlers}  /> : ""
             }
         </div>
     );

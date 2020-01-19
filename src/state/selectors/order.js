@@ -1,8 +1,9 @@
-export const orderSelector = ({ orderDetails, userDetails }) => ({
+export const orderSelector = ({ orderDetails, userDetails, preferences }) => ({
     accountName: orderDetails.accountName,
     tracks: orderDetails.tracks,
     isSaveCardDetails: orderDetails.saveCardDetails,
     isPremiumUser: userDetails.isPremiumUser,
+    genres: preferences.genres
 });
 
 export const orderHistorySelector = ({ orderDetails }) => ({

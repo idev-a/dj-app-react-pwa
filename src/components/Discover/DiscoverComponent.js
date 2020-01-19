@@ -1,6 +1,5 @@
 import React, { useCallback } from "react";
 import isEmpty from "lodash/isEmpty";
-import cx from "classnames";
 import content from "./content";
 import "./Discover.styles.scss";
 import Icon from "../../common/IconComponent";
@@ -8,8 +7,10 @@ import AudioPlayer from "../AudioPlayer";
 import SwipeableCards from "../../common/SwipeableCards";
 import { ENUMS } from "../../utils";
 import Iframe from "../../common/Iframe";
+import FooterNav from "../FooterNav";
+import Menu from "../Menu";
 
-const DiscoverComponent = ({ handleSwipeEnd, track }) => {
+const DiscoverComponent = ({ handleSwipeEnd, track, menuIsOpen, handleClickMenuToggle }) => {
   const getComponent = useCallback(() => {
     const {
       trackUrl,
@@ -37,11 +38,11 @@ const DiscoverComponent = ({ handleSwipeEnd, track }) => {
 
     return (
       <div className="songCardContainer">
-        <Icon className={cx("bookmarkIcon")} iconName={"bookmark1"} />
+        <Icon className="bookmarkIcon" iconName="bookmark1" />
         <div className="profilePicIconContainer">
           <img
             alt="profileImg"
-            className={cx("profilePicIcon")}
+            className="profilePicIcon"
             src={profile_image}
           />
         </div>
@@ -56,9 +57,15 @@ const DiscoverComponent = ({ handleSwipeEnd, track }) => {
 
   return (
     <div className="discoverComponentContainer">
-      <Icon className={cx("backgroundIcon")} iconName={"Path85"} />
+      <Icon className="backgroundIcon" iconName="Path85" />
       <div className="discoverComponentHeader">
-        <Icon className={cx("headerIcon")} iconName={"logo86"} />
+        {/* <div onClick={() => handleClickMenuToggle(!menuIsOpen)} className="menuIconContainer">
+          <Icon iconName="menu_white" className="menuIcon" />
+        </div>
+        {menuIsOpen && (
+          <Menu handleClickMenuToggle={handleClickMenuToggle} />
+        )} */}
+        <Icon className="headerIcon" iconName="logo86" />
         <div className="title1">{content.TITLE_1}</div>
         <div className="title2">{content.TITLE_2}</div>
       </div>
@@ -69,6 +76,7 @@ const DiscoverComponent = ({ handleSwipeEnd, track }) => {
       >
         {getComponent()}
       </SwipeableCards> : <h3 style={{color: "#FFF"}}>No more tracks to rate. Please come back later</h3>}
+      <FooterNav />
     </div>
   );
 };

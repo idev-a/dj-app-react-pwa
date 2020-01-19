@@ -79,8 +79,6 @@ const DetailsComponent = ({
     );
   });
 
-  console.log(addGenresArray);
-
   let addGenresList = genresList ? (
     <ul className="addGenresList">{addGenresArray}</ul>
   ) : (

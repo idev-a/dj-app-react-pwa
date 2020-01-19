@@ -1,50 +1,49 @@
-import React, { Component } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import { connect } from "react-redux";
 import SettingsComponent from "../../components/Settings/SettingsComponent";
 import { 
+    getUserData,
     updateUserInfo 
 } from "../../state/actions/userActions";
 import { userSelector } from "../../state/selectors/users";
-import api, { genericHeaders } from "../../config";
 
-class SettingsContainer extends Component {
-    state = {
-        data: []
-    };
+const SettingsContainer = (props) => {
+    const [profileIsOpen, toggleProfile] = useState(false);
+    const [accountIsOpen, toggleAccount] = useState(false);
+    const [paymentIsOpen, togglePayment] = useState(false);
+    const [subscriptionIsOpen, toggleSubscription] = useState(false);
+    const [preferencesIsOpen, togglePreferences] = useState(false);
 
-    componentDidMount() {
-        console.log('hi');
-        console.log(this.props.user);
-        const getUserDataURI = "/settings";
-        fetch(`${api}${getUserDataURI}`, {
-            method: "GET",
-            header: genericHeaders(),
-        })
-        .then((res) => res.json())
-        .then((data) => {
-            console.log(data);
-        });
-        this.setState({
-            data: []
-        });
-    }
-    
-    render() {
-        return (
-            <SettingsComponent />
-        );
-    }
+    const { userData, getUserDataDispatchAction } = props;
+
+    useEffect(() => {
+        getUserDataDispatchAction();
+    }, [getUserDataDispatchAction])
+
+    console.log(userData);
+
+    return (
+        <SettingsComponent 
+            profileIsOpen={profileIsOpen}
+            accountIsOpen={accountIsOpen}
+            paymentIsOpen={paymentIsOpen}
+            subscriptionIsOpen={subscriptionIsOpen}
+            preferencesIsOpen={preferencesIsOpen}
+            toggleProfile={toggleProfile}
+            toggleAccount={toggleAccount}
+            togglePayment={togglePayment}
+            toggleSubscription={toggleSubscription}
+            togglePreferences={togglePreferences}
+        />
+    );
 };
 
-const mapStateToProps = (state) => ({
-    user: userSelector(state)
-});
-
-const mapActions = (dispatch) => ({
-    updateUser: (requestData) => dispatch(updateUserInfo(requestData))
+const dispatchActions = (dispatch) => ({
+    getUserDataDispatchAction: () => dispatch(getUserData()),
+    updateUserDispatchAction: (requestData) => dispatch(updateUserInfo(requestData))
 });
 
 export default connect (
-    mapStateToProps,
-    mapActions
+    userSelector,
+    dispatchActions
 )(SettingsContainer);

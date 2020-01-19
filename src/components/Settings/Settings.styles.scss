@@ -2,16 +2,12 @@
 
 .settingsContainer {
     width: 100%;
-    height: 812px;
+    height: 100vh;
+    padding-bottom: 100px;
     background: $main-5;
     overflow-y: scroll;
-    .settingsHeadingContainer {
-        display: flex;
-        position: relative;
-        flex-flow: column nowrap;
-        align-items: center;
-        height: 220px;
-        background: url("../../assets/img/settings/MaskGroup.png") 0% 0% / cover no-repeat;
+    border: 1px solid black;
+    .largeBannerHeaderContainer {
         .exitIcon {
             position: absolute;
             width: 20px;
@@ -22,20 +18,13 @@
         .exitIcon:hover {
             cursor: pointer;
         }
-        .settingsHeader {
-            margin: 36px 0 5px 0;
-            color: $main-1;
-            font-size: $font-size-normal;
-            letter-spacing: .7pt;
-        }
         .profilePicIconContainer {
             display: flex;
-            position: absolute;
             justify-content: center;
             align-items: center;
             width: 95px;
             height: 95px;
-            top: 125px;
+            margin-top: 37px;
             border-radius: 50%;
             background: linear-gradient(180deg, $main-7, #363D46);
             .profilePicIcon {
@@ -47,7 +36,7 @@
     .settingsStatusContainer {
         display: flex;
         justify-content: space-between;
-        margin: 0px 26.5px 10px 26.5px;
+        margin: 196px 26.5px 10px 26.5px;
         .subHeaderLabel {
             color: #9CAEC7;
             font-size: 10px;
@@ -115,8 +104,6 @@
         }
     }
     .formContainer {
-        height: 16px;
-        overflow: hidden;
         .formHeaderContainer {
             position: relative;
             .expandIcon {

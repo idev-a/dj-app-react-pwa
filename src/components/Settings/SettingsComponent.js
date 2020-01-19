@@ -1,5 +1,4 @@
 import React from 'react';
-import cx from "classnames";
 import content from "./content";
 import "./Settings.styles.scss";
 import Icon from "../../common/IconComponent";
@@ -9,29 +8,29 @@ import AccountForm from "./AccountForm";
 import PaymentAccountForm from "./PaymentAccountForm";
 import SubscriptionBox from "./SubscriptionBox";
 import ListenerPreferencesForm from "./ListenerPreferencesForm";
-import PopUps from "./../../containers/PopUps";
+import FooterNav from "../FooterNav";
 
-const SettingsComponent = (props) => {
-
-    const toggleExpand = (e) => {
-        const el = e.target;
-        el.parentNode.classList.toggle('expand');
-        if (el.parentNode.classList.contains('expand')) {
-            el.firstElementChild.innerHTML = "-";
-        } else {
-            el.firstElementChild.innerHTML = "+";
-        }
-    }
-
+const SettingsComponent = ({
+    profileIsOpen,
+    accountIsOpen,
+    paymentIsOpen,
+    subscriptionIsOpen,
+    preferencesIsOpen,
+    toggleProfile,
+    toggleAccount,
+    togglePayment,
+    toggleSubscription,
+    togglePreferences
+}) => {
     return (
         <div className="settingsContainer">
-            <div className="settingsHeadingContainer">
-                <Icon className={cx("exitIcon")} iconName={"exittoapp"} />
-                <div className="settingsHeader">
+            <div className="largeBannerHeaderContainer">
+                <Icon className="exitIcon" iconName="exittoapp" />
+                <div className="headerTitle1">
                     {content.HEADER}
                 </div>
                 <div className="profilePicIconContainer">
-                    <Icon className={cx("profilePicIcon")} iconName={"profilepic"} />
+                    <Icon className="profilePicIcon" iconName="profilepic" />
                 </div>
             </div>
             <div className="settingsStatusContainer">
@@ -48,7 +47,7 @@ const SettingsComponent = (props) => {
                         {content.STATUS}
                     </div>
                     <div className="insiderBox">
-                        <Icon className={cx("checkIcon")} iconName={"playlistaddcheck"} />
+                        <Icon className="checkIcon" iconName="playlistaddcheck" />
                         {content.INSIDER}
                     </div>
                 </div>
@@ -69,11 +68,11 @@ const SettingsComponent = (props) => {
                     </div>
                 </div>
             </div>
-            <ProfileForm toggleExpand={toggleExpand} />
-            <AccountForm toggleExpand={toggleExpand} />
-            <PaymentAccountForm toggleExpand={toggleExpand} />
-            <SubscriptionBox toggleExpand={toggleExpand} />
-            <ListenerPreferencesForm toggleExpand={toggleExpand} />
+            <ProfileForm profileIsOpen={profileIsOpen} toggleProfile={toggleProfile} />
+            <AccountForm accountIsOpen={accountIsOpen} toggleAccount={toggleAccount} />
+            <PaymentAccountForm paymentIsOpen={paymentIsOpen} togglePayment={togglePayment} />
+            <SubscriptionBox subscriptionIsOpen={subscriptionIsOpen} toggleSubscription={toggleSubscription} />
+            {/* <ListenerPreferencesForm preferencesIsOpen={preferencesIsOpen} togglePreferences={togglePreferences} /> */}
             <div className="buttonWrapper">
                 <Button 
                     className="launchButton logoutButton" 
@@ -83,6 +82,7 @@ const SettingsComponent = (props) => {
                     buttonText={content.LOGOUT}
                 ></Button>
             </div>
+            <FooterNav />
         </div>
     );
 };

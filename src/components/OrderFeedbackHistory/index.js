@@ -5,13 +5,26 @@ import Icon from "../../common/IconComponent";
 import Button from "../../common/Button";
 import HitStatsComponent from "./HitStats/HitStatsComponent";
 import TrackReviewsComponent from "./TrackReviews/TrackReviewsComponent";
+import FooterNav from "../FooterNav";
+import Menu from "../Menu";
 
-const OrderFeedbackHistoryComponent = ({ hitStats, setToggle, data }) => {
+const OrderFeedbackHistoryComponent = ({ 
+  hitStats, 
+  setToggle, 
+  data, 
+  menuIsOpen, 
+  handleClickMenuToggle 
+}) => {
   return (
     <div className="orderFeedbackHistoryContainer">
-      <header className="orderFeedbackHistoryHeader">
-        <Icon iconName="menu" className="menuIcon" />
-      </header>
+      {/* <header className="orderFeedbackHistoryHeader">
+        <div onClick={() => handleClickMenuToggle(!menuIsOpen)} className="menuIconContainer">
+          <Icon iconName="menu" className="menuIcon" />
+        </div>
+        {menuIsOpen && (
+          <Menu handleClickMenuToggle={handleClickMenuToggle} />
+        )}
+      </header> */}
       <section className="orderFeedbackHistoryHeaderText">
         <div>
           <strong>{content.TITLE_1}</strong>
@@ -39,6 +52,7 @@ const OrderFeedbackHistoryComponent = ({ hitStats, setToggle, data }) => {
       ) : (
         <TrackReviewsComponent data={data} />
       )}
+      <FooterNav />
     </div>
   );
 };

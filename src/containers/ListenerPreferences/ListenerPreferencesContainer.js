@@ -25,6 +25,8 @@ class ListenerPreferencesContainer extends Component {
     sendMeText: "",
     price: "",
     dob: "",
+    saveButtonIsShowing: true,
+    menuIsOpen: false
   };
 
   componentDidMount() {
@@ -122,7 +124,7 @@ class ListenerPreferencesContainer extends Component {
       );
     }
     updateSelectedGenresDispatchAction(updatedSelectedGenres);
-    this.setState({ genreList: !this.state.genreList });
+    this.setState({ genresList: !this.state.genresList });
   };
 
   handleClickAddTags = (e, tagId) => {
@@ -139,8 +141,15 @@ class ListenerPreferencesContainer extends Component {
     this.setState({ tagsList: !this.state.tagsList });
   };
 
+  handleSaveFormData = (e) => {
+    this.setState({ saveButtonIsShowing: false });
+  }
+
+  handleClickMenuToggle = (toggle) => {
+    this.setState({ menuIsOpen: toggle });
+  }
+
   render() {
-    console.log(this.props.genres);
     return (
       <ListenerPreferencesComponent
         city={this.state.city}
@@ -153,7 +162,6 @@ class ListenerPreferencesContainer extends Component {
         handleClickToggleAddList={this.handleClickToggleAddList}
         handleClickAddGenres={this.handleClickAddGenres}
         handleClickAddTags={this.handleClickAddTags}
-        handleClickMenuToggle={this.handleClickMenuToggle}
         hitRequestBox={this.state.hitRequestBox}
         proRequestBox={this.state.proRequestBox}
         genresList={this.state.genresList}
@@ -163,10 +171,13 @@ class ListenerPreferencesContainer extends Component {
         genresAdded={this.props.selectedGenres}
         tagsAdded={this.props.selectedTags}
         toggle={this.state.toggle}
-        covered={this.state.covered}
         onInputChange={this.onInputChange}
         handleGenderChange={this.handleGenderChange}
         handleButtonClick={this.handleButtonClick}
+        saveButtonIsShowing={this.state.saveButtonIsShowing}
+        handleSaveFormData={this.handleSaveFormData}
+        menuIsOpen={this.state.menuIsOpen}
+        handleClickMenuToggle={this.handleClickMenuToggle}
       />
     );
   }
@@ -185,5 +196,5 @@ const mapActions = (dispatch) => ({
 
 export default connect(
   preferencsSelector,
-  mapActions
+  mapActions,
 )(ListenerPreferencesContainer);

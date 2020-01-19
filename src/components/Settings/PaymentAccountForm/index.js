@@ -4,23 +4,27 @@ import "./styles.scss";
 import Button from "../../../common/Button";
 import PaymentCard from "./PaymentCard";
 
-const PaymentAccountForm = ({ toggleExpand }) => {
+const PaymentAccountForm = ({ paymentIsOpen, togglePayment }) => {
     return (
         <section className="formContainer">
-            <header onClick={(e) => toggleExpand(e)} className="formHeaderContainer">
+            <header onClick={() => togglePayment(!paymentIsOpen)} className="formHeaderContainer">
                 <span className="expandIcon">
-                    +
+                    {!paymentIsOpen ? "+" : "-"}
                 </span>
                 <div className="formHeaderText">
                     {content.SUBCONTAINER3_LABEL}
                 </div>
             </header>
-            <div className="paymentCardsContainer">
-                <PaymentCard />
-            </div>
-            <div className="buttonWrapper">
-                <Button className="launchButton" buttonText={content.SUBCONTAINER3_BUTTON_TEXT} ></Button>
-            </div>
+            {paymentIsOpen && (
+                <React.Fragment>
+                    <div className="paymentCardsContainer">
+                        <PaymentCard />
+                    </div>
+                    <div className="buttonWrapper">
+                        <Button className="launchButton" buttonText={content.SUBCONTAINER3_BUTTON_TEXT} ></Button>
+                    </div>
+                </React.Fragment>
+            )}
         </section>
     );
 };

@@ -18,6 +18,7 @@ const Success = (props) => {
                     className="successButton"
                     buttonText={content.PLACE_NEW_ORDER}
                     disabled={false}
+                    onClick={props.placeNewOrderClick}
                 />
             </div>
             <div className="buttonWrapper">
@@ -25,6 +26,7 @@ const Success = (props) => {
                     className="successButton"
                     buttonText={content.RATE_NEW_TRACKS}
                     disabled={false}
+                    onClick={props.rateTrackClick}
                 />
             </div>
         </div>

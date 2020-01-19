@@ -13,8 +13,8 @@ export const AUTHENTICATE_USER_SUCCESS = "AUTHENTICATE_USER_SUCCESS";
 export const AUTHENTICATE_USER_FAILURE = "AUTHENTICATE_USER_FAILURE";
 export const UPDATE_USER_SUCCESS = "UPDATE_USER_SUCCESS";
 export const UPDATE_USER_FAILURE = "UPDATE_USER_FAILURE";
-export const GET_USER_SUCCESS = "GET_USER_SUCCESS";
-export const GET_USER_FAILURE = "GET_USER_FAILURE";
+export const GET_USER_DATA_SUCCESS = "GET_USER_DATA_SUCCESS";
+export const GET_USER_DATA_FAILURE = "GET_USER_DATA_FAILURE";
 export const GET_HISTORY_SUCCESS = "GET_HISTORY_SUCCESS";
 
 export const registerUserAction = (requestData) => (dispatch) =>
@@ -99,6 +99,19 @@ export const getOrderHistory = () => (dispatch) =>
     .then((requestData) => {
       dispatch({
         type: GET_HISTORY_SUCCESS,
+        payload: requestData
+      })
+    })
+
+export const getUserData = () => (dispatch) =>
+  fetch(`${api}${postPreferencesURI}:1`, {
+    method: "GET",
+    headers: authHeaders()
+  })
+    .then((res) => res.json())
+    .then((requestData) => {
+      dispatch({
+        type: GET_USER_DATA_SUCCESS,
         payload: requestData
       })
     })

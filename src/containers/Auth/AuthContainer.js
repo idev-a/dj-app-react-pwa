@@ -5,6 +5,7 @@ import HearBKHeader from "../../common/HearBKHeader";
 import AuthTabsComponent from "../../components/AuthTabsComponent";
 import "./Auth.styles.scss";
 import HearBKIcon from "../../common/HearBKIcon";
+import { Link } from "react-router-dom";
 
 const AuthContainer = (props) => {
   const [selectedTabIndex, setSelectedTabIndex] = useState(0);
@@ -19,8 +20,10 @@ const AuthContainer = (props) => {
   const handleTabChange = (index) => setSelectedTabIndex(index);
 
   return (
-    <div>
-      <HearBKHeader />
+    <div style={{ width: "100%" }}>
+      <Link to="/">
+        <HearBKHeader />
+      </Link>
       <AuthTabsComponent
         onTabChange={handleTabChange}
         selectedIndex={selectedTabIndex}
