@@ -35,7 +35,7 @@ const OrderFeedbackContainer = ({
   const [isAddPremium, setAddPremium] = useState(false);
   const [isProcessing, setIsProcessing] = useState(false);
   const [isError, setIsError] = useState(true);
-  const [isSuccess, setIsSuccess] = useState(true);
+  const [isSuccess, setIsSuccess] = useState(false);
   const getTotalAmount = useCallback(() => {
     const amount = tracks.reduce((total, track) => {
       return total + track.selectedFeedback;

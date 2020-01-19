@@ -112,7 +112,8 @@
   height: 196px;
   left: 0;
   top: 0;
-  background: url("../assets/img/settings/MaskGroup.png") 0% 0% / cover no-repeat;
+  background: url("../assets/img/settings/MaskGroup.png") 0% 0% / cover
+    no-repeat;
   z-index: 200;
   .menuIcon {
     position: absolute;
@@ -125,7 +126,7 @@
     margin: 36px 0 0 0;
     color: $main-1;
     font-size: $font-size-normal;
-    letter-spacing: .7pt;
+    letter-spacing: 0.7pt;
   }
 }
 
@@ -134,3 +135,6 @@ input:focus {
   outline: none;
 }
 
+audio:focus {
+  outline: none;
+}
