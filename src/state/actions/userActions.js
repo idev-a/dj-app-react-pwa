@@ -47,7 +47,7 @@ export const authenticateUser = (requestData) => (dispatch) =>
     .then(({ token, isFirstUserLogin }) => {
       history.push(isFirstUserLogin ? "/preferences" : "/discover"); 
       localStorage.setItem("x-access-token", token);
-      dispatch({ type: AUTHENTICATE_USER_SUCCESS, payload: token });
+      setTimeout(() => dispatch({ type: AUTHENTICATE_USER_SUCCESS, payload: token }), 500);
     });
 
 export const uploadUserProfile = (fileToUpload, email) => {
