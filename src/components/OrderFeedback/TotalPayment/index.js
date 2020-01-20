@@ -30,6 +30,7 @@ const TrackPaymentDetails = ({
     </div>
   );
 };
+
 const TotalPaymentComponent = ({ tracks, handleRemoveTrack, isAddPremium, genres }) => {
   return (
     <div className="totalPaymentContainer">
@@ -37,7 +38,7 @@ const TotalPaymentComponent = ({ tracks, handleRemoveTrack, isAddPremium, genres
       <div className="trackPaymentContainer">
         {tracks.filter((t) => t.trackTitle.length > 0).map(t =>  <TrackPaymentDetails
           trackTitle={t.trackTitle}
-          trackGenre={(t.genreId && genres.find(g => g._id === t.genreId).name) || ""}
+          trackGenre={(t.genreId && (genres.find(g => g._id === t.genreId) || {}).name) || ""}
           amount={t.selectedFeedback}
           removePayment={() => handleRemoveTrack(t.index)}
         />)}
