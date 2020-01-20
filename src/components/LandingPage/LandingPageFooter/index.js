@@ -7,10 +7,30 @@ const LandingPageFooter = () => {
   return (
     <div className="landingPageFooterContainer">
       <div className="socialMediaActionContainer">
-        <IconComponent iconName="facebook" className="socialMediaIcon" />
-        <IconComponent iconName="twitter" className="socialMediaIcon" />
-        <IconComponent iconName="instagram" className="socialMediaIcon" />
-        <IconComponent iconName="youtube" className="socialMediaIcon" />
+        <a 
+          href="https://www.facebook.com/hearbkapp/" 
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <IconComponent iconName="facebook" className="socialMediaIcon" />
+        </a>
+        <a 
+          href="https://twitter.com/hearbkapp" 
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <IconComponent iconName="twitter" className="socialMediaIcon" />
+        </a>
+        <a 
+          href="https://www.instagram.com/hearbkapp/" 
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <IconComponent iconName="instagram" className="socialMediaIcon" />
+        </a>
+        <a>
+          <IconComponent iconName="youtube" className="socialMediaIcon" />
+        </a>
       </div>
       <div className="footerMenuContainer">
         <div className="footerMenuColumn">
