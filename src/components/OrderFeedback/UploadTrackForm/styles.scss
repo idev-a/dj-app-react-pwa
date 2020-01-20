@@ -76,20 +76,22 @@
     @extend .trackInputContainer;
     position: relative;
     #trackGenre {
-      margin-bottom: 11px;
+      margin-bottom: 0;
+      padding-bottom: 8px;
+      border-bottom: none;
     }
     .addGenreIcon {
       position: absolute;
       height: 24px;
       width: 24px;
       right: 0;
-      top: 35%;
+      top: 50%;
     }
     .addGenresList {
       position: absolute;
       padding: 0;
       right: 0;
-      bottom: 50px;
+      bottom: 25px;
       width: 50%;
       height: 300px;
       color: $main-1;
@@ -130,7 +132,7 @@
   .ratingsContainer {
     display: flex;
     flex-direction: column;
-    margin-top: 11px;
+    margin-top: 5.5px;
     .ratingsText {
       font-size: $font-size-small;
       color: $main-2;

@@ -134,6 +134,7 @@ const DetailsComponent = ({
           placeholder={content.FAVOURITE_GENRES_SEARCH}
         />
         <ul className="selectedGenresContainer">{addGenresSelectedArray}</ul>
+        <hr className="firstHR" />
         <label for="tagsInputs" className="formInputLabel">
           {content.TAGS_LABEL}
         </label>
@@ -154,6 +155,7 @@ const DetailsComponent = ({
           placeholder={content.TAGS_SEARCH}
         />
         <ul className="selectedTagsContainer">{addTagsSelectedArray}</ul>
+        <hr className="lastHR"/>
     </div>
   );
 };

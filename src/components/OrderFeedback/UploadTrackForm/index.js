@@ -146,6 +146,7 @@ const UploadTrackForm = ({
               </div>
         </ul>
       )}
+      <hr className="firstHR" />
       <div className="ratingsContainer">
         <div className="ratingsText">{content.RATINGS_TEXT}</div>
         <div className="ratingsButtonWrapper">
