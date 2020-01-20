@@ -166,7 +166,7 @@ const ListenerPreferencesComponent = ({
   }
 
   return (
-    <div className="listenerPreferencesContainer">
+    <div className="listenerPreferencesContainer" style={style}>
       {/* <div onClick={() => handleClickMenuToggle(!menuIsOpen)} className="menuIconContainer">
         <Icon iconName="menu" className="menuIcon" />
       </div>
