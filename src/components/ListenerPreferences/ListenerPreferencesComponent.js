@@ -41,11 +41,9 @@ const ListenerPreferencesComponent = ({
   let hitCheckIcons = hitRequestBox ? "checkcirclegreen" : "checkcircle";
   let proCheckIcons = proRequestBox ? "checkcircleblue" : "checkcircle";
   let containerContents;
-  let style;
+  let heightAuto = "";
   if (hitRequestBox || proRequestBox) {
-    style = {
-      height: "initial",
-    };
+    heightAuto = "heightAuto";
     containerContents = (
       <React.Fragment>
         <section className="formContainer">
@@ -100,9 +98,7 @@ const ListenerPreferencesComponent = ({
     );
   }
   if (hitRequestBox && proRequestBox) {
-    style = {
-      height: "initial",
-    };
+    heightAuto = "heightAuto";
     containerContents = (
       <React.Fragment>
         <section className="formContainer">
@@ -166,7 +162,7 @@ const ListenerPreferencesComponent = ({
   }
 
   return (
-    <div className="listenerPreferencesContainer" style={style}>
+    <div className={`listenerPreferencesContainer ${heightAuto}`}>
       {/* <div onClick={() => handleClickMenuToggle(!menuIsOpen)} className="menuIconContainer">
         <Icon iconName="menu" className="menuIcon" />
       </div>
