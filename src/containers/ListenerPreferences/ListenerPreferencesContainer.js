@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import isEmpty from "lodash/isEmpty";
+import capitalise from "lodash/capitalize";
 import ListenerPreferencesComponent from "../../components/ListenerPreferences/ListenerPreferencesComponent";
 import { preferencsSelector } from "../../state/selectors/preferences";
 import { getGenres, getTags } from "../../state/actions/preferencesActions";
@@ -7,7 +9,11 @@ import {
   updateSelectedGenres,
   updateSelectedTags,
 } from "../../state/actions/preferencesActions";
-import { postListenerPreferences } from "../../state/actions/userActions";
+import {
+  postListenerPreferences,
+  getUserDetails,
+} from "../../state/actions/userActions";
+import moment from "moment";
 
 class ListenerPreferencesContainer extends Component {
   state = {
@@ -15,24 +21,64 @@ class ListenerPreferencesContainer extends Component {
     proRequestBox: false,
     genresList: false,
     tagsList: false,
-    genresAdded: [],
-    tagsAdded: [],
     toggle: "closed",
     covered: "",
-    gender: "Male",
+    gender: "",
     city: "",
     bio: "",
-    sendMeText: "",
+    headline: "",
     price: "",
     dob: "",
     saveButtonIsShowing: true,
-    menuIsOpen: false
+    menuIsOpen: false,
+    loadUserData: false,
   };
 
   componentDidMount() {
-    const { getGenresDispatchAction, getTagsDispatchAction } = this.props;
+    const {
+      getGenresDispatchAction,
+      getTagsDispatchAction,
+      getUserDetailsDispatchAction,
+    } = this.props;
     getGenresDispatchAction();
     getTagsDispatchAction();
+    getUserDetailsDispatchAction();
+  }
+
+  componentDidUpdate() {
+    if (
+      this.props.userDetails &&
+      !isEmpty(this.props.userDetails) &&
+      !this.state.loadUserData &&
+      this.props.genres.length > 0 &&
+      this.props.tags.length > 0
+    ) {
+      const {
+        favourite_genres = [],
+        listener_tags = [],
+        feedback_type = [],
+      } = this.props.userDetails;
+      const selectedGenres = this.props.genres.filter((g) =>
+        favourite_genres.includes(g._id)
+      );
+      const selectedTags = this.props.tags.filter((g) =>
+        listener_tags.includes(g._id)
+      );
+      this.props.updateSelectedGenresDispatchAction(selectedGenres);
+      this.props.updateSelectedTagsDispatchAction(selectedTags);
+
+      this.setState({
+        gender: capitalise(this.props.userDetails.gender) || "",
+        city: this.props.userDetails.city || "",
+        bio: this.props.userDetails.bio || "",
+        headline: this.props.userDetails.headline || "",
+        price: this.props.userDetails.price || "",
+        dob: moment(this.props.userDetails.date_of_birth, "YYYY-MM-DD").format("MM-DD-YYYY") || "",
+        loadUserData: true,
+        hitRequestBox: feedback_type.includes("HIT"),
+        proRequestBox: feedback_type.includes("PRO"),
+      });
+    }
   }
 
   handleClickRequestBoxes = (e) => {
@@ -48,7 +94,7 @@ class ListenerPreferencesContainer extends Component {
     }
   };
 
-  handlePostListernerPreferences = (navigateToPath) => {
+  handlePostListernerPreferences = () => {
     const {
       hitRequestBox,
       proRequestBox,
@@ -71,14 +117,16 @@ class ListenerPreferencesContainer extends Component {
       favourite_genres: selectedGenres.map((genre) => genre._id),
       listener_tags: selectedTags.map((tag) => tag._id),
       city,
+      date_of_birth: this.state.dob,
       gender: gender.toLowerCase(),
       ...(proRequestBox && {
         price,
         bio,
-        send_me: sendMeText,
+        headline: sendMeText,
       }),
     };
-    this.props.postListenerPreferenceDispatchAction(payload, navigateToPath);
+    this.props.postListenerPreferenceDispatchAction(payload);
+    this.setState({ saveButtonIsShowing: false });
   };
 
   handleGenderChange = (gender) => {
@@ -88,15 +136,19 @@ class ListenerPreferencesContainer extends Component {
   };
 
   onInputChange = (e) => {
-    this.setState({
-      [e.target.id]: e.target.value,
-    });
+    if (e.id === "location") {
+      this.setState({
+        city: e.city,
+      });
+    } else {
+      this.setState({
+        [e.target.id]: e.target.value,
+      });
+    }
   };
 
-  handleButtonClick = (navigateToDiscover) => {
-    this.handlePostListernerPreferences(
-      navigateToDiscover ? "/discover" : "/feedback"
-    );
+  handleButtonClick = () => {
+    this.handlePostListernerPreferences();
   };
 
   handleClickToggleAddList = (e, type) => {
@@ -124,7 +176,10 @@ class ListenerPreferencesContainer extends Component {
       );
     }
     updateSelectedGenresDispatchAction(updatedSelectedGenres);
-    this.setState({ genresList: !this.state.genresList });
+    this.setState({
+      genresList: !this.state.genresList,
+      saveButtonIsShowing: false,
+    });
   };
 
   handleClickAddTags = (e, tagId) => {
@@ -140,14 +195,9 @@ class ListenerPreferencesContainer extends Component {
     updateSelectedTagsDispatchAction(updatedSelectedTags);
     this.setState({ tagsList: !this.state.tagsList });
   };
-
-  handleSaveFormData = (e) => {
-    this.setState({ saveButtonIsShowing: false });
-  }
-
   handleClickMenuToggle = (toggle) => {
     this.setState({ menuIsOpen: toggle });
-  }
+  };
 
   render() {
     return (
@@ -156,7 +206,7 @@ class ListenerPreferencesContainer extends Component {
         gender={this.state.gender}
         price={this.state.price}
         bio={this.state.bio}
-        sendMeText={this.state.sendMeText}
+        sendMeText={this.state.headline}
         dob={this.state.dob}
         handleClickRequestBoxes={this.handleClickRequestBoxes}
         handleClickToggleAddList={this.handleClickToggleAddList}
@@ -175,7 +225,6 @@ class ListenerPreferencesContainer extends Component {
         handleGenderChange={this.handleGenderChange}
         handleButtonClick={this.handleButtonClick}
         saveButtonIsShowing={this.state.saveButtonIsShowing}
-        handleSaveFormData={this.handleSaveFormData}
         menuIsOpen={this.state.menuIsOpen}
         handleClickMenuToggle={this.handleClickMenuToggle}
       />
@@ -186,6 +235,7 @@ class ListenerPreferencesContainer extends Component {
 const mapActions = (dispatch) => ({
   getGenresDispatchAction: () => dispatch(getGenres()),
   getTagsDispatchAction: () => dispatch(getTags()),
+  getUserDetailsDispatchAction: () => dispatch(getUserDetails()),
   updateSelectedGenresDispatchAction: (genres) =>
     dispatch(updateSelectedGenres(genres)),
   updateSelectedTagsDispatchAction: (tags) =>
@@ -196,5 +246,5 @@ const mapActions = (dispatch) => ({
 
 export default connect(
   preferencsSelector,
-  mapActions,
+  mapActions
 )(ListenerPreferencesContainer);

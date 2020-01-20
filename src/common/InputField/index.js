@@ -11,6 +11,7 @@ const InputField = ({
   iconName,
   type,
   disabled,
+  value,
   accept,
 }) => {
   let style;
@@ -46,6 +47,7 @@ const InputField = ({
       placeholder={placeholder}
       type={type}
       disabled={disabled}
+      value={value}
     />
   );
 };

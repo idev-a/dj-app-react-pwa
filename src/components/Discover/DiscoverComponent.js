@@ -71,7 +71,7 @@ const DiscoverComponent = ({ handleSwipeEnd, track, menuIsOpen, handleClickMenuT
       </div>
       {!isEmpty(track) ? <SwipeableCards
         className="songCardOuterContainer"
-        swipeThreshold={75}
+        swipeThreshold={125}
         onSwipeEnd={handleSwipeEnd}
       >
         {getComponent()}

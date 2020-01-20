@@ -7,6 +7,7 @@ import DetailsForm from "./DetailsForm";
 import PriceForm from "./PriceForm";
 import Button from "../../common/Button";
 import Menu from "../Menu";
+import history from "../../history";
 
 const ListenerPreferencesComponent = ({
   handleClickRequestBoxes,
@@ -20,10 +21,10 @@ const ListenerPreferencesComponent = ({
   tagsList,
   genres,
   tags,
-  city,
   gender,
   dob,
   bio,
+  city,
   price,
   sendMeText,
   genresAdded,
@@ -75,7 +76,7 @@ const ListenerPreferencesComponent = ({
             <Button
               className="launchButton saveButton"
               buttonText={content.SAVE}
-              onClick={() => handleSaveFormData()}
+              onClick={() => handleButtonClick()}
             ></Button>
           </div>
         )}
@@ -86,12 +87,12 @@ const ListenerPreferencesComponent = ({
             <Button
               className="launchButton"
               buttonText={content.RATE_TRACKS_TEXT}
-              onClick={() => handleButtonClick(true)}
+              onClick={() => history.push("/discover")}
             ></Button>
             <Button
               className="launchButton"
               buttonText={content.ORDER_FEEDBACK_TEXT}
-              onClick={() => handleButtonClick(false)}
+              onClick={() => history.push("/feedback")}
             ></Button>
           </div>
         )}
@@ -140,7 +141,7 @@ const ListenerPreferencesComponent = ({
             <Button
               className="launchButton saveButton"
               buttonText={content.SAVE}
-              onClick={() => handleSaveFormData()}
+              onClick={() => handleButtonClick()}
             ></Button>
           </div>
         )}
@@ -151,12 +152,12 @@ const ListenerPreferencesComponent = ({
             <Button
               className="launchButton"
               buttonText={content.RATE_TRACKS_TEXT}
-              onClick={() => handleButtonClick(true)}
+              onClick={() => history.push("/discover")}
             ></Button>
             <Button
               className="launchButton"
               buttonText={content.ORDER_FEEDBACK_TEXT}
-              onClick={() => handleButtonClick(false)}
+              onClick={() => history.push("/feedback")}
             ></Button>
           </div>
         )}

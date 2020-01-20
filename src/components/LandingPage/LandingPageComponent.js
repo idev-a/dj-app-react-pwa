@@ -7,6 +7,7 @@ import Button from "../../common/Button";
 import "./LandingPage.style.scss";
 import HearBKHeader from "../../common/HearBKHeader";
 import HearBKIcon from "../../common/HearBKIcon";
+import PopUps from "../../components/PopUps/PopUpsComponent";
 
 const Component = (props) => {
   return (
@@ -76,6 +77,13 @@ const Component = (props) => {
         </div>
       </div>
       <LandingPageFooter />
+      {props.showCookie && (
+        <PopUps
+          hasCloseIcon={false}
+          name={"cookie"}
+          handlers={{ handleCookieClick: props.handleSetCookie }}
+        />
+      )}
     </div>
   );
 };

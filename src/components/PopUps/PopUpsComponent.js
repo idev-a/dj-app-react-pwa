@@ -22,7 +22,7 @@ const PopUpsComponent = ({
             </div>
             {
                 name === "addToHome" ? <AddToHome /> : 
-                name === "cookie" ? <Cookie /> :
+                name === "cookie" ? <Cookie {...handlers} /> :
                 name === "newCard" ? <NewCard /> : 
                 name === "orderProcessing" ? <OrderProcessing /> : 
                 name === "success" ? <Success {...handlers}  /> : ""

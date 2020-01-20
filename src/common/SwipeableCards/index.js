@@ -14,23 +14,25 @@ const SwipeableCards = ({
   const [swipeText, setSwipeText] = useState("");
   const handleSwiping = useCallback(
     (e) => {
-      if (e.dir === "Up") {
-        setSwipeText("POTENTIAL");
-        setStyle({
-          bottom: `${e.absY}px`,
-        });
-      }
-      if (e.dir === "Right") {
-        setSwipeText("HIT");
-        setStyle({
-          left: `${e.absX}px`,
-        });
-      }
-      if (e.dir === "Left") {
-        setSwipeText("MISS");
-        setStyle({
-          left: `-${e.absX}px`,
-        });
+      if (e.absX >  50 || e.absY > 50) {
+        if (e.dir === "Up") {
+          setSwipeText("POTENTIAL");
+          setStyle({
+            bottom: `${e.absY}px`,
+          });
+        }
+        if (e.dir === "Right") {
+          setSwipeText("HIT");
+          setStyle({
+            left: `${e.absX}px`,
+          });
+        }
+        if (e.dir === "Left") {
+          setSwipeText("MISS");
+          setStyle({
+            left: `-${e.absX}px`,
+          });
+        }
       }
     },
     [setStyle]
@@ -42,10 +44,10 @@ const SwipeableCards = ({
         (e.absX > swipeThreshold || e.absY > swipeThreshold) &&
         e.dir !== "Down"
       ) {
-        onSwipeEnd(e.dir);
+        onSwipeEnd(e);
         setStyle({});
       }
-       setSwipeText("");
+      setSwipeText("");
     },
     [onSwipeEnd, swipeThreshold]
   );
@@ -62,14 +64,16 @@ const SwipeableCards = ({
       <div className={className} style={style}>
         {children}
       </div>
-      {swipeText.length > 0 && <div
-        className={cx(
-          "swipeTextLabel",
-          swipeText.length > 0 && swipeText.toLowerCase()
-        )}
-      >
-        {swipeText}
-      </div>}
+      {swipeText.length > 0 && (
+        <div
+          className={cx(
+            "swipeTextLabel",
+            swipeText.length > 0 && swipeText.toLowerCase()
+          )}
+        >
+          {swipeText}
+        </div>
+      )}
     </SwipeableViews>
   );
 };

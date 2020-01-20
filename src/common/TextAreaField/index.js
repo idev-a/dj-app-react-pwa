@@ -8,6 +8,7 @@ const TextAreaField = ({
   onChange,
   iconName,
   type,
+  value,
 }) => {
   let style;
   if (hasIcon) {
@@ -27,6 +28,7 @@ const TextAreaField = ({
       onChange={onChange}
       placeholder={placeholder}
       type={type}
+      value={value}
     />
   );
 };

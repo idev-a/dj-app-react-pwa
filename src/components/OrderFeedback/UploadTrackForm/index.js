@@ -106,7 +106,6 @@ const UploadTrackForm = ({
         <InputField
           id="trackGenre"
           className="titleInput"
-          value={trackTitle}
           onChange={handleTrackDetailsUpdate}
           placeholder={content.TRACK_GENRE_PLACEHOLDER}
         />

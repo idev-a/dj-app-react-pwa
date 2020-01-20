@@ -28,21 +28,21 @@ const Cookie = (props) => {
                 <Button
                 className="launchButton"
                 buttonText={content.BUTTON_ONE_TEXT}
-                onClick={""}
+                onClick={() => props.handleCookieClick("https://hearbk.com/hq/manage-preferences/")}
                 ></Button>
             </div>
             <div className="buttonWrapper">
                 <Button
                 className="launchButton"
                 buttonText={content.BUTTON_TWO_TEXT}
-                onClick={""}
+                onClick={() => props.handleCookieClick("https://hearbk.com/hq/privacy-policy/")}
                 ></Button>
             </div>
             <div className="buttonWrapper">
                 <Button
                 className="launchButton"
                 buttonText={content.BUTTON_THREE_TEXT}
-                onClick={""}
+                onClick={() => props.handleCookieClick("https://hearbk.com/hq/cookie-policy/")}
                 ></Button>
             </div>
         </div>

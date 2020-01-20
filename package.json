@@ -14,6 +14,7 @@
     "rc-checkbox": "^2.1.8",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
+    "react-google-autocomplete": "^1.1.2",
     "react-h5-audio-player": "^2.2.0",
     "react-hammerjs": "^1.0.1",
     "react-helmet": "^5.2.1",

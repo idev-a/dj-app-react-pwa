@@ -90,6 +90,7 @@ const OrderFeedbackComponent = ({
         handleRemoveTrack={handleRemoveTrack}
         tracks={tracks}
         isAddPremium={isAddPremium}
+        genres={genres}
       />
       <StripeProvider apiKey="pk_test_HhCQqzIxD2wH7EXferZHg18W">
         <Elements>

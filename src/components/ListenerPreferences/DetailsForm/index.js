@@ -5,7 +5,7 @@ import "./styles.scss";
 import Icon from "../../../common/IconComponent";
 import InputField from "../../../common/InputField";
 import Button from "../../../common/Button";
-
+import AutoComplete from "react-google-autocomplete";
 const DetailsComponent = ({
   handleClickToggleAddList,
   handleClickAddGenres,
@@ -95,11 +95,19 @@ const DetailsComponent = ({
       <label for="cityName" className="formInputLabel">
         {content.CITY_LABEL}
       </label>
-      <InputField
+      <AutoComplete
         id="city"
         className="formInputField"
-        value={city}
+        style={{width: '90%'}}
+        onPlaceSelected={e => {
+          onInputChange({
+            id: "location",
+            city: e.formatted_address
+          })
+        }}
         onChange={onInputChange}
+        value={city}
+        types={['(cities)']}
         placeholder={content.CHOOSE_CITY}
       />
       <div className="formInputLabel">{content.GENDER_LABEL}</div>
@@ -129,7 +137,6 @@ const DetailsComponent = ({
         <InputField
           id="genres"
           className="formInputField"
-          value={genres}
           onChange={onInputChange}
           placeholder={content.FAVOURITE_GENRES_SEARCH}
         />
@@ -150,7 +157,6 @@ const DetailsComponent = ({
         <InputField
           id="tags"
           className="formInputField"
-          value={tags}
           onChange={onInputChange}
           placeholder={content.TAGS_SEARCH}
         />
