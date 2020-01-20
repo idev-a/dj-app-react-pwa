@@ -45,8 +45,8 @@ export const authenticateUser = (requestData) => (dispatch) =>
   })
     .then((response) => response.json())
     .then(({ token, isFirstUserLogin }) => {
-      history.push(isFirstUserLogin ? "/preferences" : "/discover"); 
       localStorage.setItem("x-access-token", token);
+      history.push(isFirstUserLogin ? "/preferences" : "/discover"); 
       setTimeout(() => dispatch({ type: AUTHENTICATE_USER_SUCCESS, payload: token }), 500);
     });
 
