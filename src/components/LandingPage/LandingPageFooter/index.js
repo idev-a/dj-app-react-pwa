@@ -28,9 +28,9 @@ const LandingPageFooter = () => {
         >
           <IconComponent iconName="instagram" className="socialMediaIcon" />
         </a>
-        <a>
+        {/* <a>
           <IconComponent iconName="youtube" className="socialMediaIcon" />
-        </a>
+        </a> */}
       </div>
       <div className="footerMenuContainer">
         <div className="footerMenuColumn">

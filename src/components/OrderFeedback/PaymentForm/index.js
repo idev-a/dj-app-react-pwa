@@ -11,6 +11,8 @@ import content from "./content";
 import InputField from "../../../common/InputField";
 import "rc-checkbox/assets/index.css";
 import "./styles.scss";
+import PaymentCard from "../../Settings/PaymentAccountForm/PaymentCard";
+import Button from "../../../common/Button";
 
 const PaymentForm = ({
   accountName,
@@ -22,6 +24,11 @@ const PaymentForm = ({
   handlePaymentFormError,
   ...props
 }) => {
+  // for dev purposes only
+  const cardSaved = true;
+  const cardArray = <PaymentCard />;
+  // 
+
   useEffect(() => {
     if (shouldCreateToken) {
       (async () => {
@@ -33,11 +40,20 @@ const PaymentForm = ({
   return (
     <section className="paymentFormContainer">
       <header className="paymentFormHeader">{content.PAYMENT_HEADER}</header>
+      {cardSaved && (
+        <React.Fragment>
+          {cardArray}
+          <div className="buttonWrapper">
+              <Button className="launchButton" buttonText={content.ADD_NEW_CARD} ></Button>
+          </div>
+        </React.Fragment>
+      )}
       <div className="paymentInputContainer">
         <label className="titleLabel">{content.NAME_ON_CARD}</label>
         <InputField
           id="accountName"
           value={accountName}
+          onChange={onInputChange}
           className="titleInput"
           placeholder={capitalize(content.NAME_ON_CARD)}
         />

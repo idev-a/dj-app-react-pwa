@@ -13,6 +13,29 @@
     line-height: 22px;
     color: $main-3;
   }
+  .paymentCard {
+    margin: 17px 0 0 0;
+  }
+  .buttonWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+    margin: 18px 0 9px 0;
+    padding: 0;
+    background: linear-gradient(73deg, $main-3, #B4C4D9);
+    box-shadow: 0 3pt 6px #00000029;
+    box-sizing: border-box;
+    .launchButton {
+        width: 100%;
+        height: 46px;
+        margin: 2px;
+        font-size: $font-size-small;
+        color: $main-2;
+        background: $main-5;
+    }
+  }
   .paymentInputContainer {
     display: flex;
     flex-direction: column;

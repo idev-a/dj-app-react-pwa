@@ -43,6 +43,27 @@ const UpgradeToPremium = ({ isAddPremium, onInputChange }) => {
   );
 };
 
+const PremiumAccess = ({ isHyperTargeted, onInputChange }) => {
+  return (
+    <div className="premiumAccessContainer">
+      <div className="upgradeToPremiumHeader">
+        {content.PREMIUM} <span className="premiumHeader">{content.ACCESS}</span>
+      </div>
+      <p className="description">{content.PREMIUM_DESCRIPTION}</p>
+      <div className="addPremiumContainer">
+        <Checkbox
+          name="isHyperTargeted"
+          checked={isHyperTargeted}
+          onChange={onInputChange}
+        />
+        <div className="addSubscriptionText">
+          {content.ADD_HYPER_TARGET}
+        </div>
+      </div>
+    </div>
+  );
+};
+
 UpgradeToPremium.propTypes = {
   isAddPremium: PropTypes.bool,
   onInputChange: PropTypes.func,
@@ -53,5 +74,10 @@ UpgradeToPremium.defaultProps = {
   onInputChange: () => {},
 };
 
+PremiumAccess.defaultProps = {
+  isHyperTargeted: true,
+  onInputChange: () => {}
+}
 
-export default UpgradeToPremium;
+
+export default PremiumAccess;
