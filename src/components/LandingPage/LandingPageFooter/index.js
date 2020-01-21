@@ -19,7 +19,7 @@ const LandingPageFooter = () => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <IconComponent iconName="twitter" className="socialMediaIcon" />
+          <IconComponent iconName="twitter_new" className="socialMediaIcon" />
         </a>
         <a 
           href="https://www.instagram.com/hearbkapp/" 

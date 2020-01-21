@@ -10,3 +10,12 @@ export const ENUMS = {
   MEDIA_TYPE_YOUTUBE: "YOU_TUBE",
   MEDIA_TYPE_FILEUPLOAD: "FILE_UPLOAD"
 };
+
+
+const regexObj = {
+  email:  /^[a-zA-Z0-9.!#$%&'*+=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/,
+}
+
+export const validateRegex = (id, value) => {
+  return regexObj[id].test(value);
+}

@@ -13,6 +13,7 @@ const SignUpComponent = ({
   password,
   repeatPassword,
   registerUser,
+  fileToUpload,
 }) => {
   const fileUploadRef = useRef(null);
   const handleAddPhotoClick = () => {
@@ -73,19 +74,20 @@ const SignUpComponent = ({
         />
       </div>
       <div className="addPhotoContainer">
-        <Button
+        {!fileToUpload && <Button
           className="addPhotoButton"
           isIcon
           iconName="addphoto"
           onClick={handleAddPhotoClick}
-        />
+        />}
         <InputField
-          accept=".mp3"
+          accept="image/*"
           passableRef={fileUploadRef}
-          id="fileUpload"
+          style={fileToUpload && { width: "auto", zIndex: "1" }}
+          id="profileImg"
           type="file"
           className="fileInputClass"
-          onChange={handleAddPhotoClick}
+          onChange={onInputChange}
         />
       </div>
       <div className="buttonWrapper">

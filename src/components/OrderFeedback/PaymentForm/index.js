@@ -25,7 +25,7 @@ const PaymentForm = ({
   ...props
 }) => {
   // for dev purposes only
-  const cardSaved = true;
+  const cardSaved = false;
   const cardArray = <PaymentCard />;
   // 
 
@@ -43,9 +43,6 @@ const PaymentForm = ({
       {cardSaved && (
         <React.Fragment>
           {cardArray}
-          <div className="buttonWrapper">
-              <Button className="launchButton" buttonText={content.ADD_NEW_CARD} ></Button>
-          </div>
         </React.Fragment>
       )}
       <div className="paymentInputContainer">

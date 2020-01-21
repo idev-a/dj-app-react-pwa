@@ -3,19 +3,42 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import SignUpComponent from "../../components/SignUp/SignUpComponent";
 import "../../scss/common.styles.scss";
-import { registerUserAction, uploadUserProfile } from "../../state/actions/userActions";
+import { registerUserAction } from "../../state/actions/userActions";
 import { userSelector } from "../../state/selectors/users";
+import { toast } from "react-toastify";
+import { validateRegex } from "../../utils";
 
 const SignUpContainer = ({ registerUser, handleSuccess }) => {
-  const [userData, setUserData] = useState({});
+  const [userData, setUserData] = useState({
+    email: "",
+    username: "",
+    displayName: "",
+  });
   const [fileToUpload, setFileToUpload] = useState(null);
   const handleNewUserRegister = useCallback(() => {
-    registerUser(userData).then(async() => {
-      const response =  await uploadUserProfile(fileToUpload,userData.email);
-      if (response.ok) {
+    if (userData.password !== userData.repeatPassword) {
+      toast.error("Passwords dont match");
+      return;
+    }
+    if (userData.email.length === 0 || !validateRegex("email", userData.email)) {
+      toast.error("Enter valid email address");
+      return;
+    }
+    if (!userData.displayName || userData.displayName.length === 0) {
+      toast.error("Enter display name");
+      return;
+    }
+    if (!userData.displayName || userData.username.length === 0) {
+      toast.error("Enter username name");
+      return;
+    }
+    registerUser(userData, fileToUpload)
+      .then(() => {
         handleSuccess();
-      }
-    });
+      })
+      .catch(() => {
+        toast.error("User registration failed");
+      });
   }, [registerUser, userData, fileToUpload, handleSuccess]);
   const handleInputChange = (e) => {
     if (
@@ -27,7 +50,7 @@ const SignUpContainer = ({ registerUser, handleSuccess }) => {
     } else {
       setUserData({
         ...userData,
-        [e.target.id]: e.target.value,
+        [e.target.id]: e.target.value.trim(),
       });
     }
   };
@@ -35,20 +58,22 @@ const SignUpContainer = ({ registerUser, handleSuccess }) => {
     <SignUpComponent
       onInputChange={handleInputChange}
       {...userData}
+      fileToUpload={fileToUpload}
       registerUser={handleNewUserRegister}
     />
   );
 };
 
 const mapActions = (dispatch) => ({
-  registerUser: (requestData) => dispatch(registerUserAction(requestData)),
+  registerUser: (requestData, file) =>
+    dispatch(registerUserAction(requestData, file)),
 });
 
 const mapStateToProps = (state) => ({
   user: userSelector(state),
 });
 
-SignUpComponent.propTypes = {
+SignUpContainer.propTypes = {
   user: PropTypes.object.isRequired,
   registerUser: PropTypes.func.isRequired,
 };

@@ -13,12 +13,14 @@ const InputField = ({
   disabled,
   value,
   accept,
+  style,
 }) => {
-  let style;
+  let componentStyle = style;
   if (hasIcon) {
     switch (iconPosition) {
       case "right": 
-        style = {
+      componentStyle = {
+          ...componentStyle,
           background: `url('../../img/${iconName}.png') no-repeat`,
           backgroundSize: "17px 17px",
           backgroundPosition: "100% 15%",
@@ -26,7 +28,8 @@ const InputField = ({
         }
         break;
       default: {
-        style = {
+        componentStyle = {
+          ...componentStyle,
           background: `url('../../img/${iconName}.png') no-repeat`,
           backgroundSize: "17px 17px",
           backgroundPosition: "8px 16px",
@@ -42,7 +45,7 @@ const InputField = ({
       accept={accept}
       ref={passableRef}
       className={className}
-      style={style}
+      style={componentStyle}
       onChange={onChange}
       placeholder={placeholder}
       type={type}

@@ -6,7 +6,7 @@ import IconComponent from "../../../common/IconComponent";
 import "./styles.scss";
 import "rc-checkbox/assets/index.css";
 
-const UpgradeToPremium = ({ isAddPremium, onInputChange }) => {
+export const UpgradeToPremium = ({ isAddPremium, onInputChange }) => {
   return (
     <div className="upgradeToPremiumContainer">
       <div className="upgradeToPremiumHeader">
@@ -43,7 +43,7 @@ const UpgradeToPremium = ({ isAddPremium, onInputChange }) => {
   );
 };
 
-const PremiumAccess = ({ isHyperTargeted, onInputChange }) => {
+export const PremiumAccess = ({ isHyperTargeted, onInputChange }) => {
   return (
     <div className="premiumAccessContainer">
       <div className="upgradeToPremiumHeader">
@@ -80,4 +80,3 @@ PremiumAccess.defaultProps = {
 }
 
 
-export default PremiumAccess;

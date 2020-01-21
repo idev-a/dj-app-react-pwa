@@ -9,6 +9,12 @@ const DiscoverContainer = (props) => {
   const { tracks, getTracksDispatchAction } = props;
 
   useEffect(() => {
+    if(!localStorage.getItem("x-access-token")) {
+      props.history && props.history.push("/signin")
+    }
+  }, [props.history])
+
+  useEffect(() => {
     getTracksDispatchAction();
   }, [getTracksDispatchAction]);
 
