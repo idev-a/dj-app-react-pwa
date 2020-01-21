@@ -51,6 +51,21 @@ const DiscoverComponent = ({ handleSwipeEnd, track, menuIsOpen, handleClickMenuT
           {mediacomponent}
           <div className="songTitle">{trackTitle}</div>
         </div>
+        <div className="iconContainerHeader">{content.ICON_CONTAINER_HEADER}</div>
+        <div className="iconContainer">
+          <div className="iconCols">
+            <Icon className="ratingIcons" iconName="thumbs_down_blue" />
+            <div className="ratingLabels selected">{content.MISS}</div>
+          </div>
+          <div className="iconCols">
+            <Icon className="ratingIcons" iconName="thumbs_up_down" />
+            <div className="ratingLabels">{content.POTENTIAL}</div>
+          </div>
+          <div className="iconCols">
+            <Icon className="ratingIcons" iconName="thumbs_up" />
+            <div className="ratingLabels">{content.HIT}</div>
+          </div>
+        </div> 
       </div>
     );
   }, [track]);

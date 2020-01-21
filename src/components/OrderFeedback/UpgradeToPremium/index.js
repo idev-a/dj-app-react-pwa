@@ -78,5 +78,3 @@ PremiumAccess.defaultProps = {
   isHyperTargeted: true,
   onInputChange: () => {}
 }
-
-
