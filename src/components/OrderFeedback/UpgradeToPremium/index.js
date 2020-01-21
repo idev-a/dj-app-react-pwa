@@ -79,5 +79,4 @@ PremiumAccess.defaultProps = {
   onInputChange: () => {}
 }
 
-
-export default PremiumAccess;
+export default UpgradeToPremium;
