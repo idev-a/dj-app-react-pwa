@@ -35,6 +35,10 @@ class ListenerPreferencesContainer extends Component {
   };
 
   componentDidMount() {
+    if (!localStorage.getItem("x-access-token")) {
+      this.props.history && this.props.history.push("/signin");
+      return;
+    }
     const {
       getGenresDispatchAction,
       getTagsDispatchAction,
@@ -73,7 +77,10 @@ class ListenerPreferencesContainer extends Component {
         bio: this.props.userDetails.bio || "",
         headline: this.props.userDetails.headline || "",
         price: this.props.userDetails.price || "",
-        dob: moment(this.props.userDetails.date_of_birth, "YYYY-MM-DD").format("MM-DD-YYYY") || "",
+        dob:
+          moment(this.props.userDetails.date_of_birth, "YYYY-MM-DD").format(
+            "MM-DD-YYYY"
+          ) || "",
         loadUserData: true,
         hitRequestBox: feedback_type.includes("HIT"),
         proRequestBox: feedback_type.includes("PRO"),

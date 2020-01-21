@@ -1,5 +1,6 @@
 import history from "../../history";
 import api, { genericHeaders, formDataHeader, authHeaders } from "../../config";
+import { toast } from "react-toastify";
 
 const postRegisterUserURI = "/users/register";
 const postAuthenticateUserURI = "/users/authenticate";
@@ -7,6 +8,7 @@ const postPreferencesURI = "/users";
 const updateUserURI = "/settings/update";
 const getOrderHistoryUrl = "/orders/history";
 const getUserDetailsURI = "/users/details";
+const uploadDisplayPicURI = "/users/upload/profile-image";
 
 export const REGISTER_USER_SUCCESS = "REGISTER_USER_SUCCESS";
 export const REGISTER_USER_FAILURE = "REGISTER_USER_FAILURE";
@@ -20,21 +22,40 @@ export const GET_HISTORY_SUCCESS = "GET_HISTORY_SUCCESS";
 export const GET_USER_DETAILS_SUCCESS = "GET_USER_DETAILS_SUCCESS";
 export const GET_USER_DETAILS_FAILURE = "GET_USER_DETAILS_FAILURE";
 
-export const registerUserAction = (requestData) => (dispatch) =>
+export const registerUserAction = (requestData, file) => (dispatch) =>
   fetch(`${api}${postRegisterUserURI}`, {
     method: "POST",
     headers: genericHeaders(),
-    body: JSON.stringify(requestData),
+    body: JSON.stringify({
+      email: requestData.email,
+      password: requestData.password,
+      display_name: requestData.displayName,
+      user_name: requestData.username,
+    }),
   })
-    .then((response) => response.json())
-    .then(() => {
-      dispatch({
-        type: REGISTER_USER_SUCCESS,
-        payload: requestData,
-      });
+    .then((response) => {
+      if (response.status === 401) {
+        toast.error("User already exits");
+        return undefined;
+      }
+      if (response.ok) {
+        if (!file) {
+          toast.success("User registered sucessfully. Please login");
+        }
+        return response.json();
+      } else {
+        throw Error;
+      }
     })
-    .catch(() => {
-      alert("User registration failed");
+    .then(async (data) => {
+      if (file && data) {
+        const res = await uploadUserProfile(file, data.id);
+        if (res.ok) {
+          toast.success("User registered sucessfully. Please login");
+        } else {
+          toast.error("Profile image upload failed");
+        }
+      }
     });
 
 export const authenticateUser = (requestData) => (dispatch) =>
@@ -44,19 +65,24 @@ export const authenticateUser = (requestData) => (dispatch) =>
     body: JSON.stringify(requestData),
   })
     .then((response) => response.json())
-    .then(({ token, isFirstUserLogin }) => {
+    .then(({ token, isFirstUserLogin, isPremiumUser, expireTime = 3600000 }) => {
       localStorage.setItem("x-access-token", token);
-      history.push(isFirstUserLogin ? "/preferences" : "/discover"); 
-      setTimeout(() => dispatch({ type: AUTHENTICATE_USER_SUCCESS, payload: token }), 500);
+      if (isPremiumUser) {
+        localStorage.setItem("isPremiumUser", String(isPremiumUser))
+      }
+      setTimeout(() => {
+        localStorage.removeItem("x-access-token");
+        localStorage.removeItem("isPremiumUser");
+      }, expireTime)
+      history.push(isFirstUserLogin ? "/preferences" : "/discover");
+      dispatch({ type: AUTHENTICATE_USER_SUCCESS, payload: token });
     });
 
-export const uploadUserProfile = (fileToUpload, email) => {
+export const uploadUserProfile = (fileToUpload, id) => {
   const formData = new FormData();
   formData.append("profileImage", fileToUpload);
-  formData.append("email", email);
-  return fetch(`${api}${postAuthenticateUserURI}`, {
+  return fetch(`${api}${uploadDisplayPicURI}/${id}`, {
     method: "POST",
-    headers: formDataHeader(),
     body: formData,
   });
 };

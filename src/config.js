@@ -1,5 +1,5 @@
 const api = "https://hearbk-server-test.herokuapp.com";
-//const api = "http://localhost:3000";
+// const api = "http://localhost:3000";
 
 export const genericHeaders = () => ({
     "Content-Type": "application/json",
@@ -12,8 +12,8 @@ export const authHeaders = () => ({
     "x-access-token": localStorage.getItem('x-access-token')
 });
 
-export const formDataHeader = () => ({
+export const formDataHeader = (hasToken = true) => ({
     "Content-Type": "multipart/form-data",
-    "x-access-token": localStorage.getItem('x-access-token')
+    ...hasToken && { "x-access-token": localStorage.getItem('x-access-token') }
 })
 export default api;

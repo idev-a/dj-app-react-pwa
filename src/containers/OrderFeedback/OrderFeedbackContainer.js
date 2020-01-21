@@ -13,6 +13,7 @@ import {
 import { orderSelector } from "../../state/selectors/order";
 import { ENUMS } from "../../utils";
 import { getGenres } from "../../state/actions/preferencesActions";
+import { toast } from "react-toastify";
 
 const OrderFeedbackContainer = ({
   accountName,
@@ -28,10 +29,22 @@ const OrderFeedbackContainer = ({
   dispatchResetState,
 }) => {
   useEffect(() => {
+    if (!localStorage.getItem("x-access-token")) {
+      history && history.push("/signin");
+    }
+  }, [history]);
+
+  useEffect(() => {
     dispatchGetGenres();
   }, [dispatchGetGenres]);
 
   const [shouldCreateToken, setShouldCreateToken] = useState(false);
+  const [isPremium, setIsPremium] = useState(
+    !!localStorage.getItem("isPremiumUser")
+  );
+  const [isHyperTargeted, setIsHyperTargeted] = useState(
+    !!localStorage.getItem("isPremiumUser")
+  );
   const [isAddPremium, setAddPremium] = useState(false);
   const [isProcessing, setIsProcessing] = useState(false);
   const [isError, setIsError] = useState(true);
@@ -45,14 +58,22 @@ const OrderFeedbackContainer = ({
   const validateFormData = useCallback(() => {
     const isFormError = tracks.some((track) => {
       if (track.trackTitle.length < 1) {
+        toast.error("Enter track title");
         return true;
       } else {
         if (track.mediaType === ENUMS.MEDIA_TYPE_FILEUPLOAD) {
           if (!track.fileUpload) {
+            toast.error("Upload file or upload YouTube url");
             return true;
-          } else {
-            return track.trackUrl.length < 0;
           }
+        } else {
+          if (track.trackUrl.length === 0) {
+            toast.error("Upload file or upload YouTube url");
+          }
+          return track.trackUrl.length === 0;
+        }
+        if (!track.genreId) {
+          toast.error("Select a genre for the tracks");
         }
       }
       return false;
@@ -100,6 +121,10 @@ const OrderFeedbackContainer = ({
         ).then(() => {
           setIsProcessing(false);
           setIsSuccess(true);
+          if (isAddPremium) {
+            setIsPremium(true);
+            localStorage.setItem("isPremiumUser", String(true))
+          }
         });
       }
     },
@@ -192,6 +217,7 @@ const OrderFeedbackContainer = ({
   return (
     <Component
       isProcessing={isProcessing}
+      isPremium={isPremium}
       genres={genres}
       isSuccess={isSuccess}
       accountName={accountName}
@@ -221,6 +247,7 @@ const OrderFeedbackContainer = ({
         setIsSuccess(false);
       }}
       closeSuccessPopUp={() => setIsSuccess(false)}
+      isHyperTargeted={isHyperTargeted}
     />
   );
 };
@@ -232,7 +259,7 @@ const dispatchAction = (dispatch) => ({
   dispatchAddNewTrack: () => dispatch(addAnotherTrack()),
   dispatchGetGenres: () => dispatch(getGenres()),
   dispatchRemoveTrack: (id) => dispatch(removeTrack(id)),
-  dispatchResetState: () => dispatch(resetState())
+  dispatchResetState: () => dispatch(resetState()),
 });
 
 export default connect(

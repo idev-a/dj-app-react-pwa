@@ -4,7 +4,7 @@ import IconComponent from "../../common/IconComponent";
 import content from "./content";
 import "./styles.scss";
 import UploadTrackForm from "./UploadTrackForm";
-import UpgradeToPremium from "./UpgradeToPremium";
+import { UpgradeToPremium, PremiumAccess } from "./UpgradeToPremium";
 import TotalPaymentComponent from "./TotalPayment";
 import PaymentForm from "./PaymentForm";
 import Button from "../../common/Button";
@@ -17,6 +17,7 @@ const OrderFeedbackComponent = ({
   selectedGenre,
   isAddPremium,
   onInputChange,
+  isHyperTargeted,
   onSubmitFeedback,
   saveCardInformation,
   shouldCreateToken,
@@ -33,6 +34,7 @@ const OrderFeedbackComponent = ({
   handleRateTrackClick,
   handlePlaceNewOrderClick,
   closeSuccessPopUp,
+  isPremium,
 }) => {
   return (
     <div className="orderFeedbackContainer">
@@ -82,10 +84,14 @@ const OrderFeedbackComponent = ({
       >
         {content.ADD_ANOTHER_TRACK}
       </div>
-      <UpgradeToPremium
-        onInputChange={onInputChange}
-        isAddPremium={isAddPremium}
-      />
+      {!isPremium ? (
+        <UpgradeToPremium
+          onInputChange={onInputChange}
+          isAddPremium={isAddPremium}
+        />
+      ) : (
+        <PremiumAccess onInputChange={onInputChange} isHyperTargeted={isHyperTargeted} />
+      )}
       <TotalPaymentComponent
         handleRemoveTrack={handleRemoveTrack}
         tracks={tracks}
