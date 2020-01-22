@@ -10,7 +10,7 @@ const FooterNav = (props) => {
             <NavLink to="/discover" className="footerLinks"><Icon className="footerIcon" iconName="discover" /></NavLink>
             <NavLink to="/feedback" className="footerLinks"><Icon className="footerIcon" iconName="feedback" /></NavLink>
             <NavLink to="/history" className="footerLinks"><Icon className="footerIcon" iconName="history" /></NavLink>
-            <NavLink to="/settings" className="footerLinks"><Icon className="footerIcon" iconName="settings" /></NavLink>
+            {/* <NavLink to="/settings" className="footerLinks"><Icon className="footerIcon" iconName="settings" /></NavLink> */}
         </div>
     );
 };
