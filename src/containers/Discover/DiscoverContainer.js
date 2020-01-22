@@ -21,10 +21,10 @@ const DiscoverContainer = (props) => {
   const [componentIndex, setComponentIndex] = useState(0);
   const handleSwipeEnd = useCallback((e) => {
     let feedbackType = "HIT";
-    if (e.dir === "Left") {
+    if (e === "Left") {
       feedbackType = "MISS";
     }
-    if (e.dir === "Up") {
+    if (e === "Up") {
       feedbackType = "POTENTIAL";
     }
     postDiscoverFeedback({

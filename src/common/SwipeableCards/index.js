@@ -55,11 +55,11 @@ const SwipeableCards = ({
   return (
     <SwipeableViews
       delta={100}
-      onSwiping={handleSwiping}
+      onSwiping={() => {}}
       preventDefaultTouchmoveEvent
       trackMouse
       trackTouch
-      onSwiped={handleSwipeEnd}
+      onSwiped={() => {}}
     >
       <div className={className} style={style}>
         {children}

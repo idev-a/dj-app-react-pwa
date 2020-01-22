@@ -15,6 +15,10 @@ const OrderFeedbackComponent = ({
   tracks,
   accountName,
   genres,
+  selectedPaymentId,
+  handleSavedCardSelect,
+  selectedGenre,
+  paymentMethods,
   isAddPremium,
   onInputChange,
   isHyperTargeted,
@@ -107,6 +111,9 @@ const OrderFeedbackComponent = ({
             shouldCreateToken={shouldCreateToken}
             handlePaymentFormError={handlePaymentFormError}
             isSaveCardDetails={isSaveCardDetails}
+            paymentMethods={paymentMethods}
+            selectedPaymentId={selectedPaymentId}
+            handleSavedCardSelect={handleSavedCardSelect}
           />
         </Elements>
       </StripeProvider>

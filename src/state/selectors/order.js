@@ -3,7 +3,8 @@ export const orderSelector = ({ orderDetails, userDetails, preferences }) => ({
     tracks: orderDetails.tracks,
     isSaveCardDetails: orderDetails.saveCardDetails,
     isPremiumUser: userDetails.isPremiumUser,
-    genres: preferences.genres
+    genres: preferences.genres,
+    paymentMethods: userDetails.paymentMethods
 });
 
 export const orderHistorySelector = ({ orderDetails }) => ({

@@ -14,11 +14,13 @@ import { orderSelector } from "../../state/selectors/order";
 import { ENUMS } from "../../utils";
 import { getGenres } from "../../state/actions/preferencesActions";
 import { toast } from "react-toastify";
+import { getPaymentMethods } from "../../state/actions/userActions";
 
 const OrderFeedbackContainer = ({
   accountName,
   tracks,
   genres,
+  paymentMethods,
   isSaveCardDetails,
   dispatchUpdate,
   dispatchTrackUpdate,
@@ -27,6 +29,7 @@ const OrderFeedbackContainer = ({
   dispatchRemoveTrack,
   history,
   dispatchResetState,
+  getPaymentMethodsDispatchAction,
 }) => {
   useEffect(() => {
     if (!localStorage.getItem("x-access-token")) {
@@ -35,8 +38,10 @@ const OrderFeedbackContainer = ({
   }, [history]);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     dispatchGetGenres();
-  }, [dispatchGetGenres]);
+    getPaymentMethodsDispatchAction();
+  }, [dispatchGetGenres, getPaymentMethodsDispatchAction]);
 
   const [shouldCreateToken, setShouldCreateToken] = useState(false);
   const [isPremium, setIsPremium] = useState(
@@ -49,6 +54,7 @@ const OrderFeedbackContainer = ({
   const [isProcessing, setIsProcessing] = useState(false);
   const [isError, setIsError] = useState(true);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [selectedPaymentId, setSelectedPaymentId] = useState(undefined);
   const getTotalAmount = useCallback(() => {
     const amount = tracks.reduce((total, track) => {
       return total + track.selectedFeedback;
@@ -86,7 +92,10 @@ const OrderFeedbackContainer = ({
         setIsError(true);
         return;
       }
-
+      if (!cardInfo || !cardInfo.id) {
+        toast.error("Enter valid card details");
+        return;
+      }
       const tracksToUpload = tracks.map((track, index) => {
         delete track.fileToUpload;
         track.id = index;
@@ -101,6 +110,7 @@ const OrderFeedbackContainer = ({
         currency: "USD",
         paymentToken: cardInfo.id,
         isAddPremium,
+        ...(cardInfo.paymentFromSavedCard && { paymentFromSaveCard: true }),
       };
 
       const response = await submitPayment(payload);
@@ -123,7 +133,7 @@ const OrderFeedbackContainer = ({
           setIsSuccess(true);
           if (isAddPremium) {
             setIsPremium(true);
-            localStorage.setItem("isPremiumUser", String(true))
+            localStorage.setItem("isPremiumUser", String(true));
           }
         });
       }
@@ -162,8 +172,12 @@ const OrderFeedbackContainer = ({
   );
 
   const handleOrderNowClick = useCallback(() => {
-    setShouldCreateToken(true);
-  }, []);
+    if (selectedPaymentId) {
+      onSubmitPayment({ id: selectedPaymentId, paymentFromSavedCard: true });
+    } else {
+      setShouldCreateToken(true);
+    }
+  }, [onSubmitPayment, selectedPaymentId]);
 
   const handleTrackUpdates = useCallback(
     (e, index) => {
@@ -216,13 +230,27 @@ const OrderFeedbackContainer = ({
     [dispatchRemoveTrack]
   );
 
+  const handleSelectPayment = useCallback(
+    (id) => {
+      if (id === selectedPaymentId) {
+        setSelectedPaymentId(undefined);
+      } else {
+        setSelectedPaymentId(id);
+      }
+    },
+    [selectedPaymentId]
+  );
+
   return (
     <Component
       isProcessing={isProcessing}
+      selectedPaymentId={selectedPaymentId}
+      handleSavedCardSelect={handleSelectPayment}
       isPremium={isPremium}
       genres={genres}
       isSuccess={isSuccess}
       accountName={accountName}
+      paymentMethods={paymentMethods}
       tracks={tracks}
       isSaveCardDetails={isSaveCardDetails}
       shouldCreateToken={shouldCreateToken}
@@ -262,6 +290,7 @@ const dispatchAction = (dispatch) => ({
   dispatchGetGenres: () => dispatch(getGenres()),
   dispatchRemoveTrack: (id) => dispatch(removeTrack(id)),
   dispatchResetState: () => dispatch(resetState()),
+  getPaymentMethodsDispatchAction: () => dispatch(getPaymentMethods()),
 });
 
 export default connect(

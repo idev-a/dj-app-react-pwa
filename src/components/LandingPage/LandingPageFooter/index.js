@@ -8,7 +8,7 @@ const LandingPageFooter = () => {
     <div className="landingPageFooterContainer">
       <div className="socialMediaActionContainer">
         <a 
-          href="https://www.facebook.com/hearbkapp/" 
+          href="https://www.facebook.com/hearbkapp/"
           target="_blank"
           rel="noopener noreferrer"
         >

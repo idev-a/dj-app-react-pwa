@@ -1,5 +1,6 @@
 import React from "react";
 import cx from "classnames";
+import InputMask from "react-input-mask";
 import content from "./content";
 import "./styles.scss";
 import Icon from "../../../common/IconComponent";
@@ -115,9 +116,12 @@ const DetailsComponent = ({
       <label for="dateOfBirth" className="formInputLabel">
         {content.DOB_LABEL}
       </label>
-      <InputField
+      <InputMask
         id="dob"
         className="formInputField"
+        maskChar=""
+        maskPlaceholder=""
+        mask="99-99-9999"
         value={dob}
         onChange={onInputChange}
         placeholder={content.DOB}

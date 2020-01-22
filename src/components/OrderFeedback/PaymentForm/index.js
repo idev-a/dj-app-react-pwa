@@ -12,7 +12,6 @@ import InputField from "../../../common/InputField";
 import "rc-checkbox/assets/index.css";
 import "./styles.scss";
 import PaymentCard from "../../Settings/PaymentAccountForm/PaymentCard";
-import Button from "../../../common/Button";
 
 const PaymentForm = ({
   accountName,
@@ -22,13 +21,11 @@ const PaymentForm = ({
   stripe,
   submitPayment,
   handlePaymentFormError,
+  paymentMethods,
+  selectedPaymentId,
+  handleSavedCardSelect,
   ...props
 }) => {
-  // for dev purposes only
-  const cardSaved = false;
-  const cardArray = <PaymentCard />;
-  // 
-
   useEffect(() => {
     if (shouldCreateToken) {
       (async () => {
@@ -40,11 +37,15 @@ const PaymentForm = ({
   return (
     <section className="paymentFormContainer">
       <header className="paymentFormHeader">{content.PAYMENT_HEADER}</header>
-      {cardSaved && (
-        <React.Fragment>
-          {cardArray}
-        </React.Fragment>
-      )}
+      {paymentMethods &&
+        paymentMethods.length > 0 &&
+        paymentMethods.map((method) => (
+          <PaymentCard
+            {...method}
+            selectedPaymentId={selectedPaymentId}
+            handleSavedCardSelect={handleSavedCardSelect}
+          />
+        ))}
       <div className="paymentInputContainer">
         <label className="titleLabel">{content.NAME_ON_CARD}</label>
         <InputField

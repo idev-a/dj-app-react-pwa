@@ -1,46 +1,138 @@
 @import "../../scss/common.styles.scss";
 
 .discoverComponentContainer {
-    position: relative;
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background: #46515f;
+  text-align: center;
+  overflow: scroll;
+
+  .backgroundIcon {
+    position: absolute;
     width: 100%;
-    height: 100vh;
-    background: #46515F;
-    text-align: center;
-    overflow: scroll;
+    height: 259px;
+    left: -60px;
+    margin-top: 245.4px;
+    opacity: 0.57;
+    z-index: 0;
+  }
 
-    .backgroundIcon {
+  .discoverComponentHeader {
+    .menuIcon {
+      position: absolute;
+      height: $font-size-xxl;
+      width: $font-size-xxl;
+      left: 17px;
+      top: 30px;
+    }
+    .headerIcon {
+      width: 60px;
+      height: 33px;
+      margin: 33px auto 18px auto;
+    }
+    .title1 {
+      color: $main-1;
+      font-size: $font-size-l;
+      font-weight: 700;
+    }
+    .title2 {
+      @extend .title1;
+      font-weight: 300;
+    }
+  }
+
+  .songCardOuterContainer {
+    display: flex;
+    flex-flow: column nowrap;
+    position: absolute;
+    left: 5%;
+    width: 90%;
+    margin: 60px auto 0 auto;
+    transition: ease 0.5s;
+
+    .songCardContainer {
+      height: 459px;
+      color: $main-1;
+      background: rgba(84, 98, 117, 0.25);
+      box-shadow: 0 1px 6px #00000029;
+      .bookmarkIcon {
         position: absolute;
+        width: 14.37px;
+        height: 20.04px;
+        left: 22px;
+        top: 23px;
+      }
+      .profilePicIconContainer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        width: 95px;
+        height: 95px;
+        left: calc(50% - 47.5px);
+        top: -47.5px;
+        border-radius: 50%;
+        background: linear-gradient(180deg, $main-7, #363d46);
+        .profilePicIcon {
+          width: 75px;
+          height: 75px;
+          border-radius: 50%;
+        }
+      }
+      .artistTagContainer {
+        margin-top: 65px;
+        font-size: $font-size-small;
+        font-weight: 500;
+      }
+      .songContainer {
+        display: flex;
+        flex-flow: column nowrap;
+        margin-top: 15px;
+        text-align: left;
+        .discoverIFrame {
+          width: 293px;
+          height: 191px;
+          align-self: center;
+        }
+        .songTitle {
+          margin: 10px 0 0 23px;
+          font-size: $font-size-normal;
+        }
+        .songLength {
+          @extend .songTitle;
+          font-size: $font-size-small;
+          opacity: 0.4;
+        }
+      }
+      .iconContainerHeader {
+        margin-top: 10px;
+        color: $color-2;
+        font-size: $font-size-l;
+        font-weight: 700;
+      }
+      .iconContainer {
+        display: flex;
+        justify-content: space-evenly;
+        margin-top: 20px;
         width: 100%;
-        height: 259px;
-        left: -60px;
-        margin-top: 245.4px;
-        opacity: .57;
-        z-index: 0;
-    }
-
-    .discoverComponentHeader {
-        .menuIcon {
-          position: absolute;
-          height: $font-size-xxl;
-          width: $font-size-xxl;
-          left: 17px;
-          top: 30px;
-        }
-        .headerIcon {
-            width: 60px;
-            height: 33px;
-            margin: 33px auto 18px auto;
-        }
-        .title1 {
-            color: $main-1;
-            font-size: $font-size-l;
+        .iconCols {
+          margin: 10px;
+          .ratingIcons {
+            width: 40px;
+            height: 40px;
+            margin: auto;
+          }
+          .ratingLabels {
+            margin-top: 10px;
+            color: $color-2;
             font-weight: 700;
-        }
-        .title2 {
-            @extend .title1;
-            font-weight: 300;
-        }
+          }
+          .selected {
+            color: $color-5;
+          }
     }
+  }
     
     .songCardOuterContainer {
             display: flex;
@@ -138,58 +230,87 @@
             cursor: pointer;
             user-select: none;
         }
+      }
     }
+    .songCardContainer:hover {
+      cursor: pointer;
+      user-select: none;
+    }
+  }
 }
 
 .discoverAudioPlayer {
-    display: flex;
-    justify-content: center;
-    margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
 }
 
-slide-right {
-    animation: slide-right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-  }
-  
+.slide-right {
+  animation: slide-right 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
 .slide-top {
-    animation: slide-top 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  animation: slide-top 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+.slide-left {
+  animation: slide-left 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+@-webkit-keyframes slide-right {
+  0% {
+    transform: translateX(0);
   }
-  
-  @-webkit-keyframes slide-right {
-    0% {
-      transform: translateX(0);
-    }
-    100% {
-      transform: translateX(200%);
-    }
+  100% {
+    transform: translateX(200%);
   }
-  @keyframes slide-right {
-    0% {
-      transform: translateX(0);
-    }
-    100% {
-      transform: translateX(200%);
-    }
+}
+@keyframes slide-right {
+  0% {
+    transform: translateX(0);
   }
-  
-  @-webkit-keyframes slide-top {
-    0% {
-      -webkit-transform: translateY(0);
-      transform: translateY(0);
-    }
-    100% {
-      -webkit-transform: translateY(-100px);
-      transform: translateY(-100px);
-    }
+  100% {
+    transform: translateX(200%);
   }
-  @keyframes slide-top {
-    0% {
-      -webkit-transform: translateY(0);
-      transform: translateY(0);
-    }
-    100% {
-      -webkit-transform: translateY(-100px);
-      transform: translateY(-100px);
-    }
+}
+
+@-webkit-keyframes slide-top {
+  0% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
   }
-  
+  100% {
+    -webkit-transform: translateY(-100px);
+    transform: translateY(-100px);
+  }
+}
+@keyframes slide-top {
+  0% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+  100% {
+    -webkit-transform: translateY(-100px);
+    transform: translateY(-100px);
+  }
+}
+
+ @-webkit-keyframes slide-left {
+  0% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+  100% {
+    -webkit-transform: translateX(-100px);
+            transform: translateX(-100px);
+  }
+}
+@keyframes slide-left {
+  0% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+  100% {
+    -webkit-transform: translateX(-100px);
+            transform: translateX(-100px);
+  }
+}

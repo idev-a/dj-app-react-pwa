@@ -109,7 +109,7 @@ class ListenerPreferencesContainer extends Component {
       gender,
       price,
       bio,
-      sendMeText,
+      headline,
     } = this.state;
     const { selectedGenres, selectedTags } = this.props;
     const userFeedbackType = [];
@@ -129,7 +129,7 @@ class ListenerPreferencesContainer extends Component {
       ...(proRequestBox && {
         price,
         bio,
-        headline: sendMeText,
+        headline,
       }),
     };
     this.props.postListenerPreferenceDispatchAction(payload);

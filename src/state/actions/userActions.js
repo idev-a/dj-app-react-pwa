@@ -1,5 +1,5 @@
 import history from "../../history";
-import api, { genericHeaders, formDataHeader, authHeaders } from "../../config";
+import api, { genericHeaders, authHeaders } from "../../config";
 import { toast } from "react-toastify";
 
 const postRegisterUserURI = "/users/register";
@@ -9,6 +9,7 @@ const updateUserURI = "/settings/update";
 const getOrderHistoryUrl = "/orders/history";
 const getUserDetailsURI = "/users/details";
 const uploadDisplayPicURI = "/users/upload/profile-image";
+const getPaymentMethodURI = "/users/paymentMethods";
 
 export const REGISTER_USER_SUCCESS = "REGISTER_USER_SUCCESS";
 export const REGISTER_USER_FAILURE = "REGISTER_USER_FAILURE";
@@ -21,6 +22,8 @@ export const GET_USER_DATA_FAILURE = "GET_USER_DATA_FAILURE";
 export const GET_HISTORY_SUCCESS = "GET_HISTORY_SUCCESS";
 export const GET_USER_DETAILS_SUCCESS = "GET_USER_DETAILS_SUCCESS";
 export const GET_USER_DETAILS_FAILURE = "GET_USER_DETAILS_FAILURE";
+export const GET_USER_PAYMENT_METHODS_SUCCESS =
+  "GET_USER_PAYMENT_METHODS_SUCCESS";
 
 export const registerUserAction = (requestData, file) => (dispatch) =>
   fetch(`${api}${postRegisterUserURI}`, {
@@ -65,18 +68,20 @@ export const authenticateUser = (requestData) => (dispatch) =>
     body: JSON.stringify(requestData),
   })
     .then((response) => response.json())
-    .then(({ token, isFirstUserLogin, isPremiumUser, expireTime = 3600000 }) => {
-      localStorage.setItem("x-access-token", token);
-      if (isPremiumUser) {
-        localStorage.setItem("isPremiumUser", String(isPremiumUser))
+    .then(
+      ({ token, isFirstUserLogin, isPremiumUser, expireTime = 3600000 }) => {
+        localStorage.setItem("x-access-token", token);
+        if (isPremiumUser) {
+          localStorage.setItem("isPremiumUser", String(isPremiumUser));
+        }
+        setTimeout(() => {
+          localStorage.removeItem("x-access-token");
+          localStorage.removeItem("isPremiumUser");
+        }, expireTime);
+        history.push(isFirstUserLogin ? "/preferences" : "/discover");
+        dispatch({ type: AUTHENTICATE_USER_SUCCESS, payload: token });
       }
-      setTimeout(() => {
-        localStorage.removeItem("x-access-token");
-        localStorage.removeItem("isPremiumUser");
-      }, expireTime)
-      history.push(isFirstUserLogin ? "/preferences" : "/discover");
-      dispatch({ type: AUTHENTICATE_USER_SUCCESS, payload: token });
-    });
+    );
 
 export const uploadUserProfile = (fileToUpload, id) => {
   const formData = new FormData();
@@ -154,3 +159,16 @@ export const getUserDetails = () => (dispatch) =>
         payload: requestData,
       });
     });
+
+export const getPaymentMethods = () => (dispatch) =>
+  fetch(`${api}${getPaymentMethodURI}`, {
+    method: "GET",
+    headers: authHeaders(),
+  })
+    .then((res) => res.json())
+    .then((data) =>
+      dispatch({
+        type: GET_USER_PAYMENT_METHODS_SUCCESS,
+        payload: data,
+      })
+    );
