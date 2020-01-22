@@ -24,7 +24,7 @@ const DetailsComponent = ({
 }) => {
   const genderBoxArray = content.GENDER.map((g, i) => {
     return (
-      <div className="genderBoxButtonWrapper">
+      <div className="genderBoxButtonWrapper" key={i}>
         <Button
           buttonText={g}
           id="gender"
@@ -34,9 +34,9 @@ const DetailsComponent = ({
       </div>
     );
   });
-  const addGenresArray = genres.map((genre) => {
+  const addGenresArray = genres.map((genre, i) => {
     return (
-      <div className="addGenresButtonWrapper">
+      <div className="addGenresButtonWrapper" key={i}>
         <Button
           buttonText={genre.name.toUpperCase()}
           className={cx("addGenresLis")}
@@ -45,9 +45,9 @@ const DetailsComponent = ({
       </div>
     );
   });
-  const addGenresSelectedArray = genresAdded.map((genre) => {
+  const addGenresSelectedArray = genresAdded.map((genre, i) => {
     return (
-      <div className="addGenresSelectedButtonWrapper">
+      <div className="addGenresSelectedButtonWrapper" key={i}>
         <Button
           buttonText={genre.name.toUpperCase()}
           className={cx("addGenresSelectedLis")}
@@ -56,9 +56,9 @@ const DetailsComponent = ({
       </div>
     );
   });
-  const addTagsArray = tags.map((tag) => {
+  const addTagsArray = tags.map((tag, i) => {
     return (
-      <div className="addTagsButtonWrapper">
+      <div className="addTagsButtonWrapper" key={i}>
         <Button
           buttonText={tag.tag.toUpperCase()}
           className={cx("addTagsLis")}
@@ -67,9 +67,9 @@ const DetailsComponent = ({
       </div>
     );
   });
-  const addTagsSelectedArray = tagsAdded.map((tag) => {
+  const addTagsSelectedArray = tagsAdded.map((tag, i) => {
     return (
-      <div className="addTagsSelectedWrapper">
+      <div className="addTagsSelectedWrapper" key={i}>
         <Button
           buttonText={tag.tag.toUpperCase()}
           className={cx("addTagsSelectedLis")}

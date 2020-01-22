@@ -20,12 +20,12 @@ const Card = ({ isOpen, cardData }) => {
       })
     : sorted[0] === cardData.stats.miss
     ? (header = {
-        iconName: "thumbs_down_blue",
+        iconName: "thumbs_down",
         descriptionType: "MISS",
         misses: true,
       })
     : (header = {
-        iconName: "thumbs_up_down_blue",
+        iconName: "thumbs_up_down_dark",
         descriptionType: "POTENTIAL",
         potential: true,
       });
@@ -73,83 +73,24 @@ const Card = ({ isOpen, cardData }) => {
           <div className="expandedBoxHeader">{expandedBoxHeader}</div>
           <div className="statsContainerRow">
             <div className="statsContainerCols">
-              <Icon className="colIcons" iconName="group_dark" />
-              <div className="colStatNumberLabel">
-                {cardData.listenersCount}
-              </div>
-              <div className="colStatTypeLabel">{content.LISTENERS}</div>
+              <Icon className="colIcons iconOpacityControl" iconName="group_dark" />
+              <div className="listenerNumberLabel">{cardData.listenersCount}</div>
+              <div className="listenerTypeLabel">{content.LISTENERS}</div>
             </div>
             <div className="statsContainerCols">
-              {header.hits && (
-                <Icon
-                  className="colIconsHighlighted"
-                  iconName="thumbs_up_blue"
-                />
-              )}
-
-              {!header.hits && (
-                <Icon className="colIcons" iconName="thumbs_up" />
-              )}
-              <div
-                className="colStatNumberLabel"
-                style={header.hits ? { color: "#0db6ff" } : {}}
-              >
-                {cardData.stats.hit ? cardData.stats.hit : 0}%
-              </div>
-              <div
-                className="colStatTypeLabel"
-                style={header.hits ? { color: "#0db6ff" } : {}}
-              >
-                {content.HITS}
-              </div>
+              <Icon className="colIcons" iconName="thumbs_up_blue" />
+              <div className="hitsNumberLabel highlighted">{cardData.stats.hit ? cardData.stats.hit : 0}%</div>
+              <div className="hitsTypeLabel highlighted">{content.HITS}</div>
             </div>
             <div className="statsContainerCols">
-              {header.misses && (
-                <Icon
-                  className="colIconsHighlighted"
-                  iconName="thumbs_down_blue"
-                />
-              )}
-
-              {!header.misses && (
-                <Icon className="colIcons" iconName="thumbs_down" />
-              )}
-              <div
-                className="colStatNumberLabel"
-                style={header.misses ? { color: "#0db6ff" } : {}}
-              >
-                {cardData.stats.miss ? cardData.stats.miss : 0}%
-              </div>
-              <div
-                className="colStatTypeLabel"
-                style={header.misses ? { color: "#0db6ff" } : {}}
-              >
-                {content.MISSES}
-              </div>
+              <Icon className="colIcons" iconName="thumbs_down" />
+              <div className="missesNumberLabel">{cardData.stats.miss ? cardData.stats.miss : 0}%</div>
+              <div className="missesTypeLabel">{content.MISSES}</div>
             </div>
             <div className="statsContainerCols">
-              {header.potential && (
-                <Icon
-                  className="colIconsHighlighted"
-                  iconName="thumbs_up_down_blue"
-                />
-              )}
-
-              {!header.potential && (
-                <Icon className="colIcons" iconName="thumbs_up_down" />
-              )}
-              <div
-                className="colStatNumberLabel"
-                style={header.potential ? { color: "#0db6ff" } : {}}
-              >
-                {cardData.stats.potential ? cardData.stats.potential : 0}%
-              </div>
-              <div
-                className="colStatTypeLabel"
-                style={header.potential ? { color: "#0db6ff" } : {}}
-              >
-                {content.POTENTIAL}
-              </div>
+              <Icon className="colIcons" iconName="thumbs_up_down_dark" />
+              <div className="potentialNumberLabel">{cardData.stats.potential ? cardData.stats.potential : 0}%</div>
+              <div className="potentialTypeLabel">{content.POTENTIAL}</div>
             </div>
           </div>
         </React.Fragment>

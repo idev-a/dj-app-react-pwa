@@ -2,11 +2,10 @@ import React from "react";
 import PropTypes from "prop-types";
 import IconComponent from "../IconComponent";
 
-const Button = ({ className, iconClassName, onClick, buttonText, isIcon, iconName, disabled }) => {
+const Button = ({ className, onClick, buttonText, isIcon, iconName, disabled }) => {
   return !isIcon ? (
     <button className={className} onClick={onClick} disabled={disabled}>
       {buttonText}
-      <IconComponent className={iconClassName} iconName={iconName} />
     </button>
   ) : (
     <div role="button" onClick={onClick}>

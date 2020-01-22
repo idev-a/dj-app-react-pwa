@@ -81,29 +81,47 @@
             flex-flow: column nowrap;
             align-items: center;
             width: 25%;
-            .colIconsHighlighted {
+            .colIcons {
                 width: 24px;
                 height: 24px;
             }
-            .colIcons {
-                @extend .colIconsHighlighted;
+            .iconOpacityControl {
                 opacity: .6;
             }
-            .colStatNumberLabel {
+            .listenerNumberLabel {
                 margin-top: 11px;
-                color: $main-3;
+                color: $color-2;
                 font-size: $font-size-l;
                 font-weight: 700;
             }
-            .colStatTypeLabel {
+            .listenerTypeLabel {
                 margin-top: 5px;
                 color: $color-2;
                 font-size: $font-size-xs - 1;
                 font-weight: 500;
             }
-        }
-        .highlighted {
-            color: $color-5;
+            .hitsNumberLabel {
+                @extend .listenerNumberLabel;
+                color: $color-5;
+            }
+            .hitsTypeLabel {
+                @extend .listenerTypeLabel;
+                color: $color-5;
+            }
+            .missesNumberLabel {
+                @extend .listenerNumberLabel;
+            }
+            .missesTypeLabel {
+                @extend .listenerTypeLabel;
+            }
+            .potentialNumberLabel {
+                @extend .listenerNumberLabel;
+                color: $main-3;
+            }
+            .potentialTypeLabel {
+                @extend .listenerTypeLabel;
+                color: $main-3;
+            }
         }
     }
 }

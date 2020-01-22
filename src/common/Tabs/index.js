@@ -12,6 +12,7 @@ const Tabs = ({ tabs, selectedIndex, onTabChange, className }) => {
             role="button"
             className={cx("tabItem", index === selectedIndex && "isSelected")}
             onClick={() => onTabChange(index)}
+            key={index}
           >
             {tab}
           </div>

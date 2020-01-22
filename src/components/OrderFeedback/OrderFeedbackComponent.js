@@ -9,12 +9,12 @@ import TotalPaymentComponent from "./TotalPayment";
 import PaymentForm from "./PaymentForm";
 import Button from "../../common/Button";
 import PopUpComponent from "../PopUps/PopUpsComponent";
+import FooterNav from "../FooterNav";
 
 const OrderFeedbackComponent = ({
   tracks,
   accountName,
   genres,
-  selectedGenre,
   isAddPremium,
   onInputChange,
   isHyperTargeted,
@@ -118,6 +118,7 @@ const OrderFeedbackComponent = ({
           disabled={!isPaymentFormReady}
         />
       </div>
+      <FooterNav />
       {isProcessing && (
         <PopUpComponent name="orderProcessing" hasCloseIcon={false} />
       )}

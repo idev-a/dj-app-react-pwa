@@ -49,7 +49,7 @@ const PriceContainerComponent = ({
           <span className="sendMeTitleB">{content.SEND_ME_TITLE_B}</span>
         </div>
         <TextAreaField
-          id="sendMeText"
+          id="headline"
           className="formInputField"
           value={sendMe}
           onChange={onInputChange}

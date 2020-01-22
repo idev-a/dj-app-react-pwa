@@ -31,10 +31,7 @@ const ListenerPreferencesComponent = ({
   tagsAdded,
   handleButtonClick,
   handleGenderChange,
-  saveButtonIsShowing,
-  handleSaveFormData,
-  menuIsOpen,
-  handleClickMenuToggle
+  saveButtonIsShowing
 }) => {
   let hitRequestBoxSelected = hitRequestBox ? "selected" : "";
   let proRequestBoxSelected = proRequestBox ? "selected" : "";

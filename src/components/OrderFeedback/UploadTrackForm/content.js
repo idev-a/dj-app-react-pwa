@@ -9,7 +9,7 @@ export default {
   FILE_TO_UPLOAD_LABEL: "Choose the file to upload",
   OR: "-- OR --",
   UPLOAD_YOUR_TRACK: "UPLOAD FROM DEVICE",
-  ADD_YOUTUBE_URL: "UPLOAD FROM YOU TUBE",
+  ADD_YOUTUBE_URL: "UPLOAD FROM YOUTUBE",
   FAVOURITE_GENRES: [
     `Alternative Rock`,
     `Ambient`,

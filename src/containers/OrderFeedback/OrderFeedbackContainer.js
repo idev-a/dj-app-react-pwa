@@ -136,6 +136,8 @@ const OrderFeedbackContainer = ({
       let payload = {};
       if (e.target.name === "isAddPremium") {
         setAddPremium(e.target.checked);
+      } else if (e.target.name === "isHyperTargeted") {
+        setIsHyperTargeted(e.target.checked);
       } else {
         if (e.target.name === "saveCardDetails") {
           payload = {
