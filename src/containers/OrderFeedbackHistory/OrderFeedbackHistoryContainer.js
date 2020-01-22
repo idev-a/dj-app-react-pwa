@@ -1,31 +1,35 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import OrderFeedbackHistory from "../../components/OrderFeedbackHistory";
-import { getOrderHistory } from '../../state/actions/userActions';
-import { orderHistorySelector } from '../../state/selectors/order';
+import { getOrderHistory } from "../../state/actions/userActions";
+import { orderHistorySelector } from "../../state/selectors/order";
 
-const OrderFeedbackHistoryContainer = ({ history = [], loading = true }) => {
+const OrderFeedbackHistoryContainer = ({tracksHistory = [], history, loading = true }) => {
+  useEffect(() => {
+    if (localStorage.getItem("isFirstUserLogin")) {
+      history && history.push("/preferences");
+    }
+  }, [history]);
+  const [hitStats, setToggle] = useState(true);
+  const [menuIsOpen, handleClickMenuToggle] = useState(false);
 
-    const [hitStats, setToggle] = useState(true);
-    const [menuIsOpen, handleClickMenuToggle] = useState(false);
-
-    return (
-        <OrderFeedbackHistory 
-            hitStats={hitStats}
-            setToggle={setToggle}
-            data={history}
-            menuIsOpen={menuIsOpen}
-            handleClickMenuToggle={handleClickMenuToggle}
-            loading={loading}
-        />
-    );
+  return (
+    <OrderFeedbackHistory
+      hitStats={hitStats}
+      setToggle={setToggle}
+      data={tracksHistory}
+      menuIsOpen={menuIsOpen}
+      handleClickMenuToggle={handleClickMenuToggle}
+      loading={loading}
+    />
+  );
 };
 
 const dispatchAction = (dispatch) => ({
-    getOrderHistoryDispatchAction: dispatch(getOrderHistory())
+  getOrderHistoryDispatchAction: dispatch(getOrderHistory()),
 });
 
-export default connect (
-    orderHistorySelector,
-    dispatchAction
+export default connect(
+  orderHistorySelector,
+  dispatchAction
 )(OrderFeedbackHistoryContainer);

@@ -34,6 +34,8 @@ const OrderFeedbackContainer = ({
   useEffect(() => {
     if (!localStorage.getItem("x-access-token")) {
       history && history.push("/signin");
+    } if (localStorage.getItem("isFirstUserLogin")) {
+      history && history.push("/preferences");
     }
   }, [history]);
 

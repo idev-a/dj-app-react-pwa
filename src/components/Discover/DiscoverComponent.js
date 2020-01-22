@@ -31,8 +31,8 @@ const DiscoverComponent = ({
     setTimeout(() => {
       handleSwipeEnd(dir);
       setCardMoveStyle("");
-    }, 2000);
-  }, []);
+    }, 1000);
+  }, [handleSwipeEnd]);
   const getComponent = useCallback(() => {
     const {
       trackUrl,

@@ -74,6 +74,9 @@ export const authenticateUser = (requestData) => (dispatch) =>
         if (isPremiumUser) {
           localStorage.setItem("isPremiumUser", String(isPremiumUser));
         }
+        if (isFirstUserLogin) {
+          localStorage.setItem("isFirstUserLogin", String(isFirstUserLogin));
+        }
         setTimeout(() => {
           localStorage.removeItem("x-access-token");
           localStorage.removeItem("isPremiumUser");
@@ -102,6 +105,7 @@ export const postListenerPreferences = (payload) => (dispatch) => {
     .then((res) => res.json())
     .then(() => {
       dispatch(getUserDetails());
+      localStorage.removeItem("isFirstUserLogin");
     });
 };
 export const updateUserInfo = (requestData) => (dispatch) =>

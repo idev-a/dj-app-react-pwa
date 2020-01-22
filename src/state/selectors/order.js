@@ -8,6 +8,6 @@ export const orderSelector = ({ orderDetails, userDetails, preferences }) => ({
 });
 
 export const orderHistorySelector = ({ orderDetails }) => ({
-    history: orderDetails.orderHistory,
+    tracksHistory: orderDetails.orderHistory,
     loading: orderDetails.loading
 });

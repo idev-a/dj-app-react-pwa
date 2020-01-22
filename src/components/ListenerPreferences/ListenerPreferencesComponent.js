@@ -6,7 +6,6 @@ import "./ListenerPreferences.styles.scss";
 import DetailsForm from "./DetailsForm";
 import PriceForm from "./PriceForm";
 import Button from "../../common/Button";
-import Menu from "../Menu";
 import history from "../../history";
 
 const ListenerPreferencesComponent = ({
