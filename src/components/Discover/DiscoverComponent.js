@@ -91,7 +91,7 @@ const DiscoverComponent = ({
               isIcon
               className="ratingIcons"
               iconName="thumbs_up_down"
-              onClick={() => handleButtonClick("Up")}
+              onClick={() => handleButtonClick("Top")}
             />
             <div className="ratingLabels">{content.POTENTIAL}</div>
           </div>
@@ -119,7 +119,9 @@ const DiscoverComponent = ({
         {menuIsOpen && (
           <Menu handleClickMenuToggle={handleClickMenuToggle} />
         )} */}
-        <Icon className="headerIcon" iconName="logo86" />
+        <div className="headerIconContainer">
+          <Icon className="headerIcon" iconName="logo86" />
+        </div>
         <div className="title1">{content.TITLE_1}</div>
         <div className="title2">{content.TITLE_2}</div>
       </div>

@@ -1,12 +1,9 @@
 @import "../../../scss/common.styles.scss";
 
-.popUpContainer {
-  .iconContainer {
-    .cancelIcon {
-      // display: none;
-    }
-  }
-  .orderProcessingContainer {    .refreshIcon {
+.popUpSmallContainer {
+  .orderProcessingContainer {
+    padding: 200px 0 170px 0;    
+    .refreshIcon {
       width: 57px;
       height: 64px;
       margin: auto;
@@ -20,7 +17,6 @@
         }
       }
     }
-    }
     .processingLabel {
       margin-top: 96px;
       color: $main-3;
@@ -28,6 +24,6 @@
       font-weight: 700;
       letter-spacing: 1.4px;
       text-align: center;
-      
-  }
+    }
+    }
 }
