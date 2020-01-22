@@ -1,4 +1,5 @@
 import React from "react";
+import { Input } from "antd";
 
 const InputField = ({
   id,
@@ -13,7 +14,7 @@ const InputField = ({
   disabled,
   value,
   accept,
-  style,
+  style
 }) => {
   let componentStyle = style;
   if (hasIcon) {
@@ -40,7 +41,7 @@ const InputField = ({
     }
   }
   return (
-    <input
+    <Input
       id={id}
       accept={accept}
       ref={passableRef}

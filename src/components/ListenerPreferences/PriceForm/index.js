@@ -29,6 +29,7 @@ const PriceContainerComponent = ({
           onChange={onInputChange}
           placeholder={content.PRICE_PLACEHOLDER}
           hasIcon
+          type="number"
         />
         <label htmlFor="sendMe" className="formInputLabel">
           {content.SEND_ME_LABEL}

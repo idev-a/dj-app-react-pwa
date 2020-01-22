@@ -38,9 +38,4 @@ const HitStatsComponent = ({
     );
 };
 
-HitStatsComponent.defaultProps = {
-    listeners: "187",
-    hitRate: "50"
-}
-
 export default HitStatsComponent;

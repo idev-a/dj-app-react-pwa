@@ -109,30 +109,34 @@ class ListenerPreferencesContainer extends Component {
       if (value.city.length < 1) {
         toast.error("Enter city");
         return true;
-      } else if (value.gender.length < 1) {
+      } 
+      if (value.gender.length < 1) {
         toast.error("Select a gender");
         return true;
-      } else if (value.date_of_birth === "Invalid date") {
+      } 
+      if (value.date_of_birth === "Invalid date") {
         toast.error("Enter a valid Date of Birth")
         return true;
       } 
-      // else if (value.favourite_genres.length < 1) {
-      //   toast.error("Select a genre");
-      //   return true;
-      // } else if (value.listener_tags.length < 1) {
-      //   toast.error("Select a tag");
-      //   return true;
-      // }
+      if (this.props.selectedGenres.length < 1) {
+        toast.error("Select a genre");
+        return true;
+      } 
+      if (this.props.selectedTags.length < 1) {
+        toast.error("Select a tag");
+        return true;
+      }
 
       if (this.state.proRequestBox) {
-        console.log(value.price);
-        if (value.price.length < 1 || !/^\+?(0|[1-9]\d*)$/.test(value.price)) {
-          toast.error("Enter valid price");
+        if (value.price.length < 1) {
+          toast.error("Enter a price");
           return true;
-        } else if (value.headline.length < 1) {
+        } 
+        if (value.headline.length < 1) {
           toast.error("Enter a send me");
           return true;
-        } else if (value.bio.length < 1) {
+        } 
+        if (value.bio.length < 1) {
           toast.error("Enter a biography");
           return true;
         }
@@ -232,8 +236,7 @@ class ListenerPreferencesContainer extends Component {
     }
     updateSelectedGenresDispatchAction(updatedSelectedGenres);
     this.setState({
-      genresList: !this.state.genresList,
-      saveButtonIsShowing: false,
+      genresList: !this.state.genresList
     });
   };
 

@@ -25,7 +25,7 @@ const DiscoverComponent = ({
     if (dir === "Right") {
       setCardMoveStyle("slide-right");
     }
-    if (dir === "Top") {
+    if (dir === "Up") {
       setCardMoveStyle("slide-top");
     }
     setTimeout(() => {
@@ -91,7 +91,7 @@ const DiscoverComponent = ({
               isIcon
               className="ratingIcons"
               iconName="thumbs_up_down"
-              onClick={() => handleButtonClick("Top")}
+              onClick={() => handleButtonClick("Up")}
             />
             <div className="ratingLabels">{content.POTENTIAL}</div>
           </div>
