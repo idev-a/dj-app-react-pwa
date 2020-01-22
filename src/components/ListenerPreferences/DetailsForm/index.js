@@ -93,7 +93,7 @@ const DetailsComponent = ({
 
   return (
     <div className="formInputContainer">
-      <label for="cityName" className="formInputLabel">
+      <label htmlFor="cityName" className="formInputLabel">
         {content.CITY_LABEL}
       </label>
       <AutoComplete
@@ -113,7 +113,7 @@ const DetailsComponent = ({
       />
       <div className="formInputLabel">{content.GENDER_LABEL}</div>
       <div className="form genderBoxRow">{genderBoxArray}</div>
-      <label for="dateOfBirth" className="formInputLabel">
+      <label htmlFor="dateOfBirth" className="formInputLabel">
         {content.DOB_LABEL}
       </label>
       <InputMask
@@ -126,7 +126,7 @@ const DetailsComponent = ({
         onChange={onInputChange}
         placeholder={content.DOB}
       />
-      <label for="genresInputs" className="formInputLabel">
+      <label htmlFor="genresInputs" className="formInputLabel">
         {content.FAVOURITE_GENRES_LABEL}
       </label>
       <div className="addCircleIconContainer">
@@ -146,7 +146,7 @@ const DetailsComponent = ({
         />
         <ul className="selectedGenresContainer">{addGenresSelectedArray}</ul>
         <hr className="firstHR" />
-        <label for="tagsInputs" className="formInputLabel">
+        <label htmlFor="tagsInputs" className="formInputLabel">
           {content.TAGS_LABEL}
         </label>
         <div className="addCircleIconContainer">

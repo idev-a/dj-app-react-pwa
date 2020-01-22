@@ -14,6 +14,7 @@ import {
   getUserDetails,
 } from "../../state/actions/userActions";
 import moment from "moment";
+import { toast } from "react-toastify";
 
 class ListenerPreferencesContainer extends Component {
   state = {
@@ -93,13 +94,57 @@ class ListenerPreferencesContainer extends Component {
     if (el.id === "hitRequestBox") {
       this.setState({
         hitRequestBox: !this.state.hitRequestBox,
+        saveButtonIsShowing: true
       });
     } else {
       this.setState({
         proRequestBox: !this.state.proRequestBox,
+        saveButtonIsShowing: true
       });
     }
   };
+
+  validateFormData = (payload) => {
+    const isFormError = [payload].some((value) => {
+      if (value.city.length < 1) {
+        toast.error("Enter city");
+        return true;
+      } else if (value.gender.length < 1) {
+        toast.error("Select a gender");
+        return true;
+      } else if (value.date_of_birth === "Invalid date") {
+        toast.error("Enter a valid Date of Birth")
+        return true;
+      } 
+      // else if (value.favourite_genres.length < 1) {
+      //   toast.error("Select a genre");
+      //   return true;
+      // } else if (value.listener_tags.length < 1) {
+      //   toast.error("Select a tag");
+      //   return true;
+      // }
+
+      if (this.state.proRequestBox) {
+        console.log(value.price);
+        if (value.price.length < 1 || !/^\+?(0|[1-9]\d*)$/.test(value.price)) {
+          toast.error("Enter valid price");
+          return true;
+        } else if (value.headline.length < 1) {
+          toast.error("Enter a send me");
+          return true;
+        } else if (value.bio.length < 1) {
+          toast.error("Enter a biography");
+          return true;
+        }
+      }
+
+      return false;
+
+    });
+
+    return isFormError;
+
+  }
 
   handlePostListernerPreferences = () => {
     const {
@@ -132,8 +177,11 @@ class ListenerPreferencesContainer extends Component {
         headline,
       }),
     };
-    this.props.postListenerPreferenceDispatchAction(payload);
-    this.setState({ saveButtonIsShowing: false });
+    const isFormError = this.validateFormData(payload);
+    if (!isFormError) {
+      this.props.postListenerPreferenceDispatchAction(payload);
+      this.setState({ saveButtonIsShowing: false });
+    }
   };
 
   handleGenderChange = (gender) => {
