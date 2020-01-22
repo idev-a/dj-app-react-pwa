@@ -7,13 +7,15 @@ import HitStatsComponent from "./HitStats/HitStatsComponent";
 import TrackReviewsComponent from "./TrackReviews/TrackReviewsComponent";
 import FooterNav from "../FooterNav";
 import Menu from "../Menu";
+import PopUps from "../PopUps/PopUpsComponent";
 
 const OrderFeedbackHistoryComponent = ({ 
   hitStats, 
   setToggle, 
   data, 
   menuIsOpen, 
-  handleClickMenuToggle 
+  handleClickMenuToggle,
+  loading
 }) => {
   return (
     <div className="orderFeedbackHistoryContainer">
@@ -53,6 +55,7 @@ const OrderFeedbackHistoryComponent = ({
         <TrackReviewsComponent data={data} />
       )}
       <FooterNav />
+      {loading && (<PopUps name="orderProcessing" />)}
     </div>
   );
 };

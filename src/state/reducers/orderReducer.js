@@ -56,7 +56,7 @@ const reducer = (state = initialState, { type, payload, ...action }) => {
     };
   }
   if (type === GET_HISTORY_SUCCESS) {
-    return { ...state, orderHistory: payload };
+    return { ...state, orderHistory: payload, loading: false };
   }
 
   if (type === RESET_STATE) {

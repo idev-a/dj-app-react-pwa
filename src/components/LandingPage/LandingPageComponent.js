@@ -79,7 +79,7 @@ const Component = (props) => {
       <LandingPageFooter />
       {props.showCookie && (
         <PopUps
-          hasCloseIcon={false}
+          hasCloseIcon={true}
           name={"cookie"}
           handlers={{ handleCookieClick: props.handleSetCookie }}
         />

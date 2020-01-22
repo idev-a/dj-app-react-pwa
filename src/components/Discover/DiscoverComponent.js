@@ -25,7 +25,7 @@ const DiscoverComponent = ({
     if (dir === "Right") {
       setCardMoveStyle("slide-right");
     }
-    if (dir === "Top") {
+    if (dir === "Up") {
       setCardMoveStyle("slide-top");
     }
     setTimeout(() => {
@@ -119,7 +119,9 @@ const DiscoverComponent = ({
         {menuIsOpen && (
           <Menu handleClickMenuToggle={handleClickMenuToggle} />
         )} */}
-        <Icon className="headerIcon" iconName="logo86" />
+        <div className="headerIconContainer">
+          <Icon className="headerIcon" iconName="logo86" />
+        </div>
         <div className="title1">{content.TITLE_1}</div>
         <div className="title2">{content.TITLE_2}</div>
       </div>

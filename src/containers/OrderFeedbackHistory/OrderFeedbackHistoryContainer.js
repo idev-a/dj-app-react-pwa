@@ -4,7 +4,7 @@ import OrderFeedbackHistory from "../../components/OrderFeedbackHistory";
 import { getOrderHistory } from '../../state/actions/userActions';
 import { orderHistorySelector } from '../../state/selectors/order';
 
-const OrderFeedbackHistoryContainer = ({ history = [] }) => {
+const OrderFeedbackHistoryContainer = ({ history = [], loading = true }) => {
 
     const [hitStats, setToggle] = useState(true);
     const [menuIsOpen, handleClickMenuToggle] = useState(false);
@@ -16,6 +16,7 @@ const OrderFeedbackHistoryContainer = ({ history = [] }) => {
             data={history}
             menuIsOpen={menuIsOpen}
             handleClickMenuToggle={handleClickMenuToggle}
+            loading={loading}
         />
     );
 };

@@ -15,18 +15,20 @@ const PopUpsComponent = ({
     closeClick
 }) => {
     return (
-        <div className="popUpContainer">
-            <div className="iconContainer">
-                <Icon className="headerIcon" iconName="logo_hexagon" />
-                {hasCloseIcon && <Button isIcon className="cancelIcon" iconName="cancel" onClick={closeClick}/>}
+        <div className="popUpLargeContainer">
+            <div className="popUpSmallContainer">
+                <div className="iconContainer">
+                    <Icon className="headerIcon" iconName="logo_hexagon" />
+                    {hasCloseIcon && <Button isIcon className="cancelIcon" iconName="cancel" onClick={closeClick}/>}
+                </div>
+                {
+                    name === "addToHome" ? <AddToHome /> : 
+                    name === "cookie" ? <Cookie {...handlers} /> :
+                    name === "newCard" ? <NewCard /> : 
+                    name === "orderProcessing" ? <OrderProcessing /> : 
+                    name === "success" ? <Success {...handlers}  /> : ""
+                }
             </div>
-            {
-                name === "addToHome" ? <AddToHome /> : 
-                name === "cookie" ? <Cookie {...handlers} /> :
-                name === "newCard" ? <NewCard /> : 
-                name === "orderProcessing" ? <OrderProcessing /> : 
-                name === "success" ? <Success {...handlers}  /> : ""
-            }
         </div>
     );
 };

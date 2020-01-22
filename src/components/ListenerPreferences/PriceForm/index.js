@@ -17,7 +17,7 @@ const PriceContainerComponent = ({
         <div className="formHeaderDescription">{content.PRICE_DESCRIPTION}</div>
       </header>
       <div className="formInputContainer">
-        <label for="price" className="formInputLabel" id="priceLabel">
+        <label htmlFor="price" className="formInputLabel" id="priceLabel">
           {content.PRICE_LABEL}
           <div className="priceSign">$</div>
         </label>
@@ -29,8 +29,9 @@ const PriceContainerComponent = ({
           onChange={onInputChange}
           placeholder={content.PRICE_PLACEHOLDER}
           hasIcon
+          type="number"
         />
-        <label for="sendMe" className="formInputLabel">
+        <label htmlFor="sendMe" className="formInputLabel">
           {content.SEND_ME_LABEL}
         </label>
         <div className="sendMeDescriptionA">
@@ -54,7 +55,7 @@ const PriceContainerComponent = ({
           value={sendMe}
           onChange={onInputChange}
         />
-        <label for="bio" className="formInputLabel">
+        <label htmlFor="bio" className="formInputLabel">
           {content.BIO_LABEL}
         </label>
         <div className="describeYourselfTitle">
