@@ -173,7 +173,7 @@ class ListenerPreferencesContainer extends Component {
       favourite_genres: selectedGenres.map((genre) => genre._id),
       listener_tags: selectedTags.map((tag) => tag._id),
       city,
-      date_of_birth: moment(this.state.dob).format("YYYY-MM-DD"),
+      date_of_birth: moment(this.state.dob, "MM-DD-YYYY").format("YYYY-MM-DD"),
       gender: gender.toLowerCase(),
       ...(proRequestBox && {
         price,
