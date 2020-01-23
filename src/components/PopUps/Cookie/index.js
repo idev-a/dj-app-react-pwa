@@ -10,6 +10,11 @@ const Cookie = (props) => {
             <div className="mainIconContainer">
                 <Icon className="mainIcon" iconName="COOKIE_1" />
             </div>
+            <Button 
+                className="acceptButton"
+                buttonText={content.ACCEPT}
+                onClick={() => props.handleCookieClick()}
+            />
             <div className="descriptionContainer">
                 <div className="description">
                     {content.DESCRIPTION_1A}
@@ -25,25 +30,24 @@ const Cookie = (props) => {
                 </div>
             </div>
             <div className="buttonWrapper">
-                <Button
+                <a
                 className="launchButton"
-                buttonText={content.BUTTON_ONE_TEXT}
-                onClick={() => props.handleCookieClick("https://hearbk.com/hq/manage-preferences/")}
-                ></Button>
-            </div>
-            <div className="buttonWrapper">
-                <Button
+                href="https://hearbk.com/hq/manage-preferences/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >{content.BUTTON_ONE_TEXT}</a>
+                <a
                 className="launchButton"
-                buttonText={content.BUTTON_TWO_TEXT}
-                onClick={() => props.handleCookieClick("https://hearbk.com/hq/privacy-policy/")}
-                ></Button>
-            </div>
-            <div className="buttonWrapper">
-                <Button
+                href="https://hearbk.com/hq/privacy-policy/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >{content.BUTTON_TWO_TEXT}</a>
+                <a
                 className="launchButton"
-                buttonText={content.BUTTON_THREE_TEXT}
-                onClick={() => props.handleCookieClick("https://hearbk.com/hq/cookie-policy/")}
-                ></Button>
+                href="https://hearbk.com/hq/cookie-policy/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >{content.BUTTON_THREE_TEXT}</a>
             </div>
         </div>
     );

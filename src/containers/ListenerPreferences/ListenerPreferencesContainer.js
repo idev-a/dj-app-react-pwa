@@ -33,6 +33,7 @@ class ListenerPreferencesContainer extends Component {
     saveButtonIsShowing: true,
     menuIsOpen: false,
     loadUserData: false,
+    disabled: false,
   };
 
   componentDidMount() {
@@ -94,34 +95,37 @@ class ListenerPreferencesContainer extends Component {
     if (el.id === "hitRequestBox") {
       this.setState({
         hitRequestBox: !this.state.hitRequestBox,
-        saveButtonIsShowing: true
+        saveButtonIsShowing: true,
+        ...(this.state.disabled && { disabled: false })
       });
     } else {
       this.setState({
         proRequestBox: !this.state.proRequestBox,
-        saveButtonIsShowing: true
+        saveButtonIsShowing: true,
+        ...(this.state.disabled && { disabled: false })
       });
     }
   };
 
   validateFormData = (payload) => {
+    const dateIsValid = moment(this.state.dob, "MM-DD-YYYY").isBefore(moment());
     const isFormError = [payload].some((value) => {
       if (value.city.length < 1) {
         toast.error("Enter city");
         return true;
-      } 
+      }
       if (value.gender.length < 1) {
         toast.error("Select a gender");
         return true;
-      } 
-      if (value.date_of_birth === "Invalid date") {
-        toast.error("Enter a valid Date of Birth")
+      }
+      if (!dateIsValid) {
+        toast.error("Enter a valid Date of Birth");
         return true;
-      } 
+      }
       if (this.props.selectedGenres.length < 1) {
         toast.error("Select a genre");
         return true;
-      } 
+      }
       if (this.props.selectedTags.length < 1) {
         toast.error("Select a tag");
         return true;
@@ -131,11 +135,11 @@ class ListenerPreferencesContainer extends Component {
         if (value.price.length < 1) {
           toast.error("Enter a price");
           return true;
-        } 
+        }
         if (value.headline.length < 1) {
           toast.error("Enter a send me");
           return true;
-        } 
+        }
         if (value.bio.length < 1) {
           toast.error("Enter a biography");
           return true;
@@ -143,12 +147,10 @@ class ListenerPreferencesContainer extends Component {
       }
 
       return false;
-
     });
 
     return isFormError;
-
-  }
+  };
 
   handlePostListernerPreferences = () => {
     const {
@@ -184,7 +186,7 @@ class ListenerPreferencesContainer extends Component {
     const isFormError = this.validateFormData(payload);
     if (!isFormError) {
       this.props.postListenerPreferenceDispatchAction(payload);
-      this.setState({ saveButtonIsShowing: false });
+      this.setState({ saveButtonIsShowing: false, disabled: true });
     }
   };
 
@@ -236,7 +238,7 @@ class ListenerPreferencesContainer extends Component {
     }
     updateSelectedGenresDispatchAction(updatedSelectedGenres);
     this.setState({
-      genresList: !this.state.genresList
+      genresList: !this.state.genresList,
     });
   };
 
@@ -255,6 +257,10 @@ class ListenerPreferencesContainer extends Component {
   };
   handleClickMenuToggle = (toggle) => {
     this.setState({ menuIsOpen: toggle });
+  };
+
+  changeToSave = () => {
+    this.setState({ saveButtonIsShowing: true, disabled: false });
   };
 
   render() {
@@ -285,6 +291,8 @@ class ListenerPreferencesContainer extends Component {
         saveButtonIsShowing={this.state.saveButtonIsShowing}
         menuIsOpen={this.state.menuIsOpen}
         handleClickMenuToggle={this.handleClickMenuToggle}
+        changeToSaveButton={this.changeToSave}
+        disabled={this.state.disabled}
       />
     );
   }

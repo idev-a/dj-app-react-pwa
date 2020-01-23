@@ -22,6 +22,7 @@ const DetailsComponent = ({
   tags,
   onInputChange,
   handleGenderChange,
+  disabled
 }) => {
   const genderBoxArray = content.GENDER.map((g, i) => {
     return (
@@ -30,7 +31,7 @@ const DetailsComponent = ({
           buttonText={g}
           id="gender"
           className={cx("genderBoxSelectors", g === gender && "selected")}
-          onClick={() => handleGenderChange(g)}
+          onClick={disabled ? "" : () => handleGenderChange(g)}
         />
       </div>
     );
@@ -52,7 +53,7 @@ const DetailsComponent = ({
         <Button
           buttonText={genre.name.toUpperCase()}
           className={cx("addGenresSelectedLis")}
-          onClick={(e) => handleClickAddGenres(e, genre)}
+          onClick={disabled ? "" : (e) => handleClickAddGenres(e, genre)}
         />
       </div>
     );
@@ -74,7 +75,7 @@ const DetailsComponent = ({
         <Button
           buttonText={tag.tag.toUpperCase()}
           className={cx("addTagsSelectedLis")}
-          onClick={(e) => handleClickAddTags(e, tag)}
+          onClick={disabled ? "" : (e) => handleClickAddTags(e, tag)}
         />
       </div>
     );
@@ -110,6 +111,7 @@ const DetailsComponent = ({
         value={city}
         types={['(cities)']}
         placeholder={content.CHOOSE_CITY}
+        disabled={disabled}
       />
       <div className="formInputLabel">{content.GENDER_LABEL}</div>
       <div className="form genderBoxRow">{genderBoxArray}</div>
@@ -125,13 +127,14 @@ const DetailsComponent = ({
         value={dob}
         onChange={onInputChange}
         placeholder={content.DOB}
+        disabled={disabled}
       />
       <label htmlFor="genresInputs" className="formInputLabel">
         {content.FAVOURITE_GENRES_LABEL}
       </label>
       <div className="addCircleIconContainer">
         <div
-          onClick={(e) => handleClickToggleAddList(e, "genres")}
+          onClick={disabled ? "" : (e) => handleClickToggleAddList(e, "genres")}
           className="formIconContainer"
         >
           <Icon className="addCircleIcon" iconName="AddCircle" />
@@ -143,6 +146,7 @@ const DetailsComponent = ({
           className="formInputField"
           onChange={onInputChange}
           placeholder={content.FAVOURITE_GENRES_SEARCH}
+          disabled={disabled}
         />
         <ul className="selectedGenresContainer">{addGenresSelectedArray}</ul>
         <hr className="firstHR" />
@@ -151,7 +155,7 @@ const DetailsComponent = ({
         </label>
         <div className="addCircleIconContainer">
           <div
-            onClick={(e) => handleClickToggleAddList(e, "tags")}
+            onClick={disabled ? "" : (e) => handleClickToggleAddList(e, "tags")}
             className="formIconContainer"
           >
             <Icon className="addCircleIcon" iconName="AddCircle" />
@@ -163,6 +167,7 @@ const DetailsComponent = ({
           className="formInputField"
           onChange={onInputChange}
           placeholder={content.TAGS_SEARCH}
+          disabled={disabled}
         />
         <ul className="selectedTagsContainer">{addTagsSelectedArray}</ul>
         <hr className="lastHR"/>

@@ -105,6 +105,17 @@
             @extend .listenerPreferencesDescription;
             padding: 0 0 13px 0;
         }
+        .launchButton.moreEditsButton {
+            display: flex;
+            position: relative;
+            justify-content: center;
+            width: 100%;
+            background: $main-7;
+            color: $main-9;
+            font-size: $font-size-normal;
+            font-weight: 600;
+            box-shadow: none;
+        }
     }
 }
 .heightAuto {

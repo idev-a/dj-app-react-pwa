@@ -114,13 +114,7 @@ export const updateUserInfo = (requestData) => (dispatch) =>
     header: authHeaders(),
     body: JSON.stringify(requestData),
   })
-    .then((response) => response.json())
-    .then(() => {
-      dispatch({
-        type: UPDATE_USER_SUCCESS,
-        payload: requestData,
-      });
-    })
+    .then((response) =>response)
     .catch((e) => {
       console.log(e);
     });

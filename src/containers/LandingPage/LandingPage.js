@@ -8,13 +8,8 @@ const LandingPageContainer = (props) => {
   const handleLaunchClick = useCallback(() => props.history.push("/signin"), [
     props.history,
   ]);
-  const handleSetCookie = useCallback((managePrefClick) => {
+  const handleSetCookie = useCallback(() => {
     localStorage.setItem("showCookie", "true");
-    window.open(
-      managePrefClick
-        ? "https://hearbk.com/hq/manage-preferences/"
-        : "https://hearbk.com/hq/privacy-policy/"
-    );
     setIsCookieSet(true)
   }, []);
   return (

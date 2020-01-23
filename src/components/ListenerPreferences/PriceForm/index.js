@@ -9,6 +9,7 @@ const PriceContainerComponent = ({
   sendMe,
   describeSelf,
   onInputChange,
+  disabled
 }) => {
   return (
     <React.Fragment>
@@ -30,6 +31,7 @@ const PriceContainerComponent = ({
           placeholder={content.PRICE_PLACEHOLDER}
           hasIcon
           type="number"
+          disabled={disabled}
         />
         <label htmlFor="sendMe" className="formInputLabel">
           {content.SEND_ME_LABEL}
@@ -54,6 +56,7 @@ const PriceContainerComponent = ({
           className="formInputField"
           value={sendMe}
           onChange={onInputChange}
+          disabled={disabled}
         />
         <label htmlFor="bio" className="formInputLabel">
           {content.BIO_LABEL}
@@ -66,6 +69,7 @@ const PriceContainerComponent = ({
           className="formInputField"
           value={describeSelf}
           onChange={onInputChange}
+          disabled={disabled}
         />
       </div>
     </React.Fragment>

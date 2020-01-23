@@ -30,7 +30,9 @@ const ListenerPreferencesComponent = ({
   tagsAdded,
   handleButtonClick,
   handleGenderChange,
-  saveButtonIsShowing
+  saveButtonIsShowing,
+  changeToSaveButton,
+  disabled
 }) => {
   let hitRequestBoxSelected = hitRequestBox ? "selected" : "";
   let proRequestBoxSelected = proRequestBox ? "selected" : "";
@@ -63,6 +65,7 @@ const ListenerPreferencesComponent = ({
             tags={tags}
             onInputChange={onInputChange}
             handleGenderChange={handleGenderChange}
+            disabled={disabled}
           />
         </section>
         {saveButtonIsShowing && (
@@ -78,6 +81,11 @@ const ListenerPreferencesComponent = ({
         {!saveButtonIsShowing && (
           <div className="buttonWrapper">
             <div className="buttonLabel">{content.BUTTON_LABEL}</div>
+            <Button 
+              className="launchButton moreEditsButton"
+              buttonText={content.MAKE_EDITS}
+              onClick={() => changeToSaveButton()} 
+            ></Button>
             <Button
               className="launchButton"
               buttonText={content.RATE_TRACKS_TEXT}
@@ -118,6 +126,7 @@ const ListenerPreferencesComponent = ({
             tags={tags}
             onInputChange={onInputChange}
             handleGenderChange={handleGenderChange}
+            disabled={disabled}
           />
         </section>
         <section className="formContainer">
@@ -126,6 +135,7 @@ const ListenerPreferencesComponent = ({
             sendMe={sendMeText}
             price={price}
             describeSelf={bio}
+            disabled={disabled}
           />
         </section>
         {saveButtonIsShowing && (
@@ -141,6 +151,11 @@ const ListenerPreferencesComponent = ({
         {!saveButtonIsShowing && (
           <div className="buttonWrapper">
             <div className="buttonLabel">{content.BUTTON_LABEL}</div>
+            <Button 
+              className="launchButton moreEditsButton"
+              buttonText={content.MAKE_EDITS}
+              onClick={() => changeToSaveButton()} 
+            ></Button>
             <Button
               className="launchButton"
               buttonText={content.RATE_TRACKS_TEXT}

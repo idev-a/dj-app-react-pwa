@@ -12,6 +12,7 @@ const TextAreaField = ({
   iconName,
   type,
   value,
+  disabled
 }) => {
   let style;
   if (hasIcon) {
@@ -32,6 +33,7 @@ const TextAreaField = ({
       placeholder={placeholder}
       type={type}
       value={value}
+      disabled={disabled}
     />
   );
 };

@@ -27,6 +27,7 @@ export default {
     TAGS_LABEL: `TAGS`,
     TAGS_SEARCH: `Search for tags`,
     BUTTON_LABEL: `What would you like to do now?`,
+    MAKE_EDITS: `MAKE MORE EDITS`,
     SAVE: `SAVE`,
     RATE_TRACKS_TEXT: `RATE NEW TRACKS`,
     ORDER_FEEDBACK_TEXT: `ORDER FEEDBACK`
