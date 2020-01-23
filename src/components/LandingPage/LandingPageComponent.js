@@ -82,6 +82,7 @@ const Component = (props) => {
           hasCloseIcon={true}
           name={"cookie"}
           handlers={{ handleCookieClick: props.handleSetCookie }}
+          closeClick={props.cookieCloseClick}
         />
       )}
     </div>

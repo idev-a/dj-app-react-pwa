@@ -16,12 +16,13 @@ const LandingPageContainer = (props) => {
         : "https://hearbk.com/hq/privacy-policy/"
     );
     setIsCookieSet(true)
-  });
+  }, []);
   return (
     <Component
       handleLaunchClick={handleLaunchClick}
       showCookie={!isCookieSet}
       handleSetCookie={handleSetCookie}
+      cookieCloseClick={() => setIsCookieSet(true)}
     />
   );
 };
