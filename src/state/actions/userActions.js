@@ -101,11 +101,14 @@ export const postListenerPreferences = (payload) => (dispatch) => {
     method: "POST",
     headers: requestHeaders,
     body: JSON.stringify(payload),
-  })
-    .then((res) => res.json())
-    .then(() => {
+  }).then((res) => {
+    if(res.ok) {
       dispatch(getUserDetails());
       localStorage.removeItem("isFirstUserLogin");
+      toast.success("Changes saved successfully !!!")
+    } else {
+      toast.error("Failed to save changes !!!")
+    }
     });
 };
 export const updateUserInfo = (requestData) => (dispatch) =>
