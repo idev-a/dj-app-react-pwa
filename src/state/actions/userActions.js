@@ -67,9 +67,22 @@ export const authenticateUser = (requestData) => (dispatch) =>
     headers: genericHeaders(),
     body: JSON.stringify(requestData),
   })
-    .then((response) => response.json())
-    .then(
-      ({ token, isFirstUserLogin, isPremiumUser, expireTime = 3600000 }) => {
+    .then((response) => {
+      if (response.ok) {
+        response.json();
+      } else {
+        toast.error("Login failed ! Please check credentials!!");
+        return undefined;
+      }
+    })
+    .then((data) => {
+      if (data) {
+        const {
+          token,
+          isFirstUserLogin,
+          isPremiumUser,
+          expireTime = 3600000,
+        } = data;
         localStorage.setItem("x-access-token", token);
         if (isPremiumUser) {
           localStorage.setItem("isPremiumUser", String(isPremiumUser));
@@ -84,7 +97,7 @@ export const authenticateUser = (requestData) => (dispatch) =>
         history.push(isFirstUserLogin ? "/preferences" : "/discover");
         dispatch({ type: AUTHENTICATE_USER_SUCCESS, payload: token });
       }
-    );
+    });
 
 export const uploadUserProfile = (fileToUpload, id) => {
   const formData = new FormData();
@@ -102,14 +115,14 @@ export const postListenerPreferences = (payload) => (dispatch) => {
     headers: requestHeaders,
     body: JSON.stringify(payload),
   }).then((res) => {
-    if(res.ok) {
+    if (res.ok) {
       dispatch(getUserDetails());
       localStorage.removeItem("isFirstUserLogin");
-      toast.success("Changes saved successfully !!!")
+      toast.success("Changes saved successfully !!!");
     } else {
-      toast.error("Failed to save changes !!!")
+      toast.error("Failed to save changes !!!");
     }
-    });
+  });
 };
 export const updateUserInfo = (requestData) => (dispatch) =>
   fetch(`${api}${updateUserURI}`, {
@@ -117,7 +130,7 @@ export const updateUserInfo = (requestData) => (dispatch) =>
     header: authHeaders(),
     body: JSON.stringify(requestData),
   })
-    .then((response) =>response)
+    .then((response) => response)
     .catch((e) => {
       console.log(e);
     });
