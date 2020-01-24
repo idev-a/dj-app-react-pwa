@@ -69,7 +69,7 @@ export const authenticateUser = (requestData) => (dispatch) =>
   })
     .then((response) => {
       if (response.ok) {
-        response.json();
+        return response.json();
       } else {
         toast.error("Login failed ! Please check credentials!!");
         return undefined;
