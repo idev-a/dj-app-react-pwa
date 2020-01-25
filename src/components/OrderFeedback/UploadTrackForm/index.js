@@ -25,9 +25,9 @@ const UploadTrackForm = ({
     [index, handleTrackChanges]
   );
   const getFileUploadInputGroup = () => (
-    <InputField
+    <input
       accept=".mp3"
-      passableRef={fileUploadEl}
+      ref={fileUploadEl}
       id="fileUpload"
       type="file"
       className="titleInput"

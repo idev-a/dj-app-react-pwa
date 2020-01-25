@@ -11,9 +11,13 @@ const LoginContainer = ({ loginUser }) => {
     if (e.target.name) {
       setIsRememberUser(e.target.checked);
     } else {
+      let value = e.target.value;
+      if (e.target.id === "email") {
+        value = value.toLowerCase();
+      }
       setLoginDetails({
         ...loginDetails,
-        [e.target.id]: e.target.value,
+        [e.target.id]: value,
       });
     }
   };
@@ -33,7 +37,7 @@ const LoginContainer = ({ loginUser }) => {
 };
 
 const mapStateToProps = (state) => ({
-    user: userSelector(state),
+  user: userSelector(state),
 });
 
 const mapActions = (dispatch) => ({
