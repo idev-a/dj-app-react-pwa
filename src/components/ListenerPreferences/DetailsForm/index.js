@@ -36,13 +36,15 @@ const DetailsComponent = ({
       </div>
     );
   });
-  const addGenresArray = genres.map((genre, i) => {
+  const genresNameArray = genres.map(genre => genre.name).sort();
+  const addGenresArray = genresNameArray.map((name, i) => {
+
     return (
       <div className="addGenresButtonWrapper" key={i}>
         <Button
-          buttonText={genre.name.toUpperCase()}
+          buttonText={name.toUpperCase()}
           className={cx("addGenresLis")}
-          onClick={(e) => handleClickAddGenres(e, genre)}
+          onClick={(e) => handleClickAddGenres(e, name)}
         />
       </div>
     );
@@ -58,13 +60,14 @@ const DetailsComponent = ({
       </div>
     );
   });
-  const addTagsArray = tags.map((tag, i) => {
+  const tagsNameArray = tags.map(tag => tag.tag).sort();
+  const addTagsArray = tagsNameArray.map((name, i) => {
     return (
       <div className="addTagsButtonWrapper" key={i}>
         <Button
-          buttonText={tag.tag.toUpperCase()}
+          buttonText={name.toUpperCase()}
           className={cx("addTagsLis")}
-          onClick={(e) => handleClickAddTags(e, tag)}
+          onClick={(e) => handleClickAddTags(e, name)}
         />
       </div>
     );
