@@ -80,9 +80,9 @@ const SignUpComponent = ({
           iconName="addphoto"
           onClick={handleAddPhotoClick}
         />}
-        <InputField
+        <input
           accept="image/*"
-          passableRef={fileUploadRef}
+          ref={fileUploadRef}
           style={fileToUpload && { width: "auto", zIndex: "1" }}
           id="profileImg"
           type="file"

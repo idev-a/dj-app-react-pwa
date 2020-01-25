@@ -20,7 +20,10 @@ const SignUpContainer = ({ registerUser, handleSuccess }) => {
       toast.error("Passwords dont match");
       return;
     }
-    if (userData.email.length === 0 || !validateRegex("email", userData.email)) {
+    if (
+      userData.email.length === 0 ||
+      !validateRegex("email", userData.email)
+    ) {
       toast.error("Enter valid email address");
       return;
     }
@@ -48,9 +51,13 @@ const SignUpContainer = ({ registerUser, handleSuccess }) => {
     ) {
       setFileToUpload(e.target.files[0]);
     } else {
+      let value = e.target.value;
+      if (e.target.id === "email") {
+        value = e.target.value.toLowerCase();
+      }
       setUserData({
         ...userData,
-        [e.target.id]: e.target.value.trim(),
+        [e.target.id]: value.trim(),
       });
     }
   };
