@@ -3,8 +3,7 @@ import PropTypes from 'prop-types';
 
 const IconComponent = ({ className, iconName }) => {
     const style = {
-        background: `url('../../img/${iconName}.png') no-repeat`,
-        backgroundSize: 'contain',
+        background: `url('../../img/${iconName}.png') 0% 0% / contain no-repeat`
     };
     return <div style={style} className={className}></div>
 };

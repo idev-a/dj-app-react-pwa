@@ -25,6 +25,8 @@ export const GET_USER_DETAILS_FAILURE = "GET_USER_DETAILS_FAILURE";
 export const GET_USER_PAYMENT_METHODS_SUCCESS =
   "GET_USER_PAYMENT_METHODS_SUCCESS";
 
+export const REMOVE_USER_PAYMENT_METHOD = "REMOVE_USER_PAYMENT_METHOD";
+
 export const registerUserAction = (requestData, file) => (dispatch) =>
   fetch(`${api}${postRegisterUserURI}`, {
     method: "POST",
@@ -186,3 +188,18 @@ export const getPaymentMethods = () => (dispatch) =>
         payload: data,
       })
     );
+
+export const deletePaymentMethod = (paymentInfo) => (dispatch) => {
+  return fetch(`${api}${getPaymentMethodURI}`, {
+    method: "DELETE",
+    headers: authHeaders(),
+    body: JSON.stringify(paymentInfo),
+  }).then((res) => {
+    if (res.ok) {
+      dispatch({
+        type: REMOVE_USER_PAYMENT_METHOD,
+        payload: paymentInfo,
+      });
+    }
+  });
+};

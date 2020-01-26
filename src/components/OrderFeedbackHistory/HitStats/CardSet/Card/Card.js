@@ -7,18 +7,21 @@ import Icon from "../../../../../common/IconComponent";
 const Card = ({ isOpen, cardData }) => {
   const [isExpanded, setExpandedState] = useState(isOpen);
   let header;
+  const hitPercentageRounded = Math.round(cardData.stats.hit);
+  const missPercentageRounded = Math.round(cardData.stats.miss);
+  const potentialPercentageRounded = Math.round(cardData.stats.potential);
   const sorted = [
-    cardData.stats.hit,
-    cardData.stats.miss,
-    cardData.stats.potential,
+    hitPercentageRounded,
+    missPercentageRounded,
+    potentialPercentageRounded,
   ].sort((a, b) => b - a);
-  sorted[0] === cardData.stats.hit
+  sorted[0] === hitPercentageRounded
     ? (header = {
         iconName: "thumbs_up_blue",
         descriptionType: "HIT",
         hits: true,
       })
-    : sorted[0] === cardData.stats.miss
+    : sorted[0] === missPercentageRounded
     ? (header = {
         iconName: "thumbs_down",
         descriptionType: "MISS",
@@ -30,13 +33,13 @@ const Card = ({ isOpen, cardData }) => {
         potential: true,
       });
   let expandedBoxHeader;
-  if (cardData.stats.hit > 89) {
+  if (hitPercentageRounded > 89) {
     expandedBoxHeader = "Listeners loved this track!";
-  } else if (cardData.stats.hit > 79) {
+  } else if (hitPercentageRounded > 79) {
     expandedBoxHeader = "Listeners rated this track good!";
-  } else if (cardData.stats.hit > 69) {
+  } else if (hitPercentageRounded > 69) {
     expandedBoxHeader = "Listeners rated this track average!";
-  } else if (cardData.stats.hit > 59) {
+  } else if (hitPercentageRounded > 59) {
     expandedBoxHeader = "Listeners rated this track below average!";
   } else {
     expandedBoxHeader = "Listeners rated this track poor!";
@@ -79,17 +82,17 @@ const Card = ({ isOpen, cardData }) => {
             </div>
             <div className="statsContainerCols">
               <Icon className="colIcons" iconName="thumbs_up_blue" />
-              <div className="hitsNumberLabel highlighted">{cardData.stats.hit ? cardData.stats.hit : 0}%</div>
+              <div className="hitsNumberLabel highlighted">{hitPercentageRounded ? hitPercentageRounded : 0}%</div>
               <div className="hitsTypeLabel highlighted">{content.HITS}</div>
             </div>
             <div className="statsContainerCols">
               <Icon className="colIcons" iconName="thumbs_down" />
-              <div className="missesNumberLabel">{cardData.stats.miss ? cardData.stats.miss : 0}%</div>
+              <div className="missesNumberLabel">{missPercentageRounded ? missPercentageRounded : 0}%</div>
               <div className="missesTypeLabel">{content.MISSES}</div>
             </div>
             <div className="statsContainerCols">
               <Icon className="colIcons" iconName="thumbs_up_down_dark" />
-              <div className="potentialNumberLabel">{cardData.stats.potential ? cardData.stats.potential : 0}%</div>
+              <div className="potentialNumberLabel">{potentialPercentageRounded ? potentialPercentageRounded : 0}%</div>
               <div className="potentialTypeLabel">{content.POTENTIAL}</div>
             </div>
           </div>

@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import Component from "../../components/OrderFeedback/OrderFeedbackComponent";
 import {
   updateOrderData,
+  deletePayment,
   submitPayment,
   uploadAudioFileToIPFS,
   updateTrackDetails,
@@ -14,7 +15,10 @@ import { orderSelector } from "../../state/selectors/order";
 import { ENUMS } from "../../utils";
 import { getGenres } from "../../state/actions/preferencesActions";
 import { toast } from "react-toastify";
-import { getPaymentMethods } from "../../state/actions/userActions";
+import {
+  getPaymentMethods,
+  deletePaymentMethod,
+} from "../../state/actions/userActions";
 
 const OrderFeedbackContainer = ({
   accountName,
@@ -30,11 +34,13 @@ const OrderFeedbackContainer = ({
   history,
   dispatchResetState,
   getPaymentMethodsDispatchAction,
+  deletePaymentMethodDispatchAction,
 }) => {
   useEffect(() => {
     if (!localStorage.getItem("x-access-token")) {
       history && history.push("/signin");
-    } if (localStorage.getItem("isFirstUserLogin")) {
+    }
+    if (localStorage.getItem("isFirstUserLogin")) {
       history && history.push("/preferences");
     }
   }, [history]);
@@ -82,6 +88,7 @@ const OrderFeedbackContainer = ({
         }
         if (!track.genreId) {
           toast.error("Select a genre for the tracks");
+          return true;
         }
       }
       return false;
@@ -232,6 +239,13 @@ const OrderFeedbackContainer = ({
     [dispatchRemoveTrack]
   );
 
+  const handleDeleteSavedCard = useCallback(
+    (paymentId) => {
+      deletePaymentMethodDispatchAction({ id: paymentId });
+    },
+    [deletePaymentMethodDispatchAction]
+  );
+
   const handleSelectPayment = useCallback(
     (id) => {
       if (id === selectedPaymentId) {
@@ -247,6 +261,7 @@ const OrderFeedbackContainer = ({
     <Component
       isProcessing={isProcessing}
       selectedPaymentId={selectedPaymentId}
+      handleDeleteSavedCard={handleDeleteSavedCard}
       handleSavedCardSelect={handleSelectPayment}
       isPremium={isPremium}
       genres={genres}
@@ -293,6 +308,8 @@ const dispatchAction = (dispatch) => ({
   dispatchRemoveTrack: (id) => dispatch(removeTrack(id)),
   dispatchResetState: () => dispatch(resetState()),
   getPaymentMethodsDispatchAction: () => dispatch(getPaymentMethods()),
+  deletePaymentMethodDispatchAction: (payload) =>
+    dispatch(deletePaymentMethod(payload)),
 });
 
 export default connect(

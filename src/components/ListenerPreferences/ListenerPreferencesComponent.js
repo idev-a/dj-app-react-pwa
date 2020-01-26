@@ -7,6 +7,7 @@ import DetailsForm from "./DetailsForm";
 import PriceForm from "./PriceForm";
 import Button from "../../common/Button";
 import history from "../../history";
+import FooterNav from "../FooterNav";
 
 const ListenerPreferencesComponent = ({
   handleClickRequestBoxes,
@@ -252,6 +253,7 @@ const ListenerPreferencesComponent = ({
         </div>
       </div>
       {containerContents}
+      <FooterNav />
     </div>
   );
 };

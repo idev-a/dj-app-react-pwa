@@ -19,6 +19,35 @@
       opacity: 0.3;
     }
   }
+  .warningModal {
+    display: flex;
+    position: absolute;
+    flex-flow: column nowrap;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 50%;
+    right: 0;
+    bottom: 65px;
+    padding: 15px;
+    color: $main-2;
+    background: $main-5;
+    font-size: $font-size-small;
+    text-align: center;
+    box-shadow: 0 3px 6px #00000029;
+    .warningButtonWrapper {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      margin-top: 15px;
+      .warningButton {
+        width: 45%;
+        height: 30px;
+        color: $main-2;
+        background: $main-1;
+        border: 2px solid $main-7;
+      }
+    }
+  }
 
   .paymentCardContentContainer {
     display: flex;

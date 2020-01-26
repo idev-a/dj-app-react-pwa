@@ -12,13 +12,19 @@ import Button from "../../common/Button";
 
 const DiscoverComponent = ({
   handleSwipeEnd,
-  track,
-  menuIsOpen,
-  handleClickMenuToggle,
+  track
 }) => {
   const [cardMoveStyle, setCardMoveStyle] = useState("");
+  const [isSelected, setIsSelected] = useState("");
 
-  const handleButtonClick = useCallback((dir) => {
+  const handleButtonClick = (dir) => {
+    setIsSelected(dir)
+    setTimeout(() => {
+      setAnimation(dir);
+    }, 1000);
+  }
+
+  const setAnimation = useCallback((dir) => {
     if (dir === "Left") {
       setCardMoveStyle("slide-left");
     }
@@ -31,8 +37,10 @@ const DiscoverComponent = ({
     setTimeout(() => {
       handleSwipeEnd(dir);
       setCardMoveStyle("");
+      setIsSelected("");
     }, 1000);
   }, [handleSwipeEnd]);
+  console.log(isSelected);
   const getComponent = useCallback(() => {
     const {
       trackUrl,
@@ -81,33 +89,33 @@ const DiscoverComponent = ({
             <Button
               isIcon
               className="ratingIcons"
-              iconName="thumbs_down"
+              iconName={isSelected === "Left" ? "thumbs_down_blue" : "thumbs_down"}
               onClick={() => handleButtonClick("Left")}
             />
-            <div className="ratingLabels">{content.MISS}</div>
+            <div className={isSelected === "Left" ? "ratingLabels selected" : "ratingLabels"}>{content.MISS}</div>
           </div>
           <div className="iconCols">
             <Button
               isIcon
               className="ratingIcons"
-              iconName="thumbs_up_down"
+              iconName={isSelected === "Up" ? "thumbs_up_down_blue" : "thumbs_up_down"}
               onClick={() => handleButtonClick("Up")}
             />
-            <div className="ratingLabels">{content.POTENTIAL}</div>
+            <div className={isSelected === "Up" ? "ratingLabels selected" : "ratingLabels"}>{content.POTENTIAL}</div>
           </div>
           <div className="iconCols">
             <Button
               isIcon
               className="ratingIcons"
-              iconName="thumbs_up_blue"
+              iconName={isSelected === "Right" ? "thumbs_up_blue" : "thumbs_up"}
               onClick={() => handleButtonClick("Right")}
             />
-            <div className="ratingLabels selected">{content.HIT}</div>
+            <div className={isSelected === "Right" ? "ratingLabels selected" : "ratingLabels"}>{content.HIT}</div>
           </div>
         </div>
       </div>
     );
-  }, [track, cardMoveStyle, handleButtonClick]);
+  }, [track, cardMoveStyle, handleButtonClick, setIsSelected]);
 
   return (
     <div className="discoverComponentContainer">

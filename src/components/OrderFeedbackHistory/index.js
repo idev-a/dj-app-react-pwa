@@ -54,8 +54,8 @@ const OrderFeedbackHistoryComponent = ({
       ) : (
         <TrackReviewsComponent data={data} />
       )}
-      <FooterNav />
       {loading && (<PopUps name="orderProcessing" />)}
+      <FooterNav />
     </div>
   );
 };

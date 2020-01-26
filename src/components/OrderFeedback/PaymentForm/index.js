@@ -23,6 +23,7 @@ const PaymentForm = ({
   handlePaymentFormError,
   paymentMethods,
   selectedPaymentId,
+  handleDeleteSavedCard,
   handleSavedCardSelect,
   ...props
 }) => {
@@ -43,6 +44,7 @@ const PaymentForm = ({
           <PaymentCard
             {...method}
             selectedPaymentId={selectedPaymentId}
+            handleDeleteSavedCard={handleDeleteSavedCard}
             handleSavedCardSelect={handleSavedCardSelect}
           />
         ))}

@@ -16,8 +16,8 @@ const OrderFeedbackComponent = ({
   accountName,
   genres,
   selectedPaymentId,
+  handleDeleteSavedCard,
   handleSavedCardSelect,
-  selectedGenre,
   paymentMethods,
   isAddPremium,
   onInputChange,
@@ -113,6 +113,7 @@ const OrderFeedbackComponent = ({
             isSaveCardDetails={isSaveCardDetails}
             paymentMethods={paymentMethods}
             selectedPaymentId={selectedPaymentId}
+            handleDeleteSavedCard={handleDeleteSavedCard}
             handleSavedCardSelect={handleSavedCardSelect}
           />
         </Elements>
