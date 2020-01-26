@@ -40,7 +40,6 @@ const DiscoverComponent = ({
       setIsSelected("");
     }, 1000);
   }, [handleSwipeEnd]);
-  console.log(isSelected);
   const getComponent = useCallback(() => {
     const {
       trackUrl,
@@ -49,6 +48,8 @@ const DiscoverComponent = ({
       display_name,
       profile_image,
     } = track;
+
+    console.log(profile_image);
 
     const mediacomponent =
       mediaType === ENUMS.MEDIA_TYPE_YOUTUBE ? (
@@ -70,11 +71,15 @@ const DiscoverComponent = ({
       <div className={`songCardContainer ${cardMoveStyle}`}>
         <Icon className="bookmarkIcon" iconName="bookmark1" />
         <div className="profilePicIconContainer">
+        {profile_image ? (
           <img
             alt="profileImg"
             className="profilePicIcon"
             src={profile_image}
           />
+          ) : (
+          <Icon className="defaultProfilePicIcon" iconName="default_pro_pic_icon" />
+        )}
         </div>
         <div className="artistTagContainer">{display_name}</div>
         <div className="songContainer">
