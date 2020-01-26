@@ -49,8 +49,6 @@ const DiscoverComponent = ({
       profile_image,
     } = track;
 
-    console.log(profile_image);
-
     const mediacomponent =
       mediaType === ENUMS.MEDIA_TYPE_YOUTUBE ? (
         <Iframe
