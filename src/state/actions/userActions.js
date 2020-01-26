@@ -10,6 +10,7 @@ const getOrderHistoryUrl = "/orders/history";
 const getUserDetailsURI = "/users/details";
 const uploadDisplayPicURI = "/users/upload/profile-image";
 const getPaymentMethodURI = "/users/paymentMethods";
+const getTokenDetailsURI = "/users/token";
 
 export const REGISTER_USER_SUCCESS = "REGISTER_USER_SUCCESS";
 export const REGISTER_USER_FAILURE = "REGISTER_USER_FAILURE";
@@ -200,3 +201,9 @@ export const deletePaymentMethod = (paymentInfo) => (dispatch) => {
     }
   });
 };
+
+export const getTokenDetails = (token) => 
+  fetch(`${api}${getTokenDetailsURI}`, {
+    method: "GET",
+    headers: authHeaders(),
+  });
