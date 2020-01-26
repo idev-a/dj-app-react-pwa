@@ -116,14 +116,14 @@ const UploadTrackForm = ({
         </div>
         {genresListIsOpen && (
           <ul className="addGenresList">
-            {genresNameArray.map((genre) => {
+            {genresNameArray.map((name) => {
               return (
                 <div className="addGenresButtonWrapper">
                   <Button 
-                    buttonText={genre.name}
+                    buttonText={name}
                     className="addGenresLis"
                     onClick={() =>{ 
-                      setAddGenre(genre, index);
+                      setAddGenre(name, index);
                       setOpenClosedGenres(false);
                     }}
                   />
