@@ -5,7 +5,6 @@ import {
   UPDATE_USER_SUCCESS,
   GET_HISTORY_SUCCESS,
   GET_USER_PAYMENT_METHODS_SUCCESS,
-  REMOVE_USER_PAYMENT_METHOD,
 } from "../actions/userActions";
 
 const initialState = {
@@ -24,10 +23,6 @@ const reducer = (state = initialState, { type, payload }) => {
     [UPDATE_USER_SUCCESS]: { ...state, user: payload },
     [GET_HISTORY_SUCCESS]: { ...state, user: payload },
     [GET_USER_PAYMENT_METHODS_SUCCESS]: { ...state, paymentMethods: payload },
-    [REMOVE_USER_PAYMENT_METHOD]: {
-      ...state,
-      paymentMethods: state.paymentMethods.filter((pm) => pm.paymentId !== payload.id),
-    },
   };
   return handlers[type] || state;
 };

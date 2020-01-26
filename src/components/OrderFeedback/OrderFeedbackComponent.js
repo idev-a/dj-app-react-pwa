@@ -1,6 +1,5 @@
 import React from "react";
 import { StripeProvider, Elements } from "react-stripe-elements";
-import IconComponent from "../../common/IconComponent";
 import content from "./content";
 import "./styles.scss";
 import UploadTrackForm from "./UploadTrackForm";

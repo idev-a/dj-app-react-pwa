@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 import Component from "../../components/OrderFeedback/OrderFeedbackComponent";
 import {
   updateOrderData,
-  deletePayment,
   submitPayment,
   uploadAudioFileToIPFS,
   updateTrackDetails,
@@ -74,22 +73,22 @@ const OrderFeedbackContainer = ({
       if (track.trackTitle.length < 1) {
         toast.error("Enter track title");
         return true;
-      } else {
-        if (track.mediaType === ENUMS.MEDIA_TYPE_FILEUPLOAD) {
-          if (!track.fileUpload) {
-            toast.error("Upload file or upload YouTube url");
-            return true;
-          }
-        } else {
-          if (track.trackUrl.length === 0) {
-            toast.error("Upload file or upload YouTube url");
-          }
-          return track.trackUrl.length === 0;
-        }
-        if (!track.genreId) {
-          toast.error("Select a genre for the tracks");
+      }
+      if (!track.genreId) {
+        toast.error("Select a genre for the tracks");
+        return true;
+      }
+      if (track.mediaType === ENUMS.MEDIA_TYPE_FILEUPLOAD) {
+        if (!track.fileUpload) {
+          toast.error("Upload your mp3 file");
           return true;
         }
+      }
+      if (track.mediaType === ENUMS.MEDIA_TYPE_YOUTUBE) {
+        if (track.trackUrl.length === 0) {
+          toast.error("Enter YouTube url");
+        }
+        return track.trackUrl.length === 0;
       }
       return false;
     });

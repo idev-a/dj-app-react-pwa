@@ -196,10 +196,7 @@ export const deletePaymentMethod = (paymentInfo) => (dispatch) => {
     body: JSON.stringify(paymentInfo),
   }).then((res) => {
     if (res.ok) {
-      dispatch({
-        type: REMOVE_USER_PAYMENT_METHOD,
-        payload: paymentInfo,
-      });
+      dispatch(getPaymentMethods());
     }
   });
 };

@@ -1,3 +1,5 @@
+import { toast } from "react-toastify";
+
 export const isIos = () => {
     const userAgent = window.navigator.userAgent.toLowerCase();
     return /iphone|ipad|ipod/.test(userAgent);
@@ -18,4 +20,4 @@ const regexObj = {
 
 export const validateRegex = (id, value) => {
   return regexObj[id].test(value);
-}
+};
