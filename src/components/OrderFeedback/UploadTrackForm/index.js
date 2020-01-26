@@ -51,6 +51,8 @@ const UploadTrackForm = ({
 
   const [genresListIsOpen, setOpenClosedGenres] = useState(false);
 
+  const genresNameArray = genres.map(genre => genre.name).sort();
+
   return (
     <section className="uploadTrackFormContainer">
       <header className="uploadTrackHeaderContainer">
@@ -114,7 +116,7 @@ const UploadTrackForm = ({
         </div>
         {genresListIsOpen && (
           <ul className="addGenresList">
-            {genres.map((genre) => {
+            {genresNameArray.map((genre) => {
               return (
                 <div className="addGenresButtonWrapper">
                   <Button 
