@@ -41,7 +41,7 @@ const Component = (props) => {
       </div>
       <div className="matterMostContainer">
         <div className="matterMostIconContainer">
-          <Icon className={cx("matterMostIcon")} iconName={"mattersMost"} />
+          <Icon className={cx("matterMostIcon")} iconName={"MattersMost"} />
         </div>
         <div className="matterMostSubtitle">{content.MOST_MATTER_SUBTITLE}</div>
         <div className="matterMostHeader">{content.MOST_MATTER_HEADER}</div>

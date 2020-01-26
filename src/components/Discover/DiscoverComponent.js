@@ -77,7 +77,7 @@ const DiscoverComponent = ({
             className="profilePicIcon"
             src={profile_image}
           />
-          ) : (
+        ) : (
           <Icon className="defaultProfilePicIcon" iconName="default_pro_pic_icon" />
         )}
         </div>
