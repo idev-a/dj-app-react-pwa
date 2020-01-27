@@ -9,13 +9,13 @@ import FooterNav from "../FooterNav";
 import Menu from "../Menu";
 import PopUps from "../PopUps/PopUpsComponent";
 
-const OrderFeedbackHistoryComponent = ({ 
-  hitStats, 
-  setToggle, 
-  data, 
-  menuIsOpen, 
+const OrderFeedbackHistoryComponent = ({
+  hitStats,
+  setToggle,
+  data,
+  menuIsOpen,
   handleClickMenuToggle,
-  loading
+  loading,
 }) => {
   return (
     <div className="orderFeedbackHistoryContainer">
@@ -27,34 +27,40 @@ const OrderFeedbackHistoryComponent = ({
           <Menu handleClickMenuToggle={handleClickMenuToggle} />
         )}
       </header> */}
-      <section className="orderFeedbackHistoryHeaderText">
+      <header className="orderFeedbackHistoryHeaderText">
         <div>
           <strong>{content.TITLE_1}</strong>
         </div>
         <div>{content.TITLE_2}</div>
-      </section>
-      <section className="orderFeedbackHistoryButtonWrapper">
-        <Button
-          className={`statsButtons ${hitStats ? "hitStatsButtonSelected" : ""}`}
-          buttonText={content.STATS_BUTTON_1}
-          onClick={() => setToggle(!hitStats)}
-          disabled={hitStats}
-        />
-        <Button
+      </header>
+      <section className="orderFeedbackHistoryWrapper">
+        <div className="statsButtonWrapper">
+          <Button
+            className={`statsButtons ${
+              hitStats ? "hitStatsButtonSelected" : ""
+            }`}
+            buttonText={content.STATS_BUTTON_1}
+            onClick={() => setToggle(!hitStats)}
+            disabled={hitStats}
+          />
+        </div>
+
+        {/*<Button
           className={`statsButtons hidden ${
             !hitStats ? "trackReviewsButtonSelected" : ""
           }`}
           buttonText={content.STATS_BUTTON_2}
           onClick={() => setToggle(!hitStats)}
           disabled={!hitStats}
-        />
-      </section>
+        />*/}
+      
       {hitStats ? (
         <HitStatsComponent data={data} />
       ) : (
         <TrackReviewsComponent data={data} />
       )}
-      {loading && (<PopUps name="orderProcessing" />)}
+      {loading && <PopUps name="orderProcessing" />}
+      </section>
       <FooterNav />
     </div>
   );
