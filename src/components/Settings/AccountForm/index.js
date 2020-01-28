@@ -4,7 +4,13 @@ import "./styles.scss";
 import InputField from "../../../common/InputField";
 import Button from "../../../common/Button";
 
-const AccountForm = ({ accountIsOpen, toggleAccount, password, onInputChange, details }) => {
+const AccountForm = ({ 
+    accountIsOpen, 
+    toggleAccount, 
+    email,
+    password, 
+    onInputChange
+}) => {
     return (
         <section className="formContainer">              
             <header onClick={() => toggleAccount(!accountIsOpen)} className="formHeaderContainer">
@@ -24,8 +30,8 @@ const AccountForm = ({ accountIsOpen, toggleAccount, password, onInputChange, de
                         <InputField 
                             id="email"
                             className="formInputField"
-                            value={details.email}
-                            onChange={onInputChange}
+                            value={email}
+                            onChange={(e) => onInputChange(e)}
                             placeholder={content.SUBCONTAINER2_PLACEHOLDER1}
                             hasIcon
                             iconPosition="right"
@@ -40,7 +46,7 @@ const AccountForm = ({ accountIsOpen, toggleAccount, password, onInputChange, de
                             id="password"
                             className="formInputField"
                             value={password}
-                            onChange={onInputChange}
+                            onChange={(e) => onInputChange(e)}
                             placeholder={content.SUBCONTAINER2_PLACEHOLDER2}
                             hasIcon
                             iconPosition="right"

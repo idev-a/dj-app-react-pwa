@@ -4,7 +4,10 @@ import "./styles.scss";
 import Button from "../../../common/Button";
 import PaymentCard from "./PaymentCard";
 
-const PaymentAccountForm = ({ paymentIsOpen, togglePayment, details }) => {
+const PaymentAccountForm = ({ 
+    paymentIsOpen, 
+    togglePayment
+}) => {
     return (
         <section className="formContainer">
             <header onClick={() => togglePayment(!paymentIsOpen)} className="formHeaderContainer">
@@ -18,7 +21,7 @@ const PaymentAccountForm = ({ paymentIsOpen, togglePayment, details }) => {
             {paymentIsOpen && (
                 <React.Fragment>
                     <div className="paymentCardsContainer">
-                        <PaymentCard props={details} />
+                        <PaymentCard />
                     </div>
                     <div className="buttonWrapper">
                         <Button className="launchButton" buttonText={content.SUBCONTAINER3_BUTTON_TEXT} ></Button>

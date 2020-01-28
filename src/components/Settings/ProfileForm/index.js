@@ -3,7 +3,13 @@ import content from "./content";
 import "./styles.scss";
 import InputField from "../../../common/InputField";
 
-const ProfileForm = ({ profileIsOpen, toggleProfile, onInputChange, details }) => {
+const ProfileForm = ({ 
+    profileIsOpen, 
+    toggleProfile, 
+    displayName,
+    userName,
+    onInputChange
+}) => {
     return (
         <section className="formContainer">
             <header onClick={() => toggleProfile(!profileIsOpen)} className="formHeaderContainer">
@@ -23,8 +29,8 @@ const ProfileForm = ({ profileIsOpen, toggleProfile, onInputChange, details }) =
                         <InputField 
                             id="displayName"
                             className="formInputField"
-                            value={details.display_name}
-                            onChange={onInputChange}
+                            value={displayName}
+                            onChange={(e) => onInputChange(e)}
                             placeholder={content.SUBCONTAINER1_PLACEHOLDER1}
                             hasIcon
                             iconPosition="right"
@@ -38,8 +44,8 @@ const ProfileForm = ({ profileIsOpen, toggleProfile, onInputChange, details }) =
                         <InputField 
                             id="username"
                             className="formInputField"
-                            value={details.user_name}
-                            onChange={onInputChange}
+                            value={userName}
+                            onChange={(e) => onInputChange(e)}
                             placeholder={content.SUBCONTAINER1_PLACEHOLDER2}
                             hasIcon
                             iconPosition="right"

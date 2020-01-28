@@ -19,6 +19,10 @@ const SettingsContainer = (props) => {
         getUserDetailsDispatchAction();
     }, [getUserDetailsDispatchAction])
 
+    const onInputChange = useCallback((e) => {
+        console.log(e.target.value);
+    }, []);
+
     return (
         <SettingsComponent 
             profileIsOpen={profileIsOpen}
@@ -32,6 +36,7 @@ const SettingsContainer = (props) => {
             toggleSubscription={toggleSubscription}
             togglePreferences={togglePreferences}
             details={userDetails}
+            onInputChange={onInputChange}
         />
     );
 };

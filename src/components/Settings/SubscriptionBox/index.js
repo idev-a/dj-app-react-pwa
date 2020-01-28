@@ -3,9 +3,13 @@ import content from "./content";
 import "./styles.scss";
 import Button from "../../../common/Button";
 
-const SubscriptionBox = ({ subscriptionIsOpen, toggleSubscription, details }) => {
-    details.subscriptionEndDate = new Date();
-    const subRenewDate = details.subscriptionEndDate.toLocaleDateString({},
+const SubscriptionBox = ({ 
+    subscriptionIsOpen, 
+    toggleSubscription, 
+    subscriptionEndDate 
+}) => {
+    subscriptionEndDate = new Date();
+    const subRenewDate = subscriptionEndDate.toLocaleDateString({},
         {timeZone:"UTC",month:"long", day:"2-digit", year:"numeric"}
         );
     return (

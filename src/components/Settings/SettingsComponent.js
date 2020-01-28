@@ -21,9 +21,24 @@ const SettingsComponent = ({
     togglePayment,
     toggleSubscription,
     togglePreferences,
-    details
+    details,
+    onInputChange
 }) => {
-    details = { ...details, profile_image: null };
+    const {
+        display_name,
+        user_name,
+        email,
+        subscriptionEndDate,
+        city,
+        gender,
+        date_of_birth,
+        favourite_genres,
+        listener_tags,
+        price,
+        headline,
+        bio
+    } = details;
+    let profileImage;
     return (
         <div className="settingsContainer">
             <div className="largeBannerHeaderContainer">
@@ -32,11 +47,11 @@ const SettingsComponent = ({
                     {content.HEADER}
                 </div>
                 <div className="profilePicIconContainer">
-                    {details.profile_image ? (
+                    {profileImage ? (
                         <img
                             alt="profileImg"
                             className="profilePicIcon"
-                            src={details.profile_image}
+                            src={profileImage}
                         />
                     ) : (
                         <Icon className="defaultProfilePicIcon" iconName="default_pro_pic_icon" />
@@ -78,11 +93,44 @@ const SettingsComponent = ({
                     </div>
                 </div>
             </div>
-            <ProfileForm profileIsOpen={profileIsOpen} toggleProfile={toggleProfile} details={details} />
-            <AccountForm accountIsOpen={accountIsOpen} toggleAccount={toggleAccount} details={details} />
-            <PaymentAccountForm paymentIsOpen={paymentIsOpen} togglePayment={togglePayment} details={details} />
-            <SubscriptionBox subscriptionIsOpen={subscriptionIsOpen} toggleSubscription={toggleSubscription} details={details} />
-            <ListenerPreferencesForm preferencesIsOpen={preferencesIsOpen} togglePreferences={togglePreferences} details={details} />
+            <ProfileForm 
+                profileIsOpen={profileIsOpen} 
+                toggleProfile={toggleProfile} 
+                displayName={display_name} 
+                userName={user_name}
+                onInputChange={onInputChange}
+            />
+            <AccountForm 
+                accountIsOpen={accountIsOpen} 
+                toggleAccount={toggleAccount} 
+                email={email} 
+                onInputChange={onInputChange}
+            />
+            <PaymentAccountForm 
+                paymentIsOpen={paymentIsOpen} 
+                togglePayment={togglePayment} 
+                onInputChange={onInputChange}
+                // subscriptionEndDate={subscriptionEndDate} 
+            />
+            <SubscriptionBox 
+                subscriptionIsOpen={subscriptionIsOpen} 
+                toggleSubscription={toggleSubscription} 
+                subscriptionEndDate={subscriptionEndDate} 
+                onInputChange={onInputChange}
+            />
+            <ListenerPreferencesForm 
+                preferencesIsOpen={preferencesIsOpen} 
+                togglePreferences={togglePreferences} 
+                city={city} 
+                gender={gender}
+                dateOfBirth={date_of_birth}
+                genres={favourite_genres}
+                tags={listener_tags}
+                price={price}
+                headline={headline}
+                bio={bio}
+                onInputChange={onInputChange}
+            />
             <div className="buttonWrapper">
                 <Button 
                     className="launchButton logoutButton" 
