@@ -1,11 +1,10 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import { connect } from "react-redux";
 import SettingsComponent from "../../components/Settings/SettingsComponent";
+import { preferencsSelector } from '../../state/selectors/preferences';
 import { 
-    getUserData,
-    updateUserInfo 
+    getUserDetails
 } from "../../state/actions/userActions";
-import { userSelector } from "../../state/selectors/users";
 
 const SettingsContainer = (props) => {
     const [profileIsOpen, toggleProfile] = useState(false);
@@ -14,13 +13,11 @@ const SettingsContainer = (props) => {
     const [subscriptionIsOpen, toggleSubscription] = useState(false);
     const [preferencesIsOpen, togglePreferences] = useState(false);
 
-    const { userData, getUserDataDispatchAction } = props;
+    const { userDetails, getUserDetailsDispatchAction } = props;
 
     useEffect(() => {
-        getUserDataDispatchAction();
-    }, [getUserDataDispatchAction])
-
-    console.log(userData);
+        getUserDetailsDispatchAction();
+    }, [getUserDetailsDispatchAction])
 
     return (
         <SettingsComponent 
@@ -34,16 +31,16 @@ const SettingsContainer = (props) => {
             togglePayment={togglePayment}
             toggleSubscription={toggleSubscription}
             togglePreferences={togglePreferences}
+            details={userDetails}
         />
     );
 };
 
 const dispatchActions = (dispatch) => ({
-    getUserDataDispatchAction: () => dispatch(getUserData()),
-    updateUserDispatchAction: (requestData) => dispatch(updateUserInfo(requestData))
+    getUserDetailsDispatchAction: () => dispatch(getUserDetails())
 });
 
 export default connect (
-    userSelector,
+    preferencsSelector,
     dispatchActions
 )(SettingsContainer);

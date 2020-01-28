@@ -3,7 +3,7 @@ import content from "./content";
 import "./styles.scss";
 import InputField from "../../../common/InputField";
 
-const ProfileForm = ({ profileIsOpen, toggleProfile, displayName, username, onInputChange }) => {
+const ProfileForm = ({ profileIsOpen, toggleProfile, onInputChange, details }) => {
     return (
         <section className="formContainer">
             <header onClick={() => toggleProfile(!profileIsOpen)} className="formHeaderContainer">
@@ -23,7 +23,7 @@ const ProfileForm = ({ profileIsOpen, toggleProfile, displayName, username, onIn
                         <InputField 
                             id="displayName"
                             className="formInputField"
-                            value={displayName}
+                            value={details.display_name}
                             onChange={onInputChange}
                             placeholder={content.SUBCONTAINER1_PLACEHOLDER1}
                             hasIcon
@@ -38,7 +38,7 @@ const ProfileForm = ({ profileIsOpen, toggleProfile, displayName, username, onIn
                         <InputField 
                             id="username"
                             className="formInputField"
-                            value={username}
+                            value={details.user_name}
                             onChange={onInputChange}
                             placeholder={content.SUBCONTAINER1_PLACEHOLDER2}
                             hasIcon
@@ -51,10 +51,5 @@ const ProfileForm = ({ profileIsOpen, toggleProfile, displayName, username, onIn
         </section>
     );
 };
-
-ProfileForm.defaultProps = {
-    displayName: "Vess Dynamick",
-    username: "@vessdynamick",
-}
 
 export default ProfileForm;

@@ -4,7 +4,7 @@ import "./styles.scss";
 import DetailsForm from "../../../components/ListenerPreferences/DetailsForm";
 import PriceForm from "../../../components/ListenerPreferences/PriceForm";
 
-const ListenerPreferencesForm = ({ preferencesIsOpen, togglePreferences }) => {
+const ListenerPreferencesForm = ({ preferencesIsOpen, togglePreferences, details }) => {
     return (
         <section className="formContainer">
             <header onClick={() => togglePreferences(!preferencesIsOpen)} className="formHeaderContainer">
@@ -25,9 +25,19 @@ const ListenerPreferencesForm = ({ preferencesIsOpen, togglePreferences }) => {
                             {content.SUBCONTAINER5_LABEL}
                         </div>
                     </header>
-                    <DetailsForm />
+                    <DetailsForm
+                        city={details.city}
+                        gender={details.gender}
+                        dob={details.date_of_birth}
+                        genres={details.favourite_genres}
+                        tags={details.listener_tags}
+                    />
                     <div className="priceContainer">
-                        <PriceForm />
+                        <PriceForm 
+                            price={details.price}
+                            sendMe={details.headline}
+                            describeSelf={details.bio}
+                        />
                     </div>
                 </React.Fragment>
             )}

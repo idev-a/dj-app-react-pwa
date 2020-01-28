@@ -4,7 +4,7 @@ import "./styles.scss";
 import InputField from "../../../common/InputField";
 import Button from "../../../common/Button";
 
-const AccountForm = ({ accountIsOpen, toggleAccount, email, password, onInputChange }) => {
+const AccountForm = ({ accountIsOpen, toggleAccount, password, onInputChange, details }) => {
     return (
         <section className="formContainer">              
             <header onClick={() => toggleAccount(!accountIsOpen)} className="formHeaderContainer">
@@ -24,7 +24,7 @@ const AccountForm = ({ accountIsOpen, toggleAccount, email, password, onInputCha
                         <InputField 
                             id="email"
                             className="formInputField"
-                            value={email}
+                            value={details.email}
                             onChange={onInputChange}
                             placeholder={content.SUBCONTAINER2_PLACEHOLDER1}
                             hasIcon
@@ -57,7 +57,6 @@ const AccountForm = ({ accountIsOpen, toggleAccount, email, password, onInputCha
 };
 
 AccountForm.defaultProps = {
-    email: "myemail@gmail.com",
     password: ""
 };
 

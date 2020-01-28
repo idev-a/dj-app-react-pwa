@@ -20,8 +20,10 @@ const SettingsComponent = ({
     toggleAccount,
     togglePayment,
     toggleSubscription,
-    togglePreferences
+    togglePreferences,
+    details
 }) => {
+    details = { ...details, profile_image: null };
     return (
         <div className="settingsContainer">
             <div className="largeBannerHeaderContainer">
@@ -30,7 +32,15 @@ const SettingsComponent = ({
                     {content.HEADER}
                 </div>
                 <div className="profilePicIconContainer">
-                    <Icon className="profilePicIcon" iconName="profilepic" />
+                    {details.profile_image ? (
+                        <img
+                            alt="profileImg"
+                            className="profilePicIcon"
+                            src={details.profile_image}
+                        />
+                    ) : (
+                        <Icon className="defaultProfilePicIcon" iconName="default_pro_pic_icon" />
+                    )}
                 </div>
             </div>
             <div className="settingsStatusContainer">
@@ -68,11 +78,11 @@ const SettingsComponent = ({
                     </div>
                 </div>
             </div>
-            <ProfileForm profileIsOpen={profileIsOpen} toggleProfile={toggleProfile} />
-            <AccountForm accountIsOpen={accountIsOpen} toggleAccount={toggleAccount} />
-            <PaymentAccountForm paymentIsOpen={paymentIsOpen} togglePayment={togglePayment} />
-            <SubscriptionBox subscriptionIsOpen={subscriptionIsOpen} toggleSubscription={toggleSubscription} />
-            {/* <ListenerPreferencesForm preferencesIsOpen={preferencesIsOpen} togglePreferences={togglePreferences} /> */}
+            <ProfileForm profileIsOpen={profileIsOpen} toggleProfile={toggleProfile} details={details} />
+            <AccountForm accountIsOpen={accountIsOpen} toggleAccount={toggleAccount} details={details} />
+            <PaymentAccountForm paymentIsOpen={paymentIsOpen} togglePayment={togglePayment} details={details} />
+            <SubscriptionBox subscriptionIsOpen={subscriptionIsOpen} toggleSubscription={toggleSubscription} details={details} />
+            <ListenerPreferencesForm preferencesIsOpen={preferencesIsOpen} togglePreferences={togglePreferences} details={details} />
             <div className="buttonWrapper">
                 <Button 
                     className="launchButton logoutButton" 

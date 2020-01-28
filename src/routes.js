@@ -32,6 +32,7 @@ export default (props) => {
           exact
         />
         {/*<Route path="/start" component={OrderFeedbackStart} exact />*/}
+        <Route path="/settings" component={SettingsContainer} exact />
       </Switch>
     </Router>
   );

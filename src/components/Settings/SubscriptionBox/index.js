@@ -3,7 +3,11 @@ import content from "./content";
 import "./styles.scss";
 import Button from "../../../common/Button";
 
-const SubscriptionBox = ({ subscriptionIsOpen, toggleSubscription }) => {
+const SubscriptionBox = ({ subscriptionIsOpen, toggleSubscription, details }) => {
+    details.subscriptionEndDate = new Date();
+    const subRenewDate = details.subscriptionEndDate.toLocaleDateString({},
+        {timeZone:"UTC",month:"long", day:"2-digit", year:"numeric"}
+        );
     return (
         <section className="formContainer">
             <header onClick={() => toggleSubscription(!subscriptionIsOpen)} className="formHeaderContainer">
@@ -21,7 +25,7 @@ const SubscriptionBox = ({ subscriptionIsOpen, toggleSubscription }) => {
                             {content.SUBCONTAINER4_BOX_LABEL}
                         </div>
                         <div className="subscriptionRenewBoxDate">
-                            January 1, 2021
+                            {subRenewDate}
                         </div>
                         <div className="subscriptionRenewBoxAmount">
                             $99.00
