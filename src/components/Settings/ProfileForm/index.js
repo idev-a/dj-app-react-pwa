@@ -27,7 +27,7 @@ const ProfileForm = ({
                             {content.SUBCONTAINER1_SUBLABEL1}
                         </label>
                         <InputField 
-                            id="displayName"
+                            id="display_name"
                             className="formInputField"
                             value={displayName}
                             onChange={(e) => onInputChange(e)}
@@ -42,7 +42,7 @@ const ProfileForm = ({
                             {content.SUBCONTAINER1_SUBLABEL2}
                         </label>
                         <InputField 
-                            id="username"
+                            id="user_name"
                             className="formInputField"
                             value={userName}
                             onChange={(e) => onInputChange(e)}

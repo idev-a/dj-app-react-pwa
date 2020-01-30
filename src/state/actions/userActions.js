@@ -5,7 +5,6 @@ import { toast } from "react-toastify";
 const postRegisterUserURI = "/users/register";
 const postAuthenticateUserURI = "/users/authenticate";
 const postPreferencesURI = "/users";
-const updateUserURI = "/settings/update";
 const getOrderHistoryUrl = "/orders/history";
 const getUserDetailsURI = "/users/details";
 const uploadDisplayPicURI = "/users/upload/profile-image";
@@ -125,16 +124,6 @@ export const postListenerPreferences = (payload) => (dispatch) => {
     }
   });
 };
-export const updateUserInfo = (requestData) => (dispatch) =>
-  fetch(`${api}${updateUserURI}`, {
-    method: "POST",
-    header: authHeaders(),
-    body: JSON.stringify(requestData),
-  })
-    .then((response) => response)
-    .catch((e) => {
-      console.log(e);
-    });
 
 export const getOrderHistory = () => (dispatch) =>
   fetch(`${api}${getOrderHistoryUrl}`, {
@@ -158,9 +147,26 @@ export const getUserDetails = () => (dispatch) =>
     .then((requestData) => {
       dispatch({
         type: GET_USER_DETAILS_SUCCESS,
-        payload: requestData,
+        payload: requestData
       });
     });
+
+// update user details action starts here
+
+export const updateUserData = () => (dispatch) => 
+  fetch(`${api}${getUserDetailsURI}`, {
+    method: "PATCH",
+    header: authHeaders()
+  })
+    .then((res) => res.json())
+    .then((requestData) => {
+      dispatch({
+        type: UPDATE_USER_SUCCESS,
+        payload: requestData
+      });
+    });
+
+// ends here
 
 export const getPaymentMethods = () => (dispatch) =>
   fetch(`${api}${getPaymentMethodURI}`, {

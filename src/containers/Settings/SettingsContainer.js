@@ -3,13 +3,14 @@ import { connect } from "react-redux";
 import SettingsComponent from "../../components/Settings/SettingsComponent";
 import { preferencsSelector } from '../../state/selectors/preferences';
 import { 
-    updateUserData,
-    getUserDetails
+    getUserDetails,
+    updateUserData
 } from "../../state/actions/userActions";
 
 const SettingsContainer = ({ 
-    dispatchUpdate,
-    getUserDetailsDispatchAction
+    getUserDetailsDispatchAction,
+    userDetails,
+    dispatchUpdate
 }) => {
     const [profileIsOpen, toggleProfile] = useState(false);
     const [accountIsOpen, toggleAccount] = useState(false);
@@ -48,8 +49,8 @@ const SettingsContainer = ({
 };
 
 const dispatchAction = (dispatch) => ({
-    dispatchUpdate: (payload) => dispatch(""),
-    getUserDetailsDispatchAction: () => dispatch(getUserDetails())
+    getUserDetailsDispatchAction: () => dispatch(getUserDetails()),
+    dispatchUpdate: (payload) => dispatch(updateUserData())
 });
 
 export default connect (

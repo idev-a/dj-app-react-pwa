@@ -106,18 +106,27 @@ const SettingsComponent = ({
                 email={email} 
                 onInputChange={onInputChange}
             />
+
+            {/* PaymentAccountForm adjustment required */}
+
             <PaymentAccountForm 
                 paymentIsOpen={paymentIsOpen} 
                 togglePayment={togglePayment} 
                 onInputChange={onInputChange}
-                // subscriptionEndDate={subscriptionEndDate} 
+                subscriptionEndDate={subscriptionEndDate} 
             />
+
+            {/* Adjustment need ends here */}
+
             <SubscriptionBox 
                 subscriptionIsOpen={subscriptionIsOpen} 
                 toggleSubscription={toggleSubscription} 
                 subscriptionEndDate={subscriptionEndDate} 
                 onInputChange={onInputChange}
             />
+
+            {/* LP adjusment needed */}
+
             <ListenerPreferencesForm 
                 preferencesIsOpen={preferencesIsOpen} 
                 togglePreferences={togglePreferences} 
@@ -131,6 +140,11 @@ const SettingsComponent = ({
                 bio={bio}
                 onInputChange={onInputChange}
             />
+
+            {/* Adjusment need ends here */}
+
+            {/* Logout button needed setup starts here */}
+
             <div className="buttonWrapper">
                 <Button 
                     className="launchButton logoutButton" 
@@ -140,6 +154,9 @@ const SettingsComponent = ({
                     buttonText={content.LOGOUT}
                 ></Button>
             </div>
+
+            {/* Logout needed setup ends here */}
+            
             <FooterNav />
         </div>
     );

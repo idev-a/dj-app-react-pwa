@@ -39,7 +39,16 @@ const SubscriptionBox = ({
                         {content.SUBCONTAINER4_DESCRIPTION}
                     </div>
                     <div className="buttonWrapper">
-                        <Button className="launchButton" buttonText={content.SUBCONTAINER4_BUTTON_TEXT} ></Button>
+
+                        {/* Renew subscription event listener needed here */}
+
+                        <Button 
+                            className="launchButton" 
+                            buttonText={content.SUBCONTAINER4_BUTTON_TEXT} 
+                        ></Button>
+
+                        {/* --- */}
+                        
                     </div>
                 </React.Fragment>
             )}
