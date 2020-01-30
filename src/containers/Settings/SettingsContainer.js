@@ -3,25 +3,31 @@ import { connect } from "react-redux";
 import SettingsComponent from "../../components/Settings/SettingsComponent";
 import { preferencsSelector } from '../../state/selectors/preferences';
 import { 
+    updateUserData,
     getUserDetails
 } from "../../state/actions/userActions";
 
-const SettingsContainer = (props) => {
+const SettingsContainer = ({ 
+    dispatchUpdate,
+    getUserDetailsDispatchAction
+}) => {
     const [profileIsOpen, toggleProfile] = useState(false);
     const [accountIsOpen, toggleAccount] = useState(false);
     const [paymentIsOpen, togglePayment] = useState(false);
     const [subscriptionIsOpen, toggleSubscription] = useState(false);
     const [preferencesIsOpen, togglePreferences] = useState(false);
 
-    const { userDetails, getUserDetailsDispatchAction } = props;
-
     useEffect(() => {
-        getUserDetailsDispatchAction();
+        getUserDetailsDispatchAction()
     }, [getUserDetailsDispatchAction])
 
-    const onInputChange = useCallback((e) => {
-        console.log(e.target.value);
-    }, []);
+    const handleInputChange = useCallback(
+        (e) => {
+        let payload = {
+            [e.target.id]: e.target.value
+        };
+        dispatchUpdate(payload);
+    }, [dispatchUpdate]);
 
     return (
         <SettingsComponent 
@@ -36,16 +42,17 @@ const SettingsContainer = (props) => {
             toggleSubscription={toggleSubscription}
             togglePreferences={togglePreferences}
             details={userDetails}
-            onInputChange={onInputChange}
+            onInputChange={handleInputChange}
         />
     );
 };
 
-const dispatchActions = (dispatch) => ({
+const dispatchAction = (dispatch) => ({
+    dispatchUpdate: (payload) => dispatch(""),
     getUserDetailsDispatchAction: () => dispatch(getUserDetails())
 });
 
 export default connect (
     preferencsSelector,
-    dispatchActions
+    dispatchAction
 )(SettingsContainer);
