@@ -1,29 +1,28 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "antd/dist/antd.css";
-import "./styles/styles.scss";
-import { BrowserRouter } from "react-router-dom";
-import AppRouter from "./routers/AppRouter";
-import { createStore, applyMiddleware, compose } from "redux";
 import { Provider } from "react-redux";
-import reducers from "./reducers/index";
-import thunk from "redux-thunk";
+import cx from "classnames";
 import * as serviceWorker from "./serviceWorker";
-
-const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-
-const store = createStore(reducers, composeEnhancer(applyMiddleware(thunk)));
+import Router from "./routes";
+import store from "./state/store";
+import "./style.scss";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+toast.configure({
+  autoClose: 5000,
+  draggable: false,
+  position: toast.POSITION.TOP_LEFT,
+});
 const App = () => {
   return (
-    <BrowserRouter>
+    <main className={cx("mainContainer")}>
       <Provider store={store}>
-        <AppRouter />
+        <Router />
       </Provider>
-    </BrowserRouter>
+    </main>
   );
 };
 
 ReactDOM.render(<App />, document.getElementById("root"));
 
-serviceWorker.resetCache();
-serviceWorker.register();
+serviceWorker.unregister();

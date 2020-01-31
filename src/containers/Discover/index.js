@@ -1,3 +1,3 @@
-import Discover from './Discover';
+import DiscoverContainer from "./DiscoverContainer";
 
-export default Discover;
+export default DiscoverContainer;
