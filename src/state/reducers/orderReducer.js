@@ -10,7 +10,7 @@ import { GET_HISTORY_SUCCESS } from "../actions/userActions";
 
 const initialTrackState = {
   mediaType: ENUMS.MEDIA_TYPE_YOUTUBE,
-  selectedFeedback: 1,
+  selectedFeedback: 5,
   trackTitle: "",
   trackUrl: "",
   fileToUpload: undefined,
