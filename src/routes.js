@@ -25,14 +25,13 @@ export default (props) => {
           component={withValidToken(ListenerPreferencesContainer)}
           exact
         />
-        {/*<Route path="/settings" component={SettingsContainer} exact />*/}
+        <Route path="/settings" component={SettingsContainer} exact />
         <Route
           path="/history"
           component={withValidToken(OrderFeedbackHistoryContainer)}
           exact
         />
         {/*<Route path="/start" component={OrderFeedbackStart} exact />*/}
-        <Route path="/settings" component={SettingsContainer} exact />
       </Switch>
     </Router>
   );

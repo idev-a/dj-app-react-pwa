@@ -1,5 +1,6 @@
 import React from "react";
 import cx from "classnames";
+import sortBy from "lodash/sortBy";
 import InputMask from "react-input-mask";
 import content from "./content";
 import "./styles.scss";
@@ -36,15 +37,15 @@ const DetailsComponent = ({
       </div>
     );
   });
-  const genresNameArray = genres.map(genre => genre.name).sort();
-  const addGenresArray = genresNameArray.map((name, i) => {
+  const genresNameArray = sortBy(genres, genre => genre.name);
+  const addGenresArray = genresNameArray.map((genre, i) => {
 
     return (
       <div className="addGenresButtonWrapper" key={i}>
         <Button
-          buttonText={name.toUpperCase()}
+          buttonText={genre.name.toUpperCase()}
           className={cx("addGenresLis")}
-          onClick={(e) => handleClickAddGenres(e, name)}
+          onClick={(e) => handleClickAddGenres(e, genre)}
         />
       </div>
     );
@@ -60,14 +61,14 @@ const DetailsComponent = ({
       </div>
     );
   });
-  const tagsNameArray = tags.map(tag => tag.tag).sort();
-  const addTagsArray = tagsNameArray.map((name, i) => {
+  const tagsNameArray = sortBy(tags, tag => tag.tag);
+  const addTagsArray = tagsNameArray.map((tag, i) => {
     return (
       <div className="addTagsButtonWrapper" key={i}>
         <Button
-          buttonText={name.toUpperCase()}
+          buttonText={tag.tag.toUpperCase()}
           className={cx("addTagsLis")}
-          onClick={(e) => handleClickAddTags(e, name)}
+          onClick={(e) => handleClickAddTags(e, tag)}
         />
       </div>
     );

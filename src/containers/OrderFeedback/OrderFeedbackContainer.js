@@ -62,6 +62,7 @@ const OrderFeedbackContainer = ({
   const [isError, setIsError] = useState(true);
   const [isSuccess, setIsSuccess] = useState(false);
   const [selectedPaymentId, setSelectedPaymentId] = useState(undefined);
+  const [promoCode, setPromoCode] = useState("");
   const getTotalAmount = useCallback(() => {
     const amount = tracks.reduce((total, track) => {
       return total + track.selectedFeedback;
@@ -100,8 +101,15 @@ const OrderFeedbackContainer = ({
         setIsError(true);
         return;
       }
-      if (!cardInfo || !cardInfo.id) {
+      if (
+        promoCode.length === 0 &&
+        !(cardInfo && cardInfo.id && accountName.length > 0)
+      ) {
         toast.error("Enter valid card details");
+        return;
+      }
+      if (promoCode.length > 0 && promoCode !== "DAY_ONES") {
+        toast.error("Enter valid promo code");
         return;
       }
       const tracksToUpload = tracks.map((track, index) => {
@@ -116,9 +124,11 @@ const OrderFeedbackContainer = ({
         saveCardDetails: isSaveCardDetails,
         amount: getTotalAmount(),
         currency: "USD",
-        paymentToken: cardInfo.id,
+        paymentToken: promoCode.length > 0 ? "PROMO_CODE" : cardInfo.id,
         isAddPremium,
-        ...(cardInfo.paymentFromSavedCard && { paymentFromSaveCard: true }),
+        ...(cardInfo &&
+          cardInfo.paymentFromSavedCard && { paymentFromSaveCard: true }),
+        ...(promoCode.length > 0 && { promoCode }),
       };
 
       const response = await submitPayment(payload);
@@ -144,14 +154,28 @@ const OrderFeedbackContainer = ({
             localStorage.setItem("isPremiumUser", String(true));
           }
         });
+      } else {
+        setIsProcessing(false);
+        toast.error("Payment failed. Please check your card details or promo code")
       }
     },
-    [tracks, getTotalAmount, validateFormData, isAddPremium, isSaveCardDetails]
+    [
+      tracks,
+      getTotalAmount,
+      validateFormData,
+      isAddPremium,
+      isSaveCardDetails,
+      accountName,
+      promoCode,
+    ]
   );
 
   const handleInputChange = useCallback(
     (e) => {
       let payload = {};
+      if (e.target.id === "promoCode") {
+        setPromoCode(e.target.value);
+      }
       if (e.target.name === "isAddPremium") {
         setAddPremium(e.target.checked);
       } else if (e.target.name === "isHyperTargeted") {
@@ -262,6 +286,7 @@ const OrderFeedbackContainer = ({
       selectedPaymentId={selectedPaymentId}
       handleDeleteSavedCard={handleDeleteSavedCard}
       handleSavedCardSelect={handleSelectPayment}
+      promoCode={promoCode}
       isPremium={isPremium}
       genres={genres}
       isSuccess={isSuccess}

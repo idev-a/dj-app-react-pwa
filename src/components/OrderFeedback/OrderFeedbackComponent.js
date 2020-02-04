@@ -9,11 +9,13 @@ import PaymentForm from "./PaymentForm";
 import Button from "../../common/Button";
 import PopUpComponent from "../PopUps/PopUpsComponent";
 import FooterNav from "../FooterNav";
+import PromoCodeComponent from "./PromoComponent";
 
 const OrderFeedbackComponent = ({
   tracks,
   accountName,
   genres,
+  promoCode,
   selectedPaymentId,
   handleDeleteSavedCard,
   handleSavedCardSelect,
@@ -80,20 +82,23 @@ const OrderFeedbackComponent = ({
           />
         )
       )}
-      <div
+     {/* <div
         className="addAnotherTrack"
         role="button"
         onClick={handleAddAnotherTrack}
       >
         {content.ADD_ANOTHER_TRACK}
-      </div>
+     </div>*/}
       {!isPremium ? (
         <UpgradeToPremium
           onInputChange={onInputChange}
           isAddPremium={isAddPremium}
         />
       ) : (
-        <PremiumAccess onInputChange={onInputChange} isHyperTargeted={isHyperTargeted} />
+        <PremiumAccess
+          onInputChange={onInputChange}
+          isHyperTargeted={isHyperTargeted}
+        />
       )}
       <TotalPaymentComponent
         handleRemoveTrack={handleRemoveTrack}
@@ -101,7 +106,8 @@ const OrderFeedbackComponent = ({
         isAddPremium={isAddPremium}
         genres={genres}
       />
-      <StripeProvider apiKey="pk_test_HhCQqzIxD2wH7EXferZHg18W">
+      <PromoCodeComponent onInputChange={onInputChange} promoCode={promoCode} />
+      <StripeProvider apiKey="pk_live_WxDWmJ53hswHLIAYQx3Xc15B">
         <Elements>
           <PaymentForm
             onInputChange={onInputChange}
