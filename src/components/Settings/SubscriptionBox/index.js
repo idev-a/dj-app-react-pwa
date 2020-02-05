@@ -1,6 +1,7 @@
 import React from 'react';
 import content from "./content";
 import "./styles.scss";
+import moment from "moment";
 import Button from "../../../common/Button";
 
 const SubscriptionBox = ({ 
@@ -8,10 +9,6 @@ const SubscriptionBox = ({
     toggleSubscription, 
     subscriptionEndDate 
 }) => {
-    subscriptionEndDate = new Date();
-    const subRenewDate = subscriptionEndDate.toLocaleDateString({},
-        {timeZone:"UTC",month:"long", day:"2-digit", year:"numeric"}
-        );
     return (
         <section className="formContainer">
             <header onClick={() => toggleSubscription(!subscriptionIsOpen)} className="formHeaderContainer">
@@ -29,10 +26,10 @@ const SubscriptionBox = ({
                             {content.SUBCONTAINER4_BOX_LABEL}
                         </div>
                         <div className="subscriptionRenewBoxDate">
-                            {subRenewDate}
+                            {moment(subscriptionEndDate, "MMMM Do YYYY")}
                         </div>
                         <div className="subscriptionRenewBoxAmount">
-                            $99.00
+                            {content.SUBCONTAINER4_PRICE_AMOUNT}
                         </div>
                     </div>
                     <div className="subscriptionDescription">
