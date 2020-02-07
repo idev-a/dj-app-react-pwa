@@ -36,9 +36,9 @@ const SettingsComponent = ({
         listener_tags,
         price,
         headline,
-        bio
+        bio,
+        profile_image
     } = details;
-    let profileImage;
     return (
         <div className="settingsContainer">
             <div className="largeBannerHeaderContainer">
@@ -47,11 +47,11 @@ const SettingsComponent = ({
                     {content.HEADER}
                 </div>
                 <div className="profilePicIconContainer">
-                    {profileImage ? (
+                    {profile_image ? (
                         <img
                             alt="profileImg"
                             className="profilePicIcon"
-                            src={profileImage}
+                            src={profile_image}
                         />
                     ) : (
                         <Icon className="defaultProfilePicIcon" iconName="default_pro_pic_icon" />
