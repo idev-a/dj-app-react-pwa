@@ -4,7 +4,10 @@ import "./styles.scss";
 import Button from "../../../common/Button";
 import PaymentCard from "./PaymentCard";
 
-const PaymentAccountForm = ({ paymentIsOpen, togglePayment }) => {
+const PaymentAccountForm = ({ 
+    paymentIsOpen, 
+    togglePayment
+}) => {
     return (
         <section className="formContainer">
             <header onClick={() => togglePayment(!paymentIsOpen)} className="formHeaderContainer">

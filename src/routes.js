@@ -25,7 +25,7 @@ export default (props) => {
           component={withValidToken(ListenerPreferencesContainer)}
           exact
         />
-        {/*<Route path="/settings" component={SettingsContainer} exact />*/}
+        <Route path="/settings" component={SettingsContainer} exact />
         <Route
           path="/history"
           component={withValidToken(OrderFeedbackHistoryContainer)}

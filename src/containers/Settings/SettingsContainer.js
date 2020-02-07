@@ -1,26 +1,34 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import { connect } from "react-redux";
 import SettingsComponent from "../../components/Settings/SettingsComponent";
+import { preferencsSelector } from '../../state/selectors/preferences';
 import { 
-    getUserData,
-    updateUserInfo 
+    getUserDetails,
+    updateUserData
 } from "../../state/actions/userActions";
-import { userSelector } from "../../state/selectors/users";
 
-const SettingsContainer = (props) => {
+const SettingsContainer = ({ 
+    getUserDetailsDispatchAction,
+    userDetails,
+    dispatchUpdate
+}) => {
     const [profileIsOpen, toggleProfile] = useState(false);
     const [accountIsOpen, toggleAccount] = useState(false);
     const [paymentIsOpen, togglePayment] = useState(false);
     const [subscriptionIsOpen, toggleSubscription] = useState(false);
     const [preferencesIsOpen, togglePreferences] = useState(false);
 
-    const { userData, getUserDataDispatchAction } = props;
-
     useEffect(() => {
-        getUserDataDispatchAction();
-    }, [getUserDataDispatchAction])
+        getUserDetailsDispatchAction()
+    }, [getUserDetailsDispatchAction])
 
-    console.log(userData);
+    const handleInputChange = useCallback(
+        (e) => {
+        let payload = {
+            [e.target.id]: e.target.value
+        };
+        dispatchUpdate(payload);
+    }, [dispatchUpdate]);
 
     return (
         <SettingsComponent 
@@ -34,16 +42,18 @@ const SettingsContainer = (props) => {
             togglePayment={togglePayment}
             toggleSubscription={toggleSubscription}
             togglePreferences={togglePreferences}
+            details={userDetails}
+            onInputChange={handleInputChange}
         />
     );
 };
 
-const dispatchActions = (dispatch) => ({
-    getUserDataDispatchAction: () => dispatch(getUserData()),
-    updateUserDispatchAction: (requestData) => dispatch(updateUserInfo(requestData))
+const dispatchAction = (dispatch) => ({
+    getUserDetailsDispatchAction: () => dispatch(getUserDetails()),
+    dispatchUpdate: (payload) => dispatch(updateUserData())
 });
 
 export default connect (
-    userSelector,
-    dispatchActions
+    preferencsSelector,
+    dispatchAction
 )(SettingsContainer);

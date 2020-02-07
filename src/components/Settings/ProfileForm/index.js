@@ -3,7 +3,13 @@ import content from "./content";
 import "./styles.scss";
 import InputField from "../../../common/InputField";
 
-const ProfileForm = ({ profileIsOpen, toggleProfile, displayName, username, onInputChange }) => {
+const ProfileForm = ({ 
+    profileIsOpen, 
+    toggleProfile, 
+    displayName,
+    userName,
+    onInputChange
+}) => {
     return (
         <section className="formContainer">
             <header onClick={() => toggleProfile(!profileIsOpen)} className="formHeaderContainer">
@@ -21,10 +27,10 @@ const ProfileForm = ({ profileIsOpen, toggleProfile, displayName, username, onIn
                             {content.SUBCONTAINER1_SUBLABEL1}
                         </label>
                         <InputField 
-                            id="displayName"
+                            id="display_name"
                             className="formInputField"
                             value={displayName}
-                            onChange={onInputChange}
+                            onChange={(e) => onInputChange(e)}
                             placeholder={content.SUBCONTAINER1_PLACEHOLDER1}
                             hasIcon
                             iconPosition="right"
@@ -36,10 +42,10 @@ const ProfileForm = ({ profileIsOpen, toggleProfile, displayName, username, onIn
                             {content.SUBCONTAINER1_SUBLABEL2}
                         </label>
                         <InputField 
-                            id="username"
+                            id="user_name"
                             className="formInputField"
-                            value={username}
-                            onChange={onInputChange}
+                            value={userName}
+                            onChange={(e) => onInputChange(e)}
                             placeholder={content.SUBCONTAINER1_PLACEHOLDER2}
                             hasIcon
                             iconPosition="right"
@@ -51,10 +57,5 @@ const ProfileForm = ({ profileIsOpen, toggleProfile, displayName, username, onIn
         </section>
     );
 };
-
-ProfileForm.defaultProps = {
-    displayName: "Vess Dynamick",
-    username: "@vessdynamick",
-}
 
 export default ProfileForm;
