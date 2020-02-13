@@ -81,8 +81,20 @@ const Component = (props) => {
         <PopUps
           hasCloseIcon={false}
           name={"cookie"}
-          handlers={{ handleCookieClick: props.handleSetCookie }}
+          handlers={{
+            handleCookieClick: props.handleSetCookie,
+            handlePreferenceClick: props.handlePreferenceClick,
+          }}
           closeClick={props.cookieCloseClick}
+        />
+      )}
+      {props.showPreference && (
+        <PopUps
+          name="privacyPolicy"
+          closeClick={props.handlePreferenceClose}
+          handlers={{
+            closeClick: props.handlePreferenceClose,
+          }}
         />
       )}
     </div>
