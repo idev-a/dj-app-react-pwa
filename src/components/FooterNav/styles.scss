@@ -9,6 +9,7 @@
     bottom: 0;
     background: $main-1;
     box-shadow: 0 -3px 6px #00000029;
+    z-index: 100;
     .footerLinks {
         flex-grow: 1;
         display: flex;

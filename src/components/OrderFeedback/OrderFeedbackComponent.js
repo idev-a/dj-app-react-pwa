@@ -10,6 +10,8 @@ import Button from "../../common/Button";
 import PopUpComponent from "../PopUps/PopUpsComponent";
 import FooterNav from "../FooterNav";
 import PromoCodeComponent from "./PromoComponent";
+import OrderFeedbackStart from "./OrderFeedbackStart";
+import SelectedListeners from "./SelectedListeners";
 
 const OrderFeedbackComponent = ({
   tracks,
@@ -40,6 +42,8 @@ const OrderFeedbackComponent = ({
   handlePlaceNewOrderClick,
   closeSuccessPopUp,
   isPremium,
+  hitOrPro,
+  setHitOrPro
 }) => {
   return (
     <div className="orderFeedbackContainer">
@@ -89,27 +93,66 @@ const OrderFeedbackComponent = ({
       >
         {content.ADD_ANOTHER_TRACK}
      </div>*/}
-      {!isPremium ? (
+     {hitOrPro === "hit" && (
+      !isPremium ? (
         <UpgradeToPremium
           onInputChange={onInputChange}
           isAddPremium={isAddPremium}
         />
-      ) : (
+        ) : (
         <PremiumAccess
           onInputChange={onInputChange}
           isHyperTargeted={isHyperTargeted}
         />
+        )
       )}
-      <TotalPaymentComponent
-        handleRemoveTrack={handleRemoveTrack}
-        tracks={tracks}
-        isAddPremium={isAddPremium}
-        genres={genres}
-      />
-      <PromoCodeComponent onInputChange={onInputChange} promoCode={promoCode} />
-      <StripeProvider apiKey="pk_live_WxDWmJ53hswHLIAYQx3Xc15B">
-        <Elements>
-          <PaymentForm
+      {hitOrPro === "pro" && (
+        <SelectedListeners />
+      )}
+      {hitOrPro === "hit" && (
+        <React.Fragment>
+          <TotalPaymentComponent
+            handleRemoveTrack={handleRemoveTrack}
+            tracks={tracks}
+            isAddPremium={isAddPremium}
+            genres={genres}
+            hitOrPro={hitOrPro}
+          />
+          <PromoCodeComponent onInputChange={onInputChange} promoCode={promoCode} />
+          <StripeProvider apiKey="pk_live_WxDWmJ53hswHLIAYQx3Xc15B">
+            <Elements>
+              <PaymentForm
+                onInputChange={onInputChange}
+                accountName={accountName}
+                submitPayment={saveCardInformation}
+                shouldCreateToken={shouldCreateToken}
+                handlePaymentFormError={handlePaymentFormError}
+                isSaveCardDetails={isSaveCardDetails}
+                paymentMethods={paymentMethods}
+                selectedPaymentId={selectedPaymentId}
+                handleDeleteSavedCard={handleDeleteSavedCard}
+                handleSavedCardSelect={handleSavedCardSelect}
+              />
+            </Elements>
+          </StripeProvider>
+          <div className="orderButtonWrapper">
+            <Button
+              className="launchButton"
+              buttonText={content.ORDER_NOW_BUTTON}
+              onClick={onSubmitFeedback}
+              disabled={!isPaymentFormReady}
+            />
+          </div>
+        </React.Fragment>
+      )}
+      {hitOrPro === "pro" && (
+        <div className="proContainer">
+          <TotalPaymentComponent
+            handleRemoveTrack={handleRemoveTrack}
+            tracks={tracks}
+            isAddPremium={isAddPremium}
+            genres={genres}
+            hitOrPro={hitOrPro}
             onInputChange={onInputChange}
             accountName={accountName}
             submitPayment={saveCardInformation}
@@ -121,16 +164,8 @@ const OrderFeedbackComponent = ({
             handleDeleteSavedCard={handleDeleteSavedCard}
             handleSavedCardSelect={handleSavedCardSelect}
           />
-        </Elements>
-      </StripeProvider>
-      <div className="orderButtonWrapper">
-        <Button
-          className="launchButton"
-          buttonText={content.ORDER_NOW_BUTTON}
-          onClick={onSubmitFeedback}
-          disabled={!isPaymentFormReady}
-        />
-      </div>
+        </div>
+      )}
       <FooterNav />
       {isProcessing && (
         <PopUpComponent name="orderProcessing" hasCloseIcon={false} />
@@ -144,6 +179,9 @@ const OrderFeedbackComponent = ({
           }}
           closeClick={closeSuccessPopUp}
         />
+      )}
+      {!hitOrPro && (
+        <OrderFeedbackStart setHitOrPro={setHitOrPro} />
       )}
     </div>
   );

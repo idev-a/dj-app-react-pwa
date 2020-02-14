@@ -6,7 +6,14 @@ import "./Login.styles.scss";
 import "rc-checkbox/assets/index.css";
 import Button from "../../common/Button";
 
-const LoginComponent = ({ email, password, onInputChange, loginUser }) => {
+const LoginComponent = ({ 
+  email, 
+  password, 
+  onInputChange, 
+  loginUser,
+  isForgotPassword,
+  setIsForgotPassword
+}) => {
   return (
     <div className="loginContainer">
       <div className="loginLabel">{content.LOGIN_LABEL}</div>
@@ -47,8 +54,8 @@ const LoginComponent = ({ email, password, onInputChange, loginUser }) => {
           onClick={loginUser}
         ></Button>
       </div>
-      <div className="forgotPassword" style={{ display: "none" }}>
-        <span>{content.FORGOT_PASSWORD}</span>
+      <div className="forgotPassword">
+        <span onClick={() => setIsForgotPassword(!isForgotPassword)}>{content.FORGOT_PASSWORD}</span>
       </div>
     </div>
   );

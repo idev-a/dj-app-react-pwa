@@ -1,0 +1,123 @@
+@import "../../../scss/common.styles.scss";
+
+.balanceContainerLarge {
+    @extend .componentContainer;
+    .balanceContainer {
+        background: $main-9;
+        color: $color-4;
+        border: 2px solid $main-2;
+        border-bottom: none;
+        box-shadow: #00000029 0px 1px 6px;
+        margin: 0 22px;
+        .balanceHeader {
+            display: flex;
+            align-items: center;
+            padding: 18px 15px;
+            border-bottom: 1px rgba(156, 174, 199, .3) solid;
+            .logoIcon {
+                width: 24px;
+                height: 13px;
+                margin-left: 19px;
+            }
+            .headerLabel {
+                margin-left: 12.6px;
+                color: $main-1;
+                font-size: $font-size-small;
+            }
+        }
+        .allOrSomeContainer {
+            display: flex;
+            justify-content: space-between;
+            padding: 18px 15px;
+            border-bottom: 1px rgba(156, 174, 199, .3) solid;
+            .allContainer {
+                .containerLabel {
+                    margin-left: 28px;
+                    font-size: $font-size-small - 1;
+                    letter-spacing: 1.1px;
+                    opacity: .7;
+                }
+                .containerRow {
+                    display: flex;
+                    align-items: center;
+                    height: 35px;
+                    .radioInputField {
+                        margin-right: 11px;
+                    }
+                    .currency {
+                        display: flex;
+                        align-items: center;
+                        font-size: $font-size-medium;
+                        font-weight: 300;
+                        letter-spacing: 1.6px;
+                        opacity: .7;
+                    }
+                    .amountContainer {
+                        display: flex;
+                        align-items: flex-start;
+                        font-weight: 300;
+                        opacity: .7;
+                        .amount {
+                            font-size: $font-size-xxl + 5;
+                        }
+                        .decimalPart {
+                            font-size: $font-size-normal + 1;
+                            margin-top: 4px;
+                            letter-spacing: 1.5px;
+                        }
+                    }
+                }
+            }
+            .someContainer {
+                @extend .allContainer;
+                .inputFieldContainer {
+                    position: relative;
+                    height: 100%;
+                    .currency {
+                        position: absolute;
+                        margin-left: 0;
+                        top: calc(50% - 8px);
+                    }
+                    .inputField {
+                        width: 129px;
+                        height: 100%;
+                        padding-left: 15px;
+                        color: $main-1;
+                        background: transparent;
+                        font-size: $font-size-medium;
+                        border: none;
+                        border-bottom: 1px solid $color-2;
+                    }
+                }
+            }
+        }
+        .afterPaymentHeader {
+            width: 100%;
+            font-size: $font-size-small;
+            font-weight: 300;
+            padding: 22px 15px;
+            border-bottom: 1px rgba(156, 174, 199, .3) solid;
+            .afterPaymentBalance {
+                font-weight: 600;
+            }
+        }
+    } 
+    .buttonWrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 50px;
+        margin: 0 22px 18px 22px;
+        background: linear-gradient(74deg, $main-2, $main-8);
+        box-shadow: #00000029 0px 3px 6px;
+        .addFundsButton {
+            border: none;
+            background-color: $color-8;
+            color: $main-1;
+            font-size: $font-size-small;
+            width: 98%;
+            letter-spacing: 1.2px;
+            height: 46px;
+        }
+    }
+}

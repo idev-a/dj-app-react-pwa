@@ -1,12 +1,12 @@
-@import "../../scss/common.styles.scss";
+@import "../../../scss/common.styles.scss";
 
 .orderFeedbackStartContainer {
-    position: relative;
+    position: fixed;
     width: 100%;
-    height: 812px;
+    height: 100%;
     background: #46515F;
     text-align: center;
-    overflow: hidden;
+    overflow: scroll;
     .cancelIcon {
         position: absolute;
         width: 24px;
@@ -99,7 +99,7 @@
     }
     .proFeedbackContainer {
         @extend .hitFeedbackContainer;
-        margin: 0 auto 0 auto;
+        margin: 0 auto 98px auto;
         .buttonWrapper.proFeedbackWrapper {
             background: linear-gradient(74deg, #8B9CB2, #49B97D);
         }

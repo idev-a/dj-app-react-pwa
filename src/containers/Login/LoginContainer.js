@@ -4,7 +4,7 @@ import LoginComponent from "../../components/Login/LoginComponent";
 import { authenticateUser } from "../../state/actions/userActions";
 import { userSelector } from "../../state/selectors/users";
 
-const LoginContainer = ({ loginUser }) => {
+const LoginContainer = ({ loginUser, isForgotPassword, setIsForgotPassword }) => {
   const [loginDetails, setLoginDetails] = useState({});
   const [isRememberUser, setIsRememberUser] = useState(false);
   const handleInputChange = (e) => {
@@ -32,6 +32,8 @@ const LoginContainer = ({ loginUser }) => {
       isRememberUser={isRememberUser}
       onInputChange={handleInputChange}
       loginUser={handleUserLogin}
+      isForgotPassword={isForgotPassword}
+      setIsForgotPassword={setIsForgotPassword}
     />
   );
 };

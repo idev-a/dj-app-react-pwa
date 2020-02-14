@@ -280,6 +280,8 @@ const OrderFeedbackContainer = ({
     [selectedPaymentId]
   );
 
+  const [hitOrPro, setHitOrPro] = useState(null);
+
   return (
     <Component
       isProcessing={isProcessing}
@@ -319,6 +321,8 @@ const OrderFeedbackContainer = ({
       }}
       closeSuccessPopUp={() => setIsSuccess(false)}
       isHyperTargeted={isHyperTargeted}
+      hitOrPro={hitOrPro}
+      setHitOrPro={setHitOrPro}
     />
   );
 };

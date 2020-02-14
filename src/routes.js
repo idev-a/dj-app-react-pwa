@@ -9,7 +9,6 @@ import OrderFeedbackContainer from "./containers/OrderFeedback";
 import ListenerPreferencesContainer from "./containers/ListenerPreferences";
 import SettingsContainer from "./containers/Settings";
 import OrderFeedbackHistoryContainer from "./containers/OrderFeedbackHistory";
-import OrderFeedbackStart from "./containers/OrderFeedbackStart";
 import { getTokenDetails } from "./state/actions/userActions";
 
 export default (props) => {
@@ -31,7 +30,6 @@ export default (props) => {
           component={withValidToken(OrderFeedbackHistoryContainer)}
           exact
         />
-        {/*<Route path="/start" component={OrderFeedbackStart} exact />*/}
       </Switch>
     </Router>
   );

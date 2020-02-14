@@ -41,10 +41,11 @@
     }
   }
   .forgotPassword {
-    margin-top: 14px;
+    margin-top: 9px;
     display: flex;
     justify-content: center;
     > span {
+      padding: 5px;
       color: $color-1;
       font-size: $font-size-small;
       font-weight: 600;
