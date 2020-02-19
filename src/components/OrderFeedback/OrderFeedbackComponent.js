@@ -8,7 +8,6 @@ import TotalPaymentComponent from "./TotalPayment";
 import PaymentForm from "./PaymentForm";
 import Button from "../../common/Button";
 import PopUpComponent from "../PopUps/PopUpsComponent";
-import FooterNav from "../FooterNav";
 import PromoCodeComponent from "./PromoComponent";
 import OrderFeedbackStart from "./OrderFeedbackStart";
 import SelectedListeners from "./SelectedListeners";
@@ -164,9 +163,16 @@ const OrderFeedbackComponent = ({
             handleDeleteSavedCard={handleDeleteSavedCard}
             handleSavedCardSelect={handleSavedCardSelect}
           />
+      <div className="orderButtonWrapper">
+        <Button
+          className="launchButton"
+          buttonText={content.ORDER_NOW_BUTTON}
+          onClick={onSubmitFeedback}
+          disabled={!isPaymentFormReady}
+        />
+      </div>
         </div>
       )}
-      <FooterNav />
       {isProcessing && (
         <PopUpComponent name="orderProcessing" hasCloseIcon={false} />
       )}

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useCallback } from "react";
 import { Switch, Router, Route } from "react-router-dom";
 
 import history from "./history";
@@ -9,33 +9,58 @@ import OrderFeedbackContainer from "./containers/OrderFeedback";
 import ListenerPreferencesContainer from "./containers/ListenerPreferences";
 import SettingsContainer from "./containers/Settings";
 import OrderFeedbackHistoryContainer from "./containers/OrderFeedbackHistory";
+import FooterNav from "./components/FooterNav";
 import { getTokenDetails } from "./state/actions/userActions";
+import MenuComponent from "./components/Menu";
 
-export default (props) => {
+export const MenuHandlerContext = React.createContext();
+
+export default props => {
+  const [showMenu, setShowMenu] = useState(false);
+
+  const handleToggleMenuClick = useCallback(() => {
+    setShowMenu(!showMenu);
+  }, [showMenu]);
+
   return (
     <Router history={history}>
-      <Switch>
-        <Route path="/" component={LandingPage} exact />
-        <Route path="/signin" component={AuthContainer} exact />
-        <Route path="/discover" component={withValidToken(Discover)} exact />
-        <Route path="/feedback" component={withValidToken(OrderFeedbackContainer)} exact />
-        <Route
-          path="/preferences"
-          component={withValidToken(ListenerPreferencesContainer)}
-          exact
-        />
-        <Route path="/settings" component={SettingsContainer} exact />
-        <Route
-          path="/history"
-          component={withValidToken(OrderFeedbackHistoryContainer)}
-          exact
-        />
-      </Switch>
+      {showMenu && (
+        <MenuComponent handleClickMenuToggle={handleToggleMenuClick} />
+      )}
+      <MenuHandlerContext.Provider value={handleToggleMenuClick}>
+        <Switch>
+          <Route path="/" component={LandingPage} exact />
+          <Route path="/signin" component={AuthContainer} exact />
+          <Route path="/discover" component={withValidToken(Discover)} exact />
+          <Route
+            path="/feedback"
+            component={withValidToken(OrderFeedbackContainer)}
+            exact
+          />
+          <Route
+            path="/preferences"
+            component={withValidToken(ListenerPreferencesContainer)}
+            exact
+          />
+          <Route
+            path="/settings"
+            component={withValidToken(SettingsContainer)}
+            exact
+          />
+          <Route
+            path="/history"
+            component={withValidToken(OrderFeedbackHistoryContainer)}
+            exact
+          />
+          {/*<Route path="/start" component={OrderFeedbackStart} exact />*/}
+        </Switch>
+      </MenuHandlerContext.Provider>
+      <FooterNav />
     </Router>
   );
 };
 
-const withValidToken = (WrappedComponent) => {
+const withValidToken = WrappedComponent => {
   return class extends React.Component {
     async componentDidMount() {
       const response = await getTokenDetails();

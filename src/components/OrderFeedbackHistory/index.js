@@ -5,7 +5,6 @@ import Icon from "../../common/IconComponent";
 import Button from "../../common/Button";
 import HitStatsComponent from "./HitStats/HitStatsComponent";
 import TrackReviewsComponent from "./TrackReviews/TrackReviewsComponent";
-import FooterNav from "../FooterNav";
 import Menu from "../Menu";
 import PopUps from "../PopUps/PopUpsComponent";
 
@@ -61,7 +60,6 @@ const OrderFeedbackHistoryComponent = ({
       )}
       {loading && <PopUps name="orderProcessing" />}
       </section>
-      <FooterNav />
     </div>
   );
 };

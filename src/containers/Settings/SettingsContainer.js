@@ -1,59 +1,146 @@
-import React, { useEffect, useState, useCallback } from 'react';
+import React, { useEffect, useState, useCallback } from "react";
+import isEmpty from "lodash/isEmpty";
 import { connect } from "react-redux";
+import { toast } from "react-toastify";
 import SettingsComponent from "../../components/Settings/SettingsComponent";
-import { preferencsSelector } from '../../state/selectors/preferences';
-import { 
-    getUserDetails,
-    updateUserData
+import { preferencsSelector } from "../../state/selectors/preferences";
+import { userSelector } from "../../state/selectors/users";
+import {
+  getUserDetails,
+  updateUserData,
+  getPaymentMethods,
+  cancelUserPremiumSubscription
 } from "../../state/actions/userActions";
+import { validateRegex } from "../../utils";
 
-const SettingsContainer = ({ 
-    getUserDetailsDispatchAction,
-    userDetails,
-    dispatchUpdate
+const SettingsContainer = ({
+  getUserDetailsDispatchAction,
+  getPaymentMethodsDispatchAction,
+  userDetails,
+  dispatchUpdate,
+  paymentMethods,
+  history
 }) => {
-    const [profileIsOpen, toggleProfile] = useState(false);
-    const [accountIsOpen, toggleAccount] = useState(false);
-    const [paymentIsOpen, togglePayment] = useState(false);
-    const [subscriptionIsOpen, toggleSubscription] = useState(false);
-    const [preferencesIsOpen, togglePreferences] = useState(false);
+  const [profileIsOpen, toggleProfile] = useState(false);
+  const [accountIsOpen, toggleAccount] = useState(false);
+  const [paymentIsOpen, togglePayment] = useState(false);
+  const [subscriptionIsOpen, toggleSubscription] = useState(false);
+  const [userObject, setUserObject] = useState({});
+  const [newPassword, setNewPassword] = useState("");
+  const [repeatPassword, setRepeatPassword] = useState("");
 
-    useEffect(() => {
-        getUserDetailsDispatchAction()
-    }, [getUserDetailsDispatchAction])
+  useEffect(() => {
+    Promise.all([
+      getUserDetailsDispatchAction(),
+      getPaymentMethodsDispatchAction()
+    ]);
+  }, [getUserDetailsDispatchAction, getPaymentMethodsDispatchAction]);
 
-    const handleInputChange = useCallback(
-        (e) => {
-        let payload = {
-            [e.target.id]: e.target.value
-        };
-        dispatchUpdate(payload);
-    }, [dispatchUpdate]);
+  useEffect(() => {
+    setUserObject({
+      user_name: userDetails.user_name || "",
+      display_name: userDetails.display_name || "",
+      email: userDetails.email || ""
+    });
+  }, [userDetails]);
 
-    return (
-        <SettingsComponent 
-            profileIsOpen={profileIsOpen}
-            accountIsOpen={accountIsOpen}
-            paymentIsOpen={paymentIsOpen}
-            subscriptionIsOpen={subscriptionIsOpen}
-            preferencesIsOpen={preferencesIsOpen}
-            toggleProfile={toggleProfile}
-            toggleAccount={toggleAccount}
-            togglePayment={togglePayment}
-            toggleSubscription={toggleSubscription}
-            togglePreferences={togglePreferences}
-            details={userDetails}
-            onInputChange={handleInputChange}
-        />
-    );
+  const handleLogoutClick = useCallback(() => {
+    localStorage.removeItem("x-access-token");
+    localStorage.removeItem("isPremiumUser");
+    localStorage.removeItem("isFirstUserLogin");
+    history.push("/signin");
+  }, [history]);
+
+  const handleProfileUpdate = useCallback(() => {
+    let payload = {};
+    if (
+      userObject.user_name !== userDetails.user_name &&
+      userObject.user_name.length !== 0
+    ) {
+      payload.user_name = userObject.user_name;
+    }
+    if (
+      userObject.display_name !== userDetails.display_name &&
+      userObject.display_name.length !== 0
+    ) {
+      payload.display_name = userObject.display_name;
+    }
+    if (userObject.email !== userDetails.email) {
+      if (!validateRegex("email", userObject.email)) {
+        toast.error("Invalid Email");
+        return;
+      }
+      payload.email = userObject.email;
+    }
+    if (newPassword.length > 0) {
+      if (newPassword !== repeatPassword) {
+        toast.error("Passwords dont match !!!");
+        return;
+      }
+    }
+    if (!isEmpty(payload)) {
+      dispatchUpdate(payload);
+    }
+  }, [userObject, userDetails, newPassword, repeatPassword, dispatchUpdate]);
+
+  const handleInputChange = useCallback(e => {
+    const { id, value } = e.target;
+    if (id === "password") {
+      setNewPassword(value);
+    }
+    if (id === "repeatPassword") {
+      setRepeatPassword(value);
+    } else {
+      setUserObject(userObj => ({
+        ...userObj,
+        [id]: value
+      }));
+    }
+  }, []);
+
+  const handleCancelSubscription = useCallback(async() => {
+    const cancelResponse = await cancelUserPremiumSubscription();
+    if (cancelResponse.ok) {
+      toast.success("Subscription cancelled successfully");
+      getUserDetailsDispatchAction();
+    } else {
+      toast.error("Failed to cancel subscription");
+    }
+  }, [getUserDetailsDispatchAction])
+
+  return (
+    <SettingsComponent
+      profileIsOpen={profileIsOpen}
+      accountIsOpen={accountIsOpen}
+      paymentIsOpen={paymentIsOpen}
+      subscriptionIsOpen={subscriptionIsOpen}
+      toggleProfile={() => toggleProfile(e => !e)}
+      toggleAccount={() => toggleAccount(e => !e)}
+      togglePayment={() => togglePayment(e => !e)}
+      toggleSubscription={() => toggleSubscription(e => !e)}
+      cancelSubscription={handleCancelSubscription}
+      details={userDetails}
+      userObject={userObject}
+      paymentMethods={paymentMethods}
+      onInputChange={handleInputChange}
+      logOutClick={handleLogoutClick}
+      password={newPassword}
+      repeatPassword={repeatPassword}
+      handleProfileUpdate={handleProfileUpdate}
+    />
+  );
 };
 
-const dispatchAction = (dispatch) => ({
-    getUserDetailsDispatchAction: () => dispatch(getUserDetails()),
-    dispatchUpdate: (payload) => dispatch(updateUserData())
+const dispatchAction = dispatch => ({
+  getUserDetailsDispatchAction: () => dispatch(getUserDetails()),
+  dispatchUpdate: payload => dispatch(updateUserData(payload)),
+  getPaymentMethodsDispatchAction: () => dispatch(getPaymentMethods())
 });
 
-export default connect (
-    preferencsSelector,
-    dispatchAction
+export default connect(
+  state => ({
+    ...preferencsSelector(state),
+    paymentMethods: userSelector(state).paymentMethods
+  }),
+  dispatchAction
 )(SettingsContainer);

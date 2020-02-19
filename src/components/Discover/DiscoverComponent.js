@@ -7,7 +7,6 @@ import AudioPlayer from "../AudioPlayer";
 import SwipeableCards from "../../common/SwipeableCards";
 import { ENUMS } from "../../utils";
 import Iframe from "../../common/Iframe";
-import FooterNav from "../FooterNav";
 import Button from "../../common/Button";
 
 const DiscoverComponent = ({
@@ -149,7 +148,6 @@ const DiscoverComponent = ({
           No more tracks to rate. Please come back later
         </h3>
       )}
-      <FooterNav />
     </div>
   );
 };

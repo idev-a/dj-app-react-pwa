@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import cx from "classnames";
 import content from "./content";
 import Icon from "../../common/IconComponent";
@@ -7,7 +7,7 @@ import DetailsForm from "./DetailsForm";
 import PriceForm from "./PriceForm";
 import Button from "../../common/Button";
 import history from "../../history";
-import FooterNav from "../FooterNav";
+import { MenuHandlerContext } from "../../routes";
 
 const ListenerPreferencesComponent = ({
   handleClickRequestBoxes,
@@ -35,6 +35,7 @@ const ListenerPreferencesComponent = ({
   changeToSaveButton,
   disabled
 }) => {
+  const menuClickHandler = useContext(MenuHandlerContext);
   let hitRequestBoxSelected = hitRequestBox ? "selected" : "";
   let proRequestBoxSelected = proRequestBox ? "selected" : "";
   let hitCheckIcons = hitRequestBox ? "checkcirclegreen" : "checkcircle";
@@ -47,9 +48,7 @@ const ListenerPreferencesComponent = ({
       <React.Fragment>
         <section className="formContainer">
           <header className="formHeaderContainer">
-            <div className="formHeaderText">
-                {content.DETAILS_TITLE}
-            </div>
+            <div className="formHeaderText">{content.DETAILS_TITLE}</div>
           </header>
           <DetailsForm
             city={city}
@@ -82,10 +81,10 @@ const ListenerPreferencesComponent = ({
         {!saveButtonIsShowing && (
           <div className="buttonWrapper">
             <div className="buttonLabel">{content.BUTTON_LABEL}</div>
-            <Button 
+            <Button
               className="launchButton moreEditsButton"
               buttonText={content.MAKE_EDITS}
-              onClick={() => changeToSaveButton()} 
+              onClick={() => changeToSaveButton()}
             ></Button>
             <Button
               className="launchButton"
@@ -108,9 +107,7 @@ const ListenerPreferencesComponent = ({
       <React.Fragment>
         <section className="formContainer">
           <header className="formHeaderContainer">
-            <div className="formHeaderText">
-                {content.DETAILS_TITLE}
-            </div>
+            <div className="formHeaderText">{content.DETAILS_TITLE}</div>
           </header>
           <DetailsForm
             city={city}
@@ -152,10 +149,10 @@ const ListenerPreferencesComponent = ({
         {!saveButtonIsShowing && (
           <div className="buttonWrapper">
             <div className="buttonLabel">{content.BUTTON_LABEL}</div>
-            <Button 
+            <Button
               className="launchButton moreEditsButton"
               buttonText={content.MAKE_EDITS}
-              onClick={() => changeToSaveButton()} 
+              onClick={() => changeToSaveButton()}
             ></Button>
             <Button
               className="launchButton"
@@ -181,6 +178,7 @@ const ListenerPreferencesComponent = ({
       {menuIsOpen && (
         <Menu handleClickMenuToggle={handleClickMenuToggle} />
       )} */}
+        <Button isIcon iconName="menu" className="menuIcon" onClick={menuClickHandler}/>
       <section className="listenerPreferencesHeaderText">
         <div>
           <strong>{content.HEADER_A}</strong>
@@ -194,7 +192,7 @@ const ListenerPreferencesComponent = ({
       </div>
       <div className="requestBoxesContainer">
         <div
-          onClick={(e) => handleClickRequestBoxes(e)}
+          onClick={e => handleClickRequestBoxes(e)}
           className={cx("requestBox", hitRequestBoxSelected)}
           id="hitRequestBox"
         >
@@ -223,7 +221,7 @@ const ListenerPreferencesComponent = ({
           </div>
         </div>
         <div
-          onClick={(e) => handleClickRequestBoxes(e)}
+          onClick={e => handleClickRequestBoxes(e)}
           className={cx("requestBox", proRequestBoxSelected)}
           id="proRequestBox"
         >
@@ -253,7 +251,6 @@ const ListenerPreferencesComponent = ({
         </div>
       </div>
       {containerContents}
-      <FooterNav />
     </div>
   );
 };

@@ -8,10 +8,11 @@ import store from "./state/store";
 import "./style.scss";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+
 toast.configure({
   autoClose: 5000,
   draggable: false,
-  position: toast.POSITION.TOP_LEFT,
+  position: toast.POSITION.TOP_LEFT
 });
 const App = () => {
   return (

@@ -10,6 +10,7 @@ const getUserDetailsURI = "/users/details";
 const uploadDisplayPicURI = "/users/upload/profile-image";
 const getPaymentMethodURI = "/users/paymentMethods";
 const getTokenDetailsURI = "/users/token";
+const deleteSubscriptionURI = "/users/subscription";
 
 export const REGISTER_USER_SUCCESS = "REGISTER_USER_SUCCESS";
 export const REGISTER_USER_FAILURE = "REGISTER_USER_FAILURE";
@@ -25,7 +26,7 @@ export const GET_USER_PAYMENT_METHODS_SUCCESS =
 
 export const REMOVE_USER_PAYMENT_METHOD = "REMOVE_USER_PAYMENT_METHOD";
 
-export const registerUserAction = (requestData, file) => (dispatch) =>
+export const registerUserAction = (requestData, file) => dispatch =>
   fetch(`${api}${postRegisterUserURI}`, {
     method: "POST",
     headers: genericHeaders(),
@@ -33,10 +34,10 @@ export const registerUserAction = (requestData, file) => (dispatch) =>
       email: requestData.email,
       password: requestData.password,
       display_name: requestData.displayName,
-      user_name: requestData.username,
-    }),
+      user_name: requestData.username
+    })
   })
-    .then((response) => {
+    .then(response => {
       if (response.status === 401) {
         toast.error("User already exits");
         return undefined;
@@ -50,7 +51,7 @@ export const registerUserAction = (requestData, file) => (dispatch) =>
         throw Error;
       }
     })
-    .then(async (data) => {
+    .then(async data => {
       if (file && data) {
         const res = await uploadUserProfile(file, data.id);
         if (res.ok) {
@@ -61,13 +62,13 @@ export const registerUserAction = (requestData, file) => (dispatch) =>
       }
     });
 
-export const authenticateUser = (requestData) => (dispatch) =>
+export const authenticateUser = requestData => dispatch =>
   fetch(`${api}${postAuthenticateUserURI}`, {
     method: "POST",
     headers: genericHeaders(),
-    body: JSON.stringify(requestData),
+    body: JSON.stringify(requestData)
   })
-    .then((response) => {
+    .then(response => {
       if (response.ok) {
         return response.json();
       } else {
@@ -75,13 +76,13 @@ export const authenticateUser = (requestData) => (dispatch) =>
         return undefined;
       }
     })
-    .then((data) => {
+    .then(data => {
       if (data) {
         const {
           token,
           isFirstUserLogin,
           isPremiumUser,
-          expireTime = 3600000,
+          expireTime = 3600000
         } = data;
         localStorage.setItem("x-access-token", token);
         if (isPremiumUser) {
@@ -104,17 +105,17 @@ export const uploadUserProfile = (fileToUpload, id) => {
   formData.append("profileImage", fileToUpload);
   return fetch(`${api}${uploadDisplayPicURI}/${id}`, {
     method: "POST",
-    body: formData,
+    body: formData
   });
 };
 
-export const postListenerPreferences = (payload) => (dispatch) => {
+export const postListenerPreferences = payload => dispatch => {
   const requestHeaders = authHeaders();
   return fetch(`${api}${postPreferencesURI}`, {
     method: "POST",
     headers: requestHeaders,
-    body: JSON.stringify(payload),
-  }).then((res) => {
+    body: JSON.stringify(payload)
+  }).then(res => {
     if (res.ok) {
       dispatch(getUserDetails());
       localStorage.removeItem("isFirstUserLogin");
@@ -125,26 +126,26 @@ export const postListenerPreferences = (payload) => (dispatch) => {
   });
 };
 
-export const getOrderHistory = () => (dispatch) =>
+export const getOrderHistory = () => dispatch =>
   fetch(`${api}${getOrderHistoryUrl}`, {
     method: "GET",
-    headers: authHeaders(),
+    headers: authHeaders()
   })
-    .then((res) => res.json())
-    .then((requestData) => {
+    .then(res => res.json())
+    .then(requestData => {
       dispatch({
         type: GET_HISTORY_SUCCESS,
-        payload: requestData,
+        payload: requestData
       });
     });
 
-export const getUserDetails = () => (dispatch) =>
+export const getUserDetails = () => dispatch =>
   fetch(`${api}${getUserDetailsURI}`, {
     method: "GET",
-    headers: authHeaders(),
+    headers: authHeaders()
   })
-    .then((res) => res.json())
-    .then((requestData) => {
+    .then(res => res.json())
+    .then(requestData => {
       dispatch({
         type: GET_USER_DETAILS_SUCCESS,
         payload: requestData
@@ -153,48 +154,59 @@ export const getUserDetails = () => (dispatch) =>
 
 // update user details action starts here
 
-export const updateUserData = () => (dispatch) => 
-  fetch(`${api}${getUserDetailsURI}`, {
-    method: "PATCH",
-    header: authHeaders()
-  })
-    .then((res) => res.json())
-    .then((requestData) => {
-      dispatch({
-        type: UPDATE_USER_SUCCESS,
-        payload: requestData
-      });
-    });
+export const updateUserData = payload => dispatch =>
+  fetch(`${api}${postPreferencesURI}`, {
+    method: "POST",
+    headers: authHeaders(),
+    body: JSON.stringify(payload)
+  }).then(res => {
+    if (res.ok) {
+      dispatch(getUserDetails());
+      toast.success("Changes saved successfully !!!");
+    } else {
+      toast.error("Failed to save changes !!!");
+    }
+  });
 
 // ends here
 
-export const getPaymentMethods = () => (dispatch) =>
+export const getPaymentMethods = () => dispatch =>
   fetch(`${api}${getPaymentMethodURI}`, {
     method: "GET",
-    headers: authHeaders(),
+    headers: authHeaders()
   })
-    .then((res) => res.json())
-    .then((data) =>
+    .then(res => {
+      if(res.ok) {
+        return res.json();
+      }
+    })
+    .then(data =>
       dispatch({
         type: GET_USER_PAYMENT_METHODS_SUCCESS,
-        payload: data,
+        payload: data
       })
     );
 
-export const deletePaymentMethod = (paymentInfo) => (dispatch) => {
+export const deletePaymentMethod = paymentInfo => dispatch => {
   return fetch(`${api}${getPaymentMethodURI}`, {
     method: "DELETE",
     headers: authHeaders(),
-    body: JSON.stringify(paymentInfo),
-  }).then((res) => {
+    body: JSON.stringify(paymentInfo)
+  }).then(res => {
     if (res.ok) {
       dispatch(getPaymentMethods());
     }
   });
 };
 
-export const getTokenDetails = (token) => 
+export const getTokenDetails = token =>
   fetch(`${api}${getTokenDetailsURI}`, {
     method: "GET",
+    headers: authHeaders()
+  });
+
+export const cancelUserPremiumSubscription = () =>
+  fetch(`${api}${deleteSubscriptionURI}`, {
+    method: "DELETE",
     headers: authHeaders(),
   });

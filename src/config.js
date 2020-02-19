@@ -1,6 +1,6 @@
-const api = "https://hearbk-server-api.herokuapp.com";
+// const api = "https://hearbk-server-api.herokuapp.com";
 // const api = "http://localhost:3000";
-
+const api = "https://hearbk-server.herokuapp.com";
 export const genericHeaders = () => ({
     "Content-Type": "application/json",
     "Accept": "application/json"

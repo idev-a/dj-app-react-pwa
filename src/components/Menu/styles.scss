@@ -1,65 +1,71 @@
 @import "../../scss/common.styles.scss";
 
-.menuComponent {
-    position: absolute;
-    .menuIconContainer {
-        position: absolute;
-        left: 20px;
-        top: 40px;
-        .menuIcon {
-            width: 24px;
-            height: 24px;
-        }
-        .menuIcon:hover {
-            cursor: pointer;
-        }
-    }
-    .menuSideNav {
+.menuBigContainer {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    background: rgba(16, 15, 15, .4);
+    z-index: 10000;
+    .menuComponent {
         display: flex;
+        position: relative;
         flex-flow: column nowrap;
-        position: absolute;
         width: 298px;
-        height: 812px;
-        left: calc(33% - 300px);
+        height: 100%;
+        left: 0;
         top: 0;
         padding: 0px;
         background: $main-5;
         transition: 1s;
         z-index: 100;
-        .cancelIconContainer {
-            position: absolute;
-            right: 20px;
-            top: 25px;
-            .cancelIcon {
-                width: 24px;
-                height: 24px;
-                opacity: .3;
+        .menuSmallContainer {
+            height: 80%;
+            .menuHeader {
+                height: 15%;
+                border: 1px solid $main-5;
+                .cancelIconContainer {
+                    position: absolute;
+                    right: 20px;
+                    top: 25px;
+                    .cancelIcon {
+                        width: 24px;
+                        height: 24px;
+                        opacity: .3;
+                    }
+                    .cancelIcon:hover {
+                        cursor: pointer;
+                    }
+                }
+                .logoContainer {
+                    width: 133px;
+                    height: 23px;
+                    margin: 53px 0 0 24px;
+                }
             }
-            .cancelIcon:hover {
-                cursor: pointer;
-            }
-        }
-        .logoContainer {
-            width: 133px;
-            height: 23px;
-            margin-top: 50px;
-            margin-bottom: 50px;
-        }
-        .menuBody {
-            padding: 0 30px;
-            .menuLabel {
-                color: $color-2;
-                font-size: $font-size-xs;
-                font-weight: 700;
-            }
-            ul {
-                margin: 0 0 50px 0; 
-                padding: 0;
+            .menuBody {
+                display: flex;
+                flex-flow: column nowrap;
+                justify-content: stretch;
+                height: 50%;
+                margin: 0; 
+                padding: 0 24px;
+                text-align: left;
                 list-style: none;
-                .menuLinks {
+                .menuLabel {
+                    flex-grow: 1;
                     display: flex;
                     align-items: center;
-                    margin: 30px 0;
+                    color: $color-2;
+                    font-size: $font-size-xs;
+                    font-weight: 700;
+                }
+                .menuLinks {
+                    flex-grow: 1;
+                    display: flex;
+                    align-items: center;
+                    width: max-content;
                     color: $main-2;
                     font-size: $font-size-normal;
                     font-weight: 500;
@@ -67,29 +73,28 @@
                     .menuLinkIcons {
                         width: 30px;
                         height: 30px;
-                        margin: 0 10px 0 -5px;
-                        opacity: 1;
-                    }
-                    .menuSearchIcon {
+                        margin: 0 10px 0 0;
                         opacity: .3;
                     }
                 }
             }
-            .menuMoreList {
-                margin: 0;
+            .moreBody {
+                @extend .menuBody;
+                height: 20%;
             }
         }
         .buttonWrapper {
             display: flex;
-            position: absolute;
             justify-content: center;
             align-items: center;
-            align-self: center;
             width: 256px;
             height: 50px;
             bottom: 25px;
+            margin: 0 21px;
+            padding: 0;
             background: linear-gradient(73deg, $main-3, #B4C4D9);
             box-shadow: 0 3pt 6pt #00000029;
+            box-sizing: border-box;
             .launchButton {
                 width: 250px;
                 height: 46px;
@@ -97,17 +102,6 @@
                 color: $main-2;
                 background: $main-5;
             }
-            .launchButton:hover {
-                cursor: pointer;
-            }
         }
     }
-    .open {
-        transform: translateX(300px);
-        transition: 1s;
-    }
-    .close {
-        transform: translateY(-300px);
-        transition: 1s;
-    }
-} 
+}
