@@ -4,7 +4,6 @@ const api = "https://hearbk-server.herokuapp.com";
 export const genericHeaders = () => ({
     "Content-Type": "application/json",
     "Accept": "application/json"
-    
 });
 
 export const authHeaders = () => ({

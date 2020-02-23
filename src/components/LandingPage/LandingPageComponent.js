@@ -70,7 +70,7 @@ const Component = (props) => {
         <HearBKIcon />
         <div className="buttonWrapper">
           <Button
-            className="landingPageLaunchButton"
+            className="launchButton"
             buttonText={content.LAUNCH_BUTTON_TEXT}
             onClick={props.handleLaunchClick}
           ></Button>

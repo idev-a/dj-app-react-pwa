@@ -8,7 +8,7 @@ export const SELECTED_GENRES_UPDATE = "SELECTED_GENRES_UPDATE";
 export const SELECTED_TAGS_UPDATE = "SELECTED_TAGS_UPDATE";
 
 const GENRE_URI = "/genres";
-const TAGS_URI = "/listener-tags";
+const TAGS_URI = "/listeners/tags";
 
 export const getGenres = () => (dispatch) =>
   fetch(`${api}${GENRE_URI}`, {

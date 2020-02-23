@@ -1,3 +1,4 @@
+@import "../../scss/variables.scss";
 @import "../../scss/common.styles.scss";
 
 .landingPageContainer {
@@ -148,11 +149,5 @@
     .buttonWrapper {
         position: absolute;
         top: -20px;
-        width: 90%;
-        .landingPageLaunchButton {
-            @extend .launchButton;
-            width: 100%;
-        }
     }
 }
-

@@ -16,8 +16,7 @@ const SubscriptionBox = ({
         <span className="expandIcon">{!subscriptionIsOpen ? "+" : "-"}</span>
         <div className="formHeaderText">{content.SUBCONTAINER4_LABEL}</div>
       </header>
-      {subscriptionIsOpen && (
-        <React.Fragment>
+      {subscriptionIsOpen && subscriptionEndDate && <React.Fragment>
           <div className="subscriptionRenewBox">
             <div className="subscriptionRenewBoxLabel">
               {content.SUBCONTAINER4_BOX_LABEL}
@@ -43,8 +42,14 @@ const SubscriptionBox = ({
 
             {/* --- */}
           </div>
-        </React.Fragment>
-      )}
+        </React.Fragment>}
+        {subscriptionIsOpen && !subscriptionEndDate && <React.Fragment>
+          <div className="subscriptionRenewBox">
+          <div className="subscriptionRenewBoxLabel">
+              You don't have active subscription.
+            </div>
+          </div>
+        </React.Fragment>}
     </section>
   );
 };

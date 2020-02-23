@@ -1,0 +1,52 @@
+import React, { useState } from "react";
+import "./styles.scss";
+import RatingCard from "./RatingCard";
+import Button from "../../../../common/Button";
+
+const getClassNameForCategories = category => {
+    if (category === "DJ") {
+        return  {
+            buttonWrapperClassName: "djsButtonWrapper",
+            buttonClassName: "djsButton"
+        }
+    }
+    if (category === "MUSIC_CREATORS") {
+        return {
+            buttonWrapperClassName: "creatorsButtonWrapper",
+            buttonClassName: "creatorsButton"
+        }
+    }
+    if (category === "MUSIC_EXECUTIVES") {
+        return {
+            buttonWrapperClassName: "executivesButtonWrapper",
+            buttonClassName: "executivesButton"
+        }
+    }
+    if (category === "MUSIC_MEDIA") {
+        return {
+            buttonWrapperClassName: "mediaButtonWrapper",
+            buttonClassName: "mediaButton"
+        }
+    }
+}
+const Card = ({ category, categoryDetails }) => {
+    const [isExpanded, setExpandedState] = useState(false);
+
+    const cardArray = categoryDetails.listeners.map(listener => <RatingCard listener={listener} />);
+    const classes = getClassNameForCategories(category);
+    return (
+    <React.Fragment>
+        <div className={classes.buttonWrapperClassName}>
+            <Button
+                className={classes.buttonClassName}
+                buttonText={categoryDetails.categoryName}
+                onClick={() => setExpandedState(!isExpanded)}
+                disabled={false}
+            />
+        </div>
+    {isExpanded && <ul>{cardArray}</ul>}
+    </React.Fragment>
+    );
+};
+
+export default Card;

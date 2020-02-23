@@ -4,8 +4,8 @@ import content from "./content";
 import "./Card.styles.scss";
 import Icon from "../../../../../common/IconComponent";
 
-const Card = ({ isOpen, cardData }) => {
-  const [isExpanded, setExpandedState] = useState(isOpen);
+const Card = ({ cardData, key }) => {
+  const [isExpanded, setExpandedState] = useState(false);
   let header;
   const hitPercentageRounded = Math.round(cardData.stats.hit);
   const missPercentageRounded = Math.round(cardData.stats.miss);
@@ -46,7 +46,7 @@ const Card = ({ isOpen, cardData }) => {
   }
 
   return (
-    <section className="hitStatsSubContainers">
+    <section className="hitStatsSubContainers" key={key}>
       <div
         onClick={() => setExpandedState(!isExpanded)}
         className="subContainerHeader"
@@ -100,10 +100,6 @@ const Card = ({ isOpen, cardData }) => {
       )}
     </section>
   );
-};
-
-Card.defaultProps = {
-  isOpen: false,
 };
 
 export default Card;

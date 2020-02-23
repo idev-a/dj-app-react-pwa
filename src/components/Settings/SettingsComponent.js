@@ -25,17 +25,10 @@ const SettingsComponent = ({
   repeatPassword,
   onInputChange,
   handleProfileUpdate,
-  handleCancelSubscription,
+  handleCancelSubscription
 }) => {
-  const {
-    subscriptionEndDate,
-    profile_image,
-  } = details;
-  const { 
-    user_name,
-    display_name,
-    email,
-  } = userObject
+  const { subscriptionEndDate, profile_image } = details;
+  const { user_name, display_name, email } = userObject;
   return (
     <div className="settingsContainer">
       <div className="largeBannerHeaderContainer">
@@ -112,10 +105,6 @@ const SettingsComponent = ({
         togglePayment={togglePayment}
         onInputChange={onInputChange}
       />
-
-      {/* Adjustment need ends here */}
-
-      {subscriptionEndDate && (
         <SubscriptionBox
           subscriptionIsOpen={subscriptionIsOpen}
           toggleSubscription={toggleSubscription}
@@ -123,7 +112,6 @@ const SettingsComponent = ({
           onInputChange={onInputChange}
           handleCancelSubscription={handleCancelSubscription}
         />
-      )}
 
       {/* Adjusment need ends here */}
 
@@ -140,7 +128,6 @@ const SettingsComponent = ({
       </div>
 
       {/* Logout needed setup ends here */}
-
     </div>
   );
 };
