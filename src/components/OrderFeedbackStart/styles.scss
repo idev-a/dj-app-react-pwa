@@ -1,12 +1,12 @@
-@import "../../../scss/common.styles.scss";
+@import "../../scss/common.styles.scss";
 
 .orderFeedbackStartContainer {
-    position: fixed;
     width: 100%;
     height: 100%;
     background: $main-9;
     text-align: center;
     overflow: scroll;
+    min-height: 100vh;
     .cancelIcon {
         position: absolute;
         width: 24px;

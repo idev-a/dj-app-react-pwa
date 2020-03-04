@@ -1,7 +1,7 @@
 import React from "react";
 import isEmpty from "lodash/isEmpty";
 import content from "./content";
-import "./SearchComponent.styles.scss";
+import "./styles.scss";
 import Icon from "../../common/IconComponent";
 import InputField from "../../common/InputField";
 import CardSet from "./CardSet";

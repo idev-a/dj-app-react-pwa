@@ -27,8 +27,6 @@ const SearchContainer = ({
     setSearchValue(e.target.value);
   }, []);
 
-
-
   return (
     <SearchComponent
       searchValue={searchValue}
@@ -53,5 +51,3 @@ export default connect(
   }),
   dispatchActions
 )(SearchContainer);
-
-// Please advise ends here

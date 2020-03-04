@@ -11,3 +11,11 @@ export const orderHistorySelector = ({ orderDetails }) => ({
     tracksHistory: orderDetails.orderHistory,
     loading: orderDetails.loading
 });
+
+export const proFeedbackSelector = (state) => ({
+    ...orderSelector(state),
+    searchListeners: state.search.searchResults,
+    tags: state.preferences.tags
+});
+
+

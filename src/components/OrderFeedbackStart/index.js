@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import content from "./content";
 import "./styles.scss";
-import Icon from "../../../common/IconComponent";
-import Button from "../../../common/Button";
+import Icon from "../../common/IconComponent";
+import Button from "../../common/Button";
 
-const OrderFeedbackStartComponent = ({ setHitOrPro }) => {
+const OrderFeedbackStartComponent = ({ history }) => {
+    const handleFeedbackSelect = useCallback(type => {
+        const route = type === "hit" ? "hit-feedback" : "pro-feedback";
+        history.push(route)
+    }, [history]);
     return (
         <div className="orderFeedbackStartContainer">
             <Icon className="cancelIcon" iconName="cancel" />
@@ -25,7 +29,7 @@ const OrderFeedbackStartComponent = ({ setHitOrPro }) => {
                     <div className="buttonWrapper">
                         <Button 
                             className="launchButton"
-                            onClick={() => setHitOrPro("hit")}
+                            onClick={() => handleFeedbackSelect("hit")}
                             buttonText={content.BUTTON_TEXT_1}
                             disabled={false}
                         />
@@ -49,7 +53,7 @@ const OrderFeedbackStartComponent = ({ setHitOrPro }) => {
                     <div className="buttonWrapper proFeedbackWrapper">
                         <Button 
                             className="launchButton"
-                            onClick={() => setHitOrPro("pro")}
+                            onClick={() => handleFeedbackSelect("pro")}
                             buttonText={content.BUTTON_TEXT_2}
                             disabled={false}
                         />

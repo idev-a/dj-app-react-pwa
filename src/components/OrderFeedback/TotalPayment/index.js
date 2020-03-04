@@ -2,8 +2,17 @@ import React from "react";
 import content from "./content";
 import "./styles.scss";
 import Button from "../../../common/Button";
-import HearBKBalance from "../HearBKBalance";
-import PaymentForm from "../PaymentForm";
+
+const getTotalPayment = (tracks, isAddPremium) =>
+  tracks.reduce((total, track) => {
+    if (track.trackTitle.length > 0) {
+      return total + track.selectedFeedback;
+    }
+    return total;
+  }, 0) + (isAddPremium ? 99 : 0);
+
+const getTotalProPayment = listeners =>
+  listeners.reduce((total, listener) => total + parseInt(listener.price), 0);
 
 const TrackPaymentDetails = ({
   trackTitle,
@@ -33,33 +42,47 @@ const TrackPaymentDetails = ({
   );
 };
 
-const TotalPaymentComponent = ({ 
-  tracks, 
-  handleRemoveTrack, 
-  isAddPremium, 
-  genres, 
-  hitOrPro,
-  onInputChange,
-  accountName,
-  submitPayment,
-  shouldCreateToken,
-  handlePaymentFormError,
-  isSaveCardDetails,
-  paymentMethods,
-  selectedPaymentId,
-  handleDeleteSavedCard,
-  handleSavedCardSelect 
+const TotalPaymentComponent = ({
+  tracks,
+  handleRemoveTrack,
+  isAddPremium,
+  genres,
+  feedbackType,
+  selectedListeners
 }) => {
+  const getTotal = () => {
+    if (feedbackType === "PRO") {
+      return getTotalProPayment(selectedListeners);
+    }
+    return getTotalPayment(tracks, isAddPremium);
+  };
   return (
     <div className="totalPaymentContainer">
       <div className="totalPaymentHeader">{content.TOTAL_PAY_TEXT}</div>
       <div className="trackPaymentContainer">
-        {tracks.filter((t) => t.trackTitle.length > 0).map(t =>  <TrackPaymentDetails
-          trackTitle={t.trackTitle}
-          trackGenre={(t.genreId && (genres.find(g => g._id === t.genreId) || {}).name) || ""}
-          amount={t.selectedFeedback}
-          removePayment={() => handleRemoveTrack(t.index)}
-        />)}
+        {feedbackType !== "PRO" &&
+          tracks
+            .filter(t => t.trackTitle.length > 0)
+            .map(t => (
+              <TrackPaymentDetails
+                trackTitle={t.trackTitle}
+                trackGenre={
+                  (t.genreId &&
+                    (genres.find(g => g._id === t.genreId) || {}).name) ||
+                  ""
+                }
+                amount={t.selectedFeedback}
+                removePayment={() => handleRemoveTrack(t.index)}
+              />
+            ))}
+        {feedbackType === "PRO" &&
+          selectedListeners.map(l => (
+            <TrackPaymentDetails
+              trackTitle={l.display_name}
+              amount={parseInt(l.price)}
+              removePayment={() => {}}
+            />
+          ))}
         {isAddPremium && (
           <TrackPaymentDetails
             trackTitle="Premium subscription / 1 year"
@@ -69,42 +92,27 @@ const TotalPaymentComponent = ({
         )}
       </div>
       <div className="totalAmountContainer">
-        <div className="currency" style={hitOrPro === "pro" ? { color: "#49B97D" } : {}}>{content.CURRENCY}</div>
+        <div
+          className="currency"
+          style={feedbackType === "PRO" ? { color: "#49B97D" } : {}}
+        >
+          {content.CURRENCY}
+        </div>
         <div className="amountContainer">
-          <span className="amount" style={hitOrPro === "pro" ? { color: "#49B97D" } : {}}>
-            {tracks.reduce((total, track) => {
-              if (track.trackTitle.length > 0) {
-                return total + track.selectedFeedback;
-              }
-              return total;
-            }, 0) + (isAddPremium ? 99 : 0)}
+          <span
+            className="amount"
+            style={feedbackType === "PRO" ? { color: "#49B97D" } : {}}
+          >
+            {getTotal()}
           </span>
-          <span className="decimalPart" style={hitOrPro === "pro" ? { color: "#49B97D" } : {}}>.00</span>
+          <span
+            className="decimalPart"
+            style={feedbackType === "PRO" ? { color: "#49B97D" } : {}}
+          >
+            .00
+          </span>
         </div>
       </div>
-      {hitOrPro === "pro" && (
-        <React.Fragment>
-          <HearBKBalance />
-          {/* <PaymentForm
-            onInputChange={onInputChange}
-            accountName={accountName}
-            submitPayment={submitPayment}
-            shouldCreateToken={shouldCreateToken}
-            handlePaymentFormError={handlePaymentFormError}
-            isSaveCardDetails={isSaveCardDetails}
-            paymentMethods={paymentMethods}
-            selectedPaymentId={selectedPaymentId}
-            handleDeleteSavedCard={handleDeleteSavedCard}
-            handleSavedCardSelect={handleSavedCardSelect}
-          /> */}
-          <div className="proOrderButtonWrapper">
-            <Button 
-              className="launchButton"
-              buttonText={content.ORDER_NOW}
-            />
-          </div>
-        </React.Fragment>
-      )}
     </div>
   );
 };

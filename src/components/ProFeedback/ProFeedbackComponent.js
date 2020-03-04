@@ -2,26 +2,24 @@ import React from "react";
 import { StripeProvider, Elements } from "react-stripe-elements";
 import content from "./content";
 import "./styles.scss";
-import UploadTrackForm from "./UploadTrackForm";
-import { UpgradeToPremium, PremiumAccess } from "./UpgradeToPremium";
-import TotalPaymentComponent from "./TotalPayment";
-import PaymentForm from "./PaymentForm";
+import UploadTrackForm from "../OrderFeedback/UploadTrackForm";
+import TotalPaymentComponent from "../OrderFeedback/TotalPayment";
+import PaymentForm from "../OrderFeedback/PaymentForm";
 import Button from "../../common/Button";
 import PopUpComponent from "../PopUps/PopUpsComponent";
-import PromoCodeComponent from "./PromoComponent";
+import SelectedListeners from "./SelectedListeners";
 
-const OrderFeedbackComponent = ({
+const ProFeedbackComponent = ({
   tracks,
   accountName,
   genres,
-  promoCode,
   selectedPaymentId,
   handleDeleteSavedCard,
+  selectedListeners,
   handleSavedCardSelect,
   paymentMethods,
   isAddPremium,
   onInputChange,
-  isHyperTargeted,
   onSubmitFeedback,
   saveCardInformation,
   shouldCreateToken,
@@ -38,9 +36,8 @@ const OrderFeedbackComponent = ({
   handleRateTrackClick,
   handlePlaceNewOrderClick,
   closeSuccessPopUp,
-  isPremium,
-  hitOrPro,
-  setHitOrPro
+  onSelectListeners,
+  handleSelectedListeners
 }) => {
   return (
     <div className="orderFeedbackContainer">
@@ -79,66 +76,47 @@ const OrderFeedbackComponent = ({
             handleTrackChanges={handleTrackChanges}
             selectedFeedback={selectedFeedback}
             setAddGenre={setAddGenre}
-            selectedGenre={genres.find(g => g._id === genreId)}
+            selectedGenre={genres.find((g) => g._id === genreId)}
+            feedbackType="PRO"
           />
         )
       )}
-      {/* <div
-        className="addAnotherTrack"
-        role="button"
-        onClick={handleAddAnotherTrack}
-      >
-        {content.ADD_ANOTHER_TRACK}
-     </div>*/}
-      {!isPremium ? (
-        <UpgradeToPremium
-          onInputChange={onInputChange}
-          isAddPremium={isAddPremium}
-        />
-      ) : (
-        <PremiumAccess
-          onInputChange={onInputChange}
-          isHyperTargeted={isHyperTargeted}
-        />
-      )}
-      <React.Fragment>
-        <TotalPaymentComponent
-          handleRemoveTrack={handleRemoveTrack}
-          tracks={tracks}
-          isAddPremium={isAddPremium}
-          genres={genres}
-          hitOrPro={hitOrPro}
-        />
-        <PromoCodeComponent
-          onInputChange={onInputChange}
-          promoCode={promoCode}
-        />
-        <StripeProvider apiKey="pk_live_WxDWmJ53hswHLIAYQx3Xc15B">
-          <Elements>
-            <PaymentForm
-              onInputChange={onInputChange}
-              accountName={accountName}
-              submitPayment={saveCardInformation}
-              shouldCreateToken={shouldCreateToken}
-              handlePaymentFormError={handlePaymentFormError}
-              isSaveCardDetails={isSaveCardDetails}
-              paymentMethods={paymentMethods}
-              selectedPaymentId={selectedPaymentId}
-              handleDeleteSavedCard={handleDeleteSavedCard}
-              handleSavedCardSelect={handleSavedCardSelect}
-            />
-          </Elements>
-        </StripeProvider>
-        <div className="orderButtonWrapper">
-          <Button
-            className="launchButton"
-            buttonText={content.ORDER_NOW_BUTTON}
-            onClick={onSubmitFeedback}
-            disabled={!isPaymentFormReady}
+
+        <SelectedListeners onSelectListeners={onSelectListeners} listeners={selectedListeners} handleListenerSelect={handleSelectedListeners} />
+        <div className="proContainer">
+          <TotalPaymentComponent
+            handleRemoveTrack={handleRemoveTrack}
+            tracks={tracks}
+            isAddPremium={isAddPremium}
+            genres={genres}
+            feedbackType="PRO"
+            selectedListeners={selectedListeners}
           />
+          <StripeProvider apiKey="pk_test_HhCQqzIxD2wH7EXferZHg18W">
+            <Elements>
+              <PaymentForm
+                onInputChange={onInputChange}
+                accountName={accountName}
+                submitPayment={saveCardInformation}
+                shouldCreateToken={shouldCreateToken}
+                handlePaymentFormError={handlePaymentFormError}
+                isSaveCardDetails={isSaveCardDetails}
+                paymentMethods={paymentMethods}
+                selectedPaymentId={selectedPaymentId}
+                handleDeleteSavedCard={handleDeleteSavedCard}
+                handleSavedCardSelect={handleSavedCardSelect}
+              />
+            </Elements>
+          </StripeProvider>
+      <div className="orderButtonWrapper">
+        <Button
+          className="launchButton"
+          buttonText={content.ORDER_NOW_BUTTON}
+          onClick={onSubmitFeedback}
+          disabled={!isPaymentFormReady}
+        />
+      </div>
         </div>
-      </React.Fragment>
-      )}
       {isProcessing && (
         <PopUpComponent name="orderProcessing" hasCloseIcon={false} />
       )}
@@ -147,7 +125,7 @@ const OrderFeedbackComponent = ({
           name="success"
           handlers={{
             rateTrackClick: handleRateTrackClick,
-            placeNewOrderClick: handlePlaceNewOrderClick
+            placeNewOrderClick: handlePlaceNewOrderClick,
           }}
           closeClick={closeSuccessPopUp}
         />
@@ -156,4 +134,4 @@ const OrderFeedbackComponent = ({
   );
 };
 
-export default OrderFeedbackComponent;
+export default ProFeedbackComponent;

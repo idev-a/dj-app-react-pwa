@@ -6,6 +6,7 @@ import LandingPage from "./containers/LandingPage";
 import AuthContainer from "./containers/Auth/AuthContainer";
 import Discover from "./containers/Discover";
 import OrderFeedbackContainer from "./containers/OrderFeedback";
+import ProFeedbackContainer from "./containers/ProFeeback";
 import ListenerPreferencesContainer from "./containers/ListenerPreferences";
 import SettingsContainer from "./containers/Settings";
 import OrderFeedbackHistoryContainer from "./containers/OrderFeedbackHistory";
@@ -13,6 +14,7 @@ import SearchContainer from "./containers/Search";
 import FooterNav from "./components/FooterNav";
 import { getTokenDetails } from "./state/actions/userActions";
 import MenuComponent from "./components/Menu";
+import OrderFeedbackStartComponent from "./components/OrderFeedbackStart";
 
 export const MenuHandlerContext = React.createContext();
 
@@ -35,7 +37,17 @@ export default props => {
           <Route path="/discover" component={withValidToken(Discover)} exact />
           <Route
             path="/feedback"
+            component={withValidToken(OrderFeedbackStartComponent)}
+            exact
+          />
+          <Route
+            path="/hit-feedback"
             component={withValidToken(OrderFeedbackContainer)}
+            exact
+          />
+           <Route
+            path="/pro-feedback"
+            component={withValidToken(ProFeedbackContainer)}
             exact
           />
           <Route
@@ -64,12 +76,20 @@ export default props => {
 const withValidToken = WrappedComponent => {
   return class extends React.Component {
     async componentDidMount() {
+      window.scrollTo(0,0);
       const response = await getTokenDetails();
       if (!response.ok) {
         localStorage.removeItem("x-access-token");
         localStorage.removeItem("isPremiumUser");
         localStorage.removeItem("isFirstUserLogin");
         this.props.history && this.props.history.push("/signin");
+      }
+    }
+    componentDidUpdate(prevProps) {
+      if (
+        this.props.location.pathname !== prevProps.location.pathname
+      ) {
+        window.scrollTo(0, 0);
       }
     }
     render() {
