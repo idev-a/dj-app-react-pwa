@@ -144,7 +144,13 @@ export const getUserDetails = () => dispatch =>
     method: "GET",
     headers: authHeaders()
   })
-    .then(res => res.json())
+    .then(res => {
+      if (res.ok) {
+        return res.json();
+      }
+      console.log(res);
+      toast.error("Failed to fetch user details");
+    })
     .then(requestData => {
       dispatch({
         type: GET_USER_DETAILS_SUCCESS,
@@ -176,7 +182,7 @@ export const getPaymentMethods = () => dispatch =>
     headers: authHeaders()
   })
     .then(res => {
-      if(res.ok) {
+      if (res.ok) {
         return res.json();
       }
     })
@@ -208,5 +214,5 @@ export const getTokenDetails = token =>
 export const cancelUserPremiumSubscription = () =>
   fetch(`${api}${deleteSubscriptionURI}`, {
     method: "DELETE",
-    headers: authHeaders(),
+    headers: authHeaders()
   });

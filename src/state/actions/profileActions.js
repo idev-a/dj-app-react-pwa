@@ -4,7 +4,7 @@ import api, { authHeaders } from "../../config";
 export const GET_USER_PROFILE_SUCCESS = "GET_USER_PROFILE_SUCCESS";
 
 export const getUserProfile = (userName) => dispatch => 
-  fetch(`${api}/users/${userName}`, {
+  fetch(`${api}/users/profile/${userName}`, {
     method: "GET",
     headers: authHeaders()
   }).then(res => {
