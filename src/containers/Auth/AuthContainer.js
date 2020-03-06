@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import Login from "../Login";
 import SignUp from "../SignUp";
 import HearBKHeader from "../../common/HearBKHeader";
@@ -8,23 +8,38 @@ import HearBKIcon from "../../common/HearBKIcon";
 import { Link } from "react-router-dom";
 import ForgotPasswordContainer from "../ForgotPassword";
 
-const AuthContainer = (props) => {
+const AuthContainer = props => {
   const [selectedTabIndex, setSelectedTabIndex] = useState(0);
   const [isForgotPassword, setIsForgotPassword] = useState(false);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const renderComponent = useCallback(() => {
     return selectedTabIndex === 1 ? (
-      <SignUp {...props} handleSuccess={() => setSelectedTabIndex(0)}/>
+      <SignUp {...props} handleSuccess={() => setSelectedTabIndex(0)} />
     ) : (
-      <Login {...props} isForgotPassword={isForgotPassword} setIsForgotPassword={setIsForgotPassword} />
+      <Login
+        {...props}
+        isForgotPassword={isForgotPassword}
+        setIsForgotPassword={setIsForgotPassword}
+      />
     );
-  }, [selectedTabIndex, props]);
+  }, [selectedTabIndex, props, isForgotPassword]);
 
-  const handleTabChange = (index) => setSelectedTabIndex(index);
+  const handleTabChange = index => setSelectedTabIndex(index);
 
-  const handleInputChange = () => {}
+  const handleInputChange = () => {};
 
   return (
-    <div style={isForgotPassword ? { height: "100vh", overflow: "hidden" } : { width: "100%" }}>
+    <div
+      style={
+        isForgotPassword
+          ? { height: "100vh", overflow: "hidden" }
+          : { width: "100%" }
+      }
+    >
       <Link to="/">
         <HearBKHeader />
       </Link>
@@ -37,9 +52,9 @@ const AuthContainer = (props) => {
         <HearBKIcon />
       </div>
       {isForgotPassword && (
-        <ForgotPasswordContainer 
-          isForgotPassword={isForgotPassword} 
-          setIsForgotPassword={setIsForgotPassword} 
+        <ForgotPasswordContainer
+          isForgotPassword={isForgotPassword}
+          setIsForgotPassword={setIsForgotPassword}
           onInputChange={handleInputChange}
         />
       )}

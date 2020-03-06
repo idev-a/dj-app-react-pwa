@@ -1,0 +1,288 @@
+@import "../../scss/common.styles.scss";
+@import "../Settings/Settings.styles.scss";
+
+.profileContainer {
+    @extend .componentContainer;
+    position: relative;
+    width: 100%;
+    background: $main-5;
+    .largeHeaderBackground {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 375px;
+        background: url("../../assets/img/profile/profile_background.png") 0% 0% / contain no-repeat;
+        z-index: 2;
+    }
+    .headerBackgroundColor {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 205px;
+        background: $main-9;
+        z-index: 1;
+    }
+    .headerContainer {
+        position: relative;
+        height: 205px;
+        background: transparent;
+        color: $main-1;
+        text-align: center;
+        z-index: 5;
+        .menuIcon {
+            position: absolute;
+            height: $font-size-xxl;
+            width: $font-size-xxl;
+            left: 17px;
+            top: 30px;
+        }
+        .editButton {
+            position: absolute;
+            right: 25px;
+            top: 38px;
+            color: $color-2;
+            font-size: $font-size-normal;
+        }
+        .headerTitleContainer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 40px;
+            .headerTitle {
+                font-size: $font-size-l;
+                font-weight: 700;
+            }
+            .headerIcon {
+                width: 12px;
+                height: 12px;
+                margin-left: 8px;
+            }
+        }
+        .headerTag {
+            color: $color-2;
+            margin-top: 1px;
+        }
+        .profilePicContainer {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 190px;
+            height: 190px;
+            margin: 14px auto 7px auto;
+            background: linear-gradient(217deg, $main-5, $main-3);
+            border-radius: 50%;
+            .pictureEditButton {
+                position: absolute;
+                left: 143px;
+                top: 7px;
+                padding: 7px 9px;
+                background: $main-1;
+                color: $color-2;
+                font-size: $font-size-normal;
+                border-radius: 40px;
+                box-shadow: #00000029 0 3px 6px;
+                z-index: 100;
+            }
+            .shareButton {
+                position: absolute;
+                width: 20px;
+                height: 20px;
+                right: -10px;
+                top: 3px;
+            }
+            .profilePicIcon {
+                width: 186px;
+                height: 186px;
+                border-radius: 50%;
+            }
+        }
+        .ratingStarIconContainer {
+            display: flex;
+            justify-content: center;
+            margin-top: -5px;
+            .ratingStar {
+                width: 25px;
+                height: 25px;
+            }
+        }
+        .ratingContainer {
+            margin-top: -3.5px;
+            color: $color-2;
+            font-size: $font-size-small - 1;
+        }
+    }
+    .bodyContainer {
+        margin-top: 124px;
+        padding: 26px 26px 0 26px;
+        .statisticsRow {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-bottom: 1px solid #6b798c1a;
+            .statisticsCol {
+                width: 67px;
+                text-align: center;
+                .statisticsLabel {
+                    color: $color-2;
+                    font-size: $font-size-xs;
+                    font-weight: 700;
+                }
+                .statistic {
+                    padding: 10px 0 3.5px 0;
+                    font-size: $font-size-xxl;
+                    font-weight: 700;
+                    letter-spacing: 1.2px;
+                }
+            }
+            .buttonContainer {
+                position: relative;
+                display: flex;
+                width: 99px;
+                height: 23px;
+                margin: 0 33px;
+                border: 1px solid $main-2;
+                border-radius: 30px;
+                .statusIcon {
+                    position: absolute;
+                    left: 16px;
+                    top: 6px;
+                    width: 10.22px;
+                    height: 10.22px;
+                }
+                .statusButton {
+                    width: 100%;
+                    height: 100%;
+                    padding-left: 15px;
+                    background: transparent;
+                    color: $color-4;
+                    font-size: $font-size-xs - 1;
+                    font-weight: 600;
+                    border-radius: 30px;
+                    letter-spacing: .45px;
+                }
+            }
+        }
+        .mainButtonRow {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 27.5px;
+            .mainButtonContainer {
+                position: relative;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 156px;
+                height: 50px;
+                background: linear-gradient(64deg, $main-3, $main-8);
+                box-shadow: #00000029 0 3px 6px;
+                .mainButtonIcon {
+                    position: absolute;
+                    width: 20px;
+                    height: 20px;
+                    left: 23px;
+                }
+                .mainButton {
+                    width: 152px;
+                    height: 46px;
+                    padding: 0 0 0 46px;
+                    background: $main-5;
+                    color: $main-2;
+                    font-size: $font-size-small;
+                    font-weight: 600;
+                    letter-spacing: 1.2px;
+                    text-align: left;
+                    border: none;
+                }
+                .transparentButton {
+                    @extend .mainButton;
+                    padding: 0 0 0 50px;
+                    background: transparent;
+                    color: $main-1;
+                    font-weight: 500;
+                }
+            }
+        }
+        .waitlistContainer {
+            margin-top: 39px;
+            .waitlistStatusContainer {
+                height: 69px;
+                color: $main-2;
+                font-size: $font-size-normal;
+                text-align: center;
+            }
+            .undoWaitlistButton {
+                color: $main-2;
+                font-size: $font-size-normal;
+                text-decoration: underline;
+            }
+            .waitlistIcon {
+                width: 100%;
+                height: 60px;
+                box-shadow: #00000029 0 3px 6px;
+            }
+            .joinWaitlistIcon {
+                width: 100%;
+                height: 60px;
+            }
+            .connectButton {
+                width: 100%;
+                height: 60px;
+                box-shadow: #00000029 0 3px 6px;
+                background-color: $color-1;
+                color: $main-1;
+                font-weight: 700;
+                font-size: $font-size-normal;
+            }
+        }
+    }
+    .largeFormContainer {
+        @extend .settingsContainer;
+        width: initial;
+        height: initial;
+        background: initial;
+        border: none;
+        overflow: initial;
+        .formContainer {
+            margin: 10px 0 18px 0;
+            color: $main-1;
+            background: $main-9;
+            .formHeaderContainer {
+                .expandIcon {
+                    color: $color-3;
+                }
+            }
+            .formInputContainer {
+                position: relative;
+                .addCircleGreenIcon {
+                    position: absolute;
+                    width: 26px;
+                    height: 26px;
+                    right: -5px;
+                    top: -5px;
+                }
+                .formInputLabel {
+                    color: $main-1;
+                }
+                .formInputField {
+                    margin-top: 0;
+                    margin-bottom: 13.5px;
+                    padding: 15.5px 0 15.5px 0;
+                    color: $main-1;
+                    border-bottom: 1px solid #ffffff33;
+                }
+                #sendMe {
+                    padding: 6px 0 15.5px 0;
+                }
+            }
+        }
+    }
+    .profileHearBKFooter {
+        @extend .hearBKFooter;
+        .hearBKIcon {
+            margin-right: 10px;
+        }
+    }
+}

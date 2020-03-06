@@ -43,14 +43,11 @@ const ProFeedbackContainer = ({
   getTagsDispatchAction
 }) => {
   const [shouldCreateToken, setShouldCreateToken] = useState(false);
-  const [isPremium, setIsPremium] = useState(
-    !!localStorage.getItem("isPremiumUser")
-  );
   const [isProcessing, setIsProcessing] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [selectedPaymentId, setSelectedPaymentId] = useState(undefined);
   const [showListenersSelection, setShowListenersSelection] = useState(false);
-  const [selectedListeners, setSelectedListeners] = useState([]);
+  const [selectedListeners, setSelectedListeners] = useState([history.location.state]);
   const [searchValue, setSearchValue] = useState("");
   useEffect(() => {
     if (!localStorage.getItem("x-access-token")) {

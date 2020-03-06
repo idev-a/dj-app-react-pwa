@@ -1,0 +1,16 @@
+@import "../../Settings/Settings.styles.scss";
+
+.formBodyContainer {
+    margin-bottom: 14px;
+}
+.favoritesContainer {
+    padding: 21.5px 0;
+    border-bottom: 1px solid #ffffff33;
+    .favorites {
+        padding: 7px 14px;
+        background: $color-9;
+        font-size: $font-size-xs;
+        border-radius: 30px;
+        letter-spacing: .5px;
+    }
+}

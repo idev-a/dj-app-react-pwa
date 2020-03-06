@@ -1,0 +1,15 @@
+@import "../Favorites/styles.scss";
+
+.rolesContainer {
+    @extend .favoritesContainer;
+    margin-bottom: 13.5px;
+    .roles {
+        @extend .favorites;
+        background: $main-5;
+        color: $color-9;
+    }
+}
+.disabledRolesContainer {
+    @extend .rolesContainer;
+    pointer-events: none;
+}

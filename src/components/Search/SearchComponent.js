@@ -13,7 +13,6 @@ const SearchComponent = ({
   data,
   searchResults
 }) => {
-  console.log(data);
   return (
     <div className="searchComponentContainer">
       <header className="searchComponentHeader">

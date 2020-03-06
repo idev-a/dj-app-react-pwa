@@ -13,6 +13,7 @@ import OrderFeedbackHistoryContainer from "./containers/OrderFeedbackHistory";
 import SearchContainer from "./containers/Search";
 import FooterNav from "./components/FooterNav";
 import { getTokenDetails } from "./state/actions/userActions";
+import ProfileContainer from "./containers/Profile";
 import MenuComponent from "./components/Menu";
 import OrderFeedbackStartComponent from "./components/OrderFeedbackStart";
 
@@ -45,7 +46,7 @@ export default props => {
             component={withValidToken(OrderFeedbackContainer)}
             exact
           />
-           <Route
+          <Route
             path="/pro-feedback"
             component={withValidToken(ProFeedbackContainer)}
             exact
@@ -65,7 +66,16 @@ export default props => {
             component={withValidToken(OrderFeedbackHistoryContainer)}
             exact
           />
-          <Route path="/search" component={SearchContainer} exact />
+          <Route
+            path="/profile/:username"
+            component={withValidToken(ProfileContainer)}
+            exact
+          />
+          <Route
+            path="/search"
+            component={withValidToken(SearchContainer)}
+            exact
+          />
         </Switch>
       </MenuHandlerContext.Provider>
       <FooterNav />
@@ -76,7 +86,7 @@ export default props => {
 const withValidToken = WrappedComponent => {
   return class extends React.Component {
     async componentDidMount() {
-      window.scrollTo(0,0);
+      window.scrollTo(0, 0);
       const response = await getTokenDetails();
       if (!response.ok) {
         localStorage.removeItem("x-access-token");
@@ -86,9 +96,7 @@ const withValidToken = WrappedComponent => {
       }
     }
     componentDidUpdate(prevProps) {
-      if (
-        this.props.location.pathname !== prevProps.location.pathname
-      ) {
+      if (this.props.location.pathname !== prevProps.location.pathname) {
         window.scrollTo(0, 0);
       }
     }

@@ -1,0 +1,4 @@
+export default {
+    LOCATION: `LOCATION`,
+    CURRENT_LOCATION: `CURRENT LOCATION`,
+};

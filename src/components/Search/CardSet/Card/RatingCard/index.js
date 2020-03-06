@@ -1,9 +1,15 @@
 import React from "react";
 import "./styles.scss";
 import IconComponent from "../../../../../common/IconComponent";
+import { useHistory } from "react-router-dom";
 const RatingCard = ({ listener }) => {
+  const history = useHistory();
   return (
-    <li className="userLis">
+    <li
+      className="userLis"
+      role="button"
+      onClick={() => history.push(`/profile/${listener.user_name}`)}
+    >
       {listener.profile_image ? (
         <img className="profilePic" src={listener.profile_image} alt="" />
       ) : (
