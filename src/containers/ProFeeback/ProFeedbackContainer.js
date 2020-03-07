@@ -47,7 +47,9 @@ const ProFeedbackContainer = ({
   const [isSuccess, setIsSuccess] = useState(false);
   const [selectedPaymentId, setSelectedPaymentId] = useState(undefined);
   const [showListenersSelection, setShowListenersSelection] = useState(false);
-  const [selectedListeners, setSelectedListeners] = useState([history.location.state]);
+  const [selectedListeners, setSelectedListeners] = useState(
+    history.location.state ? [history.location.state] : []
+  );
   const [searchValue, setSearchValue] = useState("");
   useEffect(() => {
     if (!localStorage.getItem("x-access-token")) {
