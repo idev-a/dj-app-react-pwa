@@ -143,7 +143,10 @@ const ProFeedbackContainer = ({
         amount: getTotalAmount(),
         currency: "USD",
         paymentToken: cardInfo.id,
-        listeners: selectedListeners.map(l => l._id),
+        listeners: selectedListeners.map(l => ({
+          id: l._id,
+          price: parseInt(l.price)
+        })),
         ...(cardInfo &&
           cardInfo.paymentFromSavedCard && { paymentFromSaveCard: true })
       };

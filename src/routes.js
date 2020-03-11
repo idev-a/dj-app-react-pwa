@@ -10,8 +10,9 @@ import ProFeedbackContainer from "./containers/ProFeeback";
 import ListenerPreferencesContainer from "./containers/ListenerPreferences";
 import SettingsContainer from "./containers/Settings";
 import OrderFeedbackHistoryContainer from "./containers/OrderFeedbackHistory";
-import SearchContainer from "./containers/Search";
+import GiveProFeedbackContainer from "./containers/GiveProFeedback";
 import FooterNav from "./components/FooterNav";
+import SearchContainer from "./containers/Search";
 import { getTokenDetails } from "./state/actions/userActions";
 import ProfileContainer from "./containers/Profile";
 import MenuComponent from "./components/Menu";
@@ -66,6 +67,7 @@ export default props => {
             component={withValidToken(OrderFeedbackHistoryContainer)}
             exact
           />
+          <Route path="/give" component={(GiveProFeedbackContainer)} exact />
           <Route
             path="/profile/:username"
             component={withValidToken(ProfileContainer)}

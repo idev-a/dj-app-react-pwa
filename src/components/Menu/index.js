@@ -51,12 +51,9 @@ const MenuComponent = ({
                         <Link to="/preferences" className="menuLinks" onClick={handleClickMenuToggle}>
                             {content.MENU_MORE_1}
                         </Link>
-                        {/* <Link to="" className="menuLinks">
+                        <Link to="/give" className="menuLinks" onClick={handleClickMenuToggle}>
                             {content.MENU_MORE_2}
                         </Link>
-                        <Link to="" className="menuLinks">
-                            {content.MENU_MORE_3}
-                        </Link> */}
                     </ul>
                 </div>
                 <div className="buttonWrapper">

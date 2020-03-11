@@ -35,10 +35,17 @@ export const addAnotherTrack = () => ({ type: ADD_ANOTHER_TRACK });
 
 export const removeTrack = index => ({ type: REMOVE_TRACK, payload: index });
 
-export const uploadAudioFileToIPFS = (formData, feedbackId) =>
-  fetch(`${api}${uploadTrackURI}${feedbackId}`, {
-    method: "POST",
-    body: formData
-  });
+export const uploadAudioFileToIPFS = (
+  formData,
+  feedbackId,
+  isProFeedback = false
+) =>
+  fetch(
+    `${api}${uploadTrackURI}${feedbackId}${isProFeedback ? "?type=PRO" : ""}`,
+    {
+      method: "POST",
+      body: formData
+    }
+  );
 
 export const resetState = () => ({ type: RESET_STATE });

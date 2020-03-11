@@ -68,15 +68,15 @@ const DiscoverComponent = ({
       <div className={`songCardContainer ${cardMoveStyle}`}>
         <Icon className="bookmarkIcon" iconName="bookmark1" />
         <div className="profilePicIconContainer">
-        {profile_image ? (
-          <img
-            alt="profileImg"
-            className="profilePicIcon"
-            src={profile_image}
-          />
-        ) : (
-          <Icon className="defaultProfilePicIcon" iconName="default_pro_pic_icon" />
-        )}
+          {profile_image ? (
+            <img
+              alt="profileImg"
+              className="profilePicIcon"
+              src={profile_image}
+            />
+          ) : (
+            <Icon className="defaultProfilePicIcon" iconName="default_pro_pic_icon" />
+          )}
         </div>
         <div className="artistTagContainer">{display_name}</div>
         <div className="songContainer">
@@ -117,7 +117,7 @@ const DiscoverComponent = ({
         </div>
       </div>
     );
-  }, [track, cardMoveStyle, handleButtonClick, setIsSelected]);
+  }, [track, cardMoveStyle, isSelected, handleButtonClick]);
 
   return (
     <div className="discoverComponentContainer">

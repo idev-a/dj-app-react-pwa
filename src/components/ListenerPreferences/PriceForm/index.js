@@ -52,6 +52,7 @@ const PriceContainerComponent = ({
           <span className="sendMeTitleB">{content.SEND_ME_TITLE_B}</span>
         </div>
         <TextAreaField
+          rows="8"
           id="headline"
           className="formInputField"
           value={sendMe}
@@ -65,6 +66,7 @@ const PriceContainerComponent = ({
           {content.DESCRIBE_YOURSELF_TITLE}
         </div>
         <TextAreaField
+          rows="8"
           id="bio"
           className="formInputField"
           value={describeSelf}

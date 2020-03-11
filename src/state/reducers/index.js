@@ -5,6 +5,7 @@ import preferencesReducer from "./preferencesReducer";
 import discoverReducer from "./discoverReducer";
 import searchReducer from "./searchReducer";
 import profileReducer from "./profileReducer";
+import rateProFeedbackReducer from "./rateProFeedbackReducer";
 
 export default combineReducers({
   userDetails: userReducer,
@@ -13,4 +14,5 @@ export default combineReducers({
   discover: discoverReducer,
   search: searchReducer,
   profile: profileReducer,
+  proFeedback: rateProFeedbackReducer
 });

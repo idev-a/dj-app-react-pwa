@@ -4,6 +4,7 @@ import { Input } from "antd";
 const { TextArea } = Input;
 
 const TextAreaField = ({
+  rows,
   id,
   className,
   placeholder,
@@ -25,7 +26,7 @@ const TextAreaField = ({
   }
   return (
     <TextArea 
-      rows="8"
+      rows={rows}
       id={id}
       className={className}
       style={style}
