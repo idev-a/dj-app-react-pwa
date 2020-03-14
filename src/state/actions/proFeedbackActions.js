@@ -5,6 +5,7 @@ export const GET_PRO_FEEDBACK_TRACKS_SUCCESS =
   "GET_PRO_FEEDBACK_TRACKS_SUCCESS";
 
 const getProFeedbackTrackURI = "/pro-feedback/tracks";
+const postListenerRatingsURI = "/listeners/ratings";
 
 export const getProFeedbackTracks = () => dispatch =>
   fetch(`${api}${getProFeedbackTrackURI}`, {
@@ -23,3 +24,16 @@ export const getProFeedbackTracks = () => dispatch =>
         payload: data
       })
     );
+
+export const postListenerRating = payload => dispatch =>
+  fetch(`${api}${postListenerRatingsURI}`, {
+    method: "POST",
+    headers: authHeaders(),
+    body: JSON.stringify(payload)
+  }).then(response => {
+    if (response.ok) {
+      toast.success("Submitted successfully !!");
+    } else {
+      toast.error("Failed to submit feedback !!");
+    }
+  });

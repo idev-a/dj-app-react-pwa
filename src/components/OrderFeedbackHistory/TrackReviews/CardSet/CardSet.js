@@ -1,26 +1,24 @@
-import React from 'react';
+import React from "react";
 import Card from "./Card/Card";
 
-const CardSet = ({ 
-    isOpen, 
-    setExpandToggle, 
-    data 
+const CardSet = ({
+  isOpen,
+  setExpandToggle,
+  data,
+  handleTrackReviewFeedback
 }) => {
-    const cardArray = data.trackStats.map((cardData, i) => {
-        return (
-            <Card 
-                id={i}
-                isOpen={isOpen}
-                setExpandToggle={setExpandToggle}
-                cardData={cardData}
-                key={i}
-            />
-        )
-    })
-    
+  const cardArray = data?.trackRatings?.map((cardData, i) => {
     return (
-        cardArray
+      <Card
+        id={i}
+        cardData={cardData}
+        key={i}
+        handleTrackReviewFeedback={handleTrackReviewFeedback}
+      />
     );
+  });
+
+  return cardArray;
 };
 
 export default CardSet;
