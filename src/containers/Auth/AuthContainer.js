@@ -6,7 +6,6 @@ import AuthTabsComponent from "../../components/AuthTabsComponent";
 import "./Auth.styles.scss";
 import HearBKIcon from "../../common/HearBKIcon";
 import { Link } from "react-router-dom";
-import ForgotPasswordContainer from "../ForgotPassword";
 
 const AuthContainer = props => {
   const [selectedTabIndex, setSelectedTabIndex] = useState(0);
@@ -51,13 +50,6 @@ const AuthContainer = props => {
       <div className="authHearBKFooter">
         <HearBKIcon />
       </div>
-      {isForgotPassword && (
-        <ForgotPasswordContainer
-          isForgotPassword={isForgotPassword}
-          setIsForgotPassword={setIsForgotPassword}
-          onInputChange={handleInputChange}
-        />
-      )}
     </div>
   );
 };

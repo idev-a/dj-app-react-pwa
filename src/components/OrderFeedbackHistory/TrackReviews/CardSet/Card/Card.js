@@ -12,7 +12,6 @@ import { ENUMS } from "../../../../../utils";
 const Card = ({ cardData, handleTrackReviewFeedback }) => {
   const [headerIsOpen, setHeaderIsOpen] = useState(false);
   const [bodyIsOpen, setBodyIsOpen] = useState(false);
-  const [isSubmitted, setIsSubmitted] = useState(false);
   const [responseTimeRating, setResponseTimeRaing] = useState(
     cardData?.ratings?.responseTime || 0
   );

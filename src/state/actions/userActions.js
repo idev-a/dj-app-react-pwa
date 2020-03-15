@@ -11,6 +11,8 @@ const uploadDisplayPicURI = "/users/upload/profile-image";
 const getPaymentMethodURI = "/users/paymentMethods";
 const getTokenDetailsURI = "/users/token";
 const deleteSubscriptionURI = "/users/subscription";
+const forgotPasswordURI = "/users/forgot-password";
+const resetPasswordURI = "/users/reset-password";
 
 export const REGISTER_USER_SUCCESS = "REGISTER_USER_SUCCESS";
 export const REGISTER_USER_FAILURE = "REGISTER_USER_FAILURE";
@@ -215,4 +217,16 @@ export const cancelUserPremiumSubscription = () =>
   fetch(`${api}${deleteSubscriptionURI}`, {
     method: "DELETE",
     headers: authHeaders()
+  });
+
+export const forgotPassword = email =>
+  fetch(`${api}${forgotPasswordURI}?email=${email}`, {
+    method: "POST"
+  });
+
+export const resetPassword = payload =>
+  fetch(`${api}${resetPasswordURI}`, {
+    method: "POST",
+    headers: genericHeaders(),
+    body: JSON.stringify(payload)
   });

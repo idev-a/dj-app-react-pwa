@@ -17,6 +17,8 @@ import { getTokenDetails } from "./state/actions/userActions";
 import ProfileContainer from "./containers/Profile";
 import MenuComponent from "./components/Menu";
 import OrderFeedbackStartComponent from "./components/OrderFeedbackStart";
+import ForgotPasswordContainer from "./containers/ForgotPassword/ForgotPasswordContainer";
+import ResetPasswordContainer from "./containers/ResetPassword/ResetPasswordContainer";
 
 export const MenuHandlerContext = React.createContext();
 
@@ -36,6 +38,16 @@ export default props => {
         <Switch>
           <Route path="/" component={LandingPage} exact />
           <Route path="/signin" component={AuthContainer} exact />
+          <Route
+            path="/forgot-password"
+            component={ForgotPasswordContainer}
+            exact
+          />
+          <Route
+            path="/reset"
+            component={ResetPasswordContainer}
+            exact
+          />
           <Route path="/discover" component={withValidToken(Discover)} exact />
           <Route
             path="/feedback"
@@ -67,7 +79,11 @@ export default props => {
             component={withValidToken(OrderFeedbackHistoryContainer)}
             exact
           />
-          <Route path="/give" component={(GiveProFeedbackContainer)} exact />
+          <Route
+            path="/give"
+            component={withValidToken(GiveProFeedbackContainer)}
+            exact
+          />
           <Route
             path="/profile/:username"
             component={withValidToken(ProfileContainer)}

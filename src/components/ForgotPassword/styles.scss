@@ -1,73 +1,56 @@
 @import "../../scss/common.styles.scss";
 
 .forgotPasswordContainer {
-    @extend .componentContainer;
-    position: fixed;
-    width: 100%;
-    height: calc(100vh - 86px);
-    left: 0;
-    top: 86px;
-    padding: 25px;
-    background: $main-9;
-    box-sizing: border-box;
-    .backgroundIcon {
-        position: absolute;
-        width: 678px;
-        height: 375px;
-        left: -140px;
-        bottom: -60px;
-        opacity: 0.57;
-        z-index: 0;
+  @extend .componentContainer;
+  position: fixed;
+  width: 100%;
+  height: calc(100vh - 86px);
+  left: 0;
+  top: 86px;
+  padding: 25px;
+  background: $main-9;
+  box-sizing: border-box;
+  .backgroundIcon {
+    position: absolute;
+    width: 678px;
+    height: 375px;
+    left: -140px;
+    bottom: -60px;
+    opacity: 0.57;
+    z-index: 0;
+  }
+  .cancelIcon {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    right: 17px;
+    top: 17px;
+    z-index: 100;
+  }
+  .helpIcon {
+    position: absolute;
+    width: 47px;
+    height: 47px;
+    left: 25px;
+    top: 81px;
+  }
+  .contentContainer {
+    z-index: 5;
+    .forgotPasswordHeader {
+      margin-top: 137px;
+      color: $main-1;
+      font-size: $font-size-xxl;
+      font-weight: 700;
+      p {
+        font-size: $font-size-l;
+        font-weight: 300;
+      }
     }
-    .cancelIcon {
-        position: absolute;
-        width: 24px;
-        height: 24px;
-        right: 17px;
-        top: 17px;
-        z-index: 100;
-    }
-    .helpIcon {
-        position: absolute;
-        width: 47px;
-        height: 47px;
-        left: 25px;
-        top: 81px;
-    }
-    .contentContainer {
-        z-index: 5;
-        .forgotPasswordHeader {
-            margin-top: 137px;
-            color: $main-1;
-            font-size: $font-size-xxl;
-            font-weight: 700;
-            p {
-                font-size: $font-size-l;
-                font-weight: 300;
-            }
-        }
-        .inputContainer {
-            display: flex;
-            justify-content: center;
-            margin: 43px auto 0 auto;
-            background: $main-1;
-            border: 1px solid $main-6;
-            .inputField {
-                width: 100%;
-                max-width: 290px;
-                margin-bottom: 0;
-                font-size: $font-size-small - 1;
-            }
-            .inputField::placeholder {
-                letter-spacing: 1.1px;
-                opacity: .4;
-            }
-        }
-        .buttonContainer {
-            .launchButton {
-                margin-top: 10px;
-                width: 100%;
-            }
-        }
-    }
-} 
+  }
+}
+
+.forgotPassInputField {
+  @extend .inputField;
+  color: $main-1;
+  width: 22em;
+}
