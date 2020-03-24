@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { StripeProvider, Elements } from "react-stripe-elements";
 import content from "./content";
 import "./styles.scss";
@@ -9,6 +9,7 @@ import PaymentForm from "./PaymentForm";
 import Button from "../../common/Button";
 import PopUpComponent from "../PopUps/PopUpsComponent";
 import PromoCodeComponent from "./PromoComponent";
+import { MenuHandlerContext } from "../../routes";
 
 const OrderFeedbackComponent = ({
   tracks,
@@ -42,9 +43,16 @@ const OrderFeedbackComponent = ({
   hitOrPro,
   setHitOrPro
 }) => {
+  const handleMenuClick = useContext(MenuHandlerContext);
   return (
     <div className="orderFeedbackContainer">
       <header className="orderFeedbackHeader">
+      <Button
+          isIcon
+          className="menuIcon"
+          iconName="menu"
+          onClick={handleMenuClick}
+        />
         <Button
           isIcon
           iconName="HearBKSilverLogo"

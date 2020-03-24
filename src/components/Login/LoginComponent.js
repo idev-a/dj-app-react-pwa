@@ -19,7 +19,7 @@ const LoginComponent = ({
     <div className="loginContainer">
       <div className="loginLabel">{content.LOGIN_LABEL}</div>
       <div className="loginText">{content.LOGIN_TEXT}</div>
-      <div className="inputContainer">
+      <div className="loginInputContainer">
         <InputField
           id="email"
           onChange={onInputChange}

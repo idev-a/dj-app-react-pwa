@@ -52,3 +52,8 @@
     }
   }
 }
+
+.loginInputContainer {
+  @extend .inputContainer;
+  align-items: flex-start;
+}
