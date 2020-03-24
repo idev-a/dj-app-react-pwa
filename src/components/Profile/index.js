@@ -35,7 +35,7 @@ const Profile = ({ profileDetails, userName, onShareProfileClick, handleConnectC
         </div> */}
         <div className="headerTitleContainer">
           <div className="headerTitle">{profileDetails?.display_name}</div>
-          <Icon className="headerIcon" iconName="profile_header_icon" />
+          {/* <Icon className="headerIcon" iconName="profile_header_icon" /> */}
         </div>
         <div className="headerTag">{`@${userName}`}</div>
         <div className="profilePicContainer">
@@ -61,11 +61,11 @@ const Profile = ({ profileDetails, userName, onShareProfileClick, handleConnectC
       </header>
       <section className="bodyContainer">
         <div className="statisticsRow">
-          {/* <div className="statisticsCol">
-            <div className="statisticsLabel">{content.FOLLOWERS}</div>
-            <div className="statistic">89</div>
+          <div className="statisticsCol">
+            <div className="statisticsLabel">{content.PRICE}</div>
+            <div className="statistic">{`$${profileDetails?.price}`}</div>
           </div>
-          <div className="buttonContainer">
+          {/* <div className="buttonContainer">
             <Icon className="statusIcon" iconName="mute" />
             <Button
               className="statusButton"

@@ -6,7 +6,7 @@ import { userSelector } from "../../state/selectors/users";
 
 const LoginContainer = ({ loginUser, isForgotPassword, setIsForgotPassword }) => {
   const [loginDetails, setLoginDetails] = useState({});
-  const [isRememberUser, setIsRememberUser] = useState(false);
+  const [isRememberUser, setIsRememberUser] = useState(true);
   const handleInputChange = (e) => {
     if (e.target.name) {
       setIsRememberUser(e.target.checked);
@@ -32,8 +32,6 @@ const LoginContainer = ({ loginUser, isForgotPassword, setIsForgotPassword }) =>
       isRememberUser={isRememberUser}
       onInputChange={handleInputChange}
       loginUser={handleUserLogin}
-      isForgotPassword={isForgotPassword}
-      setIsForgotPassword={setIsForgotPassword}
     />
   );
 };

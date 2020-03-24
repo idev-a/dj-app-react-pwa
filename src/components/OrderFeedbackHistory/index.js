@@ -20,9 +20,12 @@ const OrderFeedbackHistoryComponent = ({
   return (
     <div className="orderFeedbackHistoryContainer">
       <header className="orderFeedbackHistoryHeader">
-        <div onClick={handleMenuClick} className="menuIconContainer">
-          <Icon iconName="menu" className="menuIcon" />
-        </div>
+      <Button
+          isIcon
+          iconName="menu"
+          className="menuIcon"
+          onClick={handleMenuClick}
+        />
       </header>
       <header className="orderFeedbackHistoryHeaderText">
         <div>
@@ -53,7 +56,10 @@ const OrderFeedbackHistoryComponent = ({
         {hitStats ? (
           <HitStatsComponent data={tracksHistory} />
         ) : (
-          <TrackReviewsComponent data={trackReviews} handleTrackReviewFeedback={handleTrackReviewFeedback} />
+          <TrackReviewsComponent
+            data={trackReviews}
+            handleTrackReviewFeedback={handleTrackReviewFeedback}
+          />
         )}
         {loading && <PopUps name="orderProcessing" />}
       </section>

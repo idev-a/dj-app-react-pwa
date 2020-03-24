@@ -5,13 +5,14 @@ import Icon from "../../common/IconComponent";
 import Button from "../../common/Button";
 
 const OrderFeedbackStartComponent = ({ history }) => {
+
     const handleFeedbackSelect = useCallback(type => {
-        const route = type === "hit" ? "hit-feedback" : "pro-feedback";
+        const route = type === "hit" ? "hit-feedback" : "search";
         history.push(route)
     }, [history]);
+
     return (
         <div className="orderFeedbackStartContainer">
-            <Icon className="cancelIcon" iconName="cancel" />
             <Icon className="backgroundIcon" iconName="Path85" />
             <div className="orderFeedbackStartContainerHeader">
                 <Icon className="headerIcon" iconName="logo86" />

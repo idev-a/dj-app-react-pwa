@@ -4,7 +4,7 @@ import content from "./content";
 import InputField from "../../../common/InputField";
 
 const SendMe = ({ headline }) => {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <section className="formContainer">
       <header

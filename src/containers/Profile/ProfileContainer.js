@@ -28,10 +28,10 @@ const ProfileContainer = ({
     if (navigator.share) {
       navigator.share({
         title: "HEAR BK",
-        url: `${window.location.host}/profile/${username}`
+        url: window.location.href
       });
     }
-  }, [username]);
+  }, []);
 
   return (
     <Profile

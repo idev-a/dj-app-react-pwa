@@ -1,4 +1,8 @@
 import React, { useContext } from "react";
+import moment from "moment";
+import Slider from "rc-slider";
+import Tooltip from "rc-tooltip";
+
 import "./styles.scss";
 import content from "./content";
 import Icon from "../../common/IconComponent";
@@ -7,10 +11,27 @@ import Iframe from "../../common/Iframe";
 import AudioPlayer from "../AudioPlayer";
 import TextArea from "../../common/TextAreaField";
 import Button from "../../common/Button";
-import moment from "moment";
-import { Slider } from "antd";
-import "antd/dist/antd.css";
 import { MenuHandlerContext } from "../../routes";
+
+import "rc-slider/assets/index.css";
+import "rc-tooltip/assets/bootstrap.css";
+
+const Handle = Slider.Handle;
+
+const handle = props => {
+  const { value, dragging, index, ...restProps } = props;
+  return (
+    <Tooltip
+      prefixCls="rc-slider-tooltip"
+      overlay={value}
+      visible={dragging}
+      placement="top"
+      key={index}
+    >
+      <Handle value={value} {...restProps} />
+    </Tooltip>
+  );
+};
 
 const GiveProFeedback = ({
   track = {},
@@ -64,7 +85,6 @@ const GiveProFeedback = ({
         <>
           <section className="songCardOuterContainer">
             <div className="songCardContainer">
-              <Icon className="bookmarkIcon" iconName="bookmark1" />
               <div className="profilePicIconContainer">
                 {profile_image ? (
                   <img
@@ -102,7 +122,8 @@ const GiveProFeedback = ({
                   <Slider
                     min={0}
                     max={10}
-                    value={trackRating}
+                    defaultValue={0}
+                    handle={handle}
                     className="ratingColor"
                     onChange={handleTrackRating}
                   />

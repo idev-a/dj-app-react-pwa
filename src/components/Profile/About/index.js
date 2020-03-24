@@ -7,7 +7,7 @@ import Icon from "../../../common/IconComponent";
 const About = ({
     bio
 }) => {
-    const [isOpen, setIsOpen] = useState(true);
+    const [isOpen, setIsOpen] = useState(false);
     return (
         <section className="formContainer">              
             <header onClick={() => setIsOpen(!isOpen)} className="formHeaderContainer">

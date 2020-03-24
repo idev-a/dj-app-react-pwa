@@ -1,5 +1,4 @@
 import React from "react";
-import { Input } from "antd";
 
 const InputField = ({
   id,
@@ -40,8 +39,9 @@ const InputField = ({
       }
     }
   }
+  
   return (
-    <Input
+    <input
       id={id}
       accept={accept}
       ref={passableRef}
@@ -59,6 +59,7 @@ const InputField = ({
 InputField.defaultProps = {
   disabled: false,
   passableRef: null,
+  type: "text",
 };
 
 export default InputField;

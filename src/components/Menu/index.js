@@ -3,12 +3,13 @@ import content from "./content";
 import Icon from "../../common/IconComponent";
 import "./styles.scss";
 import HearBKHeader from "../../common/HearBKHeader";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import Button from "../../common/Button";
 
 const MenuComponent = ({
     handleClickMenuToggle,
 }) => {
+    const history = useHistory();
     return (
         <div className="menuBigContainer">
             <div className="menuComponent">
@@ -57,7 +58,14 @@ const MenuComponent = ({
                     </ul>
                 </div>
                 <div className="buttonWrapper">
-                    <Button className="launchButton" buttonText={content.LOGOUT} ></Button>
+                    <Button className="launchButton" buttonText={content.LOGOUT} onClick={() => {
+                        window.localStorage.removeItem("x-access-token");
+                        localStorage.removeItem("x-access-token");
+                        localStorage.removeItem("isPremiumUser");
+                        localStorage.removeItem("isFirstUserLogin");
+                        history.push("/signin");
+                        handleClickMenuToggle()
+                    }}></Button>
                 </div>
             </div>
         </div>

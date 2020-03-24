@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { StripeProvider, Elements } from "react-stripe-elements";
 import content from "./content";
 import "./styles.scss";
@@ -8,6 +8,7 @@ import PaymentForm from "../OrderFeedback/PaymentForm";
 import Button from "../../common/Button";
 import PopUpComponent from "../PopUps/PopUpsComponent";
 import SelectedListeners from "./SelectedListeners";
+import { MenuHandlerContext } from "../../routes";
 
 const ProFeedbackComponent = ({
   tracks,
@@ -39,9 +40,16 @@ const ProFeedbackComponent = ({
   onSelectListeners,
   handleSelectedListeners
 }) => {
+  const handleMenuClick = useContext(MenuHandlerContext);
   return (
     <div className="orderFeedbackContainer">
       <header className="orderFeedbackHeader">
+        <Button
+          isIcon
+          className="menuIcon"
+          iconName="menu"
+          onClick={handleMenuClick}
+        />
         <Button
           isIcon
           iconName="HearBKSilverLogo"
@@ -56,10 +64,14 @@ const ProFeedbackComponent = ({
         <div>{content.FEEDBACK}</div>
       </section>
       <section className="hitCampaignContainer">
-        <div className="hitCampaignHeader">{content.HIT_CAMPAIGN_HEADER}</div>
+        <div className="hitCampaignHeader">{content.PRO_CAMPAIGN_HEADER}</div>
         <div className="hitCampaignDescription">
-          <p>{content.HIT_CAMPAIGN_DESCRIPTION}</p>
-          <p>{content.HIT_CAMPAIGN_DESCRIPTION1}</p>
+          <p>{content.PRO_CAMPAIGN_DESCRIPTION}</p>
+          <p
+            dangerouslySetInnerHTML={{
+              __html: content.PRO_CAMPAIGN_DESCRIPTION1
+            }}
+          ></p>
         </div>
       </section>
       {tracks.map(
@@ -76,47 +88,51 @@ const ProFeedbackComponent = ({
             handleTrackChanges={handleTrackChanges}
             selectedFeedback={selectedFeedback}
             setAddGenre={setAddGenre}
-            selectedGenre={genres.find((g) => g._id === genreId)}
+            selectedGenre={genres.find(g => g._id === genreId)}
             feedbackType="PRO"
           />
         )
       )}
 
-        <SelectedListeners onSelectListeners={onSelectListeners} listeners={selectedListeners} handleListenerSelect={handleSelectedListeners} />
-        <div className="proContainer">
-          <TotalPaymentComponent
-            handleRemoveTrack={handleRemoveTrack}
-            tracks={tracks}
-            isAddPremium={isAddPremium}
-            genres={genres}
-            feedbackType="PRO"
-            selectedListeners={selectedListeners}
-          />
-          <StripeProvider apiKey="pk_test_HhCQqzIxD2wH7EXferZHg18W">
-            <Elements>
-              <PaymentForm
-                onInputChange={onInputChange}
-                accountName={accountName}
-                submitPayment={saveCardInformation}
-                shouldCreateToken={shouldCreateToken}
-                handlePaymentFormError={handlePaymentFormError}
-                isSaveCardDetails={isSaveCardDetails}
-                paymentMethods={paymentMethods}
-                selectedPaymentId={selectedPaymentId}
-                handleDeleteSavedCard={handleDeleteSavedCard}
-                handleSavedCardSelect={handleSavedCardSelect}
-              />
-            </Elements>
-          </StripeProvider>
-      <div className="orderButtonWrapper">
-        <Button
-          className="launchButton"
-          buttonText={content.ORDER_NOW_BUTTON}
-          onClick={onSubmitFeedback}
-          disabled={!isPaymentFormReady}
+      <SelectedListeners
+        onSelectListeners={onSelectListeners}
+        listeners={selectedListeners}
+        handleListenerSelect={handleSelectedListeners}
+      />
+      <div className="proContainer">
+        <TotalPaymentComponent
+          handleRemoveTrack={handleRemoveTrack}
+          tracks={tracks}
+          isAddPremium={isAddPremium}
+          genres={genres}
+          feedbackType="PRO"
+          selectedListeners={selectedListeners}
         />
-      </div>
+        <StripeProvider apiKey="pk_test_HhCQqzIxD2wH7EXferZHg18W">
+          <Elements>
+            <PaymentForm
+              onInputChange={onInputChange}
+              accountName={accountName}
+              submitPayment={saveCardInformation}
+              shouldCreateToken={shouldCreateToken}
+              handlePaymentFormError={handlePaymentFormError}
+              isSaveCardDetails={isSaveCardDetails}
+              paymentMethods={paymentMethods}
+              selectedPaymentId={selectedPaymentId}
+              handleDeleteSavedCard={handleDeleteSavedCard}
+              handleSavedCardSelect={handleSavedCardSelect}
+            />
+          </Elements>
+        </StripeProvider>
+        <div className="orderButtonWrapper">
+          <Button
+            className="launchButton"
+            buttonText={content.ORDER_NOW_BUTTON}
+            onClick={onSubmitFeedback}
+            disabled={!isPaymentFormReady}
+          />
         </div>
+      </div>
       {isProcessing && (
         <PopUpComponent name="orderProcessing" hasCloseIcon={false} />
       )}
@@ -125,7 +141,7 @@ const ProFeedbackComponent = ({
           name="success"
           handlers={{
             rateTrackClick: handleRateTrackClick,
-            placeNewOrderClick: handlePlaceNewOrderClick,
+            placeNewOrderClick: handlePlaceNewOrderClick
           }}
           closeClick={closeSuccessPopUp}
         />

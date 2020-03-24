@@ -5,15 +5,16 @@ import InputField from "../../common/InputField";
 import "./Login.styles.scss";
 import "rc-checkbox/assets/index.css";
 import Button from "../../common/Button";
+import { useHistory } from "react-router-dom";
 
-const LoginComponent = ({ 
-  email, 
-  password, 
-  onInputChange, 
+const LoginComponent = ({
+  email,
+  password,
+  onInputChange,
   loginUser,
-  isForgotPassword,
-  setIsForgotPassword
+  isRememberUser
 }) => {
+  const history = useHistory();
   return (
     <div className="loginContainer">
       <div className="loginLabel">{content.LOGIN_LABEL}</div>
@@ -44,6 +45,7 @@ const LoginComponent = ({
           className="checkBoxStyle"
           onChange={onInputChange}
           name="rememberUser"
+          checked={isRememberUser}
         />
         <div className="rememberMeText">{content.REMEMBER}</div>
       </div>
@@ -55,7 +57,9 @@ const LoginComponent = ({
         ></Button>
       </div>
       <div className="forgotPassword">
-        <span onClick={() => setIsForgotPassword(!isForgotPassword)}>{content.FORGOT_PASSWORD}</span>
+        <span onClick={() => history.push("/forgot-password")}>
+          {content.FORGOT_PASSWORD}
+        </span>
       </div>
     </div>
   );
@@ -63,7 +67,7 @@ const LoginComponent = ({
 
 LoginComponent.defaultProps = {
   email: "",
-  password: "", 
+  password: ""
 };
 
 export default LoginComponent;

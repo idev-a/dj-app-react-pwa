@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import isEmpty from "lodash/isEmpty";
 import content from "./content";
 import "./styles.scss";
@@ -6,6 +6,8 @@ import Icon from "../../common/IconComponent";
 import InputField from "../../common/InputField";
 import CardSet from "./CardSet";
 import RatingCard from "./CardSet/Card/RatingCard";
+import { MenuHandlerContext } from "../../routes";
+import Button from "../../common/Button";
 
 const SearchComponent = ({
   searchValue,
@@ -13,10 +15,11 @@ const SearchComponent = ({
   data,
   searchResults
 }) => {
+  const handleMenuClick = useContext(MenuHandlerContext);
   return (
     <div className="searchComponentContainer">
       <header className="searchComponentHeader">
-        <Icon className="menuIcon" iconName="menu" />
+        <Button isIcon className="menuIcon" iconName="menu" onClick={handleMenuClick}/>
         <div className="searchInputContainer">
           <InputField
             id="searchInput"
@@ -26,7 +29,7 @@ const SearchComponent = ({
             placeholder={content.SEARCH_PLACEHOLDER}
           />
         </div>
-        <Icon className="searchHeaderIcon" iconName="search_header" />
+        {/* <Icon className="searchHeaderIcon" iconName="search_header" /> */}
       </header>
       {!searchValue.length > 0 && (
         <section className="bodyContainer">
@@ -35,7 +38,9 @@ const SearchComponent = ({
       )}
       {searchValue.length > 0 && (
         <section className="bodyContainer verticalScroll">
-          <div style={{ display: "flex", flexDirection: "row", flexWrap: "wrap"}}>
+          <div
+            style={{ display: "flex", flexDirection: "row", flexWrap: "wrap" }}
+          >
             <ul className="listeningNowBody">
               {searchResults.map(listener => (
                 <RatingCard listener={listener} />
