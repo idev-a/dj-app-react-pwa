@@ -7,6 +7,7 @@ const ResetPasswordContainer = ({ history }) => {
   const [password, setPassword] = useState("");
   const [repeatPassword, setRepeatPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  
   useEffect(() => {
     const query = new URLSearchParams(history.location.search);
     const resetToken = query.get("resetToken");
@@ -36,7 +37,7 @@ const ResetPasswordContainer = ({ history }) => {
         history.push("/");
       }
     });
-  });
+  }, [history, password, repeatPassword]);
 
   const onInputChange = useCallback(e => {
     if (e.target.id === "password") {

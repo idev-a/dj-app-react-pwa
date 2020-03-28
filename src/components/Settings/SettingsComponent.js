@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import content from "./content";
 import "./Settings.styles.scss";
 import Icon from "../../common/IconComponent";
@@ -7,6 +7,7 @@ import ProfileForm from "./ProfileForm";
 import AccountForm from "./AccountForm";
 import PaymentAccountForm from "./PaymentAccountForm";
 import SubscriptionBox from "./SubscriptionBox";
+import { MenuHandlerContext } from "../../routes";
 
 const SettingsComponent = ({
   profileIsOpen,
@@ -29,9 +30,13 @@ const SettingsComponent = ({
 }) => {
   const { subscriptionEndDate, profile_image } = details;
   const { user_name, display_name, email } = userObject;
+  const handleMenuClick = useContext(MenuHandlerContext);
   return (
     <div className="settingsContainer">
       <div className="largeBannerHeaderContainer">
+        <div onClick={handleMenuClick} className="menuIconContainer">
+          <Icon iconName="menu_white" className="menuIcon" />
+        </div>
         <Button
           isIcon
           className="exitIcon"
@@ -105,13 +110,13 @@ const SettingsComponent = ({
         togglePayment={togglePayment}
         onInputChange={onInputChange}
       />
-        <SubscriptionBox
-          subscriptionIsOpen={subscriptionIsOpen}
-          toggleSubscription={toggleSubscription}
-          subscriptionEndDate={subscriptionEndDate}
-          onInputChange={onInputChange}
-          handleCancelSubscription={handleCancelSubscription}
-        />
+      <SubscriptionBox
+        subscriptionIsOpen={subscriptionIsOpen}
+        toggleSubscription={toggleSubscription}
+        subscriptionEndDate={subscriptionEndDate}
+        onInputChange={onInputChange}
+        handleCancelSubscription={handleCancelSubscription}
+      />
 
       {/* Adjusment need ends here */}
 

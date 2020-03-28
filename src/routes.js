@@ -85,7 +85,7 @@ export default props => {
             exact
           />
           <Route
-            path="/profile/:username"
+            path="/p/:username"
             component={withValidToken(ProfileContainer)}
             exact
           />

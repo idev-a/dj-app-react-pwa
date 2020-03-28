@@ -1,52 +1,56 @@
 @import "../../scss/common.styles.scss";
 
 .listenerCardContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 10px;
+  border-top: 1px solid $color-2;
+  border-bottom: 1px solid $color-2;
+  .cardProfilePic {
+    height: 72px;
+    width: 72px;
+    border-radius: 50px;
+  }
+  .listenerDetails {
+    margin: 0 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    flex-grow: 2;
+    .displayName {
+      font-size: $font-size-small;
+      color: $main-3;
+      font-weight: 700;
+    }
+    .tagsContainer {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+    .headline {
+      font-size: $font-size-xs;
+      color: $main-2;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+  }
+  .priceDetails {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    .price {
+      font-size: $font-size-xl;
+      color: $main-3;
+    }
+  }
+  .selectContainer {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    padding: 10px;
-    border-top: 1px solid $color-2;
-    border-bottom: 1px solid $color-2;
-    .cardProfilePic {
-        height: 72px;
-        width: 72px;
-        border-radius: 50px;
-    }
-    .listenerDetails {
-        margin: 0 10px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-evenly;
-        flex-grow: 2;
-        .displayName {
-            font-size: $font-size-small;
-            color: $main-3;
-            font-weight: 700;
-        }
-        .tagsContainer {
-            display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
-        }
-        .headline {
-            font-size: $font-size-xs;
-            color: $main-2;
-        }
-    }
-    .priceDetails {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        .price {
-            font-size: $font-size-xl;
-            color: $main-3;
-        }
-    }
-    .selectContainer {
-        display: flex;
-        flex-direction: row;
-        font-size: $font-size-xs;
-        align-items: center;
-        justify-content: space-evenly;
-    }
+    font-size: $font-size-xs;
+    align-items: center;
+    justify-content: flex-end;
+  }
 }

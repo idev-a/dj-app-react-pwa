@@ -8,7 +8,7 @@ const ForgotPasswordContainer = () => {
   const [email, setEmail] = useState("");
 
   const onInputChange = useCallback(e => {
-    setEmail(e.target.value);
+    setEmail(e?.target?.value?.toLowerCase());
   }, []);
 
   const handleSubmitClick = useCallback(() => {

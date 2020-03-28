@@ -3,8 +3,34 @@ import IconComponent from "../../common/IconComponent";
 import CheckBox from "rc-checkbox";
 import "./styles.scss";
 
-const ListenerCard = ({ listener, handleSelectListener, tagsArray, handleSelectedListeners }) => {
-  console.log(handleSelectedListeners);
+const ListenerCard = ({
+  listener,
+  handleSelectListener,
+  tagsArray,
+  handleSelectedListeners
+}) => {
+  const getListernerTags = () => {
+    const listenerTags = [...listener.listener_tags];
+    if (listenerTags && listenerTags.length > 2) {
+      listenerTags.splice(0, listener.listener_tags.length - 2);
+      listenerTags.push("showMoreTags");
+    }
+    return (
+      listenerTags &&
+      listenerTags.map(listenerTag => {
+        if (listenerTag === "showMoreTags") {
+          return (
+            <div className="tagLabel">{`+${listener.listener_tags.length}`}</div>
+          );
+        }
+        const tagObj = tagsArray.find(t => {
+          return t._id === listenerTag;
+        });
+        return tagObj ? <div className="tagLabel">{tagObj.tag}</div> : null;
+      })
+    );
+  };
+
   return (
     <div className="listenerCardContainer">
       <>
@@ -24,17 +50,7 @@ const ListenerCard = ({ listener, handleSelectListener, tagsArray, handleSelecte
         </div>
         <div className="listenerDetails">
           <div className="displayName">{listener.display_name}</div>
-          <div className="tagsContainer">
-            {listener.listener_tags &&
-              listener.listener_tags.map(listenerTag => {
-                const tagObj = tagsArray.find(t => {
-                  return t._id === listenerTag;
-                });
-                return tagObj ? (
-                  <div className="tagLabel">{tagObj.tag}</div>
-                ) : null;
-              })}
-          </div>
+          <div className="tagsContainer">{getListernerTags()}</div>
           <div className="headline">{listener.headline}</div>
         </div>
         <div className="priceDetails">
@@ -44,7 +60,7 @@ const ListenerCard = ({ listener, handleSelectListener, tagsArray, handleSelecte
               name="selectListener"
               onChange={e => handleSelectedListeners(listener, e)}
             />
-            Select
+            <span style={{ marginLeft: "10px" }}>Select</span>
           </div>
         </div>
       </>
