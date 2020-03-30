@@ -6,7 +6,6 @@ import { resetPassword } from "../../state/actions/userActions";
 const ResetPasswordContainer = ({ history }) => {
   const [password, setPassword] = useState("");
   const [repeatPassword, setRepeatPassword] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
   
   useEffect(() => {
     const query = new URLSearchParams(history.location.search);
@@ -49,7 +48,6 @@ const ResetPasswordContainer = ({ history }) => {
 
   return (
     <ResetPassword
-      isLoading={isLoading}
       password={password}
       repeatPassword={repeatPassword}
       onInputChange={onInputChange}

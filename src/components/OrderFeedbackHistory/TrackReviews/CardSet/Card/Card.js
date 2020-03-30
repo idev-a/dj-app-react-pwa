@@ -5,9 +5,10 @@ import Icon from "../../../../../common/IconComponent";
 import TextArea from "../../../../../common/TextAreaField";
 import Button from "../../../../../common/Button";
 import moment from "moment";
-import { Rate } from "antd";
+
 import { toast } from "react-toastify";
 import { ENUMS } from "../../../../../utils";
+import Ratings from "../../../../../common/Ratings";
 
 const Card = ({ cardData, handleTrackReviewFeedback }) => {
   const [headerIsOpen, setHeaderIsOpen] = useState(false);
@@ -113,7 +114,7 @@ const Card = ({ cardData, handleTrackReviewFeedback }) => {
                 />
                 <div className="ratingHeaderLabel">{content.RATE_LISTENER}</div>
                 <div className="ratingInputComponent">
-                  <Rate value={avgRating} disabled />
+                  <Ratings value={avgRating} disabled />
                 </div>
               </div>
               {bodyIsOpen && (
@@ -127,7 +128,7 @@ const Card = ({ cardData, handleTrackReviewFeedback }) => {
                         {content.LISTENER_RESPONSE_TIME}
                       </label>
                       <div className="ratingInputComponent">
-                        <Rate
+                        <Ratings
                           onChange={setResponseTimeRaing}
                           value={responseTimeRating}
                           disabled={!!cardData?.ratings?.responseTime}
@@ -142,7 +143,7 @@ const Card = ({ cardData, handleTrackReviewFeedback }) => {
                         {content.SERVICE_AS_EXPECTED}
                       </label>
                       <div className="ratingInputComponent">
-                        <Rate
+                        <Ratings
                           onChange={setServiceRating}
                           value={serviceRating}
                           disabled={!!cardData?.ratings?.service}
@@ -154,7 +155,7 @@ const Card = ({ cardData, handleTrackReviewFeedback }) => {
                         {content.BUY_AGAIN_OR_RECOMMEND}
                       </label>
                       <div className="ratingInputComponent">
-                        <Rate
+                        <Ratings
                           onChange={setRecommendedRating}
                           value={recommendedRating}
                           disabled={!!cardData?.ratings?.recommend}

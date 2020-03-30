@@ -10,9 +10,13 @@ import Location from "./Location";
 import Roles from "./Roles";
 import HearBKIcon from "../../common/HearBKIcon";
 import { MenuHandlerContext } from "../../routes";
+import ListenerRatings from "./ListenerRatings";
+import Ratings from "../../common/Ratings";
 
 const Profile = ({ profileDetails, userName, onShareProfileClick, handleConnectClick }) => {
+
   const menuClickHandler = useContext(MenuHandlerContext);
+
   return (
     <div className="profileContainer">
       <div className="largeHeaderBackground"></div>
@@ -50,14 +54,10 @@ const Profile = ({ profileDetails, userName, onShareProfileClick, handleConnectC
             <Icon className="profilePicIcon" iconName="default_pro_pic_icon" />
           )}
         </div>
-        {/* <div className="ratingStarIconContainer">
-          <Icon className="ratingStar" iconName="ratings_star" />
-          <Icon className="ratingStar" iconName="ratings_star" />
-          <Icon className="ratingStar" iconName="ratings_star" />
-          <Icon className="ratingStar" iconName="ratings_star" />
-          <Icon className="ratingStar" iconName="ratings_star" />
+        <div className="ratingStarIconContainer">
+          <Ratings disabled value={profileDetails?.listenerRatings?.avgRating} />
         </div>
-        <div className="ratingContainer">5.0 / 5.0</div> */}
+        <div className="ratingContainer">{profileDetails?.listenerRatings?.avgRating}/ 5</div>
       </header>
       <section className="bodyContainer">
         <div className="statisticsRow">
@@ -129,6 +129,7 @@ const Profile = ({ profileDetails, userName, onShareProfileClick, handleConnectC
           <Favorites genres={profileDetails?.favourite_genres} />
           <Location city={profileDetails?.city} />
           <Roles tags={profileDetails?.listener_tags} />
+          <ListenerRatings listenerRatings={profileDetails?.listenerRatings} />
         </div>
       </section>
       <section className="profileHearBKFooter">

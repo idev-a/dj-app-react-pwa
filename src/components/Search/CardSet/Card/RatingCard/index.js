@@ -8,7 +8,7 @@ const RatingCard = ({ listener }) => {
     <li
       className="userLis"
       role="button"
-      onClick={() => history.push(`/profile/${listener.user_name}`)}
+      onClick={() => history.push(`/p/${listener.user_name}`)}
     >
       {listener.profile_image ? (
         <img className="profilePic" src={listener.profile_image} alt="" />

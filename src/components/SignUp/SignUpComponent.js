@@ -39,7 +39,7 @@ const SignUpComponent = ({
           value={displayName}
           placeholder={content.DISPLAY_NAME}
           hasIcon
-          iconName="displayname"
+          iconName="username"
           className="inputField"
           onChange={onInputChange}
         />
@@ -48,7 +48,7 @@ const SignUpComponent = ({
           value={username}
           placeholder={content.USERNAME}
           hasIcon
-          iconName="username"
+          iconName="displayname"
           className="inputField"
           onChange={onInputChange}
         />
