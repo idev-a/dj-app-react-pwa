@@ -54,3 +54,9 @@
   color: $main-1;
   width: 22em;
 }
+
+.forgotPasswordInput {
+  @extend .inputContainer;
+  display: flex;
+  align-items:  flex-start;
+}

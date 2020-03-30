@@ -23,7 +23,7 @@ const ForgotPassword = ({ email, onInputChange, handleSubmitClick }) => {
               {content.FORGOT_PASSWORD_HEADER}
               <p>{content.FORGOT_PASSWORD_SUBHEADER}</p>
             </header>
-            <div className="inputContainer">
+            <div className="forgotPasswordInput">
               <InputField
                 onChange={onInputChange}
                 name="email"
