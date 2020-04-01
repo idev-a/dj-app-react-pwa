@@ -4,25 +4,19 @@ import RatingCard from "./RatingCard";
 import Button from "../../../../common/Button";
 
 const getClassNameForCategories = category => {
-  if (category === "DJ") {
-    return {
-      buttonWrapperClassName: "djsButtonWrapper",
-      buttonClassName: "djsButton"
-    };
-  }
   if (category === "MUSIC_CREATORS") {
     return {
       buttonWrapperClassName: "creatorsButtonWrapper",
       buttonClassName: "creatorsButton"
     };
   }
-  if (category === "MUSIC_EXECUTIVES") {
+  if (category === "MUSIC_PROFESSIONALS") {
     return {
       buttonWrapperClassName: "executivesButtonWrapper",
       buttonClassName: "executivesButton"
     };
   }
-  if (category === "MUSIC_MEDIA") {
+  if (category === "MUSIC_FANS") {
     return {
       buttonWrapperClassName: "mediaButtonWrapper",
       buttonClassName: "mediaButton"
