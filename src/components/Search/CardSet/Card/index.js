@@ -18,8 +18,8 @@ const getClassNameForCategories = category => {
   }
   if (category === "MUSIC_FANS") {
     return {
-      buttonWrapperClassName: "mediaButtonWrapper",
-      buttonClassName: "mediaButton"
+      buttonWrapperClassName: "fansButtonWrapper",
+      buttonClassName: "fansButton"
     };
   }
 };
