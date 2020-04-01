@@ -81,7 +81,8 @@ const SignUpContainer = ({ registerUser, handleSuccess }) => {
         setDisplayName(value);
       }
       if (e.target.id === "username") {
-        setUserName(value);
+
+        setUserName(value.replace(" ", ""));
       }
     }
   };
