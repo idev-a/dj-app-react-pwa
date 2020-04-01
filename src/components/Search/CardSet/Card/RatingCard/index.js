@@ -18,7 +18,7 @@ const RatingCard = ({ listener }) => {
           iconName="default_pro_pic_icon"
         />
       )}
-      <p className="userTag">{listener.user_name}</p>
+      <p className="userTag">{listener.display_name}</p>
     </li>
   );
 };

@@ -13,7 +13,6 @@ const OrderFeedbackStartComponent = ({ history }) => {
 
     return (
         <div className="orderFeedbackStartContainer">
-            <Icon className="backgroundIcon" iconName="Path85" />
             <div className="orderFeedbackStartContainerHeader">
                 <Icon className="headerIcon" iconName="logo86" />
                 <div className="title1">{content.TITLE_1}</div>
