@@ -14,7 +14,7 @@ const RatingCard = ({ listener }) => {
         <img className="profilePic" src={listener.profile_image} alt="" />
       ) : (
         <IconComponent
-          className="defaultProfilePicIcon"
+          className="profilePic"
           iconName="default_pro_pic_icon"
         />
       )}
