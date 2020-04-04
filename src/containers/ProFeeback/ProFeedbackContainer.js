@@ -162,7 +162,8 @@ const ProFeedbackContainer = ({
               formData.append("trackUpload", fileUpload);
               const uploadFileResponse = await uploadAudioFileToIPFS(
                 formData,
-                feedbackId
+                feedbackId,
+                true
               );
             }
           })

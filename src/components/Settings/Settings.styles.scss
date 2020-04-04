@@ -36,6 +36,7 @@
         display: flex;
         justify-content: space-between;
         margin: 196px 26.5px 10px 26.5px;
+        flex-direction: column;
         .subHeaderLabel {
             color: $color-2;
             font-size: $font-size-small;
@@ -58,12 +59,12 @@
                 letter-spacing: .6pt;
             }
         }
-        .points {
-            display: none;
-            flex-flow: column nowrap;
+        .balance {
+            display: flex;
+            flex-flow: row nowrap;
             justify-content: space-between;
-            width: 105px;
-            height: 55.5px;
+            width: 100%;
+            align-items: center;
         }
         .status {
             display: flex;
@@ -97,9 +98,6 @@
                     margin: 0 3px 0 0;
                 }
             }
-        }
-        .balance {
-            @extend .points;
         }
     }
     .formContainer {

@@ -56,6 +56,8 @@ const Card = ({ cardData, handleTrackReviewFeedback }) => {
       listenerId
     };
     handleTrackReviewFeedback(payload);
+    setBodyIsOpen(false);
+    setHeaderIsOpen(false);
   };
   return (
     <div className="bigWrapper">

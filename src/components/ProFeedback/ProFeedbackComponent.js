@@ -54,7 +54,6 @@ const ProFeedbackComponent = ({
           isIcon
           iconName="HearBKSilverLogo"
           className="silverLogo"
-          onClick={handleLogoClick}
         />
       </header>
       <section className="orderFeedbackHeaderText">

@@ -28,7 +28,7 @@ const SettingsComponent = ({
   handleProfileUpdate,
   handleCancelSubscription
 }) => {
-  const { subscriptionEndDate, profile_image } = details;
+  const { subscriptionEndDate, profile_image, balance } = details;
   const { user_name, display_name, email } = userObject;
   const handleMenuClick = useContext(MenuHandlerContext);
   return (
@@ -60,10 +60,6 @@ const SettingsComponent = ({
         </div>
       </div>
       <div className="settingsStatusContainer">
-        <div className="points">
-          <div className="subHeaderLabel">{content.POINTS_LABEL}</div>
-          <div className="subHeaderAmount">{content.POINTS}</div>
-        </div>
         <div className="status">
           <div className="statusBox">{content.STATUS}</div>
           <div className="insiderBox">
@@ -77,10 +73,7 @@ const SettingsComponent = ({
             <span className="subHeaderAmountFontAdjust">
               {content.BALANCE_SIGN}
             </span>
-            <span>{content.BALANCE_DOLLARS}</span>
-            <span className="subHeaderAmountFontAdjust">
-              {content.BALANCE_CENTS}
-            </span>
+            <span>{balance}</span>
           </div>
         </div>
       </div>

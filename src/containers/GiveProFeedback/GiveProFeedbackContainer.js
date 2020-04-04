@@ -4,6 +4,7 @@ import GiveProFeedback from "../../components/GiveProFeedback";
 import { getProFeedbackTracks } from "../../state/actions/proFeedbackActions";
 import { rateProFeedbackSelector } from "../../state/selectors/rateProFeedback";
 import { postDiscoverFeedback } from "../../state/actions/discoverActions";
+import { toast } from "react-toastify";
 
 const GiveProFeedbackContainer = ({
   proFeedbackTracks,
@@ -28,12 +29,16 @@ const GiveProFeedbackContainer = ({
       trackFeedback: feedback,
       price
     };
-    postDiscoverFeedback(payload, true);
-    if (trackIndex < proFeedbackTracks.length - 1) {
-      setTrackTrackIndex(trackIndex + 1);
-    } else {
-      setShowNoMoreTrack(true);
-    }
+    postDiscoverFeedback(payload, true).then(res => {
+      if (res.ok) {
+        toast.success("Thank you. Your feedback has been submitted.");
+        if (trackIndex < proFeedbackTracks.length - 1) {
+          setTrackTrackIndex(trackIndex + 1);
+        } else {
+          setShowNoMoreTrack(true);
+        }
+      }
+    });
   }, [feedback, proFeedbackTracks, trackIndex, trackRating]);
 
   const handleTrackRating = useCallback(e => {

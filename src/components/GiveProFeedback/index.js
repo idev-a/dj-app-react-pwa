@@ -77,7 +77,7 @@ const GiveProFeedback = ({
           iconName="menu_white"
           onClick={handleMenuClick}
         />
-        <Icon className="alertIcon" iconName="alert_white" />
+        {/* <Icon className="alertIcon" iconName="alert_white" /> */}
         <div className="title1">{content.TITLE_1}</div>
         <div className="title2">{content.TITLE_2}</div>
       </header>
