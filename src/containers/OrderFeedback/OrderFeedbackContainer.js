@@ -103,6 +103,7 @@ const OrderFeedbackContainer = ({
       }
       if (
         promoCode.length === 0 &&
+        !cardInfo.paymentFromSavedCard &&
         !(cardInfo && cardInfo.id && accountName.length > 0)
       ) {
         toast.error("Enter valid card details");

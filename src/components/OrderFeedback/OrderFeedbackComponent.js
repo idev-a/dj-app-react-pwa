@@ -10,6 +10,7 @@ import Button from "../../common/Button";
 import PopUpComponent from "../PopUps/PopUpsComponent";
 import PromoCodeComponent from "./PromoComponent";
 import { MenuHandlerContext } from "../../routes";
+import { STRIPE_KEY } from "../../config";
 
 const OrderFeedbackComponent = ({
   tracks,
@@ -41,13 +42,13 @@ const OrderFeedbackComponent = ({
   closeSuccessPopUp,
   isPremium,
   hitOrPro,
-  setHitOrPro
+  setHitOrPro,
 }) => {
   const handleMenuClick = useContext(MenuHandlerContext);
   return (
     <div className="orderFeedbackContainer">
       <header className="orderFeedbackHeader">
-      <Button
+        <Button
           isIcon
           className="menuIcon"
           iconName="menu"
@@ -87,7 +88,7 @@ const OrderFeedbackComponent = ({
             handleTrackChanges={handleTrackChanges}
             selectedFeedback={selectedFeedback}
             setAddGenre={setAddGenre}
-            selectedGenre={genres.find(g => g._id === genreId)}
+            selectedGenre={genres.find((g) => g._id === genreId)}
           />
         )
       )}
@@ -121,7 +122,7 @@ const OrderFeedbackComponent = ({
           onInputChange={onInputChange}
           promoCode={promoCode}
         />
-        <StripeProvider apiKey="pk_live_WxDWmJ53hswHLIAYQx3Xc15B">
+        <StripeProvider apiKey={STRIPE_KEY}>
           <Elements>
             <PaymentForm
               onInputChange={onInputChange}
@@ -146,7 +147,6 @@ const OrderFeedbackComponent = ({
           />
         </div>
       </React.Fragment>
-      )}
       {isProcessing && (
         <PopUpComponent name="orderProcessing" hasCloseIcon={false} />
       )}
@@ -155,7 +155,7 @@ const OrderFeedbackComponent = ({
           name="success"
           handlers={{
             rateTrackClick: handleRateTrackClick,
-            placeNewOrderClick: handlePlaceNewOrderClick
+            placeNewOrderClick: handlePlaceNewOrderClick,
           }}
           closeClick={closeSuccessPopUp}
         />

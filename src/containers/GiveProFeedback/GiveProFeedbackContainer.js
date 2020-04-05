@@ -32,6 +32,8 @@ const GiveProFeedbackContainer = ({
     postDiscoverFeedback(payload, true).then(res => {
       if (res.ok) {
         toast.success("Thank you. Your feedback has been submitted.");
+        setTrackRating(0);
+        setFeedback("");
         if (trackIndex < proFeedbackTracks.length - 1) {
           setTrackTrackIndex(trackIndex + 1);
         } else {

@@ -9,6 +9,7 @@ import Button from "../../common/Button";
 import PopUpComponent from "../PopUps/PopUpsComponent";
 import SelectedListeners from "./SelectedListeners";
 import { MenuHandlerContext } from "../../routes";
+import { STRIPE_KEY } from "../../config";
 
 const ProFeedbackComponent = ({
   tracks,
@@ -107,7 +108,7 @@ const ProFeedbackComponent = ({
           feedbackType="PRO"
           selectedListeners={selectedListeners}
         />
-        <StripeProvider apiKey="pk_test_HhCQqzIxD2wH7EXferZHg18W">
+        <StripeProvider apiKey={STRIPE_KEY}>
           <Elements>
             <PaymentForm
               onInputChange={onInputChange}

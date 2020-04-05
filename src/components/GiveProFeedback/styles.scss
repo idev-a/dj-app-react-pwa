@@ -2,119 +2,121 @@
 @import "../Discover/Discover.styles.scss";
 
 .giveProFeedbackContainer {
-    @extend .discoverComponentContainer;
-    height: initial;
-    min-height: 100vh;
-    background-image: url("../../assets/img/giveprofeedback/Path85.png");
-    background-position: center;
-    background-size: contain;
-    background-repeat: no-repeat;
-    overflow: visible;
-    .giveProFeedbackHeader {
-        @extend .discoverComponentHeader;
-        margin-top: 44px;
-        .alertIcon {
-            @extend .menuIcon;
-            left: initial;
-            right: 17px;
-            top: 31px;
-        }
+  @extend .discoverComponentContainer;
+  height: initial;
+  min-height: 100vh;
+  background-image: url("../../assets/img/giveprofeedback/Path85.png");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  overflow: visible;
+  .giveProFeedbackHeader {
+    @extend .discoverComponentHeader;
+    margin-top: 44px;
+    .alertIcon {
+      @extend .menuIcon;
+      left: initial;
+      right: 17px;
+      top: 31px;
     }
-    .songCardOuterContainer {
-        position: relative;
-        left: initial;
-        .songCardContainer {
-            height: initial;
-            .requestedContainer {
-                @extend .artistTagContainer;
-                margin-top: 3px;
-                color: $color-3;
-            }
-            .songContainer {
-                .trackDescriptionLabel {
-                    @extend .songTitle;
-                    font-size: $font-size-small - 1;
-                    letter-spacing: 1.1px;
-                }
-                .trackDescriptionContainer {
-                    @extend .trackDescriptionLabel;
-                    margin-right: 33px;
-                    font-size: $font-size-small;
-                    font-style: italic;
-                    letter-spacing: initial;
-                }
-            }
-            .trackRatingContainer {
-                margin-top: 26.5px;
-                padding: 23px;
-                text-align: left;
-                box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.2);
-                .trackRatingLabel {
-                    @extend .songTitle;
-                    font-size: $font-size-small - 1;
-                    letter-spacing: 1.1px;
-                }
-                .ratingContainer {
-                    padding: 10px;
-                }
-                .feedbackLabel {
-                    @extend .trackRatingLabel;
-                }
-                .textAreaContainer {
-                    width: 100%;
-                    overflow: hidden;
-                    .feedbackTextArea {
-                        width: 100%;
-                        font-size: $font-size-normal;
-                        background: transparent;
-                        color: $main-1;
-                        border: none;
-                        border-bottom: 1px solid $main-1;
-                        padding-bottom: 16.5px;
-                        margin-top: 17px;
-                    }
-                    .feedbackTextArea::placeholder {
-                        color: $main-1;
-                        opacity: .3;
-                        line-height: 1.5;
-                    }
-                }
-            }
+  }
+  .songCardOuterContainer {
+    position: relative;
+    left: initial;
+    .songCardContainer {
+      height: initial;
+      .requestedContainer {
+        @extend .artistTagContainer;
+        margin-top: 3px;
+        color: $color-3;
+      }
+      .songContainer {
+        .trackDescriptionLabel {
+          @extend .songTitle;
+          font-size: $font-size-small - 1;
+          letter-spacing: 1.1px;
         }
-    }
-    .buttonContainerBorder {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 90%;
-        height: 50px;
-        margin: 20px auto;
-        background: linear-gradient(77deg, $main-2, $main-8);
-        font-size: $font-size-small;
-        letter-spacing: 1.2px;
-        box-shadow: #00000029 0 3px 6px;
-        .buttonContainer {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: calc(100% - 4px);
-            height: 46px;
-            background: $color-8;
-            .buttonLabel {
-                color: $main-1;
-            }
-            .buttonLabelGreen {
-                color: $color-3;
-            }
+        .trackDescriptionContainer {
+          @extend .trackDescriptionLabel;
+          margin-right: 33px;
+          font-size: $font-size-small;
+          font-style: italic;
+          letter-spacing: initial;
         }
+      }
+      .trackRatingContainer {
+        margin-top: 26.5px;
+        padding: 23px;
+        text-align: left;
+        box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.2);
+        .trackRatingLabel {
+          @extend .songTitle;
+          font-size: $font-size-small - 1;
+          letter-spacing: 1.1px;
+        }
+        .ratingContainer {
+          padding: 10px;
+        }
+        .feedbackLabel {
+          @extend .trackRatingLabel;
+        }
+        .textAreaContainer {
+          width: 100%;
+          overflow: hidden;
+          .feedbackTextArea {
+            width: 100%;
+            font-size: $font-size-normal;
+            background: transparent;
+            color: $main-1;
+            border: none;
+            border-bottom: 1px solid $main-1;
+            padding-bottom: 16.5px;
+            margin-top: 17px;
+            word-break: break-word;
+            white-space: normal;
+          }
+          .feedbackTextArea::placeholder {
+            color: $main-1;
+            opacity: 0.3;
+            line-height: 1.5;
+          }
+        }
+      }
     }
+  }
+  .buttonContainerBorder {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    height: 50px;
+    margin: 20px auto;
+    background: linear-gradient(77deg, $main-2, $main-8);
+    font-size: $font-size-small;
+    letter-spacing: 1.2px;
+    box-shadow: #00000029 0 3px 6px;
+    .buttonContainer {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: calc(100% - 4px);
+      height: 46px;
+      background: $color-8;
+      .buttonLabel {
+        color: $main-1;
+      }
+      .buttonLabelGreen {
+        color: $color-3;
+      }
+    }
+  }
 }
 
 .rc-slider-track {
-    background-color: $color-3 !important;
+  background-color: $color-3 !important;
 }
 
 .rc-slider-handle {
-    background-color: $color-3 !important;
-    border-color: $color-3 !important;
+  background-color: $color-3 !important;
+  border-color: $color-3 !important;
 }

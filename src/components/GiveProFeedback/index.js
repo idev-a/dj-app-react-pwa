@@ -126,6 +126,7 @@ const GiveProFeedback = ({
                     handle={handle}
                     className="ratingColor"
                     onChange={handleTrackRating}
+                    value={trackRating}
                   />
                 </div>
                 <div className="feedbackLabel">{content.FEEDBACK_LABEL}</div>
