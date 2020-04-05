@@ -15,4 +15,6 @@ export const formDataHeader = (hasToken = true) => ({
   "Content-Type": "multipart/form-data",
   ...(hasToken && { "x-access-token": localStorage.getItem("x-access-token") })
 });
+
+export const STRIPE_KEY = "pk_test_HhCQqzIxD2wH7EXferZHg18W";
 export default api;
