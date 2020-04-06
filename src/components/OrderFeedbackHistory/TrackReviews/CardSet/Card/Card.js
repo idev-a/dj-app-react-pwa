@@ -88,7 +88,7 @@ const Card = ({ cardData, handleTrackReviewFeedback }) => {
         </div>
         {headerIsOpen && (
           <React.Fragment>
-            {bodyIsOpen && (
+            {headerIsOpen && (
               <div className="commentContainer">
                 <label htmlFor="comments" className="commentsLabel">
                   {content.COMMENTS_LABEL}
