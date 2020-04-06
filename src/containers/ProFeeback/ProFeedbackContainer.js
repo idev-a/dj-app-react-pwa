@@ -284,6 +284,7 @@ const ProFeedbackContainer = ({
   const handleDeleteSavedCard = useCallback(
     paymentId => {
       deletePaymentMethodDispatchAction({ id: paymentId });
+      setSelectedPaymentId(undefined);
     },
     [deletePaymentMethodDispatchAction]
   );

@@ -18,7 +18,7 @@ import "rc-tooltip/assets/bootstrap.css";
 
 const Handle = Slider.Handle;
 
-const handle = props => {
+const handle = (props) => {
   const { value, dragging, index, ...restProps } = props;
   return (
     <Tooltip
@@ -40,7 +40,8 @@ const GiveProFeedback = ({
   feedback,
   trackRating,
   handleTrackRating,
-  handleSubmitProFeedback
+  handleSubmitProFeedback,
+  goToNextTrack,
 }) => {
   const handleMenuClick = useContext(MenuHandlerContext);
   const {
@@ -50,7 +51,7 @@ const GiveProFeedback = ({
     price,
     user_name,
     requestedOn,
-    trackUrl
+    trackUrl,
   } = track;
   const getMediaComponent = () => {
     return mediaType === ENUMS.MEDIA_TYPE_YOUTUBE ? (
@@ -143,17 +144,19 @@ const GiveProFeedback = ({
               </div>
             </div>
           </section>
-          <section className="buttonContainerBorder">
-            <div className="buttonContainer">
-              {/* <span className="buttonLabel">{content.SUBMIT_FOR}</span>
-              <span className="buttonLabelGreen">&nbsp;`${price}</span> */}
-              <Button
-                className="submitButton"
-                onClick={handleSubmitProFeedback}
-                buttonText={`${content.SUBMIT_FOR} $${price}`}
-              />
-            </div>
-          </section>
+
+          <div style={{ margin: "20px 18.75px" }}>
+            <Button
+              className="rateLater"
+              onClick={goToNextTrack}
+              buttonText={`Rate Later`}
+            />
+            <Button
+              className="submitButton"
+              onClick={handleSubmitProFeedback}
+              buttonText={`${content.SUBMIT_FOR} $${price}`}
+            />
+          </div>
         </>
       ) : (
         <h3 style={{ color: "#FFF" }}>
@@ -165,7 +168,7 @@ const GiveProFeedback = ({
 };
 
 GiveProFeedback.defaultProps = {
-  track: {}
+  track: {},
 };
 
 export default GiveProFeedback;

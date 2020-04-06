@@ -9,7 +9,7 @@ const TrackReviewsComponent = ({ data, handleTrackReviewFeedback }) => {
       <div className="trackReviewsTitle">{content.TITLE}</div>
       <div className="mainHitStatsRow">
         <div className="mainHitStatsCols">
-          {data?.campaign}
+          {data?.trackRatings?.length}
           <div className="colTitles">{content.COL_TITLE_1}</div>
         </div>
         <div className="mainHitStatsCols">

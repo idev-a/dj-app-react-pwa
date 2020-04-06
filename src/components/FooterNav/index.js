@@ -3,7 +3,7 @@ import "./styles.scss";
 import { NavLink, withRouter } from "react-router-dom";
 import Icon from "../../common/IconComponent";
 
-const excludedRoutes = ["/", "/signin"];
+const excludedRoutes = ["/", "/signin", "/forgot-password", "/reset"];
 
 const FooterNav = props => {
   console.log(props.history);

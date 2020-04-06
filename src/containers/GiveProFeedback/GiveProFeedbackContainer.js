@@ -8,7 +8,7 @@ import { toast } from "react-toastify";
 
 const GiveProFeedbackContainer = ({
   proFeedbackTracks,
-  getProFeedbackTracksDispatchAction
+  getProFeedbackTracksDispatchAction,
 }) => {
   const [trackRating, setTrackRating] = useState(0);
   const [trackIndex, setTrackTrackIndex] = useState(0);
@@ -27,9 +27,9 @@ const GiveProFeedbackContainer = ({
       userId,
       trackRating,
       trackFeedback: feedback,
-      price
+      price,
     };
-    postDiscoverFeedback(payload, true).then(res => {
+    postDiscoverFeedback(payload, true).then((res) => {
       if (res.ok) {
         toast.success("Thank you. Your feedback has been submitted.");
         setTrackRating(0);
@@ -43,13 +43,24 @@ const GiveProFeedbackContainer = ({
     });
   }, [feedback, proFeedbackTracks, trackIndex, trackRating]);
 
-  const handleTrackRating = useCallback(e => {
+  const handleTrackRating = useCallback((e) => {
     setTrackRating(e);
   }, []);
 
-  const handleFeedbackChange = useCallback(e => {
+  const handleFeedbackChange = useCallback((e) => {
     setFeedback(e.target.value);
   }, []);
+
+  const goToNextTrack = useCallback(
+    (e) => {
+      if (trackIndex < proFeedbackTracks.length - 1) {
+        setTrackTrackIndex(trackIndex + 1);
+      } else {
+        setShowNoMoreTrack(true);
+      }
+    },
+    [proFeedbackTracks, trackIndex]
+  );
 
   return (
     <GiveProFeedback
@@ -60,16 +71,17 @@ const GiveProFeedbackContainer = ({
       handleSubmitProFeedback={handleSubmitProFeedback}
       handleTrackRating={handleTrackRating}
       handleFeedbackChange={handleFeedbackChange}
+      goToNextTrack={goToNextTrack}
     />
   );
 };
 
-const dispatchActions = dispatch => ({
-  getProFeedbackTracksDispatchAction: () => dispatch(getProFeedbackTracks())
+const dispatchActions = (dispatch) => ({
+  getProFeedbackTracksDispatchAction: () => dispatch(getProFeedbackTracks()),
 });
 
 GiveProFeedback.defaultProps = {
-  proFeedbackTracks: []
+  proFeedbackTracks: [],
 };
 
 export default connect(

@@ -11,6 +11,7 @@ import PopUpComponent from "../PopUps/PopUpsComponent";
 import PromoCodeComponent from "./PromoComponent";
 import { MenuHandlerContext } from "../../routes";
 import { STRIPE_KEY } from "../../config";
+import Icon from "../../common/IconComponent";
 
 const OrderFeedbackComponent = ({
   tracks,
@@ -54,11 +55,9 @@ const OrderFeedbackComponent = ({
           iconName="menu"
           onClick={handleMenuClick}
         />
-        <Button
-          isIcon
+        <Icon
           iconName="HearBKSilverLogo"
           className="silverLogo"
-          onClick={handleLogoClick}
         />
       </header>
       <section className="orderFeedbackHeaderText">
