@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useRef } from "react";
 import content from "./content";
 import "./Settings.styles.scss";
 import Icon from "../../common/IconComponent";
@@ -8,6 +8,7 @@ import AccountForm from "./AccountForm";
 import PaymentAccountForm from "./PaymentAccountForm";
 import SubscriptionBox from "./SubscriptionBox";
 import { MenuHandlerContext } from "../../routes";
+import InputField from "../../common/InputField";
 
 const SettingsComponent = ({
   profileIsOpen,
@@ -26,11 +27,16 @@ const SettingsComponent = ({
   repeatPassword,
   onInputChange,
   handleProfileUpdate,
-  handleCancelSubscription
+  handleCancelSubscription,
+  handleProfileUpload,
 }) => {
   const { subscriptionEndDate, profile_image, balance } = details;
   const { user_name, display_name, email } = userObject;
   const handleMenuClick = useContext(MenuHandlerContext);
+  const fileUploadRef = useRef(null);
+  const handleAddPhotoClick = () => {
+    fileUploadRef.current.click();
+  };
   return (
     <div className="settingsContainer">
       <div className="largeBannerHeaderContainer">
@@ -60,6 +66,11 @@ const SettingsComponent = ({
         </div>
       </div>
       <div className="settingsStatusContainer">
+        <Button
+          buttonText="Change Image"
+          className="changeProfile"
+          onClick={handleAddPhotoClick}
+        />
         <div className="status">
           <div className="statusBox">{content.STATUS}</div>
           <div className="insiderBox">
@@ -123,6 +134,15 @@ const SettingsComponent = ({
           buttonText={content.LOGOUT}
           onClick={logOutClick}
         ></Button>
+      </div>
+      <div style={{ width: 0, height: 0, opacity: 0 }}>
+        <InputField
+          accept="image/*"
+          id="profileImageUpload"
+          onChange={handleProfileUpload}
+          passableRef={fileUploadRef}
+          type="file"
+        />
       </div>
 
       {/* Logout needed setup ends here */}

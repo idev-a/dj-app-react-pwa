@@ -9,7 +9,8 @@ import {
   getUserDetails,
   updateUserData,
   getPaymentMethods,
-  cancelUserPremiumSubscription
+  cancelUserPremiumSubscription,
+  uploadUserProfile,
 } from "../../state/actions/userActions";
 import { validateRegex } from "../../utils";
 
@@ -19,7 +20,7 @@ const SettingsContainer = ({
   userDetails,
   dispatchUpdate,
   paymentMethods,
-  history
+  history,
 }) => {
   const [profileIsOpen, toggleProfile] = useState(false);
   const [accountIsOpen, toggleAccount] = useState(false);
@@ -32,7 +33,7 @@ const SettingsContainer = ({
   useEffect(() => {
     Promise.all([
       getUserDetailsDispatchAction(),
-      getPaymentMethodsDispatchAction()
+      getPaymentMethodsDispatchAction(),
     ]);
   }, [getUserDetailsDispatchAction, getPaymentMethodsDispatchAction]);
 
@@ -40,7 +41,7 @@ const SettingsContainer = ({
     setUserObject({
       user_name: userDetails.user_name || "",
       display_name: userDetails.display_name || "",
-      email: userDetails.email || ""
+      email: userDetails.email || "",
     });
   }, [userDetails]);
 
@@ -83,7 +84,7 @@ const SettingsContainer = ({
     }
   }, [userObject, userDetails, newPassword, repeatPassword, dispatchUpdate]);
 
-  const handleInputChange = useCallback(e => {
+  const handleInputChange = useCallback((e) => {
     const { id, value } = e.target;
     if (id === "password") {
       setNewPassword(value);
@@ -91,14 +92,30 @@ const SettingsContainer = ({
     if (id === "repeatPassword") {
       setRepeatPassword(value);
     } else {
-      setUserObject(userObj => ({
+      setUserObject((userObj) => ({
         ...userObj,
-        [id]: value
+        [id]: value,
       }));
     }
   }, []);
 
-  const handleCancelSubscription = useCallback(async() => {
+  const handleProfileUpload = useCallback(
+    (e) => {
+      if (e?.target?.files?.length > 0) {
+        uploadUserProfile(e.target.files[0], userDetails._id).then((res) => {
+          if (res.ok) {
+            toast.success("Profile Image Updated");
+            getUserDetailsDispatchAction();
+          } else {
+            toast.error("Failed to upload profile image");
+          }
+        });
+      }
+    },
+    [userDetails, getUserDetailsDispatchAction]
+  );
+
+  const handleCancelSubscription = useCallback(async () => {
     const cancelResponse = await cancelUserPremiumSubscription();
     if (cancelResponse.ok) {
       toast.success("Subscription cancelled successfully");
@@ -106,7 +123,7 @@ const SettingsContainer = ({
     } else {
       toast.error("Failed to cancel subscription");
     }
-  }, [getUserDetailsDispatchAction])
+  }, [getUserDetailsDispatchAction]);
 
   return (
     <SettingsComponent
@@ -114,10 +131,10 @@ const SettingsContainer = ({
       accountIsOpen={accountIsOpen}
       paymentIsOpen={paymentIsOpen}
       subscriptionIsOpen={subscriptionIsOpen}
-      toggleProfile={() => toggleProfile(e => !e)}
-      toggleAccount={() => toggleAccount(e => !e)}
-      togglePayment={() => togglePayment(e => !e)}
-      toggleSubscription={() => toggleSubscription(e => !e)}
+      toggleProfile={() => toggleProfile((e) => !e)}
+      toggleAccount={() => toggleAccount((e) => !e)}
+      togglePayment={() => togglePayment((e) => !e)}
+      toggleSubscription={() => toggleSubscription((e) => !e)}
       cancelSubscription={handleCancelSubscription}
       details={userDetails}
       userObject={userObject}
@@ -127,20 +144,21 @@ const SettingsContainer = ({
       password={newPassword}
       repeatPassword={repeatPassword}
       handleProfileUpdate={handleProfileUpdate}
+      handleProfileUpload={handleProfileUpload}
     />
   );
 };
 
-const dispatchAction = dispatch => ({
+const dispatchAction = (dispatch) => ({
   getUserDetailsDispatchAction: () => dispatch(getUserDetails()),
-  dispatchUpdate: payload => dispatch(updateUserData(payload)),
-  getPaymentMethodsDispatchAction: () => dispatch(getPaymentMethods())
+  dispatchUpdate: (payload) => dispatch(updateUserData(payload)),
+  getPaymentMethodsDispatchAction: () => dispatch(getPaymentMethods()),
 });
 
 export default connect(
-  state => ({
+  (state) => ({
     ...preferencsSelector(state),
-    paymentMethods: userSelector(state).paymentMethods
+    paymentMethods: userSelector(state).paymentMethods,
   }),
   dispatchAction
 )(SettingsContainer);

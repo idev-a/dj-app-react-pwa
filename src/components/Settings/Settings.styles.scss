@@ -29,6 +29,7 @@
             .profilePicIcon {
                 width: 90px;
                 height: 90px;
+                border-radius: 50%;
             }
         }
     }
@@ -156,4 +157,9 @@
     .expand {
         height: initial;
     }
+}
+
+.changeProfile {
+    text-decoration: underline;
+
 }

@@ -156,6 +156,7 @@ const OrderFeedbackComponent = ({
             rateTrackClick: handleRateTrackClick,
             placeNewOrderClick: handlePlaceNewOrderClick,
           }}
+          hasCloseIcon={false}
           closeClick={closeSuccessPopUp}
         />
       )}

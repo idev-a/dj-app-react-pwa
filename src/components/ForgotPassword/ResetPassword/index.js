@@ -10,7 +10,7 @@ const ResetPassword = ({
   onInputChange,
   password,
   repeatPassword,
-  handleResetPasswordClick
+  handleResetPasswordClick,
 }) => {
   return (
     <React.Fragment>
@@ -59,7 +59,6 @@ const ResetPassword = ({
             </div>
           </div>
         </>
-        )
       </div>
     </React.Fragment>
   );
