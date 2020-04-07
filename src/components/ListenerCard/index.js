@@ -54,7 +54,7 @@ const ListenerCard = ({
           <div className="headline">{listener.headline}</div>
         </div>
         <div className="priceDetails">
-          <div className="price">£{parseInt(listener.price).toFixed(2)}</div>
+          <div className="price">${parseInt(listener.price).toFixed(2)}</div>
           <div className="selectContainer">
             <CheckBox
               name="selectListener"

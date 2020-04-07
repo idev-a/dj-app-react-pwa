@@ -300,6 +300,10 @@ const ProFeedbackContainer = ({
     [selectedPaymentId]
   );
 
+  const handleRemoveListener = useCallback(id => {
+    setSelectedListeners(l => l.filter(listener => listener._id !== id));
+  }, []);
+
   return !showListenersSelection ? (
     <Component
       isProcessing={isProcessing}
@@ -336,6 +340,7 @@ const ProFeedbackContainer = ({
         setIsSuccess(false);
       }}
       closeSuccessPopUp={() => setIsSuccess(false)}
+      handleRemoveListener={handleRemoveListener}
     />
   ) : (
     <ListenersSelect

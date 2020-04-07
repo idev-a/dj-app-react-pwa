@@ -39,7 +39,8 @@ const ProFeedbackComponent = ({
   handlePlaceNewOrderClick,
   closeSuccessPopUp,
   onSelectListeners,
-  handleSelectedListeners
+  handleSelectedListeners,
+  handleRemoveListener,
 }) => {
   const handleMenuClick = useContext(MenuHandlerContext);
   return (
@@ -98,6 +99,7 @@ const ProFeedbackComponent = ({
         onSelectListeners={onSelectListeners}
         listeners={selectedListeners}
         handleListenerSelect={handleSelectedListeners}
+        handleRemoveListener={handleRemoveListener}
       />
       <div className="proContainer">
         <TotalPaymentComponent
@@ -144,6 +146,7 @@ const ProFeedbackComponent = ({
             placeNewOrderClick: handlePlaceNewOrderClick
           }}
           closeClick={closeSuccessPopUp}
+          hasCloseIcon={false}
         />
       )}
     </div>
