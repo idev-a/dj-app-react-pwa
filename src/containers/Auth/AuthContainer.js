@@ -6,10 +6,12 @@ import AuthTabsComponent from "../../components/AuthTabsComponent";
 import "./Auth.styles.scss";
 import HearBKIcon from "../../common/HearBKIcon";
 import { Link } from "react-router-dom";
+import PopUpsComponent from "../../components/PopUps/PopUpsComponent";
 
-const AuthContainer = props => {
+const AuthContainer = (props) => {
   const [selectedTabIndex, setSelectedTabIndex] = useState(0);
   const [isForgotPassword, setIsForgotPassword] = useState(false);
+  const [showBetaMessage, setShowBetaMessage] = useState(true);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -27,9 +29,7 @@ const AuthContainer = props => {
     );
   }, [selectedTabIndex, props, isForgotPassword]);
 
-  const handleTabChange = index => setSelectedTabIndex(index);
-
-  const handleInputChange = () => {};
+  const handleTabChange = (index) => setSelectedTabIndex(index);
 
   return (
     <div
@@ -50,6 +50,12 @@ const AuthContainer = props => {
       <div className="authHearBKFooter">
         <HearBKIcon />
       </div>
+      {showBetaMessage && (
+        <PopUpsComponent
+          name="beta"
+          closeClick={() => setShowBetaMessage(false)}
+        />
+      )}
     </div>
   );
 };

@@ -9,6 +9,7 @@ import OrderProcessing from "./OrderProcessing";
 import Success from "./Success";
 import UploadFailed from "./UploadFailed";
 import PrivacyPolicy from "./PrivacyPolicy";
+import Beta from "./Beta";
 
 const PopUpsComponent = ({ name, hasCloseIcon, handlers, closeClick }) => {
   return (
@@ -39,6 +40,8 @@ const PopUpsComponent = ({ name, hasCloseIcon, handlers, closeClick }) => {
           <UploadFailed {...handlers} />
         ) : name === "privacyPolicy" ? (
           <PrivacyPolicy {...handlers} />
+        ) : name === "beta" ? (
+          <Beta {...handlers} />
         ) : (
           ""
         )}

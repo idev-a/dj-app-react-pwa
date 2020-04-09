@@ -12,9 +12,14 @@ import HearBKIcon from "../../common/HearBKIcon";
 import { MenuHandlerContext } from "../../routes";
 import ListenerRatings from "./ListenerRatings";
 import Ratings from "../../common/Ratings";
+import ProfileImage from "../ProfileImage";
 
-const Profile = ({ profileDetails, userName, onShareProfileClick, handleConnectClick }) => {
-
+const Profile = ({
+  profileDetails,
+  userName,
+  onShareProfileClick,
+  handleConnectClick,
+}) => {
   const menuClickHandler = useContext(MenuHandlerContext);
 
   return (
@@ -43,21 +48,27 @@ const Profile = ({ profileDetails, userName, onShareProfileClick, handleConnectC
         </div>
         <div className="headerTag">{`@${userName}`}</div>
         <div className="profilePicContainer">
-          <Button className="shareButton" onClick={onShareProfileClick} isIcon iconName="share" />
+          <Button
+            className="shareButton"
+            onClick={onShareProfileClick}
+            isIcon
+            iconName="share"
+          />
           {profileDetails?.profile_image ? (
-            <img
-              src={profileDetails.profile_image}
-              className="profilePicIcon"
-              alt=""
-            />
+            <ProfileImage imageUrl={profileDetails.profile_image} className="profilePicIcon"/>
           ) : (
             <Icon className="profilePicIcon" iconName="default_pro_pic_icon" />
           )}
         </div>
         <div className="ratingStarIconContainer">
-          <Ratings disabled value={profileDetails?.listenerRatings?.avgRating} />
+          <Ratings
+            disabled
+            value={profileDetails?.listenerRatings?.avgRating}
+          />
         </div>
-        <div className="ratingContainer">{profileDetails?.listenerRatings?.avgRating}/ 5</div>
+        <div className="ratingContainer">
+          {profileDetails?.listenerRatings?.avgRating}/ 5
+        </div>
       </header>
       <section className="bodyContainer">
         <div className="statisticsRow">
@@ -120,7 +131,11 @@ const Profile = ({ profileDetails, userName, onShareProfileClick, handleConnectC
         </div> */}
         <div className="waitlistContainer">
           <div className="iconContainer">
-            <Button className="connectButton" buttonText={content.CONNECT} onClick={handleConnectClick}/>
+            <Button
+              className="connectButton"
+              buttonText={content.CONNECT}
+              onClick={handleConnectClick}
+            />
           </div>
         </div>
         <div className="largeFormContainer">

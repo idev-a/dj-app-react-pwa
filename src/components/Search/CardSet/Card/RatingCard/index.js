@@ -2,6 +2,7 @@ import React from "react";
 import "./styles.scss";
 import IconComponent from "../../../../../common/IconComponent";
 import { useHistory } from "react-router-dom";
+import ProfileImage from "../../../../ProfileImage";
 const RatingCard = ({ listener }) => {
   const history = useHistory();
   return (
@@ -11,12 +12,12 @@ const RatingCard = ({ listener }) => {
       onClick={() => history.push(`/p/${listener.user_name}`)}
     >
       {listener.profile_image ? (
-        <img className="profilePic" src={listener.profile_image} alt="" />
-      ) : (
-        <IconComponent
+        <ProfileImage
           className="profilePic"
-          iconName="default_pro_pic_icon"
+          imageUrl={listener.profile_image}
         />
+      ) : (
+        <IconComponent className="profilePic" iconName="default_pro_pic_icon" />
       )}
       <p className="userTag">{listener.display_name}</p>
     </li>

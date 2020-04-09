@@ -9,6 +9,7 @@ import PaymentAccountForm from "./PaymentAccountForm";
 import SubscriptionBox from "./SubscriptionBox";
 import { MenuHandlerContext } from "../../routes";
 import InputField from "../../common/InputField";
+import ProfileImage from "../ProfileImage";
 
 const SettingsComponent = ({
   profileIsOpen,
@@ -52,11 +53,7 @@ const SettingsComponent = ({
         <div className="headerTitle1">{content.HEADER}</div>
         <div className="profilePicIconContainer">
           {profile_image ? (
-            <img
-              alt="profileImg"
-              className="profilePicIcon"
-              src={profile_image}
-            />
+            <ProfileImage className="profilePicIcon" imageUrl={profile_image} />
           ) : (
             <Icon
               className="defaultProfilePicIcon"

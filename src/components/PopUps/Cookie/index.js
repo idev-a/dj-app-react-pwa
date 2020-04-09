@@ -44,7 +44,7 @@ const Cookie = (props) => {
         }
         <a
           className="launchButton"
-          href="https://hearbk.com/hq/privacy-policy/"
+          href="https://hq.hearbk.com/privacy-policy/"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -52,7 +52,7 @@ const Cookie = (props) => {
         </a>
         <a
           className="launchButton"
-          href="https://hearbk.com/hq/cookie-policy/"
+          href="https://hq.hearbk.com/cookie-policy/"
           target="_blank"
           rel="noopener noreferrer"
         >

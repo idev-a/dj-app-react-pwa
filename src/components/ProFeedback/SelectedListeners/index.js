@@ -3,6 +3,7 @@ import "./styles.scss";
 import content from "./content";
 import Icon from "../../../common/IconComponent";
 import Button from "../../../common/Button";
+import ProfileImage from "../../ProfileImage";
 
 const SelectedListeners = ({
   listeners,
@@ -35,10 +36,9 @@ const SelectedListeners = ({
               onClick={() => handleRemoveListener(listener?._id)}
             />
             {listener.profile_image ? (
-              <img
-                src={listener.profile_image}
+              <ProfileImage
+                imageUrl={listener.profile_image}
                 className="selectedListenerPicture"
-                alt=""
               />
             ) : (
               <Icon

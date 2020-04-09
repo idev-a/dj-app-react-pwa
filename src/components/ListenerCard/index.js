@@ -2,12 +2,13 @@ import React from "react";
 import IconComponent from "../../common/IconComponent";
 import CheckBox from "rc-checkbox";
 import "./styles.scss";
+import ProfileImage from "../ProfileImage";
 
 const ListenerCard = ({
   listener,
   handleSelectListener,
   tagsArray,
-  handleSelectedListeners
+  handleSelectedListeners,
 }) => {
   const getListernerTags = () => {
     const listenerTags = [...listener.listener_tags];
@@ -17,13 +18,13 @@ const ListenerCard = ({
     }
     return (
       listenerTags &&
-      listenerTags.map(listenerTag => {
+      listenerTags.map((listenerTag) => {
         if (listenerTag === "showMoreTags") {
           return (
             <div className="tagLabel">{`+${listener.listener_tags.length}`}</div>
           );
         }
-        const tagObj = tagsArray.find(t => {
+        const tagObj = tagsArray.find((t) => {
           return t._id === listenerTag;
         });
         return tagObj ? <div className="tagLabel">{tagObj.tag}</div> : null;
@@ -36,10 +37,9 @@ const ListenerCard = ({
       <>
         <div>
           {listener.profile_image ? (
-            <img
+            <ProfileImage
               className="cardProfilePic"
-              src={listener.profile_image}
-              alt=""
+              imageUrl={listener.profile_image}
             />
           ) : (
             <IconComponent
@@ -58,7 +58,7 @@ const ListenerCard = ({
           <div className="selectContainer">
             <CheckBox
               name="selectListener"
-              onChange={e => handleSelectedListeners(listener, e)}
+              onChange={(e) => handleSelectedListeners(listener, e)}
             />
             <span style={{ marginLeft: "10px" }}>Select</span>
           </div>
