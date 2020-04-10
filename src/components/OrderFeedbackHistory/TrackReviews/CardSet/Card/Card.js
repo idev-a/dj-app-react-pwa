@@ -9,6 +9,7 @@ import moment from "moment";
 import { toast } from "react-toastify";
 import { ENUMS } from "../../../../../utils";
 import Ratings from "../../../../../common/Ratings";
+import ProfileImage from "../../../../ProfileImage";
 
 const Card = ({ cardData, handleTrackReviewFeedback }) => {
   const [headerIsOpen, setHeaderIsOpen] = useState(false);
@@ -99,7 +100,7 @@ const Card = ({ cardData, handleTrackReviewFeedback }) => {
               </div>
             )}
             <div className="reviewerContainer">
-              <Icon className="reviewerProfilePic" iconName="" />
+              <ProfileImage className="reviewerProfilePic" imageUrl={cardData.listenerProfileImage} />
               <div className="reviewerTag">
                 {`reviewed by @${cardData?.listenerUserName}`}
               </div>
