@@ -1,6 +1,6 @@
-// const api = "https://hearbk-server-api.herokuapp.com";
+const api = "https://hearbk-server-api.herokuapp.com";
 // const api = "http://localhost:3000";
-const api = "https://hearbk-server.herokuapp.com";
+// const api = "https://hearbk-server.herokuapp.com";
 export const genericHeaders = () => ({
   "Content-Type": "application/json",
   Accept: "application/json"
@@ -16,5 +16,5 @@ export const formDataHeader = (hasToken = true) => ({
   ...(hasToken && { "x-access-token": localStorage.getItem("x-access-token") })
 });
 
-export const STRIPE_KEY = "pk_test_HhCQqzIxD2wH7EXferZHg18W";
+export const STRIPE_KEY = "pk_live_WxDWmJ53hswHLIAYQx3Xc15B";
 export default api;
