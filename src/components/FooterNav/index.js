@@ -1,18 +1,31 @@
-import React from 'react';
+import React from "react";
 import "./styles.scss";
-import { NavLink } from "react-router-dom";
+import { NavLink, withRouter } from "react-router-dom";
 import Icon from "../../common/IconComponent";
 
-const FooterNav = (props) => {
-    return (
-        <div className="footerContainer">
-            {/* <NavLink to="/search" className="footerLinks"><Icon className="footerIcon search" iconName="search" /></NavLink> */}
-            <NavLink to="/discover" className="footerLinks"><Icon className="footerIcon" iconName="discover" /></NavLink>
-            <NavLink to="/feedback" className="footerLinks"><Icon className="footerIcon" iconName="feedback" /></NavLink>
-            <NavLink to="/history" className="footerLinks"><Icon className="footerIcon" iconName="history" /></NavLink>
-            <NavLink to="/preferences" className="footerLinks"><Icon className="footerIcon" iconName="settings" /></NavLink>
-        </div>
-    );
+const excludedRoutes = ["/", "/signin", "/forgot-password", "/reset"];
+
+const FooterNav = props => {
+  console.log(props.history);
+  return !excludedRoutes.includes(props.history.location.pathname) ? (
+    <div className="footerContainer">
+      <NavLink to="/search" className="footerLinks">
+        <Icon className="footerIcon search" iconName="search" />
+      </NavLink>
+      <NavLink to="/discover" className="footerLinks">
+        <Icon className="footerIcon" iconName="discover" />
+      </NavLink>
+      <NavLink to="/feedback" className="footerLinks">
+        <Icon className="footerIcon" iconName="feedback" />
+      </NavLink>
+      <NavLink to="/history" className="footerLinks">
+        <Icon className="footerIcon" iconName="history" />
+      </NavLink>
+      <NavLink to="/preferences" className="footerLinks">
+        <Icon className="footerIcon" iconName="settings" />
+      </NavLink>
+    </div>
+  ) : null;
 };
 
-export default FooterNav;
+export default withRouter(FooterNav);

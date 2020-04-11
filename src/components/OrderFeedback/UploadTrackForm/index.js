@@ -16,6 +16,7 @@ const UploadTrackForm = ({
   selectedFeedback,
   setAddGenre,
   selectedGenre,
+  feedbackType,
 }) => {
   const fileUploadEl = useRef(null);
   const handleTrackDetailsUpdate = useCallback(
@@ -152,7 +153,7 @@ const UploadTrackForm = ({
         </ul>
       )}
       <hr className="firstHR" />
-      <div className="ratingsContainer">
+      {feedbackType !== "PRO" && <div className="ratingsContainer">
         <div className="ratingsText">{content.RATINGS_TEXT}</div>
         <div className="ratingsButtonWrapper">
           <Button
@@ -172,7 +173,7 @@ const UploadTrackForm = ({
             onClick={() => handleSelectedFeedback(5)}
           />
         </div>
-      </div>
+      </div>}
     </section>
   );
 };

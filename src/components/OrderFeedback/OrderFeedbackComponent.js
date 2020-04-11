@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { StripeProvider, Elements } from "react-stripe-elements";
 import content from "./content";
 import "./styles.scss";
@@ -8,8 +8,10 @@ import TotalPaymentComponent from "./TotalPayment";
 import PaymentForm from "./PaymentForm";
 import Button from "../../common/Button";
 import PopUpComponent from "../PopUps/PopUpsComponent";
-import FooterNav from "../FooterNav";
 import PromoCodeComponent from "./PromoComponent";
+import { MenuHandlerContext } from "../../routes";
+import { STRIPE_KEY } from "../../config";
+import Icon from "../../common/IconComponent";
 
 const OrderFeedbackComponent = ({
   tracks,
@@ -40,15 +42,22 @@ const OrderFeedbackComponent = ({
   handlePlaceNewOrderClick,
   closeSuccessPopUp,
   isPremium,
+  hitOrPro,
+  setHitOrPro,
 }) => {
+  const handleMenuClick = useContext(MenuHandlerContext);
   return (
     <div className="orderFeedbackContainer">
       <header className="orderFeedbackHeader">
         <Button
           isIcon
+          className="menuIcon"
+          iconName="menu"
+          onClick={handleMenuClick}
+        />
+        <Icon
           iconName="HearBKSilverLogo"
           className="silverLogo"
-          onClick={handleLogoClick}
         />
       </header>
       <section className="orderFeedbackHeaderText">
@@ -82,7 +91,7 @@ const OrderFeedbackComponent = ({
           />
         )
       )}
-     {/* <div
+      {/* <div
         className="addAnotherTrack"
         role="button"
         onClick={handleAddAnotherTrack}
@@ -100,38 +109,43 @@ const OrderFeedbackComponent = ({
           isHyperTargeted={isHyperTargeted}
         />
       )}
-      <TotalPaymentComponent
-        handleRemoveTrack={handleRemoveTrack}
-        tracks={tracks}
-        isAddPremium={isAddPremium}
-        genres={genres}
-      />
-      <PromoCodeComponent onInputChange={onInputChange} promoCode={promoCode} />
-      <StripeProvider apiKey="pk_live_WxDWmJ53hswHLIAYQx3Xc15B">
-        <Elements>
-          <PaymentForm
-            onInputChange={onInputChange}
-            accountName={accountName}
-            submitPayment={saveCardInformation}
-            shouldCreateToken={shouldCreateToken}
-            handlePaymentFormError={handlePaymentFormError}
-            isSaveCardDetails={isSaveCardDetails}
-            paymentMethods={paymentMethods}
-            selectedPaymentId={selectedPaymentId}
-            handleDeleteSavedCard={handleDeleteSavedCard}
-            handleSavedCardSelect={handleSavedCardSelect}
-          />
-        </Elements>
-      </StripeProvider>
-      <div className="orderButtonWrapper">
-        <Button
-          className="launchButton"
-          buttonText={content.ORDER_NOW_BUTTON}
-          onClick={onSubmitFeedback}
-          disabled={!isPaymentFormReady}
+      <React.Fragment>
+        <TotalPaymentComponent
+          handleRemoveTrack={handleRemoveTrack}
+          tracks={tracks}
+          isAddPremium={isAddPremium}
+          genres={genres}
+          hitOrPro={hitOrPro}
         />
-      </div>
-      <FooterNav />
+        <PromoCodeComponent
+          onInputChange={onInputChange}
+          promoCode={promoCode}
+        />
+        <StripeProvider apiKey={STRIPE_KEY}>
+          <Elements>
+            <PaymentForm
+              onInputChange={onInputChange}
+              accountName={accountName}
+              submitPayment={saveCardInformation}
+              shouldCreateToken={shouldCreateToken}
+              handlePaymentFormError={handlePaymentFormError}
+              isSaveCardDetails={isSaveCardDetails}
+              paymentMethods={paymentMethods}
+              selectedPaymentId={selectedPaymentId}
+              handleDeleteSavedCard={handleDeleteSavedCard}
+              handleSavedCardSelect={handleSavedCardSelect}
+            />
+          </Elements>
+        </StripeProvider>
+        <div className="orderButtonWrapper">
+          <Button
+            className="launchButton"
+            buttonText={content.ORDER_NOW_BUTTON}
+            onClick={onSubmitFeedback}
+            disabled={!isPaymentFormReady}
+          />
+        </div>
+      </React.Fragment>
       {isProcessing && (
         <PopUpComponent name="orderProcessing" hasCloseIcon={false} />
       )}
@@ -142,6 +156,7 @@ const OrderFeedbackComponent = ({
             rateTrackClick: handleRateTrackClick,
             placeNewOrderClick: handlePlaceNewOrderClick,
           }}
+          hasCloseIcon={false}
           closeClick={closeSuccessPopUp}
         />
       )}

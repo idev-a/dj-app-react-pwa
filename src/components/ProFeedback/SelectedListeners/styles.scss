@@ -1,0 +1,68 @@
+@import "../../../scss/common.styles.scss";
+
+.selectedListenersContainer {
+    @extend .componentContainer;
+    background-color: $main-1;
+    box-shadow: #00000029 0px 1px 6px;
+    margin: 10px 22px 18px 22px;
+    padding: 20px 20px;
+    .selectedHeader {
+        font-size: $font-size-normal;
+        letter-spacing: 1.4px;
+        font-weight: 700;
+        line-height: 22px;
+        color: $main-3;
+        .listenersHeader {
+            color: $color-2;
+        }
+    }
+    .selectedListenersLabel {
+        margin-top: 30px;
+        font-size: $font-size-small - 1;
+        letter-spacing: 1.1px;
+        font-weight: 500;
+        color: $main-2;
+        opacity: .4;
+    }
+    .iconContainer {
+        position: relative;
+        margin-top: 28px;
+        .closeIcon {
+            position: absolute;
+            width: 17.45px;
+            height: 17.45px;
+            left: 63px;
+        }
+        .selectedListenerPicture {
+            width: 79px;
+            height: 79px;
+            border-radius: 50%;
+        }
+        .pictureLabel {
+            margin-top: 5px;
+            color: $main-2;
+            font-size: $font-size-small - 1;
+            text-align: center;
+        }
+    }
+    .buttonWrapper {
+        margin-top: 29px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 50px;
+        margin-bottom: 6px;
+        background: linear-gradient(74deg, $main-2, $main-8);
+        box-shadow: #00000029 0px 3px 6px;
+        .editListenersButton {
+            border: none;
+            background-color: $main-1;
+            color: $main-2;
+            font-size: $font-size-small;
+            width: 98%;
+            letter-spacing: 1.2px;
+            height: 46px;
+        }
+    }
+} 

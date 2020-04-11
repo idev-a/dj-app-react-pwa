@@ -29,6 +29,7 @@
             .profilePicIcon {
                 width: 90px;
                 height: 90px;
+                border-radius: 50%;
             }
         }
     }
@@ -36,9 +37,10 @@
         display: flex;
         justify-content: space-between;
         margin: 196px 26.5px 10px 26.5px;
+        flex-direction: column;
         .subHeaderLabel {
-            color: #9CAEC7;
-            font-size: 10px;
+            color: $color-2;
+            font-size: $font-size-small;
             font-weight: 700;
             letter-spacing: 0;
         }
@@ -58,12 +60,12 @@
                 letter-spacing: .6pt;
             }
         }
-        .points {
-            display: none;
-            flex-flow: column nowrap;
+        .balance {
+            display: flex;
+            flex-flow: row nowrap;
             justify-content: space-between;
-            width: 105px;
-            height: 55.5px;
+            width: 100%;
+            align-items: center;
         }
         .status {
             display: flex;
@@ -98,9 +100,6 @@
                 }
             }
         }
-        .balance {
-            @extend .points;
-        }
     }
     .formContainer {
         .formHeaderContainer {
@@ -111,6 +110,7 @@
                 pointer-events: none;
             }
             .formHeaderText {
+                letter-spacing: 1.4px;
                 pointer-events: none;
             }
         }
@@ -121,7 +121,7 @@
             align-self: center;
             width: 100%;
             height: 50px;
-            background: linear-gradient(74deg, $main-3, #B4C4D9);
+            background: linear-gradient(74deg, $main-3, $main-8);
             box-shadow: 0 3px 6px #00000029;
             .launchButton {
                 width: 98%;
@@ -157,4 +157,9 @@
     .expand {
         height: initial;
     }
+}
+
+.changeProfile {
+    text-decoration: underline;
+
 }

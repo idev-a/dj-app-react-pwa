@@ -5,13 +5,21 @@ import InputField from "../../common/InputField";
 import "./Login.styles.scss";
 import "rc-checkbox/assets/index.css";
 import Button from "../../common/Button";
+import { useHistory } from "react-router-dom";
 
-const LoginComponent = ({ email, password, onInputChange, loginUser }) => {
+const LoginComponent = ({
+  email,
+  password,
+  onInputChange,
+  loginUser,
+  isRememberUser
+}) => {
+  const history = useHistory();
   return (
     <div className="loginContainer">
       <div className="loginLabel">{content.LOGIN_LABEL}</div>
       <div className="loginText">{content.LOGIN_TEXT}</div>
-      <div className="inputContainer">
+      <div className="loginInputContainer">
         <InputField
           id="email"
           onChange={onInputChange}
@@ -37,6 +45,7 @@ const LoginComponent = ({ email, password, onInputChange, loginUser }) => {
           className="checkBoxStyle"
           onChange={onInputChange}
           name="rememberUser"
+          checked={isRememberUser}
         />
         <div className="rememberMeText">{content.REMEMBER}</div>
       </div>
@@ -47,8 +56,10 @@ const LoginComponent = ({ email, password, onInputChange, loginUser }) => {
           onClick={loginUser}
         ></Button>
       </div>
-      <div className="forgotPassword" style={{ display: "none" }}>
-        <span>{content.FORGOT_PASSWORD}</span>
+      <div className="forgotPassword">
+        <span onClick={() => history.push("/forgot-password")}>
+          {content.FORGOT_PASSWORD}
+        </span>
       </div>
     </div>
   );
@@ -56,7 +67,7 @@ const LoginComponent = ({ email, password, onInputChange, loginUser }) => {
 
 LoginComponent.defaultProps = {
   email: "",
-  password: "", 
+  password: ""
 };
 
 export default LoginComponent;

@@ -1,12 +1,17 @@
 @import "../../scss/common.styles.scss";
 
 .orderFeedbackStartContainer {
-    position: relative;
     width: 100%;
-    height: 812px;
-    background: #46515F;
+    height: 100%;
+    background: $main-9;
     text-align: center;
-    overflow: hidden;
+    overflow: scroll;
+    min-height: 100vh;
+    background-image: url("../../assets/img/giveprofeedback/Path85.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position-y: 50%;
+
     .cancelIcon {
         position: absolute;
         width: 24px;
@@ -24,7 +29,7 @@
         z-index: 0;
     }
     .orderFeedbackStartContainerHeader {
-        color: white;
+        color: $main-1;
         font-size: 14px;
         font-weight: 700;
         line-height: 1.5;
@@ -40,7 +45,7 @@
         width: 90%;
         height: 240px;
         margin: 40px auto 20px auto;
-        color: white;
+        color: $main-1;
         box-shadow: 0 1pt 6pt #00000029;
         .containerBackground {
             position: absolute;
@@ -99,7 +104,7 @@
     }
     .proFeedbackContainer {
         @extend .hitFeedbackContainer;
-        margin: 0 auto 0 auto;
+        margin: 0 auto 98px auto;
         .buttonWrapper.proFeedbackWrapper {
             background: linear-gradient(74deg, #8B9CB2, #49B97D);
         }

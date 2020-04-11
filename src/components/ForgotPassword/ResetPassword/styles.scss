@@ -1,0 +1,26 @@
+@import "../styles.scss";
+
+.forgotPasswordContainer {
+    .arrowBackIcon {
+        @extend .cancelIcon;
+        left: 22px;
+        right: initial;
+        opacity: .3;
+    }
+    .lockOutlineIcon {
+        position: absolute;
+        width: 37.5px;
+        height: 58px;
+        left: 25px;
+        top: 71px;
+    }
+    .resetPasswordHeader {
+        @extend .forgotPasswordHeader;
+    }
+    .contentContainer {
+        .repeatContainer {
+            @extend .inputContainer;
+            margin: 10px auto 0 auto;
+        }
+    }
+}

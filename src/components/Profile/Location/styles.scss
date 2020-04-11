@@ -1,0 +1,21 @@
+@import "../../Settings/Settings.styles.scss";
+
+.formContainer {
+    .formInputContainer {
+        .formInputSubContainer {
+            position: relative;
+            border-bottom: 1px solid #ffffff33;
+            .locationIcon {
+                position: absolute;
+                width: 12px;
+                height: 17px;
+                top: calc(50% - 8.5px);
+            }
+            .formInputField {
+                margin-bottom: 0 !important;
+                padding-left: 23px !important;
+                border-bottom: none !important;
+            }
+        }
+    }
+}

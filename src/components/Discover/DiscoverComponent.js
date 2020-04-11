@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useState, useContext } from "react";
 import isEmpty from "lodash/isEmpty";
 import content from "./content";
 import "./Discover.styles.scss";
@@ -7,8 +7,8 @@ import AudioPlayer from "../AudioPlayer";
 import SwipeableCards from "../../common/SwipeableCards";
 import { ENUMS } from "../../utils";
 import Iframe from "../../common/Iframe";
-import FooterNav from "../FooterNav";
 import Button from "../../common/Button";
+import { MenuHandlerContext } from "../../routes";
 
 const DiscoverComponent = ({
   handleSwipeEnd,
@@ -67,17 +67,16 @@ const DiscoverComponent = ({
 
     return (
       <div className={`songCardContainer ${cardMoveStyle}`}>
-        <Icon className="bookmarkIcon" iconName="bookmark1" />
         <div className="profilePicIconContainer">
-        {profile_image ? (
-          <img
-            alt="profileImg"
-            className="profilePicIcon"
-            src={profile_image}
-          />
-        ) : (
-          <Icon className="defaultProfilePicIcon" iconName="default_pro_pic_icon" />
-        )}
+          {profile_image ? (
+            <img
+              alt="profileImg"
+              className="profilePicIcon"
+              src={profile_image}
+            />
+          ) : (
+            <Icon className="defaultProfilePicIcon" iconName="default_pro_pic_icon" />
+          )}
         </div>
         <div className="artistTagContainer">{display_name}</div>
         <div className="songContainer">
@@ -118,18 +117,18 @@ const DiscoverComponent = ({
         </div>
       </div>
     );
-  }, [track, cardMoveStyle, handleButtonClick, setIsSelected]);
+  }, [track, cardMoveStyle, isSelected, handleButtonClick]);
+
+  const handleMenuClick = useContext(MenuHandlerContext)
 
   return (
     <div className="discoverComponentContainer">
       <Icon className="backgroundIcon" iconName="Path85" />
       <div className="discoverComponentHeader">
-        {/* <div onClick={() => handleClickMenuToggle(!menuIsOpen)} className="menuIconContainer">
+        <div onClick={handleMenuClick} className="menuIconContainer">
           <Icon iconName="menu_white" className="menuIcon" />
         </div>
-        {menuIsOpen && (
-          <Menu handleClickMenuToggle={handleClickMenuToggle} />
-        )} */}
+        
         <div className="headerIconContainer">
           <Icon className="headerIcon" iconName="logo86" />
         </div>
@@ -149,7 +148,6 @@ const DiscoverComponent = ({
           No more tracks to rate. Please come back later
         </h3>
       )}
-      <FooterNav />
     </div>
   );
 };

@@ -4,9 +4,9 @@ import LoginComponent from "../../components/Login/LoginComponent";
 import { authenticateUser } from "../../state/actions/userActions";
 import { userSelector } from "../../state/selectors/users";
 
-const LoginContainer = ({ loginUser }) => {
+const LoginContainer = ({ loginUser, isForgotPassword, setIsForgotPassword }) => {
   const [loginDetails, setLoginDetails] = useState({});
-  const [isRememberUser, setIsRememberUser] = useState(false);
+  const [isRememberUser, setIsRememberUser] = useState(true);
   const handleInputChange = (e) => {
     if (e.target.name) {
       setIsRememberUser(e.target.checked);

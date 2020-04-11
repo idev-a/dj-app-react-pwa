@@ -13,19 +13,19 @@ const HitStatsComponent = ({
             </div>
             <div className="mainHitStatsRow">
                 <div className="mainHitStatsCols">
-                    {data.campaign}
+                    {data?.campaign}
                     <div className="colTitles">
                         {content.COL_TITLE_1}
                     </div>
                 </div>
                 <div className="mainHitStatsCols">
-                    {data.totalListeners}
+                    {data?.totalListeners}
                     <div className="colTitles">
                         {content.COL_TITLE_2}
                     </div>
                 </div>
                 <div className="mainHitStatsCols">
-                    {Math.round(data.hitRate)}<span className="colPercentSign">%</span>
+                    {Math.round(data?.hitRate)}<span className="colPercentSign">%</span>
                     <div className="colTitles">
                         {content.COL_TITLE_3}
                     </div>

@@ -1,0 +1,27 @@
+@import "../../Settings/Settings.styles.scss";
+
+.formContainer {
+    .formInputContainer {
+        .experienceContainer {
+            .experience {
+                margin-top: 17px;
+                margin-bottom: 14px;
+                padding-bottom: 18px;
+                border-bottom: 1px solid #ffffff33;
+                .title {
+                    font-size: $font-size-normal;
+                    font-weight: 700;
+                }
+                .companyTag {
+                    @extend .title;
+                    color: $color-3;
+                }
+                .dateRange {
+                    margin-top: 3px;
+                    color: $color-2;
+                    font-size: $font-size-normal;
+                }
+            }
+        }
+    }
+}

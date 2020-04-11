@@ -8,6 +8,15 @@ export const orderSelector = ({ orderDetails, userDetails, preferences }) => ({
 });
 
 export const orderHistorySelector = ({ orderDetails }) => ({
-    tracksHistory: orderDetails.orderHistory,
+    tracksHistory: orderDetails.orderHistory?.trackHistory,
+    trackReviews: orderDetails.orderHistory?.trackReviews,
     loading: orderDetails.loading
 });
+
+export const proFeedbackSelector = (state) => ({
+    ...orderSelector(state),
+    searchListeners: state.search.searchResults,
+    tags: state.preferences.tags
+});
+
+

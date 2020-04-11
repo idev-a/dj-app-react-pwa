@@ -9,41 +9,56 @@ import { toast } from "react-toastify";
 import { validateRegex } from "../../utils";
 
 const SignUpContainer = ({ registerUser, handleSuccess }) => {
-  const [userData, setUserData] = useState({
-    email: "",
-    username: "",
-    displayName: "",
-  });
+  const [email, setEmail] = useState("");
+  const [displayName, setDisplayName] = useState("");
+  const [username, setUserName] = useState("");
+  const [password, setPassword] = useState("");
+  const [repeatPassword, setRepeatPassword] = useState("");
+
   const [fileToUpload, setFileToUpload] = useState(null);
   const handleNewUserRegister = useCallback(() => {
-    if (userData.password !== userData.repeatPassword) {
+    if (password !== repeatPassword) {
       toast.error("Passwords dont match");
       return;
     }
-    if (
-      userData.email.length === 0 ||
-      !validateRegex("email", userData.email)
-    ) {
+    if (email.length === 0 || !validateRegex("email", email)) {
       toast.error("Enter valid email address");
       return;
     }
-    if (!userData.displayName || userData.displayName.length === 0) {
+    if (displayName.length === 0) {
       toast.error("Enter display name");
       return;
     }
-    if (!userData.displayName || userData.username.length === 0) {
+    if (username.length === 0) {
       toast.error("Enter username name");
       return;
     }
-    registerUser(userData, fileToUpload)
+    const payload = {
+      email,
+      username,
+      displayName,
+      password
+    };
+
+    registerUser(payload, fileToUpload)
       .then(() => {
         handleSuccess();
       })
       .catch(() => {
         toast.error("User registration failed");
       });
-  }, [registerUser, userData, fileToUpload, handleSuccess]);
-  const handleInputChange = (e) => {
+  }, [
+    password,
+    repeatPassword,
+    email,
+    displayName,
+    username,
+    registerUser,
+    fileToUpload,
+    handleSuccess
+  ]);
+
+  const handleInputChange = e => {
     if (
       e.target.id === "profileImg" &&
       e.target.files &&
@@ -54,35 +69,49 @@ const SignUpContainer = ({ registerUser, handleSuccess }) => {
       let value = e.target.value;
       if (e.target.id === "email") {
         value = e.target.value.toLowerCase();
+        setEmail(value);
       }
-      setUserData({
-        ...userData,
-        [e.target.id]: value.trim(),
-      });
+      if (e.target.id === "password") {
+        setPassword(value);
+      }
+      if (e.target.id === "repeatPassword") {
+        setRepeatPassword(value);
+      }
+      if (e.target.id === "displayName") {
+        setDisplayName(value);
+      }
+      if (e.target.id === "username") {
+
+        setUserName(value.replace(" ", ""));
+      }
     }
   };
   return (
     <SignUpComponent
       onInputChange={handleInputChange}
-      {...userData}
+      email={email}
+      username={username}
+      displayName={displayName}
+      password={password}
+      repeatPassword={repeatPassword}
       fileToUpload={fileToUpload}
       registerUser={handleNewUserRegister}
     />
   );
 };
 
-const mapActions = (dispatch) => ({
+const mapActions = dispatch => ({
   registerUser: (requestData, file) =>
-    dispatch(registerUserAction(requestData, file)),
+    dispatch(registerUserAction(requestData, file))
 });
 
-const mapStateToProps = (state) => ({
-  user: userSelector(state),
+const mapStateToProps = state => ({
+  user: userSelector(state)
 });
 
 SignUpContainer.propTypes = {
   user: PropTypes.object.isRequired,
-  registerUser: PropTypes.func.isRequired,
+  registerUser: PropTypes.func.isRequired
 };
 
 export default connect(

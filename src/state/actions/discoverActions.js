@@ -5,22 +5,27 @@ export const GET_TRACKS_SUCCESS = "GET_TRACKS_SUCCESS";
 const getTracksURI = "/discover/tracks";
 const postTrackFeedback = "/discover/";
 
-export const getTracksForDiscover = () => (dispatch) =>
+export const getTracksForDiscover = () => dispatch =>
   fetch(`${api}${getTracksURI}`, {
     method: "GET",
-    headers: authHeaders(),
+    headers: authHeaders()
   })
-    .then((res) => res.json())
-    .then((data) => {
+    .then(res => res.json())
+    .then(data => {
       dispatch({
         type: GET_TRACKS_SUCCESS,
-        payload: data,
+        payload: data
       });
     });
 
-export const postDiscoverFeedback = (payload) =>
-    fetch (`${api}${postTrackFeedback}${payload.feedbackId}`, {
+export const postDiscoverFeedback = (payload, isPro) =>
+  fetch(
+    `${api}${postTrackFeedback}${payload.feedbackId}${
+      isPro ? "?type=PRO" : ""
+    }`,
+    {
       method: "POST",
       headers: authHeaders(),
       body: JSON.stringify(payload)
-    });
+    }
+  );

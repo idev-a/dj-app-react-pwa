@@ -69,3 +69,9 @@
     }
   }
 }
+.proContainer {
+    @extend .componentContainer;
+    .totalPaymentContainer {
+        margin: 0;
+    }
+}

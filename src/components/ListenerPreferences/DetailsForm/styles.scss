@@ -82,6 +82,11 @@
             border-radius: 30px;
         }
     }
+    .firstHR {
+        width: 100%;
+        margin: 8px 0 22px 0;
+        border: .5px solid rgba(107, 121, 140, 0.2);
+    }
     .addTagsList {
         @extend .addGenresList;
         .addTagsLis {
@@ -100,7 +105,10 @@
             @extend .addGenresSelectedLis;
         }
     }
-
+    .lastHR {
+        @extend .firstHR;
+        margin: 8px 0 0 0;
+    }
     button {
         padding: 0;
         background: transparent;

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext, useRef } from "react";
 import content from "./content";
 import "./Settings.styles.scss";
 import Icon from "../../common/IconComponent";
@@ -7,84 +7,144 @@ import ProfileForm from "./ProfileForm";
 import AccountForm from "./AccountForm";
 import PaymentAccountForm from "./PaymentAccountForm";
 import SubscriptionBox from "./SubscriptionBox";
-import ListenerPreferencesForm from "./ListenerPreferencesForm";
-import FooterNav from "../FooterNav";
+import { MenuHandlerContext } from "../../routes";
+import InputField from "../../common/InputField";
+import ProfileImage from "../ProfileImage";
 
 const SettingsComponent = ({
-    profileIsOpen,
-    accountIsOpen,
-    paymentIsOpen,
-    subscriptionIsOpen,
-    preferencesIsOpen,
-    toggleProfile,
-    toggleAccount,
-    togglePayment,
-    toggleSubscription,
-    togglePreferences
+  profileIsOpen,
+  accountIsOpen,
+  paymentIsOpen,
+  subscriptionIsOpen,
+  toggleProfile,
+  toggleAccount,
+  togglePayment,
+  toggleSubscription,
+  logOutClick,
+  details,
+  userObject,
+  paymentMethods,
+  password,
+  repeatPassword,
+  onInputChange,
+  handleProfileUpdate,
+  handleCancelSubscription,
+  handleProfileUpload,
 }) => {
-    return (
-        <div className="settingsContainer">
-            <div className="largeBannerHeaderContainer">
-                <Icon className="exitIcon" iconName="exittoapp" />
-                <div className="headerTitle1">
-                    {content.HEADER}
-                </div>
-                <div className="profilePicIconContainer">
-                    <Icon className="profilePicIcon" iconName="profilepic" />
-                </div>
-            </div>
-            <div className="settingsStatusContainer">
-                <div className="points">
-                    <div className="subHeaderLabel">
-                        {content.POINTS_LABEL}
-                    </div>
-                    <div className="subHeaderAmount">
-                        {content.POINTS}
-                    </div>
-                </div>
-                <div className="status">
-                    <div className="statusBox">
-                        {content.STATUS}
-                    </div>
-                    <div className="insiderBox">
-                        <Icon className="checkIcon" iconName="playlistaddcheck" />
-                        {content.INSIDER}
-                    </div>
-                </div>
-                <div className="balance">
-                    <div className="subHeaderLabel">
-                        {content.BALANCE_LABEL}
-                    </div>
-                    <div className="subHeaderAmount">
-                        <span className="subHeaderAmountFontAdjust">
-                            {content.BALANCE_SIGN}
-                        </span>
-                        <span>
-                            {content.BALANCE_DOLLARS}
-                        </span>
-                        <span className="subHeaderAmountFontAdjust">
-                            {content.BALANCE_CENTS}
-                        </span>
-                    </div>
-                </div>
-            </div>
-            <ProfileForm profileIsOpen={profileIsOpen} toggleProfile={toggleProfile} />
-            <AccountForm accountIsOpen={accountIsOpen} toggleAccount={toggleAccount} />
-            <PaymentAccountForm paymentIsOpen={paymentIsOpen} togglePayment={togglePayment} />
-            <SubscriptionBox subscriptionIsOpen={subscriptionIsOpen} toggleSubscription={toggleSubscription} />
-            {/* <ListenerPreferencesForm preferencesIsOpen={preferencesIsOpen} togglePreferences={togglePreferences} /> */}
-            <div className="buttonWrapper">
-                <Button 
-                    className="launchButton logoutButton" 
-                    hasIcon={true} 
-                    iconClassName="exitToAppIcon" 
-                    iconName="exittoapp_blue" 
-                    buttonText={content.LOGOUT}
-                ></Button>
-            </div>
-            <FooterNav />
+  const { subscriptionEndDate, profile_image, balance } = details;
+  const { user_name, display_name, email } = userObject;
+  const handleMenuClick = useContext(MenuHandlerContext);
+  const fileUploadRef = useRef(null);
+  const handleAddPhotoClick = () => {
+    fileUploadRef.current.click();
+  };
+  return (
+    <div className="settingsContainer">
+      <div className="largeBannerHeaderContainer">
+        <div onClick={handleMenuClick} className="menuIconContainer">
+          <Icon iconName="menu_white" className="menuIcon" />
         </div>
-    );
+        <Button
+          isIcon
+          className="exitIcon"
+          iconName="exittoapp"
+          onClick={logOutClick}
+        />
+        <div className="headerTitle1">{content.HEADER}</div>
+        <div className="profilePicIconContainer">
+          {profile_image ? (
+            <ProfileImage className="profilePicIcon" imageUrl={profile_image} />
+          ) : (
+            <Icon
+              className="defaultProfilePicIcon"
+              iconName="default_pro_pic_icon"
+            />
+          )}
+        </div>
+      </div>
+      <div className="settingsStatusContainer">
+        <Button
+          buttonText="Change Image"
+          className="changeProfile"
+          onClick={handleAddPhotoClick}
+        />
+        <div className="status">
+          <div className="statusBox">{content.STATUS}</div>
+          <div className="insiderBox">
+            <Icon className="checkIcon" iconName="playlistaddcheck" />
+            {content.INSIDER}
+          </div>
+        </div>
+        <div className="balance">
+          <div className="subHeaderLabel">{content.BALANCE_LABEL}</div>
+          <div className="subHeaderAmount">
+            <span className="subHeaderAmountFontAdjust">
+              {content.BALANCE_SIGN}
+            </span>
+            <span>{balance}</span>
+          </div>
+        </div>
+      </div>
+      <ProfileForm
+        profileIsOpen={profileIsOpen}
+        toggleProfile={toggleProfile}
+        displayName={display_name}
+        userName={user_name}
+        onInputChange={onInputChange}
+        handleProfileUpdate={handleProfileUpdate}
+      />
+      <AccountForm
+        accountIsOpen={accountIsOpen}
+        toggleAccount={toggleAccount}
+        email={email}
+        password={password}
+        repeatPassword={repeatPassword}
+        onInputChange={onInputChange}
+        handleProfileUpdate={handleProfileUpdate}
+      />
+
+      {/* PaymentAccountForm adjustment required */}
+
+      <PaymentAccountForm
+        paymentMethods={paymentMethods}
+        paymentIsOpen={paymentIsOpen}
+        togglePayment={togglePayment}
+        onInputChange={onInputChange}
+      />
+      <SubscriptionBox
+        subscriptionIsOpen={subscriptionIsOpen}
+        toggleSubscription={toggleSubscription}
+        subscriptionEndDate={subscriptionEndDate}
+        onInputChange={onInputChange}
+        handleCancelSubscription={handleCancelSubscription}
+      />
+
+      {/* Adjusment need ends here */}
+
+      {/* Logout button needed setup starts here */}
+
+      <div className="buttonWrapper">
+        <Button
+          className="launchButton logoutButton"
+          iconClassName="exitToAppIcon"
+          iconName="exittoapp_blue"
+          buttonText={content.LOGOUT}
+          onClick={logOutClick}
+        ></Button>
+      </div>
+      <div style={{ width: 0, height: 0, opacity: 0 }}>
+        <InputField
+          accept="image/*"
+          id="profileImageUpload"
+          onChange={handleProfileUpload}
+          passableRef={fileUploadRef}
+          type="file"
+        />
+      </div>
+
+      {/* Logout needed setup ends here */}
+    </div>
+  );
 };
 
 export default SettingsComponent;

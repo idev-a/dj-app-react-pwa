@@ -1,0 +1,44 @@
+@import "../../../../scss/common.styles.scss";
+
+.featuredListenersButtonWrapper {
+    background: url("../../../../assets/img/search/listeners.png") 50% 30% / cover no-repeat;
+    .featuredListenersButton {
+        background: #624ffdcc;
+    }
+}
+.djsButtonWrapper {
+    background: url("../../../../assets/img/search/djs.png") 50% 30% / cover no-repeat;
+    .djsButton {
+        background: #49b9b5cc;
+    }
+}
+.fansButtonWrapper {
+    background: url("../../../../assets/img/search/fans.png") 50% 30% / cover no-repeat;
+    .fansButton {
+        background: #222393cc;
+    }
+}
+.creatorsButtonWrapper {
+    background: url("../../../../assets/img/search/creators.png") 50% 30% / cover no-repeat;
+    .creatorsButton {
+        background: #0db6ffcc;
+    }
+}
+.executivesButtonWrapper {
+    background: url("../../../../assets/img/search/executives.png") 50% 30% / cover no-repeat;
+    .executivesButton {
+        background: #303740cc;
+    }
+}
+.mediaButtonWrapper {
+    background: url("../../../../assets/img/search/media_pros.png") 50% 30% / cover no-repeat;
+    .mediaButton {
+        background: #9caec7cc;
+    }
+}
+.listeningNowButtonWrapper {
+    background: url("../../../../assets/img/search/listening_now.png") 50% 30% / cover no-repeat;
+    .listeningNowButton {
+        background: #49b97dcc;
+    }
+}

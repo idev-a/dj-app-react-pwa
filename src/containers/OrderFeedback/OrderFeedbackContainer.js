@@ -103,6 +103,7 @@ const OrderFeedbackContainer = ({
       }
       if (
         promoCode.length === 0 &&
+        !cardInfo.paymentFromSavedCard &&
         !(cardInfo && cardInfo.id && accountName.length > 0)
       ) {
         toast.error("Enter valid card details");
@@ -280,6 +281,8 @@ const OrderFeedbackContainer = ({
     [selectedPaymentId]
   );
 
+  const [hitOrPro, setHitOrPro] = useState(null);
+
   return (
     <Component
       isProcessing={isProcessing}
@@ -319,6 +322,8 @@ const OrderFeedbackContainer = ({
       }}
       closeSuccessPopUp={() => setIsSuccess(false)}
       isHyperTargeted={isHyperTargeted}
+      hitOrPro={hitOrPro}
+      setHitOrPro={setHitOrPro}
     />
   );
 };

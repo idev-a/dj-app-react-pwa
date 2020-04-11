@@ -119,14 +119,7 @@
     list-style: none;
     line-height: initial;
     .addGenresSelectedLis {
-        height: 23px;
-        margin: 3px;
-        padding: 0 10px;
-        font-size: 9px;
-        color: $main-1;
-        background: $color-4;
-        border: 1pt solid $color-4;
-        border-radius: 30px;
+       @extend .tagLabel;
     }
   }
   .ratingsContainer {

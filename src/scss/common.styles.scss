@@ -140,6 +140,13 @@
     margin: 8px 0 0 0;
 }
 
+.profilePic {
+  width: 143px;
+  height: 143px;
+  border-radius: 50%;
+  border: 2px solid $color-2;
+}
+
 textarea:focus,
 input:focus {
   outline: none;
@@ -147,4 +154,22 @@ input:focus {
 
 audio:focus {
   outline: none;
+}
+
+.tagLabel {
+  height: max-content;
+  margin: 3px;
+  padding: 0 10px;
+  font-size: 9px;
+  color: $main-1;
+  background: $color-4;
+  border: 1pt solid $color-4;
+  border-radius: 30px;
+  text-align: center;
+}
+
+.defaultProfilePicIcon {
+  width: 70px;
+  height: 70px;
+  border-radius: 50px;
 }

@@ -35,21 +35,21 @@ const LandingPageFooter = () => {
       <div className="footerMenuContainer">
         <div className="footerMenuColumn">
           <a
-            href="https://hearbk.com/hq/about-us/"
+            href="https://hq.hearbk.com/about-us/"
             target="_blank"
             rel="noopener noreferrer"
           >
             {content.ABOUT_US}
           </a>
           <a
-            href="https://hearbk.com/hq/manage-preferences/"
+            href="https://hq.hearbk.com/manage-preferences/"
             target="_blank"
             rel="noopener noreferrer"
           >
             {content.MANAGE_PREFERENCES}
           </a>
           <a
-            href="https://hearbk.com/hq/terms-conditions/"
+            href="https://hq.hearbk.com/terms-conditions/"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -58,21 +58,21 @@ const LandingPageFooter = () => {
         </div>
         <div className="footerMenuColumn">
           <a
-            href="https://hearbk.com/hq/cookie-policy/"
+            href="https://hq.hearbk.com/cookie-policy/"
             target="_blank"
             rel="noopener noreferrer"
           >
             {content.COOKIE_POLICY}
           </a>
           <a
-            href="https://hearbk.com/hq/privacy-policy/"
+            href="https://hq.hearbk.com/privacy-policy/"
             target="_blank"
             rel="noopener noreferrer"
           >
             {content.PRIVACY_POLICY}
           </a>
           <a
-            href="https://hearbk.com/hq/refund-policy/"
+            href="https://hq.hearbk.com/refund-policy/"
             target="_blank"
             rel="noopener noreferrer"
           >
