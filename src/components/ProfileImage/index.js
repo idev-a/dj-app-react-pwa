@@ -16,6 +16,7 @@ const blobToBase64 = (blob) => {
 };
 
 const resetOrientation = async (blobImage, srcOrientation) => {
+  console.log(srcOrientation);
   const srcBase64 = await blobToBase64(blobImage);
   return new Promise((resolve, reject) => {
     try {
