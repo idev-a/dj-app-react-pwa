@@ -96,13 +96,13 @@ class ListenerPreferencesContainer extends Component {
       this.setState({
         hitRequestBox: !this.state.hitRequestBox,
         saveButtonIsShowing: true,
-        ...(this.state.disabled && { disabled: false })
+        ...(this.state.disabled && { disabled: false }),
       });
     } else {
       this.setState({
         proRequestBox: !this.state.proRequestBox,
         saveButtonIsShowing: true,
-        ...(this.state.disabled && { disabled: false })
+        ...(this.state.disabled && { disabled: false }),
       });
     }
   };
@@ -226,34 +226,40 @@ class ListenerPreferencesContainer extends Component {
     }
   };
 
-  handleClickAddGenres = (e, genreId) => {
+  handleClickAddGenres = (genre, removeGenreFlag) => {
+    console.log(removeGenreFlag);
     const { selectedGenres, updateSelectedGenresDispatchAction } = this.props;
     let updatedSelectedGenres = [...selectedGenres];
-    if (!selectedGenres.includes(genreId)) {
-      updatedSelectedGenres.push(genreId);
+    if (!removeGenreFlag) {
+      updatedSelectedGenres.push(genre);
     } else {
       updatedSelectedGenres = updatedSelectedGenres.filter(
-        ({ _id }) => _id !== genreId
+        ({ _id }) => _id !== genre._id
       );
     }
     updateSelectedGenresDispatchAction(updatedSelectedGenres);
-    this.setState({
-      genresList: !this.state.genresList,
-    });
+    if (!removeGenreFlag) {
+      this.setState({
+        genresList: !this.state.genresList,
+      });
+    }
   };
 
-  handleClickAddTags = (e, tagId) => {
+  handleClickAddTags = (tag, removeTagFlag) => {
     const { selectedTags, updateSelectedTagsDispatchAction } = this.props;
     let updatedSelectedTags = [...selectedTags];
-    if (!updatedSelectedTags.includes(tagId)) {
-      updatedSelectedTags.push(tagId);
+  
+    if (!removeTagFlag) {
+      updatedSelectedTags.push(tag);
     } else {
       updatedSelectedTags = updatedSelectedTags.filter(
-        ({ _id }) => _id !== tagId
+        ({ _id }) => _id !== tag._id
       );
     }
     updateSelectedTagsDispatchAction(updatedSelectedTags);
-    this.setState({ tagsList: !this.state.tagsList });
+    if (!removeTagFlag) {
+      this.setState({ tagsList: !this.state.tagsList });
+    }
   };
   handleClickMenuToggle = (toggle) => {
     this.setState({ menuIsOpen: toggle });

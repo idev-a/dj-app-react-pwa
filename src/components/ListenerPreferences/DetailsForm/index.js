@@ -23,7 +23,7 @@ const DetailsComponent = ({
   tags,
   onInputChange,
   handleGenderChange,
-  disabled
+  disabled,
 }) => {
   const genderBoxArray = content.GENDER.map((g, i) => {
     return (
@@ -37,15 +37,14 @@ const DetailsComponent = ({
       </div>
     );
   });
-  const genresNameArray = sortBy(genres, genre => genre.name);
+  const genresNameArray = sortBy(genres, (genre) => genre.name);
   const addGenresArray = genresNameArray.map((genre, i) => {
-
     return (
       <div className="addGenresButtonWrapper" key={i}>
         <Button
           buttonText={genre.name.toUpperCase()}
           className={cx("addGenresLis")}
-          onClick={(e) => handleClickAddGenres(e, genre)}
+          onClick={(e) => handleClickAddGenres(genre, false)}
         />
       </div>
     );
@@ -56,19 +55,19 @@ const DetailsComponent = ({
         <Button
           buttonText={genre.name.toUpperCase()}
           className={cx("addGenresSelectedLis")}
-          onClick={disabled ? "" : (e) => handleClickAddGenres(e, genre)}
+          onClick={disabled ? "" : (e) => handleClickAddGenres(genre, true)}
         />
       </div>
     );
   });
-  const tagsNameArray = sortBy(tags, tag => tag.tag);
+  const tagsNameArray = sortBy(tags, (tag) => tag.tag);
   const addTagsArray = tagsNameArray.map((tag, i) => {
     return (
       <div className="addTagsButtonWrapper" key={i}>
         <Button
           buttonText={tag.tag.toUpperCase()}
           className={cx("addTagsLis")}
-          onClick={(e) => handleClickAddTags(e, tag)}
+          onClick={(e) => handleClickAddTags(tag, false)}
         />
       </div>
     );
@@ -79,7 +78,7 @@ const DetailsComponent = ({
         <Button
           buttonText={tag.tag.toUpperCase()}
           className={cx("addTagsSelectedLis")}
-          onClick={disabled ? "" : (e) => handleClickAddTags(e, tag)}
+          onClick={disabled ? "" : (e) => handleClickAddTags(tag, true)}
         />
       </div>
     );
@@ -104,16 +103,16 @@ const DetailsComponent = ({
       <AutoComplete
         id="city"
         className="formInputField"
-        style={{width: '90%'}}
-        onPlaceSelected={e => {
+        style={{ width: "90%" }}
+        onPlaceSelected={(e) => {
           onInputChange({
             id: "location",
-            city: e.formatted_address
-          })
+            city: e.formatted_address,
+          });
         }}
         onChange={onInputChange}
         value={city}
-        types={['(cities)']}
+        types={["(cities)"]}
         placeholder={content.CHOOSE_CITY}
         disabled={disabled}
       />
@@ -144,37 +143,37 @@ const DetailsComponent = ({
           <Icon className="addCircleIcon" iconName="AddCircle" />
         </div>
         {addGenresList}
+      </div>
+      <InputField
+        id="genres"
+        className="formInputField"
+        onChange={onInputChange}
+        placeholder={content.FAVOURITE_GENRES_SEARCH}
+        disabled={disabled}
+      />
+      <ul className="selectedGenresContainer">{addGenresSelectedArray}</ul>
+      <hr className="firstHR" />
+      <label htmlFor="tagsInputs" className="formInputLabel">
+        {content.TAGS_LABEL}
+      </label>
+      <div className="addCircleIconContainer">
+        <div
+          onClick={disabled ? "" : (e) => handleClickToggleAddList(e, "tags")}
+          className="formIconContainer"
+        >
+          <Icon className="addCircleIcon" iconName="AddCircle" />
         </div>
-        <InputField
-          id="genres"
-          className="formInputField"
-          onChange={onInputChange}
-          placeholder={content.FAVOURITE_GENRES_SEARCH}
-          disabled={disabled}
-        />
-        <ul className="selectedGenresContainer">{addGenresSelectedArray}</ul>
-        <hr className="firstHR" />
-        <label htmlFor="tagsInputs" className="formInputLabel">
-          {content.TAGS_LABEL}
-        </label>
-        <div className="addCircleIconContainer">
-          <div
-            onClick={disabled ? "" : (e) => handleClickToggleAddList(e, "tags")}
-            className="formIconContainer"
-          >
-            <Icon className="addCircleIcon" iconName="AddCircle" />
-          </div>
-          {addTagsList}
-        </div>
-        <InputField
-          id="tags"
-          className="formInputField"
-          onChange={onInputChange}
-          placeholder={content.TAGS_SEARCH}
-          disabled={disabled}
-        />
-        <ul className="selectedTagsContainer">{addTagsSelectedArray}</ul>
-        <hr className="lastHR"/>
+        {addTagsList}
+      </div>
+      <InputField
+        id="tags"
+        className="formInputField"
+        onChange={onInputChange}
+        placeholder={content.TAGS_SEARCH}
+        disabled={disabled}
+      />
+      <ul className="selectedTagsContainer">{addTagsSelectedArray}</ul>
+      <hr className="lastHR" />
     </div>
   );
 };
