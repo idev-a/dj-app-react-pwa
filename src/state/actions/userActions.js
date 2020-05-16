@@ -97,7 +97,7 @@ export const authenticateUser = requestData => dispatch =>
           localStorage.removeItem("x-access-token");
           localStorage.removeItem("isPremiumUser");
         }, expireTime);
-        history.push(isFirstUserLogin ? "/preferences" : "/discover");
+        history.push(isFirstUserLogin ? "/welcome" : "/discover");
         dispatch({ type: AUTHENTICATE_USER_SUCCESS, payload: token });
       }
     });
