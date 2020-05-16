@@ -19,6 +19,7 @@ import MenuComponent from "./components/Menu";
 import OrderFeedbackStartComponent from "./components/OrderFeedbackStart";
 import ForgotPasswordContainer from "./containers/ForgotPassword/ForgotPasswordContainer";
 import ResetPasswordContainer from "./containers/ResetPassword/ResetPasswordContainer";
+import Leaderboard1Container from './containers/Leaderboard1/Leaderboard1Container';
 
 export const MenuHandlerContext = React.createContext();
 
@@ -67,6 +68,11 @@ export default props => {
           <Route
             path="/preferences"
             component={withValidToken(ListenerPreferencesContainer)}
+            exact
+          />
+          <Route
+            path="/leaderboard1"
+            component={withValidToken(Leaderboard1Container)}
             exact
           />
           <Route

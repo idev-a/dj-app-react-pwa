@@ -1,7 +1,7 @@
 import React from "react";
 import "./styles.scss";
 import { NavLink, withRouter } from "react-router-dom";
-import Icon from "../../common/IconComponent";
+import { HomeIcon, MusicIcon, PlayIcon, BusinessIcon, UserIcon } from './../../assets/icon/FooterNav/FooterNavIcons';
 
 const excludedRoutes = ["/", "/signin", "/forgot-password", "/reset"];
 
@@ -10,19 +10,23 @@ const FooterNav = props => {
   return !excludedRoutes.includes(props.history.location.pathname) ? (
     <div className="footerContainer">
       <NavLink to="/search" className="footerLinks">
-        <Icon className="footerIcon search" iconName="search" />
+        <svg className="home-icon"><HomeIcon /></svg>
       </NavLink>
       <NavLink to="/discover" className="footerLinks">
-        <Icon className="footerIcon" iconName="discover" />
+        <svg className="music-icon"><MusicIcon /></svg>
       </NavLink>
-      <NavLink to="/feedback" className="footerLinks">
-        <Icon className="footerIcon" iconName="feedback" />
-      </NavLink>
-      <NavLink to="/history" className="footerLinks">
-        <Icon className="footerIcon" iconName="history" />
+      <span class="play-circle">
+        <NavLink to="/feedback" className="footerLinks">
+          <div style={{ position: 'relative', top: '18px', left: '3px'}}>
+            <svg className="play-icon"><PlayIcon /></svg>
+          </div>
+        </NavLink>
+      </span>
+      <NavLink to="/leaderboard1" className="footerLinks">
+        <svg className="business-icon"><BusinessIcon /></svg>
       </NavLink>
       <NavLink to="/preferences" className="footerLinks">
-        <Icon className="footerIcon" iconName="settings" />
+        <svg className="user-icon"><UserIcon /></svg> 
       </NavLink>
     </div>
   ) : null;

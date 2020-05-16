@@ -4,11 +4,11 @@
     display: flex;
     position: fixed;
     justify-content: stretch;
-    width: 100%;
+    width: 34%;
     max-width: 600px;
     height: 90px;
     bottom: 0;
-    background: $main-1;
+    background: #0E222B;
     box-shadow: 0 -3px 6px #00000029;
     z-index: 100;
     .footerLinks {
@@ -16,13 +16,26 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        opacity: .3;
+        opacity: 1;
         .footerIcon {
             width: 30px;
             height: 30px;
         }
     }
     .footerLinks.active {
-        opacity: 1;
+        color: #CB1F3E;
+    }
+    .play-circle {
+        position: relative;
+        bottom: 25px;    
+        height: 65px;
+        width: 65px;
+        background-color: #18313C;
+        border-radius: 50%;
+        display: inline-block;
+    }
+    .home-icon, .music-icon, .play-icon, .business-icon, .user-icon {
+        width: 30px;
+        height: 30px;
     }
 }
