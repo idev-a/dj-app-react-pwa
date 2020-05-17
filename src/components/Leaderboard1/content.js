@@ -20,6 +20,6 @@ export default {
         { image: ALISON_CLANCY, name: "Alison_Clancy", tracks: 1000 },
         { image: FELISHA_B, name: "Felisha_B", tracks: 1000 },
         { image: COCO_JONES, name: "Coco_Jones", tracks: 1000 },
-        { image: BOB_MOCZYDLOWSKY, name: "Bob_Moczydlowsky", tracks: 1000 }
+        { image: BOB_MOCZYDLOWSKY, name: "Bob_Moczyd", tracks: 1000 }
     ]
 };

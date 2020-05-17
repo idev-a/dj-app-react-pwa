@@ -1,7 +1,7 @@
 import React from "react";
 import "./styles.scss";
 import { NavLink, withRouter } from "react-router-dom";
-import { HomeIcon, MusicIcon, PlayIcon, BusinessIcon, UserIcon } from './../../assets/icon/FooterNav/FooterNavIcons';
+import { HomeIcon, MusicIcon, BusinessIcon, UserIcon } from './../../assets/icon/svgicon';
 
 const excludedRoutes = ["/", "/signin", "/forgot-password", "/reset"];
 
@@ -17,12 +17,14 @@ const FooterNav = props => {
       </NavLink>
       <span class="play-circle">
         <NavLink to="/feedback" className="footerLinks">
-          <div style={{ position: 'relative', top: '18px', left: '3px'}}>
-            <svg className="play-icon"><PlayIcon /></svg>
+          <div className="play-icon-div">
+            <div className="play-main-container">
+                <div className="play-container" />
+            </div>
           </div>
         </NavLink>
       </span>
-      <NavLink to="/leaderboard1" className="footerLinks">
+      <NavLink to="/leaderboard" className="footerLinks">
         <svg className="business-icon"><BusinessIcon /></svg>
       </NavLink>
       <NavLink to="/preferences" className="footerLinks">

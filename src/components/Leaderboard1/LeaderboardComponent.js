@@ -1,9 +1,9 @@
 import React from 'react';
-import './Leaderboard1Component.styles.scss';
+import './LeaderboardComponent.styles.scss';
 import content from "./content";
-import { LeftArrowIcon, GoldCoinIcon } from './../../assets/icon/Leaderboard1/Leaderboard1Icons';
+import { LeftArrowIcon, GoldCoinIcon } from './../../assets/icon/svgicon';
 
-const Leaderboard1Component = ({ user }) => {
+const LeaderboardComponent = ({ user }) => {
 
     return (
         <div className='leaderboard1-container'>
@@ -69,4 +69,4 @@ const Leaderboard1Component = ({ user }) => {
     )
 }
 
-export default Leaderboard1Component;
+export default LeaderboardComponent;

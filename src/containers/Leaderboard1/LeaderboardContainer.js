@@ -1,9 +1,9 @@
 import React from 'react';
 import { connect } from "react-redux";
-import Leaderboard1Component from '../../components/Leaderboard1/Leaderboard1Component';
+import LeaderboardComponent from '../../components/Leaderboard1/LeaderboardComponent';
 import { getUserDetails } from "../../state/actions/userActions";
 
-class Leaderboard1Container extends React.Component {
+class LeaderboardContainer extends React.Component {
 
     componentDidMount() {
         const {
@@ -14,7 +14,7 @@ class Leaderboard1Container extends React.Component {
 
     render() {
         return (
-            <Leaderboard1Component user={this.props.user}/>
+            <LeaderboardComponent user={this.props.user}/>
         )
     }
 
@@ -32,4 +32,4 @@ const mapDispatchToProps = (dispatch) => ({
     getUserDetailsDispatchAction: () => dispatch(getUserDetails()),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Leaderboard1Container);
+export default connect(mapStateToProps, mapDispatchToProps)(LeaderboardContainer);

@@ -5,6 +5,7 @@
 body {
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
 }
 .mainContainer { 
     display: flex;
@@ -12,9 +13,9 @@ body {
     align-items: center;
     max-width: 600px;
     height: 100%;
-    padding-bottom: 90px;
+    padding-bottom: 89px;
 
     @media screen and (min-width: 600px) {
-        margin: 0 33%;
+        margin: 0 auto;
     }
 }

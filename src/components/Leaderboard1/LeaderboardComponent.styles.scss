@@ -4,10 +4,10 @@
     min-height: 100vh;
     width: 100%;
     max-width: 600px;
-    background: #05161d;
+    background: $color-12;
     justify-content: center;
     display: flex;
-    color: white;
+    color: $main-1;
 }
 .container-2 {
     text-align: -webkit-center;
@@ -43,15 +43,15 @@
         padding-left: 8px; 
         position: relative; 
         top: -4px;
-        font-family: "Avenir Next", sans-serif;
-        color: #FFD949;
+        font-family: $font-family-1;
+        color: $color-13;
     }
     .coins-text {
         display: block;
         padding-left: 10px;
-        font-size: 14px;
-        font-family: "Avenir Next", sans-serif;
-        color: #FFD949;
+        font-size: $font-size-normal;
+        font-family: $font-family-1;
+        color: $color-13;
     }
     .rating-circle {
         display: flex;
@@ -61,7 +61,7 @@
         height: 40px;
         border-bottom-left-radius: 110px;
         border-top-left-radius: 110px;
-        border: 2px solid #363636;
+        border: 2px solid $color-14;
         border-right: 0;
     
     } 
@@ -70,14 +70,14 @@
         height: 40px;
         border-bottom-right-radius: 110px;
         border-top-right-radius: 110px;
-        border: 2px solid #A10E29;
+        border: 2px solid $color-15;
         border-left: 0;
     }
     .rating-value {
-        font-size: 18px;
-        font-weight: 600;
-        font-family: "Avenir Next", sans-serif;
-        color: #A10E29;
+        font-size: $font-size-l;
+        font-weight: $font-weight-1;
+        font-family: $font-family-1;
+        color: $color-15;
         top: 12px;
         right: 5px;
         width: 0px;
@@ -87,9 +87,9 @@
     .rating-text {
         display: block;
         margin-top: 5px;
-        font-size: 12px;
-        font-family: "Avenir Next", sans-serif;
-        color: #ffffff;
+        font-size: $font-size-small;
+        font-family: $font-family-1;
+        color: $main-1;
     }
     .rating {
         display: inline-table;
@@ -104,13 +104,13 @@
     }
     .top-listeners {
         flex: 0 0 50%;
-        font-family: "Avenir Next", sans-serif;
-        font-size: 18px;
+        font-family: $font-family-1;
+        font-size: $font-size-l;
     }
     .tracks {
         flex: 0 0 78%;
-        font-family: "Avenir Next", sans-serif;
-        font-size: 18px;
+        font-family: $font-family-1;
+        font-size: $font-size-l;
     }
     .listeners-data-row {
         display: flex;
@@ -126,17 +126,17 @@
         bottom: 25px;    
         height: 25px;
         width: 25px;
-        background-color: #18313C;
+        background-color: $color-16;
         border-radius: 50%;
         display: inline-block;
     }
     .serial-number-value {
         position: relative;
-        color: #CB1F3E;
-        font-family: "Avenir Next", sans-serif;
+        color: $color-17;
+        font-family: $font-family-1;
         top: 3px;
-        font-size: 15px;
-        font-weight: 600;
+        font-size: $font-size-15;
+        font-weight: $font-weight-1;
     }
     .listener-name-image {
         display: flex; 
@@ -149,14 +149,14 @@
         transform: rotate(0);
     }
     .listener-name {
-        font-size: 15px;
+        font-size: $font-size-15;
         padding-left: 12px;
-        font-family: "Avenir Next", sans-serif;
+        font-family: $font-family-1;
     }
     .listener-tracks {
-        font-size: 15px;
+        font-size: $font-size-15;
         width: 20%;
         padding-top: 16px;
-        font-family: "Avenir Next", sans-serif;
+        font-family: $font-family-1;
     }
 }
