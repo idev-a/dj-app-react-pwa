@@ -1,16 +1,15 @@
 import React from 'react';
-import './OnBoarding2Component.styles.scss';
+import './OnboardingComponent.styles.scss';
 import Button from './../../common/Button/index';
-import HearBKNewIcon from './../../common/HearBKNewIcon/index';
 import content from "./content";
 
-const OnBoarding2Component = ({ user }) => {
+const OnboardingComponent = ({ user }) => {
 
     return (
         <div className='onboarding2-container'>
             <div className="container-2">
-                <div className='logo-container'>
-                    <HearBKNewIcon />
+                <div className="logo-main-container">
+                    <div className="logo-container" />
                 </div>
                 <div className="lets-go-message">
                     <span className="content-lets-go">{content.LETS_GO}</span>
@@ -95,4 +94,4 @@ const OnBoarding2Component = ({ user }) => {
     )
 }
 
-export default OnBoarding2Component;
+export default OnboardingComponent;

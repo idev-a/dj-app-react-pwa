@@ -1,9 +1,9 @@
 import React from 'react';
 import { connect } from "react-redux";
-import OnBoarding2Component from '../../components/OnBoarding2/OnBoarding2Component';
+import OnboardingComponent from '../../components/Onboarding2/OnboardingComponent';
 import { getUserDetails } from "../../state/actions/userActions";
 
-class OnBoarding2Container extends React.Component {
+class OnboardingContainer extends React.Component {
 
     componentDidMount() {
         const {
@@ -14,7 +14,7 @@ class OnBoarding2Container extends React.Component {
 
     render() {
         return (
-            <OnBoarding2Component user={this.props.user}/>
+            <OnboardingComponent user={this.props.user}/>
         )
     }
 
@@ -32,4 +32,4 @@ const mapDispatchToProps = (dispatch) => ({
     getUserDetailsDispatchAction: () => dispatch(getUserDetails()),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(OnBoarding2Container);
+export default connect(mapStateToProps, mapDispatchToProps)(OnboardingContainer);

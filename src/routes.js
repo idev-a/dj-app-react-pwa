@@ -19,7 +19,7 @@ import MenuComponent from "./components/Menu";
 import OrderFeedbackStartComponent from "./components/OrderFeedbackStart";
 import ForgotPasswordContainer from "./containers/ForgotPassword/ForgotPasswordContainer";
 import ResetPasswordContainer from "./containers/ResetPassword/ResetPasswordContainer";
-import OnBoarding2Container from './containers/OnBoarding2/OnBoarding2Container';
+import Onboarding2 from './containers/Onboarding2/OnboardingContainer';
 
 export const MenuHandlerContext = React.createContext();
 
@@ -71,8 +71,8 @@ export default props => {
             exact
           />
           <Route
-            path="/onboarding2"
-            component={withValidToken(OnBoarding2Container)}
+            path="/onboarding-complete"
+            component={withValidToken(Onboarding2)}
             exact
           />
           <Route

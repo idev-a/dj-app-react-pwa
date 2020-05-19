@@ -4,15 +4,22 @@
     min-height: 100vh;
     width: 100%;
     max-width: 600px;
-    background: #05161d;
+    background: $color-12;
     justify-content: center;
     display: flex;
-    color: white;
+    color: $main-1;
 }
-.logo-container {
-    margin-top: 20px;
-    margin-bottom: -15px;
+.logo-main-container {
     width: 100%;
+    justify-content: center;
+    display: flex;
+    .logo-container {
+        height: 60px;
+        width: 60px;
+        margin-top: 20px;
+        background: transparent url('../../assets/img/footer/Rectangle_180.png') 0% 0% no-repeat padding-box;
+        background-size: contain;
+    }
 }
 .container-2 {
     text-align: -webkit-center;
@@ -22,53 +29,57 @@
 }
 .lets-go-message {
     display: grid;
-    color: #E2E2E2;
+    color: $color-20;
+    margin-top: 20px;
     height: fit-content;
     .content-lets-go {
-        font-size: 26px;
-        font-family: "Avenir Next", sans-serif;
+        font-size: $font-size-26;
+        font-family: $font-family-1;
     }
     .content-mogul-points {
-        font-family: "Avenir Next", sans-serif;
+        font-family: $font-family-1;
     }
     .content-mogul-status {
-        font-size: 26px;
-        font-weight: 800;
-        font-family: "Avenir Next", sans-serif;
+        font-size: $font-size-26;
+        font-weight: $font-weight-2;
+        font-family: $font-family-1;
     }
     .content-points-now {
-        font-size: 26px;
-        font-family: "Avenir Next", sans-serif;
+        font-size: $font-size-26;
+        font-family: $font-family-1;
     }
 }
+.promote, .learn, .build {
+    margin-top: 20px;
+}
 .promote-msg {
-    font-size: 26px;
-    font-family: "Avenir Next", sans-serif;
+    font-size: $font-size-26;
+    font-family: $font-family-1;
     margin-top: 0px;
     margin-bottom: 50px;
-    color: #930A22;
+    color: $color-21;
     .content-promote-artists {
-        font-family: "Avenir Next", sans-serif;
+        font-family: $font-family-1;
     }
 }
 .learn-msg {
-    font-size: 26px;
-    font-family: "Avenir Next", sans-serif;
+    font-size: $font-size-26;
+    font-family: $font-family-1;
     margin-top: -12px;
     margin-bottom: 50px;
-    color: #930A22;
+    color: $color-21;
     .learn-the-business {
-        font-family: "Avenir Next", sans-serif;
+        font-family: $font-family-1;
     }
 }
 .build-msg {
-    font-size: 26px;
-    font-family: "Avenir Next", sans-serif;
+    font-size: $font-size-26;
+    font-family: $font-family-1;
     margin-top: -12px;
     margin-bottom: 50px;
-    color: #930A22;
+    color: $color-21;
     .content-promote-artists {
-        font-family: "Avenir Next", sans-serif;
+        font-family: $font-family-1;
     }
 }
 .first-row {
@@ -82,64 +93,65 @@
     margin-top: 30px;
 }
 .first-row-data {
-    font-size: 20px;
+    font-size: $font-size-xl;
     margin-top: -60px;
-    font-family: "Avenir Next", sans-serif;
-    color: #707070;
+    font-family: $font-family-1;
+    color: $main-4;
 }
 .second-row-data {
-    font-size: 20px;
+    font-size: $font-size-xl;
     margin-top: -60px;
-    font-family: "Avenir Next", sans-serif;
-    color: #707070;
+    font-family: $font-family-1;
+    color: $main-4;
 }
 .first-row-data::before {
     content: "•";
-    color: #930A22;
+    color: $color-21;
     position: relative;
     top: 7px;
     right: 10px;
-    font-size: 40px;
+    font-size: $font-size-40;
 }
 .second-row-data::before {
     content: "•";
-    color: #930A22;
+    color: $color-21;
     position: relative;
     top: 7px;
     right: 10px;
-    font-size: 40px;
+    font-size: $font-size-40;
 }
 .get-started-button {
-    font-size: 18px;
-    font-family: "Avenir Next", sans-serif;
+    font-size: $font-size-l;
+    font-family: $font-family-1;
     width: 100%;
     height: 50px;
-    margin-top: -10px;
-    margin-bottom: 10px;
-    background: #930a22;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background: $color-21;
     border: none;
     border-radius: 10px;
-    color: #E2E2E2;
+    color: $color-20;
 }
 .stars {
-    height: 32px;
+    margin-top: 20px;
+    margin-bottom: 10px;
     .yellow-star-icon {
-        color: #DE9915,;
-        font-size: 32px;
+        color: $color-22;
+        font-size: $font-size-32;
     }
     .gray-star-icon {
-        color: #4A4A4A; 
-        font-size: 32px;
+        color: $color-23; 
+        font-size: $font-size-32;
     }
     .gray-check-icon {
-        color: #05161D;
-        font-size: 14px;
+        color: $color-12;
+        font-size: $font-size-normal;
         top: -5px;
         position: relative;
     }
     .gray-number {
-        color: #05161D;
-        font-size: 17px; 
+        color: $color-12;
+        font-size: $font-size-17; 
         font-family: monospace; 
         top: -5px;
         position: relative;
@@ -151,20 +163,20 @@
     div {
         width: 66.6%;
         height: 2px;
-        background:#4A4A4A;
+        background:$color-23;
     }
     .bar-1 {
-        background: #DE9915;
+        background: $color-22;
     }
     .bar-2 {
-        background: #DE9915;
+        background: $color-22;
     }
     .dot {
         height: 10px;
         width: 22px;
         position: relative;
         top: -4px;
-        background-color: #DE9915;
+        background-color: $color-22;
         border-radius: 50%;
         display: inline-block;
       }
@@ -174,9 +186,9 @@
     div {
         width: 33.3%;
         height: 3px;
-        background:#4A4A4A;
+        background:$color-23;
     }
     .bar-1 {
-        background: #930a22;
+        background: $color-21;
     }
 }
