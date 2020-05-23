@@ -1,0 +1,199 @@
+@import "../../scss/variables.scss";
+
+.onboard-container {
+    width: 100%;
+    background: #05161d;
+    padding: 25px;
+    text-align: center;
+}
+.logo-main-container {
+    width: 100%;
+    justify-content: center;
+    display: flex;
+    .logo-container {
+        height: 60px;
+        width: 60px;
+        margin-top: 20px;
+        background: transparent url('../../assets/icon/Rectangle 180.png') 0% 0% no-repeat padding-box;
+        background-size: cover
+    }
+}
+.onboard-welcome-msg-container {
+    margin-top: 20px;
+    .onboard-welcome-msg {
+        color: $color-17;
+        font-family: "AvenirNextLTPro";
+        font-size: 28px;
+    }
+}
+.onboard-msg-2-container {
+    margin-top: 10px;
+    .onboard-msg-2 {
+        color: $color-18;
+        font-family: "AvenirNextLTPro";
+        font-size: $font-size-normal;
+    }
+}
+.gender-container {
+    margin-top: 30px;
+}
+.radio-container{
+    color: $color-17;
+    .MuiFormLabel-root {
+        padding: 5px;
+        padding-left: 0px;
+        color: #930a22;
+        text-align: left;
+        font-weight: bold;
+        font-family: "AvenirNextLTPro";
+    }
+    .MuiTypography-body1 {
+        font-family: "AvenirNextLTPro";
+        font-size: $font-size-medium;
+        letter-spacing: unset;
+    }
+    .MuiSvgIcon-root {
+        width: 16px;
+    }
+    .PrivateRadioButtonIcon-layer-43 {
+        color: $color-17;
+    }
+    .MuiFormGroup-root {
+        display: inline;
+    }
+    .MuiRadio-root {
+        color: $color-17;
+    }
+}
+
+.text-container {
+    border: 1px solid #930a22;
+    border-radius: 6px;
+    height: 40px;
+    display: flex;
+    position: relative;
+    justify-content: center;
+    margin: 30px 15px;
+    .text-label {
+        color: #930a22;
+        font-size: 12px;
+        font-weight: bold;
+        position: absolute;
+        top: -8px;
+        left: 30px;
+        background: #05161d;
+        padding: 0 5px;
+        font-family: "AvenirNextLTPro";
+    }
+    .formInputField {
+        width: 90%;
+        background: transparent;
+        border: none;
+        color: $color-17;
+        font-family: "AvenirNextLTPro";
+        font-size: $font-size-medium;
+    }
+}
+
+.genres-container {
+    border: 1px solid #930a22;
+    border-radius: 6px;
+    min-height: 120px;
+    position: relative;
+    justify-content: center;
+    margin: 30px 15px;
+    .genres-label {
+        color: #930a22;
+        font-size: 12px;
+        font-weight: bold;
+        position: absolute;
+        top: -8px;
+        left: 30px;
+        background: #05161d;
+        padding: 0 5px;
+        font-family: "AvenirNextLTPro";
+    }
+    .search-genres-container {
+        height: 50px;
+        display: flex;
+        margin: 0px 10px;
+        border-bottom: 1px solid #930a22;
+        .formInputField {
+            width: 90%;
+            background: transparent;
+            border: none;
+            color: $color-17;
+            font-family: "AvenirNextLTPro";
+            font-size: $font-size-medium;
+        }
+    }
+}
+
+.genres-button-container {
+    display: flex;
+    flex-wrap: wrap;
+    max-height: 200px;
+    overflow: auto;
+    justify-content: inherit;
+    .genres-button {
+        margin: 5px;
+        border-radius: 10px;
+        background: $color-17;
+        border: 1px solid #930a22;
+        width: fit-content;
+        padding: 3px 10px;
+        font-size: $font-size-small;
+        font-family: "AvenirNextLTPro";
+        display: flex;
+    }
+    .genres-added-button {
+        margin: 5px;
+        border-radius: 10px;
+        color: $color-17;
+        background: #930a22;
+        width: fit-content;
+        padding: 3px 10px;
+        font-size: $font-size-small;
+        font-family: "AvenirNextLTPro";
+        display: flex;
+    }
+}
+
+.icon-plus-circle {
+    width: 15px;
+    height: 15px;
+    padding-left: 5px;
+}
+
+.button-wrapper {
+    padding: 15px;
+    .continue-button {
+        width: 100%;
+        height: 50px;
+        background: #930a22;
+        border: none;
+        border-radius: 10px;
+        color: $color-17;
+    }
+}
+
+.progress-bar {
+    display: flex;
+    margin: 0px 15px;
+    div {
+        width: 33.3%;
+        height: 3px;
+        background:$color-18;
+    }
+    .bar-1 {
+        background: #930a22;
+    }
+}
+
+.icon-container {
+    align-items: center;
+    display: flex;
+}
+
+.shp0 { fill: none;stroke: #05161d;stroke-linecap:round;stroke-width: 3 } 
+.shpclose { fill: none;stroke: #e2e2e2;stroke-linecap:round;stroke-width: 3 } 

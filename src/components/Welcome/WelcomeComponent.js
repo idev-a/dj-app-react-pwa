@@ -3,7 +3,8 @@ import './WelcomeComponent.styles.scss';
 import Button from './../../common/Button/index';
 import HearBKNewIcon from './../../common/HearBKNewIcon/index';
 import content from "./content";
-import { PlusBoxIcon, UploadPhoto } from './../../assets/icon/icon';
+import {ReactComponent as PlusBoxIcon} from '../../assets/icon/plus box.svg';
+import {ReactComponent as UploadPhoto} from '../../assets/icon/upload photo.svg';
 
 const WelcomeComponent = ({ user }) => {
 

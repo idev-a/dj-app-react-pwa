@@ -2,7 +2,17 @@ import React, { useState, useCallback } from "react";
 import { Switch, Router, Route } from "react-router-dom";
 
 import history from "./history";
-import LandingPage from "./containers/LandingPage";
+import SplashScreenContainer from './containers/SplashScreen/SplashScreenContainer'
+import LoginScreenContainer from './containers/LoginScreen/LoginScreenContainer'
+import SignUpScreenContainer from './containers/SignUpScreen/SignUpScreenContainer'
+import EmailSignupContainer from './containers/EmailSignupContainer/EmailSignupContainer'
+import EmailSignInContainer from './containers/EmailSignIn/EmailSignInContainer'
+import EmailResetPasswordContainer from './containers/EmailResetPassword/EmailResetPasswordContainer'
+import PhoneSignupContainer from './containers/PhoneSignup/PhoneSignupContainer'
+import PhoneSigninContainer from './containers/PhoneSignin/PhoneSigninContainer'
+import VerifySigninContainer from './containers/VerifySignin/VerifySigninContainer'
+import VerifyPhoneContainer from './containers/VerifyPhone/VerifyPhoneContainer'
+import NewPasswordContainer from './containers/NewPassword/NewPasswordContainer'
 import AuthContainer from "./containers/Auth/AuthContainer";
 import Discover from "./containers/Discover";
 import OrderFeedbackContainer from "./containers/OrderFeedback";
@@ -19,6 +29,7 @@ import MenuComponent from "./components/Menu";
 import OrderFeedbackStartComponent from "./components/OrderFeedbackStart";
 import ForgotPasswordContainer from "./containers/ForgotPassword/ForgotPasswordContainer";
 import ResetPasswordContainer from "./containers/ResetPassword/ResetPasswordContainer";
+import Onboarding1 from "./containers/Onboarding1/OnboardingContainer";
 import WelcomeContainer from './containers/Welcome/WelcomeContainer';
 
 export const MenuHandlerContext = React.createContext();
@@ -37,7 +48,17 @@ export default props => {
       )}
       <MenuHandlerContext.Provider value={handleToggleMenuClick}>
         <Switch>
-          <Route path="/" component={LandingPage} exact />
+          <Route path="/" component={SplashScreenContainer} exact />
+          <Route path="/loginScreen" component={LoginScreenContainer} exact />
+          <Route path="/signupScreen" component={SignUpScreenContainer} exact />
+          <Route path="/emailSignup" component={EmailSignupContainer} exact />
+          <Route path="/emailSignIn" component={EmailSignInContainer} exact />
+          <Route path="/emailReset" component={EmailResetPasswordContainer} exact />
+          <Route path="/changePassword" component={NewPasswordContainer} exact />
+          <Route path="/phoneSignup" component={PhoneSignupContainer} exact />
+          <Route path="/phoneSignin" component={PhoneSigninContainer} exact />
+          <Route path="/verifySignup" component={VerifyPhoneContainer} exact />
+          <Route path="/verifySignin" component={VerifySigninContainer} exact />
           <Route path="/signin" component={AuthContainer} exact />
           <Route
             path="/forgot-password"
@@ -46,10 +67,11 @@ export default props => {
           />
           <Route
             path="/reset"
-            component={ResetPasswordContainer}
+            component={NewPasswordContainer}
             exact
           />
           <Route path="/discover" component={withValidToken(Discover)} exact />
+          <Route path="/onboarding" component={withValidToken(Onboarding1)} exact />
           <Route
             path="/feedback"
             component={withValidToken(OrderFeedbackStartComponent)}

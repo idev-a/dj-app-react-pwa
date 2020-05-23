@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 201 201" >
+	<defs>
+		<clipPath clipPathUnits="userSpaceOnUse" id="cp1">
+			<path d="M-275 -225L475 -225L475 1109L-275 1109Z" />
+		</clipPath>
+	</defs>
+	<style>
+		tspan { white-space:pre }
+		.uploadShp0 { fill: #9b9b9b } 
+		.uploadShp1 { fill: none;stroke: #05161d;stroke-linecap:round;stroke-width: 8 } 
+		.uploadShp2 { fill: none;stroke: #930a22;stroke-width: 6 } 
+	</style>
+	<g id="Welcome" clip-path="url(#cp1)">
+		<g id="upload photo">
+			<path id="Path 202" class="uploadShp0" d="M100.5 0C156 0 201 45 201 100.5C201 156 156 201 100.5 201C45 201 0 156 0 100.5C0 45 45 0 100.5 0Z" />
+			<g id="Icon feather-user">
+				<path id="Path 198" class="uploadShp1" d="M148.93 187.96L148.93 158.63C148.93 145.01 137.89 133.97 124.27 133.97L74.96 133.97C61.34 133.97 50.3 145.01 50.3 158.63L50.3 187.96" />
+				<path id="Path 199" class="uploadShp1" d="M124.27 84.66C124.27 98.28 113.23 109.31 99.61 109.31C86 109.31 74.96 98.28 74.96 84.66C74.96 71.04 86 60 99.61 60C113.23 60 124.27 71.04 124.27 84.66L124.27 84.66Z" />
+			</g>
+			<path id="Ellipse 11" class="uploadShp2" d="M100.5 201C44.92 201 0 156.08 0 100.5C0 44.92 44.92 0 100.5 0C156.08 0 201 44.92 201 100.5C201 156.08 156.08 201 100.5 201Z" />
+		</g>
+	</g>
+</svg>
