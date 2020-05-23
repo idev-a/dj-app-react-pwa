@@ -22,6 +22,7 @@ import SettingsContainer from "./containers/Settings";
 import OrderFeedbackHistoryContainer from "./containers/OrderFeedbackHistory";
 import GiveProFeedbackContainer from "./containers/GiveProFeedback";
 import FooterNav from "./components/FooterNav";
+import Footer from "./components/Footer";
 import SearchContainer from "./containers/Search";
 import { getTokenDetails } from "./state/actions/userActions";
 import ProfileContainer from "./containers/Profile";
@@ -31,6 +32,8 @@ import ForgotPasswordContainer from "./containers/ForgotPassword/ForgotPasswordC
 import ResetPasswordContainer from "./containers/ResetPassword/ResetPasswordContainer";
 import Onboarding1 from "./containers/Onboarding1/OnboardingContainer";
 import WelcomeContainer from './containers/Welcome/WelcomeContainer';
+import ProfileSettingsContainer from './containers/ProfileSettings/ProfileSettingsContainer';
+import HomeContainer from './containers/Home/HomeContainer';
 
 export const MenuHandlerContext = React.createContext();
 
@@ -103,6 +106,16 @@ export default props => {
             exact
           />
           <Route
+            path="/profile-settings"
+            component={withValidToken(ProfileSettingsContainer)}
+            exact
+          />
+          <Route
+            path="/home"
+            component={withValidToken(HomeContainer)}
+            exact
+          />
+          <Route
             path="/history"
             component={withValidToken(OrderFeedbackHistoryContainer)}
             exact
@@ -125,6 +138,7 @@ export default props => {
         </Switch>
       </MenuHandlerContext.Provider>
       {/* <FooterNav /> */}
+      <Footer />
     </Router>
   );
 };

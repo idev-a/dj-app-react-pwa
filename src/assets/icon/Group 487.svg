@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 43 58" width="30" height="30">
+	<defs>
+		<clipPath clipPathUnits="userSpaceOnUse" id="cp1">
+			<path d="M-588 -82L162 -82L162 1861L-588 1861Z" />
+		</clipPath>
+		<linearGradient id="grd1" gradientUnits="userSpaceOnUse"  x1="21.245" y1="-0.718" x2="21.245" y2="59.861">
+			<stop offset="0" stop-color="#fc4f35"  />
+			<stop offset="1" stop-color="#c8013b"  />
+		</linearGradient>
+	</defs>
+	<style>
+		tspan { white-space:pre }
+		.fireShp0 { fill: url(#grd1) } 
+		.fireShp1 { fill: #fdcc36 } 
+		.fireShp2 { fill: #ffffff } 
+	</style>
+	<g id="User Profile – Setting" clip-path="url(#cp1)">
+		<g id="Top Bar">
+			<g id="Group 487">
+				<g id="Group 487">
+					<path id="Path 2244" class="fireShp0" d="M0.42 25.2C0.42 25.2 2.16 32.59 1.17 39.4C0.17 46.22 5.23 57.22 20.85 57.22C38.3 57.22 40.79 47.22 41.78 42.89C42.78 38.57 40.88 34.42 40.55 33.42C40.55 33.42 39.55 36.08 37.06 38.41C37.06 38.41 39.46 29.8 31.65 18.5C25.2 9.17 25.64 0.71 25.64 0.71C25.64 0.71 8.72 10.69 7.56 29.63C7.56 29.63 4.77 26.34 0.42 25.2Z" />
+					<path id="Path 2245" class="fireShp1" d="M9.61 39.25C9.61 39.25 8.15 42.05 8.72 45.96C9.29 49.92 11.94 55.1 21.02 55.1C31.16 55.11 33.03 49.35 33.18 46.78C33.48 41.81 31.83 39.17 27.29 32.6C23.55 27.18 23.8 22.27 23.8 22.27C23.8 22.27 13.22 32.13 12.54 43.14C12.54 43.14 10.8 42.06 9.61 39.25Z" />
+					<path id="Path 2246" class="fireShp2" d="M21.95 53.46C17.18 53.74 16.55 50.87 16.48 49.72C16.34 47.48 17.08 46.29 19.13 43.34C20.81 40.9 20.7 38.69 20.7 38.69C20.7 38.69 25.04 41.24 25.97 48.05C25.97 48.05 26.83 53.19 21.95 53.46Z" />
+				</g>
+			</g>
+		</g>
+	</g>
+</svg>
