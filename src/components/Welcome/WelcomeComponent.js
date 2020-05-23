@@ -10,8 +10,8 @@ const WelcomeComponent = ({ user }) => {
     return (
         <div className='welcome-container'>
             <div className="container-2">
-                <div className='logo-container'>
-                    <HearBKNewIcon />
+                <div className="logo-main-container">
+                    <div className="logo-container" />
                 </div>
                 <div className='avatar-container'>
                     <svg className="upload-photo"><UploadPhoto /></svg>
