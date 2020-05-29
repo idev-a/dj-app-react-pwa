@@ -7,6 +7,7 @@ export const REMOVE_TRACK = "REMOVE_TRACK";
 export const RESET_STATE = "RESET_STATE";
 const orderFeedbackPostUrl = "/orders/feedback";
 const uploadTrackURI = "/orders/upload/track/";
+const renewSubscriptionPostUrl = "/orders/upgradePremium";
 
 export const updateOrderData = payload => dispatch =>
   dispatch({
@@ -23,6 +24,17 @@ export const updateTrackDetails = (payload, index) => dispatch =>
 export const submitPayment = (paymentInfo, isProFeedback) => {
   return fetch(
     `${api}${orderFeedbackPostUrl}${isProFeedback ? "?type=PRO" : ""}`,
+    {
+      method: "POST",
+      headers: authHeaders(),
+      body: JSON.stringify(paymentInfo)
+    }
+  );
+};
+
+export const renewSubscription = (paymentInfo, isProFeedback) => {
+  return fetch(
+    `${api}${renewSubscriptionPostUrl}${isProFeedback ? "?type=PRO" : ""}`,
     {
       method: "POST",
       headers: authHeaders(),

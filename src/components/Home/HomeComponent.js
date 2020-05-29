@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import './home.style.scss';
 import content from './content';
-import { ReactComponent as MoneyBag } from '../../assets/icon/Group 485.svg';
-import { ReactComponent as FireIcon } from '../../assets/icon/Group 487.svg';
+import { ReactComponent as MoneyBag } from '../../assets/icon/MoneyBag.svg';
+import { ReactComponent as FireIcon } from '../../assets/icon/FireIcon.svg';
 import { ReactComponent as SearchIcon } from '../../assets/icon/search-icon.svg';
 import { ReactComponent as HelpIcon } from '../../assets/icon/help.svg';
 import { ReactComponent as Play } from '../../assets/icon/play.svg';

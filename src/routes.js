@@ -34,6 +34,7 @@ import Onboarding1 from "./containers/Onboarding1/OnboardingContainer";
 import WelcomeContainer from './containers/Welcome/WelcomeContainer';
 import ProfileSettingsContainer from './containers/ProfileSettings/ProfileSettingsContainer';
 import HomeContainer from './containers/Home/HomeContainer';
+import UpgradeToPro from './containers/UpgradeToPro/UpgradeToProContainer';
 
 export const MenuHandlerContext = React.createContext();
 
@@ -93,6 +94,11 @@ export default props => {
           <Route
             path="/preferences"
             component={withValidToken(ListenerPreferencesContainer)}
+            exact
+          />
+          <Route
+            path="/upgrade"
+            component={withValidToken(UpgradeToPro)}
             exact
           />
           <Route
