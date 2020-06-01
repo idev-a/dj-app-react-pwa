@@ -34,6 +34,7 @@ import Onboarding1 from "./containers/Onboarding1/OnboardingContainer";
 import WelcomeContainer from './containers/Welcome/WelcomeContainer';
 import ProfileSettingsContainer from './containers/ProfileSettings/ProfileSettingsContainer';
 import HomeContainer from './containers/Home/HomeContainer';
+import ResultContainer from './containers/Result/ResultContainer';
 import UpgradeToPro from './containers/UpgradeToPro/UpgradeToProContainer';
 
 export const MenuHandlerContext = React.createContext();
@@ -139,6 +140,11 @@ export default props => {
           <Route
             path="/search"
             component={withValidToken(SearchContainer)}
+            exact
+          />
+          <Route
+            path="/result"
+            component={withValidToken(ResultContainer)}
             exact
           />
         </Switch>

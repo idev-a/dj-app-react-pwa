@@ -1,0 +1,113 @@
+@import "../../scss/common.styles.scss";
+@import "../../scss/variables.scss";
+
+.result-main-component {
+    min-height: 100vh;
+    width: 100%;
+    max-width: 600px;
+    background: $color-24;
+    text-align: center;
+    color: $main-1;
+    padding: 25px;
+    padding-bottom: 35px;
+}
+
+.result-header-container {
+    width: 100%;
+    color: $color-25;
+    display: flex;
+    justify-content: space-between;
+    height: fit-content;
+    margin-top: 30px;
+    .app-name-container {
+        text-align: left;
+        .app-display-name {
+            font-size: $font-size-xxl;
+            text-align: left;
+            font-weight: bold;
+        }
+    }
+    .header-icon-container {
+        color: $main-1;
+        display: flex;
+        .header-icon-text-container{
+            margin-right: 15px;
+            .coin-number {
+                margin: 0px;
+                margin-bottom: -9px;
+                margin-top: 8px;
+                font-size: 12px;
+            }
+            .coin-text {
+                height: fit-content;
+                font-size: 8px;
+                width: fit-content;
+                font-weight: 100;
+        }
+        }
+    }
+}
+
+.buttons-main-component {
+    margin-top: 35px;
+    display: flex;
+    justify-content: space-between;
+    .upload-button {
+        height: 40px;
+        width: 40%;
+        margin: 10px;
+        border: 2px solid $color-21;
+        border-radius: 5px;
+        opacity: 1;
+        background: transparent;
+        color: $main-1;
+    }
+    .results-button {
+        height: 40px;
+        width: 40%;
+        margin: 10px;
+        background: $color-21 0% 0% no-repeat padding-box;
+        border-radius: 5px;
+        opacity: 1;
+        border: none;
+        color: $main-1;
+    }
+}
+.key-button-container {
+    width: 45px;
+    padding: 5px;
+    border-radius: 5px;
+    display: flex;
+    background: $color-21;
+    margin-right: 10px;
+    margin-left: auto;
+    margin-top: 10px;
+    justify-content: center;
+    align-items: center;
+    .key-icon {
+        height: 15px;
+        width: 15px;
+        padding-right: 8px;
+    }
+    .key-number-text {
+        font-size: 12px;
+    }
+}
+.promo-campaign-txt {
+    margin-top: 20px;
+    float: left;
+    font-family: "AvenirBold";
+}
+.cards-main-container {
+    margin-top: 65px;
+}
+.upgrade-unlock {
+    background: transparent linear-gradient(180deg, #C7003B 0%, #FF5335 100%) 0% 0% no-repeat padding-box;
+    border-radius: 5px;
+    width: 100%;
+    height: 40px;
+    margin-top: 40px;
+    border: none;
+    color: $main-1;
+    font-weight: bold;
+}
