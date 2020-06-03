@@ -6,14 +6,14 @@
 	</defs>
 	<style>
 		tspan { white-space:pre }
-		.shp0 { fill: none;stroke: #930a22;stroke-linecap:round;stroke-width: 3 } 
+		.iconPlus-shp0 { fill: none;stroke: #930a22;stroke-linecap:round;stroke-width: 3 } 
 	</style>
 	<g id="Onboarding 1" clip-path="url(#cp1)">
 		<g id="roles">
 			<g id="Icon feather-plus-square">
-				<path id="Path 208" class="shp0" d="M6.3 3.5L27.3 3.5C28.96 3.5 30.3 4.84 30.3 6.5L30.3 27.5C30.3 29.16 28.96 30.5 27.3 30.5L6.3 30.5C4.64 30.5 3.3 29.16 3.3 27.5L3.3 6.5C3.3 4.84 4.64 3.5 6.3 3.5L6.3 3.5Z" />
-				<path id="Path 209" class="shp0" d="M16.8 11L16.8 23" />
-				<path id="Path 210" class="shp0" d="M10.8 17L22.8 17" />
+				<path id="Path 208" class="iconPlus-shp0" d="M6.3 3.5L27.3 3.5C28.96 3.5 30.3 4.84 30.3 6.5L30.3 27.5C30.3 29.16 28.96 30.5 27.3 30.5L6.3 30.5C4.64 30.5 3.3 29.16 3.3 27.5L3.3 6.5C3.3 4.84 4.64 3.5 6.3 3.5L6.3 3.5Z" />
+				<path id="Path 209" class="iconPlus-shp0" d="M16.8 11L16.8 23" />
+				<path id="Path 210" class="iconPlus-shp0" d="M10.8 17L22.8 17" />
 			</g>
 		</g>
 	</g>

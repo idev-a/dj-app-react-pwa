@@ -36,6 +36,7 @@ import ProfileSettingsContainer from './containers/ProfileSettings/ProfileSettin
 import HomeContainer from './containers/Home/HomeContainer';
 import ResultContainer from './containers/Result/ResultContainer';
 import UpgradeToPro from './containers/UpgradeToPro/UpgradeToProContainer';
+import UploadContainer from './containers/Upload/UploadContainer';
 
 export const MenuHandlerContext = React.createContext();
 
@@ -95,6 +96,11 @@ export default props => {
           <Route
             path="/preferences"
             component={withValidToken(ListenerPreferencesContainer)}
+            exact
+          />
+          <Route
+            path="/upload"
+            component={withValidToken(UploadContainer)}
             exact
           />
           <Route
