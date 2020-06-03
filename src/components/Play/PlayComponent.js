@@ -2,7 +2,8 @@ import React from 'react';
 import './play.style.scss';
 import content from './content';
 import { ReactComponent as Dollar } from '../../assets/icon/Dollar.svg';
-import { ReactComponent as Rater } from '../../assets/icon/Rater.svg';
+import { ReactComponent as MoneyBag } from '../../assets/icon/MoneyBag.svg';
+import { ReactComponent as FireIcon } from '../../assets/icon/FireIcon.svg';
 import { ReactComponent as Help } from '../../assets/icon/help.svg';
 import { ReactComponent as Like } from '../../assets/icon/Like.svg';
 import { ReactComponent as Dislike } from '../../assets/icon/ThumbsDown.svg';
@@ -19,11 +20,11 @@ const PlayComponent = () => {
                     <small className="app-footer-text">{content.HEADER_TAG_TEXT}</small>
                 </div>
                 <div className="header-icon-container">
-                    <Dollar className="header-icon" />
+                    <MoneyBag className="header-icon" />
                     <div className="header-icon-text-container">
                         <p className="coin-number">1.2</p><p className="coin-text">{content.COIN}</p>
                     </div>
-                    <Rater className="header-icon" />
+                    <FireIcon className="header-icon" />
                     <div className="header-icon-text-container" >
                         <p className="coin-number">Lv.3</p><p className="coin-text">{content.RATER}</p>
                     </div>
