@@ -83,7 +83,7 @@
         font-size: $font-size-normal;
     }
 }
-.title-container {
+.imput-container {
     border: 1px solid $color-20;
     position: relative;
     padding: 15px;
@@ -221,4 +221,52 @@
 }
 .fileInput {
     display: none;
+}
+
+.rating-main-container {
+    text-align: left;
+    margin-top: 20px;
+    .rating-header-text {
+        font-size: $font-size-normal;
+        font-family: "AvenirNextLTPro";
+    }
+    .rating-container {
+        margin-top: 20px;
+        display: flex;
+        .rating-container-1{
+            text-align: left;
+            width: 40%;
+            height: 85px;
+            display: grid;
+            padding: 10px;
+            border: 1px solid #930A22;
+            border-radius: 5px;
+        }
+        .plan-text {
+            font-size: 12px;
+            font-family: "AvenirNextLTPro";
+        }
+        .listner-text {
+            font-size: 10px;
+            font-family: "AvenirNextLTPro";
+        }
+        .rating-amount-text {
+            font-size: 22px;
+            font-family: "AvenirBold";
+        }
+        .rating-container-2 {
+            border: 1px solid #930A22;
+            border-radius: 5px;
+            text-align: left;
+            width: 40%;
+            height: 85px;
+            display: grid;
+            padding: 10px;
+            margin-left: 25px;
+        }
+        .isSelectedRating {
+            background: transparent linear-gradient(180deg, #C7003B 0%, #FF5335 100%) 0% 0% no-repeat padding-box;
+            border: none !important;
+        }
+    }
 }

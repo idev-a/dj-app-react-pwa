@@ -1,31 +1,32 @@
-import React, { useRef, useState, useCallback } from 'react';
+import React, { useRef, useCallback } from 'react';
 import './upload.style.scss';
 import content from './content';
 import { ReactComponent as MoneyBag } from '../../assets/icon/MoneyBag.svg';
 import { ReactComponent as FireIcon } from '../../assets/icon/FireIcon.svg';
 import { ReactComponent as Help } from '../../assets/icon/help.svg';
-import { ReactComponent as PlusIcon } from '../../assets/icon/IconPlusSquare.svg';
-import { ReactComponent as MinusIcon } from '../../assets/icon/IconMinusSquare.svg';
-import { ReactComponent as IconPlusCircle } from '../../assets/icon/Icon feather-plus-circle.svg'
-import { ReactComponent as IconCloseCircle } from '../../assets/icon/Icon feather-close-circle.svg'
 import Button from './../../common/Button';
 import InputField from './../../common/InputField/index';
+import RatingContainer from './RatingContainer';
+import GenresContainer from './GenresContainer/index';
+import { StripeProvider, Elements } from "react-stripe-elements";
+import { STRIPE_KEY } from "../../config";
+import CardForm from './CardForm';
 
 const UploadComponent = ({
     index = 0,
     genres = [],
+    styles = [],
     setAddGenre,
+    setAddStyle,
     tracks,
+    promoCode,
     handleTrackChanges,
+    onInputChange,
 }) => {
     const fileUploadEl = useRef(null);
-    const [addGenres, setAddGenres] = useState(false);
 
-    const selectedGenre = genres.find((g) => g._id === tracks?.genreId);
-
-    const handleOnToggleGenres = useCallback(() => {
-        setAddGenres(!addGenres);
-    }, [setAddGenres, addGenres])
+    const selectedGenre = genres.find((g) => g._id === tracks ?.genreId);
+    const selectedStyles = styles.find((g) => g._id === tracks ?.stylesId);
 
     genres.sort(function (a, b) {
         var textA = a.name.toUpperCase();
@@ -43,6 +44,10 @@ const UploadComponent = ({
         },
         [index, handleTrackChanges]
     );
+
+    const handleSelectedFeedback = useCallback((args) => {
+        handleTrackDetailsUpdate({ id: "selectedFeedback", value: args }, index);
+    }, [handleTrackDetailsUpdate, index]);
 
     return (
         <div className="upload-main-container">
@@ -75,7 +80,7 @@ const UploadComponent = ({
                 <span className="submit-music-queue-txt">{content.SUBMIT_MUSIC_QUEUE}</span>
                 <Help />
             </div>
-            <div className="title-container">
+            <div className="imput-container">
                 <small className="title-text">{content.TITLE}</small>
                 <InputField id="trackTitle"
                     value={tracks.trackTitle}
@@ -101,38 +106,41 @@ const UploadComponent = ({
             />
             <p className="size-text">{content.SIZE}</p>
             <div className="or-text">OR</div>
-            <div className="title-container">
+            <div className="imput-container">
                 <small className="title-text">{content.YOUTUBE_LINK}</small>
-                <InputField className="tiitle-input-field" />
+                <InputField
+                    id="trackUrl"
+                    onChange={handleTrackDetailsUpdate}
+                    value={tracks.trackUrl}
+                    className="tiitle-input-field"
+                />
             </div>
-            <div className="genres-container">
-                <span className="genres-label">{content.GENRES_STYLES}</span>
-                <div className="search-genres-container">
-                    <InputField
-                        id="genres"
-                        className="formInputField"
-                        // onChange={onInputChange}
-                        placeholder={content.SEARCH_GENRES}
-                    />
-                    <div className="icon-container" onClick={handleOnToggleGenres}>
-                        {addGenres ? <MinusIcon /> : <PlusIcon />}
-                    </div>
-                </div>
-                <div className="genres-button-container">
-                    {selectedGenre && <div className="genres-added-button">
-                        {selectedGenre.name}
-                        <div className="icon-plus-circle"/*  onClick={(e) => handleClickAddGenres(element, true)} */ ><IconCloseCircle /></div>
-                    </div>}
-                </div>
-                <div className="genres-button-container">
-                    {(genres.length > 0 && addGenres) && genres.map(element => {
-                        return <div className="genres-button">
-                            {element.name}
-                            <div className="icon-plus-circle" onClick={() => setAddGenre(element, 0)} ><IconPlusCircle /></div>
-                        </div>
-                    })}
-                </div>
+            <GenresContainer
+                selectedGenre={selectedGenre}
+                genres={genres}
+                setAddGenre={setAddGenre}
+                selectedStyles={selectedStyles}
+                styles={styles}
+                setAddStyle={setAddStyle}
+            />
+            <div className="imput-container">
+                <small className="title-text">{content.PROMO_CODE}</small>
+                <InputField
+                    id="promoCode"
+                    className="tiitle-input-field"
+                    onChange={onInputChange}
+                    value={promoCode}
+                />
             </div>
+            <RatingContainer
+                tracks={tracks}
+                handleSelectedFeedback={handleSelectedFeedback}
+            />
+            <StripeProvider apiKey={STRIPE_KEY}>
+                <Elements>
+                    <CardForm />
+                </Elements>
+            </StripeProvider>
         </div>
     )
 }

@@ -4,6 +4,7 @@ export const orderSelector = ({ orderDetails, userDetails, preferences }) => ({
     isSaveCardDetails: orderDetails.saveCardDetails,
     isPremiumUser: userDetails.isPremiumUser,
     genres: preferences.genres,
+    styles: preferences.styles,
     paymentMethods: userDetails.paymentMethods
 });
 
