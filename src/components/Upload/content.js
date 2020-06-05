@@ -22,4 +22,6 @@ export default {
     CARD_NUMBER: "Card Number",
     CARD_CVC: "CVC",
     CARD_MONTH: "MM/YY",
+    PAYMENT_OPTIONS: "Payment Options",
+    ORDER_NOW: "Order Now",
 }

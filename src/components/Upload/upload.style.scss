@@ -152,20 +152,20 @@
 
 
 .genres-container {
-    border: 1px solid #930a22;
+    border: 1px solid $color-21;
     border-radius: 6px;
     min-height: 120px;
     position: relative;
     justify-content: center;
     margin: 30px 0px;
     .genres-label {
-        color: #930a22;
+        color: $color-21;
         font-size: 12px;
         font-weight: bold;
         position: absolute;
         top: -8px;
         left: 30px;
-        background: #05161d;
+        background: $color-24;
         padding: 0 5px;
         font-family: "AvenirNextLTPro";
     }
@@ -173,7 +173,7 @@
         height: 50px;
         display: flex;
         margin: 0px 10px;
-        border-bottom: 1px solid #930a22;
+        border-bottom: 1px solid $color-21;
         .formInputField {
             width: 90%;
             background: transparent;
@@ -194,24 +194,30 @@
         margin: 5px;
         border-radius: 10px;
         background: $color-17;
-        border: 1px solid #930a22;
+        border: 1px solid $color-21;
         width: fit-content;
         padding: 3px 10px;
         font-size: $font-size-small;
         font-family: "AvenirNextLTPro";
         display: flex;
+        color: black;
     }
     .genres-added-button {
         margin: 5px;
         border-radius: 10px;
         color: $color-17;
-        background: #930a22;
+        background: $color-21;
         width: fit-content;
         padding: 3px 10px;
         font-size: $font-size-small;
         font-family: "AvenirNextLTPro";
         display: flex;
     }
+}
+
+.generes-container-border {
+    padding: 5px;
+    border-bottom: 1px solid $color-21;
 }
 
 .icon-plus-circle {
@@ -239,7 +245,7 @@
             height: 85px;
             display: grid;
             padding: 10px;
-            border: 1px solid #930A22;
+            border: 1px solid $color-21;
             border-radius: 5px;
         }
         .plan-text {
@@ -255,7 +261,7 @@
             font-family: "AvenirBold";
         }
         .rating-container-2 {
-            border: 1px solid #930A22;
+            border: 1px solid $color-21;
             border-radius: 5px;
             text-align: left;
             width: 40%;
@@ -269,4 +275,27 @@
             border: none !important;
         }
     }
+}
+
+.payment-option-container {
+    margin-top: 35px;
+    margin-bottom: 20px;
+    .payment-option-header-text {
+        font-size: 14px;
+        display: flex;
+        font-family: "AvenirNextLTPro";
+    }
+}
+.or-txt {
+    font-size: 14px;
+}
+.order-now-button {
+    width: 100%;
+    height: 40px;
+    margin: 60px 0px;
+    border-radius: 5px;
+    background: $color-21 0% 0% no-repeat padding-box;
+    border: none;
+    opacity: 1;
+    color: $main-1;
 }

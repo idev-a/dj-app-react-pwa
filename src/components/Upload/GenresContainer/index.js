@@ -1,5 +1,6 @@
 import React, {useState, useCallback} from 'react';
 import content from '../content';
+import cx from "classnames";
 import '../upload.style.scss';
 import { ReactComponent as PlusIcon } from '../../../assets/icon/IconPlusSquare.svg';
 import { ReactComponent as MinusIcon } from '../../../assets/icon/IconMinusSquare.svg';
@@ -40,7 +41,7 @@ const GenresContainer = ({
                     {addGenres ? <MinusIcon /> : <PlusIcon />}
                 </div>
             </div>}
-            <div className="genres-button-container">
+            <div className={cx("genres-button-container", selectedGenre && "generes-container-border")}>
                 {selectedGenre && <div className="genres-added-button">
                     {selectedGenre.name}
                     <div className="icon-plus-circle"/*  onClick={(e) => handleClickAddGenres(element, true)} */ ><IconCloseCircle /></div>

@@ -11,6 +11,8 @@ import GenresContainer from './GenresContainer/index';
 import { StripeProvider, Elements } from "react-stripe-elements";
 import { STRIPE_KEY } from "../../config";
 import CardForm from './CardForm';
+import Cards from './../UpgradeToPro/Cards/index';
+import { ENUMS } from "../../utils";
 
 const UploadComponent = ({
     index = 0,
@@ -22,6 +24,15 @@ const UploadComponent = ({
     promoCode,
     handleTrackChanges,
     onInputChange,
+    paymentMethods,
+    selectedPaymentId,
+    handleSavedCardSelect,
+    accountName,
+    saveCardInformation,
+    shouldCreateToken,
+    handlePaymentFormError,
+    isSaveCardDetails,
+    onSubmitFeedback,
 }) => {
     const fileUploadEl = useRef(null);
 
@@ -35,6 +46,7 @@ const UploadComponent = ({
     });
 
     const handleUploadButtonClick = () => {
+        handleTrackDetailsUpdate({ id: "mediaType", value: ENUMS.MEDIA_TYPE_FILEUPLOAD }, index);
         fileUploadEl.current.click();
     }
 
@@ -138,9 +150,36 @@ const UploadComponent = ({
             />
             <StripeProvider apiKey={STRIPE_KEY}>
                 <Elements>
-                    <CardForm />
+                    <section>
+                        <div className="payment-option-container">
+                            <span className="payment-option-header-text">{content.PAYMENT_OPTIONS}</span>
+                            {paymentMethods &&
+                                paymentMethods.length > 0 &&
+                                paymentMethods.map((method) => (
+                                    <Cards
+                                        {...method}
+                                        selectedPaymentId={selectedPaymentId}
+                                        handleSavedCardSelect={handleSavedCardSelect}
+                                    />
+                                ))}
+                        </div>
+                        <span className="or-txt">OR</span>
+                        <CardForm
+                            onInputChange={onInputChange}
+                            accountName={accountName}
+                            submitPayment={saveCardInformation}
+                            shouldCreateToken={shouldCreateToken}
+                            handlePaymentFormError={handlePaymentFormError}
+                            isSaveCardDetails={isSaveCardDetails}
+                        />
+                    </section>
                 </Elements>
             </StripeProvider>
+            <Button
+                className="order-now-button"
+                buttonText={content.ORDER_NOW}
+                onClick={onSubmitFeedback}
+            />
         </div>
     )
 }
