@@ -21,11 +21,11 @@ const GenresContainer = ({
 
     const handleOnToggleGenres = useCallback(() => {
         setAddGenres(!addGenres);
-    }, [setAddGenres, addGenres]);
+    }, [addGenres]);
 
     const handleOnToggleStyles = useCallback(() => {
         setAddStyles(!addStyles);
-    }, [setAddStyles, addStyles]);
+    }, [addStyles]);
 
     return (
         <div className="genres-container">
