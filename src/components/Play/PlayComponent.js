@@ -8,7 +8,7 @@ import { ReactComponent as Help } from '../../assets/icon/help.svg';
 import { ReactComponent as Like } from '../../assets/icon/Like.svg';
 import { ReactComponent as Dislike } from '../../assets/icon/ThumbsDown.svg';
 import IMG from '../../assets/img/playImg1.png'
-import NewAudioPlayer from './../NewAudioPlayer/index';
+import NewAudioPlayer from '../NewAudioPlayer';
 
 const PlayComponent = () => {
 
