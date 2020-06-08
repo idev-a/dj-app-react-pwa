@@ -14,8 +14,8 @@ import moment from 'moment';
 
 export const IconContainer = ({ icon, number, text }) => (
     <div className="icon-container-2">
-        {icon}<br/>
-        <small>{number}</small><br/>
+        {icon}<br />
+        <small>{number}</small><br />
         <small className="icon-text">{text}</small>
     </div>
 );
@@ -67,8 +67,8 @@ const PromoCard = ({ hasKey, hasFeedback, cardData }) => {
                     <div className="card-icons-container">
                         <div className="icon-first-row">
                             <IconContainer icon={<Social className="icon-3" />} number={cardData.listenersCount} text="Listners" />
-                            <IconContainer icon={<Like className="icon-3" />} number={hitPercentageRounded ? hitPercentageRounded + "%" : "0%"} text="Thumbs Up" />
-                            <IconContainer icon={<ThumbsDown className="icon-3" />} number={missPercentageRounded ? missPercentageRounded+ "%" : "0%"} text="Thumbs Down" />
+                            <IconContainer icon={<Like className="icon-3" />} number={`${hitPercentageRounded ? hitPercentageRounded : 0}%`} text="Thumbs Up" />
+                            <IconContainer icon={<ThumbsDown className="icon-3" />} number={`${missPercentageRounded ? missPercentageRounded : 0}%`} text="Thumbs Down" />
                         </div>
                         <div className="icon-second-row">
                             <IconContainer icon={<Happy className="icon-3" />} number="299" text="Impressed" />
@@ -79,7 +79,7 @@ const PromoCard = ({ hasKey, hasFeedback, cardData }) => {
                             <span className="key-number">x 1</span>
                             <span>Keys Earned</span>
                         </div>}
-                        {hasFeedback && <div className="feedback-container">  
+                        {hasFeedback && <div className="feedback-container">
                             <span>Feedbacks</span>
                             <div className="activity-card">
                                 <div className="avatar-container" />
