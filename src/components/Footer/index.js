@@ -7,7 +7,7 @@ import { ReactComponent as Music } from '../../assets/icon/music.svg';
 import { ReactComponent as Business } from '../../assets/icon/business.svg';
 import { ReactComponent as Social } from '../../assets/icon/social.svg';
 
-const includeRoutes = ["/home", "/profile-settings", "/upgrade", "/result"];
+const includeRoutes = ["/home", "/profile-settings", "/upgrade", "/result", "/leaderboard-home"];
 
 const Footer = props => {
 
@@ -25,7 +25,7 @@ const Footer = props => {
                 <Icon className="footer-Icon-1" iconName="app-icon" />
             </NavLink>
             <div className="footer-container-2">
-                <NavLink to="/history" className="footer-Links">
+                <NavLink to="/leaderboard-home" className="footer-Links">
                     <svg className="footer-Icon" > <Business /> </svg>
                 </NavLink>
                 <NavLink to="/profile-settings" className="footer-Links">

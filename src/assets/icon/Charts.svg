@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19 46" >
+	<defs>
+		<clipPath clipPathUnits="userSpaceOnUse" id="cp1">
+			<path d="M-371 -546L379 -546L379 788L-371 788Z" />
+		</clipPath>
+	</defs>
+	<style>
+		tspan { white-space:pre }
+		.charts-shp0 { fill: #c40019 } 
+	</style>
+	<g id="Overlays - Leaderboard" clip-path="url(#cp1)">
+		<g id="business">
+			<path id="Path 221" class="charts-shp0" d="M18.75 4.63C18.75 2.6 17.1 0.95 15.07 0.95L4.06 0.95C2.03 0.95 0.39 2.6 0.39 4.63L0.39 45.01L18.75 45.01L18.75 4.63Z" />
+		</g>
+	</g>
+</svg>

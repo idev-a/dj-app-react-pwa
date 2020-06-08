@@ -36,6 +36,7 @@ import ProfileSettingsContainer from './containers/ProfileSettings/ProfileSettin
 import HomeContainer from './containers/Home/HomeContainer';
 import ResultContainer from './containers/Result/ResultContainer';
 import UpgradeToPro from './containers/UpgradeToPro/UpgradeToProContainer';
+import LeaderboardHomeContainer from './containers/LeaderoardHome/LeaderoardHomeContainner';
 
 export const MenuHandlerContext = React.createContext();
 
@@ -120,6 +121,11 @@ export default props => {
           <Route
             path="/home"
             component={withValidToken(HomeContainer)}
+            exact
+          />
+          <Route
+            path="/leaderboard-home"
+            component={withValidToken(LeaderboardHomeContainer)}
             exact
           />
           <Route
