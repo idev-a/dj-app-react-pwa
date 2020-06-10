@@ -1,11 +1,32 @@
-import React from 'react';
+import React, { useEffect } from "react";
+import { connect } from "react-redux";
+import { getOrderHistory } from "../../state/actions/userActions";
+import { orderHistorySelector } from "../../state/selectors/order";
 import ResultComponent from './../../components/Result/ResultComponent';
 
-const ResultContainer = () => {
+const ResultContainer = ({
+    tracksHistory = [],
+    history,
+    getOrderHistoryDispatchAction
+}) => {
+    useEffect(() => {
+        getOrderHistoryDispatchAction();
+    }, [getOrderHistoryDispatchAction]);
+
 
     return (
-        <ResultComponent />
+        <ResultComponent
+            tracksHistory={tracksHistory}
+        />
     )
 }
 
-export default ResultContainer;
+
+const dispatchAction = dispatch => ({
+    getOrderHistoryDispatchAction: () => dispatch(getOrderHistory()),
+});
+
+export default connect(
+    orderHistorySelector,
+    dispatchAction
+)(ResultContainer);
