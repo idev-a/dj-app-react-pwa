@@ -7,7 +7,7 @@ import { ReactComponent as Music } from '../../assets/icon/music.svg';
 import { ReactComponent as Business } from '../../assets/icon/business.svg';
 import { ReactComponent as Social } from '../../assets/icon/social.svg';
 
-const includeRoutes = ["/home", "/profile-settings", "/upgrade", "/result", "/play"];
+const includeRoutes = ["/home", "/profile-settings", "/upgrade", "/result", "/upload", "/play"];
 
 const Footer = props => {
 
