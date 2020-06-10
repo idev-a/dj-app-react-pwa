@@ -37,6 +37,7 @@ import HomeContainer from './containers/Home/HomeContainer';
 import ResultContainer from './containers/Result/ResultContainer';
 import UpgradeToPro from './containers/UpgradeToPro/UpgradeToProContainer';
 import UploadContainer from './containers/Upload/UploadContainer';
+import PlayContainer from './containers/Play/PlayContainer';
 
 export const MenuHandlerContext = React.createContext();
 
@@ -106,6 +107,11 @@ export default props => {
           <Route
             path="/upgrade"
             component={withValidToken(UpgradeToPro)}
+            exact
+          />
+          <Route
+            path="/play"
+            component={withValidToken(PlayContainer)}
             exact
           />
           <Route

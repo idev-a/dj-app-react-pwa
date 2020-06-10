@@ -6,8 +6,9 @@ import { ReactComponent as FireIcon } from '../../assets/icon/FireIcon.svg';
 import { ReactComponent as Key } from '../../assets/icon/access.svg';
 import Button from './../../common/Button';
 import PromoCard from './PromoCard';
+import history from "../../history";
 
-const ResultComponent = () => {
+const ResultComponent = ({ tracksHistory }) => {
 
     return (
         <div className="result-main-component">
@@ -44,13 +45,16 @@ const ResultComponent = () => {
             </div>
             <span className="promo-campaign-txt">{content.PROMO_CAMPAIGN}</span>
             <div className="cards-main-container">
-                <PromoCard hasKey={true} />
-                <PromoCard hasFeedback={true} />
+                {tracksHistory.trackStats && tracksHistory.trackStats.map((data) => (
+                    <PromoCard hasKey={true} cardData={data}/>
+                ))}
+                {/* <PromoCard hasKey={true} />
+                <PromoCard hasFeedback={true} /> */}
             </div>
             <Button
                 className="upgrade-unlock"
                 buttonText={content.UPGRADE_TO_UNLOCK}
-            // onClick={onSubmitFeedback}
+                onClick={() => history.push("/upgrade")}
             ></Button>
         </div>
     )

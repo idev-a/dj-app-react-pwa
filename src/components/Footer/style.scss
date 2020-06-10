@@ -3,7 +3,7 @@
 .footer-Container {
     display: flex;
     position: fixed;
-    justify-content: stretch;
+    justify-content: center;
     width: 100%;
     max-width: 600px;
     height: 70px;
@@ -36,7 +36,6 @@
         height: 60px;
         width: 60px;
         top: -25px;
-        left: 43%;
         filter: drop-shadow(0px 3px 11.5px rgba(0,0,0,0.17));
         background-color: #18313c;
         flex-grow: 1;
@@ -46,6 +45,14 @@
         .footer-Icon-1 {
             width: 40px;
             height: 40px;
+        }
+    }
+    .footer-Links-1.active {
+        background-color: #930A22 !important;
+        .footer-Icon-1 {
+            width: 40px;
+            height: 40px;
+            background: url('../../assets/icon/app-icon-white.png') 0% 0% / contain no-repeat !important
         }
     }
 }
