@@ -21,11 +21,11 @@ const LeaderboardHomeComponent = ({ details }) => {
 
     const onSearchChange = useCallback((e) => {
         setSearchText(e.target.value);
-    }, [setSearchText]);
+    }, []);
 
     const handleOnToggleHelp = useCallback((data) => {
         setShowHelp(data);
-    }, [setShowHelp]);
+    }, []);
 
     return (
         <div className="leaderboard-home-main-container">

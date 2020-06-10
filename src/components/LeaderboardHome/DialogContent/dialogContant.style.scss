@@ -5,12 +5,12 @@
     .home-icon-svg {
         height: 45px;
         width: 40px;
-        fill: #c40019;
+        fill: $color-26;
     }
 }
 .home-header {
     font-size: $font-size-xl;
-    font-weight: bold;
+    font-weight: 600;
 }
 .home-overlay-pargraph {
     padding: 15px;
