@@ -1,0 +1,48 @@
+@import "../../scss/variables.scss";
+
+//override 
+
+.rhap_main-controls-button {
+    color: $main-1
+}
+
+.rhap_progress-bar {
+    background-color: $main-1;
+}
+
+.rhap_time {
+    color: $main-1 !important;
+    display: none;
+}
+.rhap_progress-container {
+    margin: 0px;
+}
+.rhap_progress-bar {
+    height: 1px;
+}
+.rhap_progress-indicator {
+    width: 12px;
+    height: 12px;
+    top: -5px;
+    margin-left: -6px;
+    background: $main-1;
+    border: 3px solid $color-21;
+}
+.rhap_progress-filled {
+    background-color: $color-20;
+}
+.rhap_main-controls-button {
+    font-size: 30px;
+    width: 30px;
+    height: 30px;
+}
+.rhap_play-pause-button {
+    font-size: 50px;
+    width: 50px;
+    height: 50px;
+    color: $color-21 !important;
+    margin: 0px 30px;
+}
+.rhap_container {
+    min-width: 250px;
+}

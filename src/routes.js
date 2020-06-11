@@ -37,6 +37,8 @@ import HomeContainer from './containers/Home/HomeContainer';
 import ResultContainer from './containers/Result/ResultContainer';
 import UpgradeToPro from './containers/UpgradeToPro/UpgradeToProContainer';
 import LeaderboardHomeContainer from './containers/LeaderoardHome/LeaderoardHomeContainner';
+import UploadContainer from './containers/Upload/UploadContainer';
+import PlayContainer from './containers/Play/PlayContainer';
 
 export const MenuHandlerContext = React.createContext();
 
@@ -99,8 +101,18 @@ export default props => {
             exact
           />
           <Route
+            path="/upload"
+            component={withValidToken(UploadContainer)}
+            exact
+          />
+          <Route
             path="/upgrade"
             component={withValidToken(UpgradeToPro)}
+            exact
+          />
+          <Route
+            path="/play"
+            component={withValidToken(PlayContainer)}
             exact
           />
           <Route
