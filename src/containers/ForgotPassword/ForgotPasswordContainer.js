@@ -1,14 +1,19 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import ForgotPassword from "../../components/ForgotPassword";
 import { forgotPassword } from "../../state/actions/userActions";
 import { validateRegex } from "../../utils";
 import { toast } from "react-toastify";
 
 const ForgotPasswordContainer = () => {
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  });
+
   const [email, setEmail] = useState("");
 
   const onInputChange = useCallback(e => {
-    setEmail(e?.target?.value?.toLowerCase());
+    setEmail(e ?.target ?.value ?.toLowerCase());
   }, []);
 
   const handleSubmitClick = useCallback(() => {

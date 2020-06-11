@@ -176,7 +176,7 @@ const withValidToken = WrappedComponent => {
         localStorage.removeItem("x-access-token");
         localStorage.removeItem("isPremiumUser");
         localStorage.removeItem("isFirstUserLogin");
-        this.props.history && this.props.history.push("/signin");
+        this.props.history && this.props.history.push("/");
       }
     }
     componentDidUpdate(prevProps) {

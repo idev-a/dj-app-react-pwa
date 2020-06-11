@@ -17,7 +17,7 @@ const Footer = props => {
                 <NavLink to="/home" className="footer-Links">
                     <svg className="footer-Icon" > <Home /> </svg>
                 </NavLink>
-                <NavLink to="/upgrade" className="footer-Links">
+                <NavLink to="/upload" className="footer-Links">
                     <svg className="footer-Icon" > <Music /> </svg>
                 </NavLink>
             </div>

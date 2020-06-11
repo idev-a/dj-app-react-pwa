@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 67" width="72" height="67">
+	<defs>
+		<clipPath clipPathUnits="userSpaceOnUse" id="cp1">
+			<path d="M-334 -823L416 -823L416 1185L-334 1185Z" />
+		</clipPath>
+		<linearGradient id="grd1" gradientUnits="userSpaceOnUse"  x1="0" y1="36.446" x2="59.62" y2="36.446">
+			<stop offset="0" stop-color="#fc4f35"  />
+			<stop offset="1" stop-color="#c8013b"  />
+		</linearGradient>
+	</defs>
+	<style>
+		tspan { white-space:pre }
+		.multiplier-shp0 { fill: url(#grd1) } 
+		.multiplier-shp1 { fill: #ffffff } 
+		.multiplier-shp2 { fill: #fdcc36 } 
+	</style>
+	<g id="Play Screen – Alternative" clip-path="url(#cp1)">
+		<g id="Group 363">
+			<g id="Group 488">
+				<g id="Group 490">
+					<g id="Group 489">
+						<path id="Path 2247" class="multiplier-shp0" d="M29.81 6.64C13.35 6.64 0 19.98 0 36.45C0 52.91 13.35 66.26 29.81 66.26C46.27 66.26 59.62 52.91 59.62 36.45C59.62 19.98 46.27 6.64 29.81 6.64Z" />
+						<path id="Path 2248" class="multiplier-shp1" d="M29.14 52.64L29.14 48.86C27.19 48.64 25.32 48 24.08 47.1L23.3 46.55L25.04 41.68L26.39 42.57C27.68 43.44 29.35 43.93 30.95 43.93C32.83 43.93 34.04 43.02 34.04 41.61C34.04 40.67 33.63 39.63 30.7 38.43C29.24 37.86 27.39 37.05 26.03 35.81C24.58 34.48 23.87 32.89 23.87 30.94C23.87 29.23 24.44 27.67 25.5 26.43C26.47 25.3 27.81 24.48 29.4 24.04L29.4 20.09L34.19 20.09L34.19 23.73C35.73 23.92 37.08 24.37 38.32 25.09L39.24 25.63L37.42 30.43L36.14 29.69C35.57 29.37 34.25 28.62 32.16 28.62C30.52 28.62 29.55 29.32 29.55 30.5C29.55 31.5 30.09 32.17 33.3 33.5C35.54 34.41 37.14 35.46 38.17 36.71C39.23 37.98 39.75 39.51 39.75 41.36C39.75 43.12 39.16 44.74 38.03 46.06C37.01 47.25 35.61 48.12 33.97 48.59L33.97 52.64L29.14 52.64Z" />
+						<g id="Group 488">
+							<path id="Path 2249" class="multiplier-shp1" d="M14.05 33.24L15.45 35.44L16.9 33.24L19.59 33.24L16.77 37.26L19.7 41.46L16.96 41.46L15.36 39.2L13.8 41.46L11.16 41.46L14.03 37.28L11.31 33.24L14.05 33.24Z" />
+						</g>
+					</g>
+					<path id="Path 2250" class="multiplier-shp2" d="M52.02 33.08L52.02 17.04L45.62 17.04L58.42 1L71.21 17.04L64.81 17.04L64.81 33.08L52.02 33.08Z" />
+				</g>
+			</g>
+		</g>
+	</g>
+</svg>

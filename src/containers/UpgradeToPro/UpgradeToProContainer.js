@@ -98,6 +98,9 @@ const UpgradeToProContainer = ({ dispatchUpdate, accountName, isSaveCardDetails,
         [selectedPaymentId]
     );
 
+    const handleOnClickBack = () => {
+        window.history.back();
+    }
 
     return (
         <UpgradeToProComponent
@@ -111,6 +114,7 @@ const UpgradeToProContainer = ({ dispatchUpdate, accountName, isSaveCardDetails,
             paymentMethods={paymentMethods}
             selectedPaymentId={selectedPaymentId}
             handleSavedCardSelect={handleSelectPayment}
+            handleOnClickBack={handleOnClickBack}
         />
     )
 }
