@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 37 34" width="37" height="34">
+	<defs>
+		<clipPath clipPathUnits="userSpaceOnUse" id="cp1">
+			<path d="M-551 -1359L199 -1359L199 1511L-551 1511Z" />
+		</clipPath>
+	</defs>
+	<style>
+		tspan { white-space:pre }
+		.feedback-shp0 { fill: #ffffff } 
+	</style>
+	<g id="User Profile – Results – Interaction" clip-path="url(#cp1)">
+		<g id="Group 481">
+			<g id="Group 441">
+				<g id="interface-3">
+					<path id="Path 2201" fill-rule="evenodd" class="feedback-shp0" d="M36.69 5.49L36.69 21.36C36.69 24.07 34.49 26.27 31.78 26.27L16.18 26.27L5.82 33.48L5.82 26.27C3.12 26.26 0.92 24.06 0.92 21.36L0.92 5.49C0.92 2.77 3.13 0.57 5.84 0.57L31.78 0.57C34.49 0.57 36.69 2.77 36.69 5.49ZM34.6 5.49C34.6 3.93 33.33 2.66 31.78 2.66L5.84 2.66C4.29 2.66 3.02 3.93 3.02 5.49L3.02 21.36C3.02 22.91 4.29 24.18 5.84 24.18L7.92 24.18L7.92 29.46L15.52 24.18L31.78 24.18C33.33 24.18 34.6 22.91 34.6 21.36L34.6 5.49Z" />
+					<path id="Path 2202" class="feedback-shp0" d="M10.5 7.97L27.12 7.97L27.12 10.07L10.5 10.07L10.5 7.97Z" />
+					<path id="Path 2203" class="feedback-shp0" d="M10.5 12.44L27.12 12.44L27.12 14.54L10.5 14.54L10.5 12.44Z" />
+					<path id="Path 2204" class="feedback-shp0" d="M10.5 16.91L27.12 16.91L27.12 19.01L10.5 19.01L10.5 16.91Z" />
+				</g>
+			</g>
+		</g>
+	</g>
+</svg>

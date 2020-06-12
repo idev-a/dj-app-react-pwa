@@ -12,10 +12,18 @@ body {
     justify-content: space-around;
     align-items: center;
     max-width: 600px;
+    width: 100%;
     height: 100%;
-    padding-bottom: 89px;
+    padding-bottom: 70px;
+    margin: 0 auto;
+}
 
-    @media screen and (min-width: 600px) {
-        margin: 0 auto;
-    }
+
+@font-face {
+    font-family: 'AvenirNextLTPro';
+    src: url('./fonts/AvenirNextLTPro-Regular.otf');
+}
+@font-face {
+    font-family: 'AvenirBold';
+    src: url('./fonts/AvenirNextLTPro-Bold.otf');
 }

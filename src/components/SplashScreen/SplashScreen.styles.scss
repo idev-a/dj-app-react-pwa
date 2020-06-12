@@ -1,0 +1,67 @@
+@import "../../scss/variables.scss";
+@import "../../scss/common.styles.scss";
+
+.container{
+    display: flex;
+    flex-direction: column;
+    padding: 0 30px;
+    width: 100%;
+    height: 100vh;
+    background-image: url('../../assets/img/back.jpg');
+    position: relative;
+    overflow: hidden;
+    background-size: cover;
+    background-repeat: no-repeat;
+    &:before{
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 1;
+        box-shadow: 0px -60px 60px 140px rgba(0, 0, 0, 0.90);
+    }
+}
+.login-content{
+    font-family: "AvenirNextLTPro";
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+    padding: 0 0 70px;
+    height: 100%;
+    position: relative;
+    z-index: 9;
+}
+.main-title{
+    font-size: $font-size-38;
+    color: $color-17;
+    text-align: left;
+}
+.login-splashButton, .signup-splashButton{
+    max-width: 100%;
+    width: 100%;
+    height: 50px;
+    align-self: center;
+    color: $color-17;
+    font-size: $font-size-l;
+    font-family: "AvenirNextLTPro";
+    border-radius: 8px;
+}
+.login-splashButton{
+    background-color: $color-12;
+    border: none;
+    margin-bottom: 20px;
+}
+.signup-splashButton{
+    background-color: transparent;
+    border-color: $color-17;
+}
+.logo-content {
+    height: 40px;
+    width: 40px;
+    position: absolute;
+    top: 40px;
+    background: transparent url('../../assets/icon/Rectangle 180.png') 0% 0% no-repeat padding-box;
+    background-size: cover
+}

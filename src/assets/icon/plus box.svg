@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 62 62" >
+	<defs>
+		<clipPath clipPathUnits="userSpaceOnUse" id="cp1">
+			<path d="M-266 -217L484 -217L484 1117L-266 1117Z" />
+		</clipPath>
+	</defs>
+	<style>
+		tspan { white-space:pre }
+		.shp0 { fill: #930a22 } 
+		.shp1 { fill: none;stroke: #e2e2e2;stroke-linecap:round;stroke-width: 4 } 
+	</style>
+	<g id="Welcome" clip-path="url(#cp1)">
+		<g id="plus box">
+			<path id="base" class="shp0" d="M31 62C13.86 62 0 48.14 0 31C0 13.86 13.86 0 31 0C48.14 0 62 13.86 62 31C62 48.14 48.14 62 31 62Z" />
+			<g id="plus icon">
+				<path id="Path 200" class="shp1" d="M31.5 16.5L31.5 45.29" />
+				<path id="Path 201" class="shp1" d="M17.1 30.9L45.89 30.9" />
+			</g>
+		</g>
+	</g>
+</svg>

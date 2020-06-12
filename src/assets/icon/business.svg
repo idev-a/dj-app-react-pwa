@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 41">
+	<defs>
+		<clipPath clipPathUnits="userSpaceOnUse" id="cp1">
+			<path d="M-501 -1255L249 -1255L249 79L-501 79Z" />
+		</clipPath>
+	</defs>
+	<!-- <style>
+		tspan { white-space:pre }
+		.business-shp0 { fill: #ffffff } 
+	</style> -->
+	<g id="Home" clip-path="url(#cp1)">
+		<g id="Bottom Nav Bar">
+			<g id="business">
+				<path id="Path 219" class="business-shp0" d="M5.21 35.82L5.21 0L1 0L1 37.92C1 39.09 1.94 40.03 3.11 40.03L51.56 40.03L51.56 35.82L5.21 35.82Z" />
+				<path id="Path 220" class="business-shp0" d="M19.96 18.96C19.96 17.8 19.02 16.85 17.85 16.85L11.53 16.85C10.37 16.85 9.43 17.8 9.43 18.96L9.43 33.71L19.96 33.71L19.96 18.96Z" />
+				<path id="Path 221" class="business-shp0" d="M34.71 10.53C34.71 9.37 33.77 8.43 32.6 8.43L26.28 8.43C25.12 8.43 24.17 9.37 24.17 10.53L24.17 33.71L34.71 33.71L34.71 10.53Z" />
+				<path id="Path 222" class="business-shp0" d="M49.46 2.11C49.46 0.94 48.51 0 47.35 0L41.03 0C39.87 0 38.92 0.94 38.92 2.11L38.92 33.71L49.46 33.71L49.46 2.11Z" />
+			</g>
+		</g>
+	</g>
+</svg>

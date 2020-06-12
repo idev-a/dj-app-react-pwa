@@ -1,0 +1,116 @@
+@import "../../scss/variables.scss";
+@import "../../scss/common.styles.scss";
+
+@font-face {
+    font-family: 'AvenirNextLTPro';
+    src: url('../../fonts/AvenirNextLTPro-Regular.otf');
+}
+
+.verifysignincontainer{
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    width: 100%;
+    background-image: url('../../assets/img/back.jpg');
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-position: center;
+}
+.verifysignininnercontainer{
+    display: flex;
+    flex-direction: row;
+}
+.verifysigninheading{
+    width: 80%;
+    color: white;
+    font-family: "AvenirNextLTPro";
+    font-size: $font-size-xxl;
+    text-align: center;
+}
+.verifysigninunderline{
+    width: 99%;
+    border-color: gray;
+}
+.verifysigninBox{
+    margin-top: 200px;
+    width: 100%;
+    height: 600px;
+    background-color: $color-13;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+.verifysigninBoxHeading{
+    color: white;
+    font-family: "AvenirNextLTPro";
+    font-size: $font-size-38;
+    text-align: center;
+}
+.verifysigninnamefield{
+    margin-left: 50px;
+}
+.verifysigninform-container {
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    .form-input {
+        margin-bottom: 20px;;
+        .MuiOutlinedInput-root {
+            border-radius: 10px;
+        }
+        .MuiInputLabel-formControl {
+            color: gray;
+        }
+        .MuiInputBase-root {
+            color: #ffffff
+        }
+        .MuiOutlinedInput-root:hover, .MuiOutlinedInput-notchedOutline {
+            border-color: grey;
+        }
+        .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+            border-color: $color-16 !important;
+        }
+        .MuiFormLabel-root.Mui-focused {
+            color: $color-16 !important;
+        }
+        .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
+            border-color: $color-16;
+        }
+    }
+}
+.verifysigninheadericon{
+    color: white;
+    margin-left: 20px;
+    margin-top: 30px;
+}
+.verifysigninButton{
+    margin-top: 30px;
+    background-color: $color-12;
+    border: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    border-radius: 5px;
+    color: white;
+    font-size: $font-size-xl;
+    font-family: "AvenirNextLTPro";
+    width: 100%;
+    height: 50px;
+}
+.verifysigninfootertext{
+    color: #464646;
+    text-align: center;
+    font-family: "AvenirNextLTPro";
+    a{
+        color: $color-12;
+    }
+}
+.verifysignininput{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    .input{
+        text-align: center;
+    }
+}
