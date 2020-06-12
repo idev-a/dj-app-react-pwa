@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 34 34" width="20" height="20">
+	<defs>
+		<clipPath clipPathUnits="userSpaceOnUse" id="cp1">
+			<path d="M-626 -1055L124 -1055L124 1568L-626 1568Z" />
+		</clipPath>
+	</defs>
+	<style>
+		tspan { white-space:pre }
+		.iconMinus-shp0 { fill: none;stroke: #930a22;stroke-linecap:round;stroke-width: 3 } 
+	</style>
+	<g id="Onboarding 1 sub" clip-path="url(#cp1)">
+		<g id="roles">
+			<g id="Component 52 – 1">
+				<g id="Icon feather-plus-square">
+					<path id="Path 208" class="iconMinus-shp0" d="M6.3 3.5L27.3 3.5C28.96 3.5 30.3 4.84 30.3 6.5L30.3 27.5C30.3 29.16 28.96 30.5 27.3 30.5L6.3 30.5C4.64 30.5 3.3 29.16 3.3 27.5L3.3 6.5C3.3 4.84 4.64 3.5 6.3 3.5L6.3 3.5Z" />
+				</g>
+				<g id="Icon feather-plus">
+					<path id="Path 216" class="iconMinus-shp0" d="M10.7 16.76L23.22 16.76" />
+				</g>
+			</g>
+		</g>
+	</g>
+</svg>

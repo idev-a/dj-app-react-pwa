@@ -1,0 +1,63 @@
+@import "../../../scss/variables.scss";
+
+.card-information-container {
+    margin-top: 35px;
+    border: 1px solid $color-20;
+    border-radius: 5px;
+    height: 200px;
+    position: relative;
+    .card-information-header-txt {
+        position: absolute;
+        top: -9px;
+        background: $color-24;
+        padding: 0px 5px;
+        left: 25px;
+        font-size: 12px;
+        color: $color-20;
+        font-weight: normal;
+    }
+    .inputField {
+        width: -webkit-fill-available;
+        margin: 10px;
+        padding: 10px;
+        background: $color-24;
+        border: none;
+        border-bottom: 1px solid $color-21;
+        margin-bottom: 0px;
+        color: $main-1;
+    }
+    .month-year-cvc-container {
+        display: flex;
+        .card-cvc {
+            width: 20%;
+            padding: 10px;
+            background: $color-24;
+            border: none;
+            border-bottom: 1px solid $color-21;
+            margin: 10px;
+            color: $main-1;
+        }
+        .card-month-year {
+            width: 55%;
+            padding: 10px;
+            background: $color-24;
+            border: none;
+            border-bottom: 1px solid $color-21;
+            margin: 10px;
+        }
+    }
+}
+
+.unchecked {
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    border: 1px solid $main-4;
+}
+.checked {
+    height: 7px;
+    width: 7px;
+    border-radius: 50%;
+    background: $main-1;
+    border: 3px solid $color-21;
+}

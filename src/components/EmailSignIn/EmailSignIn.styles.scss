@@ -1,0 +1,116 @@
+@import "../../scss/variables.scss";
+@import "../../scss/common.styles.scss";
+
+.emailSigninContainer{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100%;
+    background-image: url('../../assets/img/back.jpg');
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-position: center;
+    justify-content: space-between;
+}
+.signinInnerContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 20px;
+    padding-top: 40px;
+}
+.signinHeading{
+    margin: 0px;
+    color: $color-17;
+    font-family: "AvenirNextLTPro";
+    font-size: $font-size-xl;
+    text-align: center;
+}
+.signinUnderline{
+    width: 100%;
+    border-color: #808080;
+    margin: 0px;
+}
+.signinEmailBox{
+    width: 100%;
+    height: 78%;
+    background-color: $color-13;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+.signinEmailBoxHeading{
+    margin-left: 20px;
+    margin-bottom: 15px;
+    margin-top: 45px;
+    color: $color-17;
+    font-family: "AvenirNextLTPro";
+    font-size: 28px;
+}
+.signinemailnamefield{
+    margin-left: 50px;
+}
+.signinform-container {
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    .form-input {
+        margin-bottom: 10px;
+        .MuiOutlinedInput-root {
+            border-radius: 5px;
+        }
+        .MuiInputLabel-formControl {
+            color: $color-18;
+        }
+        .MuiInputBase-root {
+            color: $color-17
+        }
+        .MuiOutlinedInput-root:hover, .MuiOutlinedInput-notchedOutline {
+            border-color: $color-18;
+        }
+        .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+            border-color: $color-16 !important;
+        }
+        .MuiFormLabel-root.Mui-focused {
+            color: $color-16 !important;
+        }
+        .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
+            border-color: $color-16;
+        }
+    }
+}
+.signinHeaderIcon{
+    color: $color-17;
+}
+.signinButton{
+    margin-top: 15px;
+    background-color: $color-12;
+    border: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    border-radius: 5px;
+    color: $color-17;
+    font-size: $font-size-xl;
+    font-family: "AvenirNextLTPro";
+    width: 100%;
+    height: 50px;
+}
+.signinFooterText{
+    color: $color-18;
+    text-align: center;
+    font-family: "AvenirNextLTPro";
+    a{
+        color: $color-12;
+    }
+}
+.forgetText{
+    color: $color-12;
+    text-align: end;
+    margin: 0px;
+    font-size: $font-size-normal;
+}
+.toggleIconSignin{
+    color: $color-18;
+}

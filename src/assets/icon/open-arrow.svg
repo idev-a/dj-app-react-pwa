@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 35 15" height="25" width="15">
+	<defs>
+		<clipPath clipPathUnits="userSpaceOnUse" id="cp1">
+			<path d="M-631 -901L119 -901L119 2355L-631 2355Z" />
+		</clipPath>
+	</defs>
+	<style>
+		tspan { white-space:pre }
+		.shp0 { fill: #e2e2e2 } 
+	</style>
+	<g id="User Profile – Setting – 1" clip-path="url(#cp1)">
+		<path id="Icon ionic-ios-arrow-back" class="shp0" d="M16.91 6.3L29.31 18.95C30.23 19.88 31.71 19.88 32.62 18.95C33.54 18.01 33.53 16.5 32.62 15.56L18.57 1.24C17.68 0.33 16.25 0.31 15.33 1.17L1.18 15.55C0.72 16.02 0.5 16.64 0.5 17.24C0.5 17.85 0.72 18.47 1.18 18.93C2.1 19.87 3.58 19.87 4.49 18.93L16.91 6.3Z" />
+	</g>
+</svg>

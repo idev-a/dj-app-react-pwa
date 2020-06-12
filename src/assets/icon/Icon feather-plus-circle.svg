@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="15" height="15">
+	<defs>
+		<clipPath clipPathUnits="userSpaceOnUse" id="cp1">
+			<path d="M-521 -1150L229 -1150L229 1473L-521 1473Z" />
+		</clipPath>
+	</defs>
+	<style>
+		tspan { white-space:pre }
+		.shp0 { fill: none;stroke: #05161d;stroke-linecap:round;stroke-width: 3 } 
+	</style>
+	<g id="Onboarding 1 sub" clip-path="url(#cp1)">
+		<g id="roles">
+			<g id="Icon feather-plus-circle">
+				<path id="Path 203" class="shp0" d="M20.49 11.75C20.49 16.52 16.62 20.38 11.86 20.38C7.1 20.38 3.23 16.52 3.23 11.75C3.23 6.99 7.1 3.13 11.86 3.13C16.62 3.13 20.49 6.99 20.49 11.75L20.49 11.75Z" />
+				<path id="Path 204" class="shp0" d="M11.86 8.3L11.86 15.2" />
+				<path id="Path 205" class="shp0" d="M8.41 11.75L15.31 11.75" />
+			</g>
+		</g>
+	</g>
+</svg>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from "react-redux";
-import OnboardingComponent from '../../components/Onboarding2/OnboardingComponent';
+import OnboardingComponent from '../../components/OnBoarding2/OnboardingComponent';
 import { getUserDetails } from "../../state/actions/userActions";
 
 class OnboardingContainer extends React.Component {

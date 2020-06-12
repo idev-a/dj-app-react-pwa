@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 65" width="64" height="65">
+	<defs>
+		<clipPath clipPathUnits="userSpaceOnUse" id="cp1">
+			<path d="M-557 -81L193 -81L193 1986L-557 1986Z" />
+		</clipPath>
+		<linearGradient id="grd1" gradientUnits="userSpaceOnUse"  x1="18.078" y1="33.06" x2="59.928" y2="33.06">
+			<stop offset="0" stop-color="#ef5039"  />
+			<stop offset="1" stop-color="#dd0d49"  />
+		</linearGradient>
+		<linearGradient id="grd2" gradientUnits="userSpaceOnUse"  x1="24.02" y1="33.277" x2="40.401" y2="33.277">
+			<stop offset="0" stop-color="#ef5039"  />
+			<stop offset="1" stop-color="#dd0d49"  />
+		</linearGradient>
+	</defs>
+	<style>
+		tspan { white-space:pre }
+		.rater-shp0 { fill: none;stroke: #4a4a4a;stroke-width: 6 } 
+		.rater-shp1 { fill: url(#grd1) } 
+		.rater-shp2 { fill: url(#grd2) } 
+	</style>
+	<g id="Play Screen" clip-path="url(#cp1)">
+		<g id="Top Bar">
+			<g id="Group 494">
+				<g id="Group 500">
+					<g id="Group 499">
+						<g id="Group 497">
+							<g id="Group 494">
+								<path id="Ellipse 75" class="rater-shp0" d="M32.04 58.84C17.7 58.84 6.11 47.24 6.11 32.9C6.11 18.55 17.7 6.96 32.04 6.96C46.39 6.96 57.98 18.55 57.98 32.9C57.98 47.24 46.39 58.84 32.04 58.84Z" />
+							</g>
+							<g id="Group 496">
+								<g id="Group 495">
+									<path id="Path 2253" class="rater-shp1" d="M32.07 60.89C27.55 60.89 23.11 59.79 19.06 57.63C18.1 57.11 17.79 55.88 18.37 54.95L18.37 54.95C18.9 54.1 20 53.83 20.88 54.3C26.81 57.45 33.74 57.99 40.27 55.67C44.33 54.24 47.94 51.69 50.67 48.36C60.01 36.95 57 20.28 44.91 12.69C41.34 10.44 37.3 9.18 33.13 9.02C32.12 8.98 31.32 8.19 31.29 7.19L31.29 7.19C31.25 6.1 32.14 5.19 33.22 5.23C38.82 5.45 44.22 7.34 48.81 10.77C60.17 19.24 63.3 35.19 56.01 47.35C52.07 53.91 45.77 58.48 38.33 60.18C36.25 60.66 34.15 60.89 32.07 60.89Z" />
+								</g>
+							</g>
+						</g>
+						<g id="Group 498">
+							<path id="Path 2254" class="rater-shp2" d="M38.85 33.28C39.89 34.37 40.4 35.73 40.4 37.37C40.4 38.61 40.09 39.73 39.46 40.74C38.83 41.75 37.89 42.55 36.62 43.15C35.36 43.75 33.82 44.05 32 44.05C30.48 44.05 29.02 43.83 27.62 43.39C26.21 42.96 25.01 42.36 24.02 41.59L25.72 38.52C26.49 39.17 27.42 39.68 28.52 40.06C29.63 40.43 30.76 40.62 31.94 40.62C33.33 40.62 34.43 40.33 35.23 39.75C36.03 39.18 36.43 38.39 36.43 37.4C36.43 36.41 36.05 35.64 35.29 35.08C34.53 34.53 33.37 34.25 31.82 34.25L29.88 34.25L29.88 31.55L34.7 25.81L25.05 25.81L25.05 22.51L39.52 22.51L39.52 25.15L34.36 31.28C36.33 31.52 37.82 32.19 38.85 33.28Z" />
+						</g>
+					</g>
+				</g>
+			</g>
+		</g>
+	</g>
+</svg>
