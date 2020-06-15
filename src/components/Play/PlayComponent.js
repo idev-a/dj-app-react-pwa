@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useCallback } from 'react';
 import './play.style.scss';
 import content from './content';
 import { ReactComponent as Dollar } from '../../assets/icon/Dollar.svg';
@@ -9,8 +9,40 @@ import { ReactComponent as Like } from '../../assets/icon/Like.svg';
 import { ReactComponent as Dislike } from '../../assets/icon/ThumbsDown.svg';
 import IMG from '../../assets/img/playImg1.png'
 import NewAudioPlayer from '../NewAudioPlayer';
+import DialogBox from '../../common/DialogBox/DialogBox';
+import ScoreRating from './ScoreRating/ScoreRating';
+import ImpressedContainer from './ImpressedContainer/ImpressedContainer';
+import SignContainer from "./SignContainer/SignContainer";
+import isEmpty from 'lodash/isEmpty';
 
-const PlayComponent = () => {
+const PlayComponent = ({
+    track = {}
+}) => {
+    const [showScoreContainer, showSetScoreContainer] = useState(false);
+    const [showImpressedContainer, showSetImpressedContainer] = useState(false);
+    const [showSignContainer, showSetSignContainer] = useState(false);
+
+    const handleOnScoreContainer = useCallback(() => {
+        showSetScoreContainer(!showScoreContainer);
+    }, [showScoreContainer]);
+
+    const handleSubmitScore = useCallback(() => {
+        showSetScoreContainer(false);
+        showSetImpressedContainer(true);
+    }, []);
+
+    const handleOnCloseImpressedContainer = useCallback(() => {
+        showSetImpressedContainer(!showImpressedContainer);
+    }, [showImpressedContainer]);
+
+    const handleSubmitImpressed = useCallback(() => {
+        showSetImpressedContainer(false);
+        showSetSignContainer(true);
+    }, []);
+
+    const handleOnCloseSignContainer = useCallback(() => {
+        showSetSignContainer(!showSignContainer);
+    }, [showSignContainer]);
 
     return (
         <div className="play-main-container">
@@ -37,25 +69,63 @@ const PlayComponent = () => {
                 </div>
                 <Help />
             </div>
-            <div className="play-image-container">
-                <div className="image-container">
-                    <img src={IMG} alt="no img" className="center-img" />
-                    <div className="song-name-container">
-                        <span className="song-name-text">Song Name</span><br />
-                        <small className="creator-name-text">Creator</small>
+            {!isEmpty(track) &&
+                <section>
+                    <div className="play-image-container">
+                        <div className="image-container">
+                            <img src={IMG} alt="no img" className="center-img" />
+                            <div className="song-name-container">
+                                <span className="song-name-text">{track.trackTitle}</span><br />
+                                <small className="creator-name-text">{track.display_name}</small>
+                            </div>
+                        </div>
+                        <div className="image-footer-icon-container">
+                            <Like className="image-footer-icons" onClick={handleOnScoreContainer} />
+                            <Dollar className="image-footer-icons-2" />
+                            <div className="multiplier-container">
+                                <p className="coin-number">{content.x3}</p><p className="coin-text">{content.MULTIPLIER}</p>
+                            </div>
+                            <Dislike className="image-footer-icons" />
+                        </div>
                     </div>
-                </div>
-                <div className="image-footer-icon-container">
-                    <Like className="image-footer-icons" />
-                    <Dollar className="image-footer-icons-2" />
-                    <div className="multiplier-container">
-                        <p className="coin-number">{content.x3}</p><p className="coin-text">{content.MULTIPLIER}</p>
-                    </div>
-                    <Dislike className="image-footer-icons" />
-                </div>
-            </div>
-            {/* Below provided source is a demo link */}
-            <NewAudioPlayer src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" />
+                    {/* Below provided source is a demo link */}
+                    <NewAudioPlayer src={track.trackUrl} />
+                </section>
+            }
+
+            {showScoreContainer &&
+                <DialogBox
+                    bodyComponent={
+                        <ScoreRating
+                            handleSubmitScore={handleSubmitScore}
+                        />
+                    }
+                    onClose={handleOnScoreContainer}
+                    hideClose
+                />
+            }
+            {showImpressedContainer &&
+                <DialogBox
+                    bodyComponent={
+                        <ImpressedContainer
+                            handleSubmitImpressed={handleSubmitImpressed}
+                        />
+                    }
+                    onClose={handleOnCloseImpressedContainer}
+                    hideClose
+                />
+            }
+            {showSignContainer &&
+                <DialogBox
+                    bodyComponent={
+                        <SignContainer
+                            handleSubmitImpressed={handleSubmitImpressed}
+                        />
+                    }
+                    onClose={handleOnCloseSignContainer}
+                    hideClose
+                />
+            }
         </div>
     )
 }
