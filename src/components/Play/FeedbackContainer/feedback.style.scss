@@ -1,0 +1,82 @@
+@import "../../../scss/common.styles.scss";
+@import "../../../scss/variables.scss";
+
+.image-footer-icon-container-2 {
+    display: flex;
+    justify-content: center;
+    width: fit-content;
+    right: 0px;
+    position: absolute;
+    top: 0px
+}
+.image-footer-icons-2 {
+    width: 30px;
+    height: 30px;
+    padding: 10px;
+    padding-right: 5px;
+}
+.multiplier-container {
+    width: fit-content;
+    text-align: left;
+    padding-top: 6px;
+    padding-right: 10px;
+    .coin-number {
+        margin: 0px;
+        margin-bottom: -9px;
+        margin-top: 8px;
+        font-size: 12px;
+    }
+    .coin-text {
+        height: fit-content;
+        font-size: 6px;
+        width: fit-content;
+        font-weight: 100;
+    }
+}
+.feedback-data-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    .feedbackIcon-1 {
+        width: 20px;
+        height: 20px;
+        fill: #cb1f3e;
+        padding: 0px 10px;
+    }
+    .feedback-data-text {
+        font-family: "AvenirBold";
+        padding: 0px 10px;
+        color: #cb1f3e;
+    }
+    .stars-container {
+        display: flex;
+        padding: 0px 10px;
+        .star-gold {
+            height: 15px;
+            width: 15px;
+            padding: 1px;
+        }
+    }
+}
+.feedback-text-container {
+    padding: 5px;
+    margin: 10px;
+    border: 1px solid #cb1f3e;
+    border-radius: 5px;
+    .feedbackTextArea {
+        background: none;
+        border: none;
+        color: white;
+        width: 100%;
+    }
+}
+.submit-button {
+    margin-top: 5px;
+    width: 100px;
+    height: 35px;
+    background: #930a22;
+    border: none;
+    border-radius: 5px;
+    color: white;
+}

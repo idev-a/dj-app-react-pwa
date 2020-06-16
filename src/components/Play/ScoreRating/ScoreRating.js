@@ -40,7 +40,7 @@ const ScoreRating = ({ handleSubmitScore }) => {
             <Button
                 className="submit-button"
                 buttonText="Submit"
-                onClick={handleSubmitScore}
+                onClick={() => handleSubmitScore(starSeleted)}
             />
         </div>
     )

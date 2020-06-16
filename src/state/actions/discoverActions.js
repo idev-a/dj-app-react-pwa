@@ -4,6 +4,7 @@ export const GET_TRACKS_SUCCESS = "GET_TRACKS_SUCCESS";
 
 const getTracksURI = "/discover/tracks";
 const postTrackFeedback = "/discover/";
+const postPlayTrackFeedbackURL = "/pro-feedback/givFeedback/"
 
 export const getTracksForDiscover = () => dispatch =>
   fetch(`${api}${getTracksURI}`, {
@@ -23,6 +24,16 @@ export const postDiscoverFeedback = (payload, isPro) =>
     `${api}${postTrackFeedback}${payload.feedbackId}${
       isPro ? "?type=PRO" : ""
     }`,
+    {
+      method: "POST",
+      headers: authHeaders(),
+      body: JSON.stringify(payload)
+    }
+  );
+
+  export const postPlayTrackFeedback = (payload) =>
+  fetch(
+    `${api}${postPlayTrackFeedbackURL}${payload.feedbackId}`,
     {
       method: "POST",
       headers: authHeaders(),

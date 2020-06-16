@@ -14,35 +14,64 @@ import ScoreRating from './ScoreRating/ScoreRating';
 import ImpressedContainer from './ImpressedContainer/ImpressedContainer';
 import SignContainer from "./SignContainer/SignContainer";
 import isEmpty from 'lodash/isEmpty';
+import FeedbackContainer from './FeedbackContainer/FeedbackContainer';
 
 const PlayComponent = ({
-    track = {}
+    track = {},
+    handleOnUpdatefeedback,
+    feedback,
+    postTrackFeedback,
 }) => {
     const [showScoreContainer, showSetScoreContainer] = useState(false);
     const [showImpressedContainer, showSetImpressedContainer] = useState(false);
     const [showSignContainer, showSetSignContainer] = useState(false);
+    const [showFeedbackContainer, showSetFeedbackContainer] = useState(false);
+
 
     const handleOnScoreContainer = useCallback(() => {
         showSetScoreContainer(!showScoreContainer);
     }, [showScoreContainer]);
 
-    const handleSubmitScore = useCallback(() => {
+    const handleClickLIkeDislike = useCallback((value) => {
+        handleOnUpdatefeedback("liked", value);
+        handleOnScoreContainer();
+    }, [handleOnScoreContainer, handleOnUpdatefeedback])
+
+    const handleSubmitScore = useCallback((value) => {
+        handleOnUpdatefeedback("trackRating", value);
         showSetScoreContainer(false);
         showSetImpressedContainer(true);
-    }, []);
+    }, [handleOnUpdatefeedback]);
 
     const handleOnCloseImpressedContainer = useCallback(() => {
         showSetImpressedContainer(!showImpressedContainer);
     }, [showImpressedContainer]);
 
-    const handleSubmitImpressed = useCallback(() => {
+    const handleSubmitImpressed = useCallback((value) => {
+        handleOnUpdatefeedback("impressed", value);
         showSetImpressedContainer(false);
         showSetSignContainer(true);
-    }, []);
+    }, [handleOnUpdatefeedback]);
 
     const handleOnCloseSignContainer = useCallback(() => {
         showSetSignContainer(!showSignContainer);
     }, [showSignContainer]);
+
+    const handleSubmitSigned = useCallback((value) => {
+        handleOnUpdatefeedback("signed", value);
+        showSetSignContainer(false);
+        showSetFeedbackContainer(true);
+    }, [handleOnUpdatefeedback]);
+
+    const handleOnCloseFeedbackContainer = useCallback(() => {
+        showSetFeedbackContainer(!showFeedbackContainer);
+    }, [showFeedbackContainer]);
+
+    const handleSubmitFeedback = useCallback((value) => {
+        handleOnUpdatefeedback("trackFeedback", value);
+        showSetFeedbackContainer(false);
+        postTrackFeedback();
+    }, [handleOnUpdatefeedback, postTrackFeedback]);
 
     return (
         <div className="play-main-container">
@@ -80,12 +109,12 @@ const PlayComponent = ({
                             </div>
                         </div>
                         <div className="image-footer-icon-container">
-                            <Like className="image-footer-icons" onClick={handleOnScoreContainer} />
+                            <Like className="image-footer-icons" onClick={() => handleClickLIkeDislike(true)} />
                             <Dollar className="image-footer-icons-2" />
                             <div className="multiplier-container">
                                 <p className="coin-number">{content.x3}</p><p className="coin-text">{content.MULTIPLIER}</p>
                             </div>
-                            <Dislike className="image-footer-icons" />
+                            <Dislike className="image-footer-icons" onClick={() => handleClickLIkeDislike(false)} />
                         </div>
                     </div>
                     {/* Below provided source is a demo link */}
@@ -119,10 +148,22 @@ const PlayComponent = ({
                 <DialogBox
                     bodyComponent={
                         <SignContainer
-                            handleSubmitImpressed={handleSubmitImpressed}
+                            handleSubmitSigned={handleSubmitSigned}
                         />
                     }
                     onClose={handleOnCloseSignContainer}
+                    hideClose
+                />
+            }
+            {showFeedbackContainer &&
+                <DialogBox
+                    bodyComponent={
+                        <FeedbackContainer
+                            feedback={feedback}
+                            handleSubmitFeedback={handleSubmitFeedback}
+                        />
+                    }
+                    onClose={handleOnCloseFeedbackContainer}
                     hideClose
                 />
             }

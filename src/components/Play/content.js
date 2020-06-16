@@ -10,4 +10,10 @@ export default {
     SCORE_TRACK: "Score The Track",
     IMPRESSED_TEXT: "Are you impressed with the Artist?",
     SIGN_TEXT: "Would you sign this Artist?",
+    IMPRESSED: "Impressed",
+    NOT_IMPRESSED: "Not Impressed",
+    SIGNED: "Signed",
+    NOT_SIGNED: "Not Signed",
+    GIVE_FEEDBACK: "Give Feedback",
+    COMMENTS_HELP_CREATORS: "Comments Help Creators",
 }

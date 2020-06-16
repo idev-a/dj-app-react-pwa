@@ -6,7 +6,7 @@ import Button from '../../../common/Button/index';
 
 import content from '../content';
 
-const ScoreRating = ({ handleSubmitImpressed }) => {
+const ScoreRating = ({ handleSubmitSigned }) => {
 
     return (
         <div>
@@ -21,12 +21,12 @@ const ScoreRating = ({ handleSubmitImpressed }) => {
             <Button
                 className="yes-button"
                 buttonText="Yes"
-                onClick={() => handleSubmitImpressed(true)}
+                onClick={() => handleSubmitSigned(true)}
             />
             <Button
                 className="no-button"
                 buttonText="No"
-                onClick={() => handleSubmitImpressed(false)}
+                onClick={() => handleSubmitSigned(false)}
             />
         </div>
     )
