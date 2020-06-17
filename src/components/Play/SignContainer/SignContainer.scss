@@ -38,10 +38,10 @@
     margin-top: 30px;
     width: 100px;
     height: 35px;
-    background: #930a22;
+    background: $color-21;
     border: none;
     border-radius: 5px;
-    color: white;
+    color: $main-1;
 }
 .no-button {
     margin: 10px;
@@ -49,11 +49,11 @@
     width: 100px;
     height: 35px;
     background: none;
-    border: 1px solid #930a22;
+    border: 1px solid $color-21;
     border-radius: 5px;
-    color: white;
+    color: $main-1;
 }
 .sign-icon {
     padding: 10px;
-    fill: white;
+    fill: $main-1;
 }

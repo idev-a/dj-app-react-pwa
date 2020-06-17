@@ -15,12 +15,16 @@ import ImpressedContainer from './ImpressedContainer/ImpressedContainer';
 import SignContainer from "./SignContainer/SignContainer";
 import isEmpty from 'lodash/isEmpty';
 import FeedbackContainer from './FeedbackContainer/FeedbackContainer';
+import PointsEarnedContainer from './PointsEarnedContainer/PointsEarnedContainer';
 
 const PlayComponent = ({
     track = {},
     handleOnUpdatefeedback,
     feedback,
     postTrackFeedback,
+    showPointsEarnedContainer,
+    handleOnClosePointEarnedContainer,
+    updatedCoin,
 }) => {
     const [showScoreContainer, showSetScoreContainer] = useState(false);
     const [showImpressedContainer, showSetImpressedContainer] = useState(false);
@@ -169,6 +173,16 @@ const PlayComponent = ({
                     }
                     onClose={handleOnCloseFeedbackContainer}
                     hideClose
+                />
+            }
+            {showPointsEarnedContainer &&
+                <DialogBox
+                    bodyComponent={
+                        <PointsEarnedContainer
+                            updatedCoin={updatedCoin}
+                        />
+                    }
+                    onClose={handleOnClosePointEarnedContainer}
                 />
             }
         </div>

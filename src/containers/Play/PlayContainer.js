@@ -9,30 +9,49 @@ import {
 
 const PlayContainer = ({ getTracksDispatchAction, tracks }) => {
 
-    const[feedback, setFeedback] = useState({});
+    const [feedback, setFeedback] = useState({});
+    const [updatedCoin, setUpdatedCoin] = useState(null);
+    const [showPointsEarnedContainer, setShowPointsEarned] = useState(false);
+    const [componentIndex, setComponentIndex] = useState(0);
 
     useEffect(() => {
         getTracksDispatchAction();
     }, [getTracksDispatchAction]);
 
-    const handleOnUpdatefeedback = useCallback( (id, value) => {
+    const handleOnUpdatefeedback = useCallback((id, value) => {
         const data = feedback;
-        data[id]= value;
+        data[id] = value;
         setFeedback(data);
-    },[feedback])
+    }, [feedback])
 
-    const postTrackFeedback = () => {
+    const postTrackFeedback = useCallback(() => {
         const data = feedback;
-        data.feedbackId= tracks[0]._id;
+        data.feedbackId = tracks[0]._id;
         postPlayTrackFeedback(data)
-    }
+            .then(res => res.json())
+            .then((resp) => {
+                setUpdatedCoin(resp.updatedCoin);
+                setShowPointsEarned(true);
+                setComponentIndex(componentIndex + 1);
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    }, [feedback, tracks, componentIndex])
+
+    const handleOnClosePointEarnedContainer = useCallback(() => {
+        setShowPointsEarned(!showPointsEarnedContainer);
+    }, [showPointsEarnedContainer]);
 
     return (
         <PlayComponent
-            track={tracks[0]}
+            track={tracks[componentIndex]}
             handleOnUpdatefeedback={handleOnUpdatefeedback}
             feedback={feedback}
             postTrackFeedback={postTrackFeedback}
+            updatedCoin={updatedCoin}
+            showPointsEarnedContainer={showPointsEarnedContainer}
+            handleOnClosePointEarnedContainer={handleOnClosePointEarnedContainer}
         />
     )
 }

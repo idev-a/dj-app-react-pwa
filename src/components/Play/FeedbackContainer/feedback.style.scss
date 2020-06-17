@@ -41,13 +41,13 @@
     .feedbackIcon-1 {
         width: 20px;
         height: 20px;
-        fill: #cb1f3e;
+        fill: $color-20;
         padding: 0px 10px;
     }
     .feedback-data-text {
         font-family: "AvenirBold";
         padding: 0px 10px;
-        color: #cb1f3e;
+        color: $color-20;
     }
     .stars-container {
         display: flex;
@@ -62,12 +62,12 @@
 .feedback-text-container {
     padding: 5px;
     margin: 10px;
-    border: 1px solid #cb1f3e;
+    border: 1px solid $color-20;
     border-radius: 5px;
     .feedbackTextArea {
         background: none;
         border: none;
-        color: white;
+        color: $main-1;
         width: 100%;
     }
 }
@@ -75,8 +75,8 @@
     margin-top: 5px;
     width: 100px;
     height: 35px;
-    background: #930a22;
+    background: $color-21;
     border: none;
     border-radius: 5px;
-    color: white;
+    color: $main-1;
 }

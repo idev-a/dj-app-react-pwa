@@ -16,4 +16,5 @@ export default {
     NOT_SIGNED: "Not Signed",
     GIVE_FEEDBACK: "Give Feedback",
     COMMENTS_HELP_CREATORS: "Comments Help Creators",
+    POINTS_EARNED: "Points Earned",
 }
