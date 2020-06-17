@@ -4,7 +4,7 @@ export const GET_TRACKS_SUCCESS = "GET_TRACKS_SUCCESS";
 
 const getTracksURI = "/discover/tracks";
 const postTrackFeedback = "/discover/";
-const postPlayTrackFeedbackURL = "/pro-feedback/givFeedback/"
+const postPlayTrackFeedbackURL = "/pro-feedback/giveFeedback/"
 
 export const getTracksForDiscover = () => dispatch =>
   fetch(`${api}${getTracksURI}`, {
