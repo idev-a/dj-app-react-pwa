@@ -8,7 +8,7 @@ const DialogContent = () => {
     return (
         <div>
             <div className="home-icon">
-                <svg className="home-icon-svg"><Charts /></svg>
+                <Charts className="home-icon-svg" />
             </div><br />
             <span className="home-header">{content.CHARTS}</span> <br />
             <p className="home-overlay-pargraph">{content.HOME_LEADERBOARD_OVERLAY_TEXT}</p>

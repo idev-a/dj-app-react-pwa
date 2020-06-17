@@ -9,9 +9,7 @@ import { preferencsSelector } from "../../state/selectors/preferences";
 const LeaderboardHomeContainer = ({ getUserDetailsDispatchAction, userDetails }) => {
 
     useEffect(() => {
-        Promise.all([
-            getUserDetailsDispatchAction(),
-        ]);
+        getUserDetailsDispatchAction()
     }, [getUserDetailsDispatchAction]);
 
     return (
