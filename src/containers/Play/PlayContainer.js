@@ -6,8 +6,11 @@ import {
     getTracksForDiscover,
     postPlayTrackFeedback,
 } from "../../state/actions/discoverActions";
+import {
+    getUserDetails,
+} from "../../state/actions/userActions";
 
-const PlayContainer = ({ getTracksDispatchAction, tracks }) => {
+const PlayContainer = ({ getUserDetailsDispatchAction, getTracksDispatchAction, tracks, userDetails }) => {
 
     const [feedback, setFeedback] = useState({});
     const [updatedCoin, setUpdatedCoin] = useState(null);
@@ -15,8 +18,9 @@ const PlayContainer = ({ getTracksDispatchAction, tracks }) => {
     const [componentIndex, setComponentIndex] = useState(0);
 
     useEffect(() => {
+        getUserDetailsDispatchAction();
         getTracksDispatchAction();
-    }, [getTracksDispatchAction]);
+    }, [getTracksDispatchAction, getUserDetailsDispatchAction]);
 
     const handleOnUpdatefeedback = useCallback((id, value) => {
         const data = feedback;
@@ -33,11 +37,12 @@ const PlayContainer = ({ getTracksDispatchAction, tracks }) => {
                 setUpdatedCoin(resp.updatedCoin);
                 setShowPointsEarned(true);
                 setComponentIndex(componentIndex + 1);
+                getUserDetailsDispatchAction();
             })
             .catch((err) => {
                 console.log(err);
             });
-    }, [feedback, tracks, componentIndex])
+    }, [feedback, tracks, componentIndex, getUserDetailsDispatchAction])
 
     const handleOnClosePointEarnedContainer = useCallback(() => {
         setShowPointsEarned(!showPointsEarnedContainer);
@@ -52,11 +57,13 @@ const PlayContainer = ({ getTracksDispatchAction, tracks }) => {
             updatedCoin={updatedCoin}
             showPointsEarnedContainer={showPointsEarnedContainer}
             handleOnClosePointEarnedContainer={handleOnClosePointEarnedContainer}
+            userDetails={userDetails}
         />
     )
 }
 
 const dispatchActions = (dispatch) => ({
+    getUserDetailsDispatchAction: () => dispatch(getUserDetails()),
     getTracksDispatchAction: () => dispatch(getTracksForDiscover()),
 });
 

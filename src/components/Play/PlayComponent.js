@@ -25,6 +25,7 @@ const PlayComponent = ({
     showPointsEarnedContainer,
     handleOnClosePointEarnedContainer,
     updatedCoin,
+    userDetails,
 }) => {
     const [showScoreContainer, showSetScoreContainer] = useState(false);
     const [showImpressedContainer, showSetImpressedContainer] = useState(false);
@@ -91,7 +92,7 @@ const PlayComponent = ({
                 <div className="header-icon-container">
                     <MoneyBag className="header-icon" />
                     <div className="header-icon-text-container">
-                        <p className="coin-number">1.2</p><p className="coin-text">{content.COIN}</p>
+                        <p className="coin-number">{userDetails?.balance}</p><p className="coin-text">{content.COIN}</p>
                     </div>
                     <FireIcon className="header-icon" />
                     <div className="header-icon-text-container" >
