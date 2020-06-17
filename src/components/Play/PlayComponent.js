@@ -30,12 +30,13 @@ const PlayComponent = ({
 
     const handleOnScoreContainer = useCallback(() => {
         showSetScoreContainer(!showScoreContainer);
-    }, [showScoreContainer]);
+        postTrackFeedback();
+    }, [showScoreContainer, postTrackFeedback]);
 
     const handleClickLIkeDislike = useCallback((value) => {
         handleOnUpdatefeedback("liked", value);
-        handleOnScoreContainer();
-    }, [handleOnScoreContainer, handleOnUpdatefeedback])
+        showSetScoreContainer(!showScoreContainer);
+    }, [handleOnUpdatefeedback, showScoreContainer])
 
     const handleSubmitScore = useCallback((value) => {
         handleOnUpdatefeedback("trackRating", value);
@@ -45,7 +46,8 @@ const PlayComponent = ({
 
     const handleOnCloseImpressedContainer = useCallback(() => {
         showSetImpressedContainer(!showImpressedContainer);
-    }, [showImpressedContainer]);
+        postTrackFeedback();
+    }, [showImpressedContainer, postTrackFeedback]);
 
     const handleSubmitImpressed = useCallback((value) => {
         handleOnUpdatefeedback("impressed", value);
@@ -55,7 +57,8 @@ const PlayComponent = ({
 
     const handleOnCloseSignContainer = useCallback(() => {
         showSetSignContainer(!showSignContainer);
-    }, [showSignContainer]);
+        postTrackFeedback();
+    }, [showSignContainer, postTrackFeedback]);
 
     const handleSubmitSigned = useCallback((value) => {
         handleOnUpdatefeedback("signed", value);
@@ -65,7 +68,8 @@ const PlayComponent = ({
 
     const handleOnCloseFeedbackContainer = useCallback(() => {
         showSetFeedbackContainer(!showFeedbackContainer);
-    }, [showFeedbackContainer]);
+        postTrackFeedback();
+    }, [showFeedbackContainer, postTrackFeedback]);
 
     const handleSubmitFeedback = useCallback((value) => {
         handleOnUpdatefeedback("trackFeedback", value);
