@@ -9,7 +9,7 @@ const DialogBox = ({onClose, bodyComponent, hideClose}) => {
         <div className="dialog-main-container">
             <ClickAwayListener onClickAway={() => onClose(false)}>
                 <div className="dialog-container">
-                    {!hideClose && <svg className="close-icon" onClick={() => onClose(false)}><CloseIcon /></svg>}<br />
+                    {!hideClose && <CloseIcon className="close-icon" onClick={() => onClose(false)} />}<br />
                     {bodyComponent}
                 </div>
             </ClickAwayListener>
