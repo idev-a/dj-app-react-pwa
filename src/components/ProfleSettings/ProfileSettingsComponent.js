@@ -60,7 +60,7 @@ const ProfileSettingsComponent = ({ logOutClick, userObject, password, repeatPas
             <div className="settings-header-container">
                 <div className="user-name-container">
                     <span className="user-display-name">{display_name || ""}</span><br />
-                    <svg className="back-arrow" onClick={handleClickBack}><BackArrow /></svg>
+                    <BackArrow className="back-arrow" onClick={handleClickBack} />
                 </div>
                 <div className="header-icon-container">
                     <MoneyBag />
