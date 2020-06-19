@@ -44,7 +44,7 @@ const UpgradeToProContainer = ({ dispatchUpdate, accountName, isSaveCardDetails,
     const onSubmitPayment = useCallback(
         async (cardInfo) => {
             if (
-                !cardInfo.paymentFromSavedCard &&
+                !cardInfo?.paymentFromSavedCard &&
                 !(cardInfo && cardInfo.id && accountName.length > 0)
             ) {
                 toast.error("Enter valid card details");
