@@ -49,14 +49,22 @@ const UploadContainer = ({
 
     const setAddGenre = useCallback(
         (genre, index) => {
-            dispatchTrackUpdate({ genreId: genre._id }, index);
+            if(genre){
+                dispatchTrackUpdate({ genreId: genre._id }, index);
+            } else {
+                dispatchTrackUpdate({ genreId: undefined } , index);
+            }
         },
         [dispatchTrackUpdate]
     );
 
     const setAddStyle = useCallback(
         (styles, index) => {
-            dispatchTrackUpdate({ stylesId: styles._id }, index);
+            if(styles){
+                dispatchTrackUpdate({ stylesId: styles._id }, index);
+            } else {
+                dispatchTrackUpdate({ stylesId: undefined } , index);
+            }
         },
         [dispatchTrackUpdate]
     );
@@ -144,7 +152,7 @@ const UploadContainer = ({
             }
             if (
                 promoCode.length === 0 &&
-                !cardInfo.paymentFromSavedCard &&
+                !cardInfo?.paymentFromSavedCard &&
                 !(cardInfo && cardInfo.id && accountName.length > 0)
             ) {
                 toast.error("Enter valid card details");
