@@ -38,6 +38,7 @@ import ResultContainer from './containers/Result/ResultContainer';
 import UpgradeToPro from './containers/UpgradeToPro/UpgradeToProContainer';
 import UploadContainer from './containers/Upload/UploadContainer';
 import PlayContainer from './containers/Play/PlayContainer';
+import DiscoverMusic from './containers/DiscoverMusic/DiscoverMusic';
 
 export const MenuHandlerContext = React.createContext();
 
@@ -78,6 +79,7 @@ export default props => {
             exact
           />
           <Route path="/discover" component={withValidToken(Discover)} exact />
+          <Route path="/discoverMusic" component={withValidToken(DiscoverMusic)} exact />
           <Route path="/onboarding" component={withValidToken(Onboarding1)} exact />
           <Route
             path="/feedback"

@@ -1,0 +1,16 @@
+export default {
+    BECOME_MUSIC_INFLUENCER: "Become a Music Influencer",
+    LEVEL_UP_TXT: "Level up from a rater to an influencer by giving your opinion on new tracks",
+    LV4: "Lv.4",
+    INFLUENCER: "Influencer",
+    YOU_MADE_IT: "You made it! You’re finally in the in-crowd!",
+    LV3: "Lv.3",
+    CURATOR: "Curator",
+    ESTABLISH_UR_SPECIALITY: "Establish your speciality",
+    LV2: "Lv.2",
+    REVIEWER: "Reviewer",
+    BOOST_UR_CREDIBLITY: "Boost your credibility",
+    LV1: "Lv.1",
+    RATER: "Rater",
+    YOUR_MUSIC_INDUSTRY: "Your Music Industry internship stars here",
+}
