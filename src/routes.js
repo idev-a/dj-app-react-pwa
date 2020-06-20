@@ -30,6 +30,7 @@ import MenuComponent from "./components/Menu";
 import OrderFeedbackStartComponent from "./components/OrderFeedbackStart";
 import ForgotPasswordContainer from "./containers/ForgotPassword/ForgotPasswordContainer";
 import ResetPasswordContainer from "./containers/ResetPassword/ResetPasswordContainer";
+import Onboarding2 from './containers/OnBoarding2/OnboardingContainer';
 import Onboarding1 from "./containers/Onboarding1/OnboardingContainer";
 import WelcomeContainer from './containers/Welcome/WelcomeContainer';
 import ProfileSettingsContainer from './containers/ProfileSettings/ProfileSettingsContainer';
@@ -97,6 +98,11 @@ export default props => {
           <Route
             path="/preferences"
             component={withValidToken(ListenerPreferencesContainer)}
+            exact
+          />
+          <Route
+            path="/onboarding-complete"
+            component={withValidToken(Onboarding2)}
             exact
           />
           <Route
