@@ -1,0 +1,59 @@
+@import "../../../scss/common.styles.scss";
+@import "../../../scss/variables.scss";
+
+.image-footer-icon-container-2 {
+    display: flex;
+    justify-content: center;
+    width: fit-content;
+    right: 0px;
+    position: absolute;
+    top: 15px
+}
+.image-footer-icons-2 {
+    width: 30px;
+    height: 30px;
+    padding: 10px;
+    padding-right: 5px;
+}
+.multiplier-container {
+    width: fit-content;
+    text-align: left;
+    padding-top: 6px;
+    padding-right: 10px;
+    .coin-number {
+        margin: 0px;
+        margin-bottom: -9px;
+        margin-top: 8px;
+        font-size: 12px;
+    }
+    .coin-text {
+        height: fit-content;
+        font-size: 6px;
+        width: fit-content;
+        font-weight: 100;
+    }
+}
+.yes-button {
+    margin: 10px;
+    margin-top: 30px;
+    width: 100px;
+    height: 35px;
+    background: $color-21;
+    border: none;
+    border-radius: 5px;
+    color: $main-1;
+}
+.no-button {
+    margin: 10px;
+    margin-top: 30px;
+    width: 100px;
+    height: 35px;
+    background: none;
+    border: 1px solid $color-21;
+    border-radius: 5px;
+    color: $main-1;
+}
+.sign-icon {
+    padding: 10px;
+    fill: $main-1;
+}
