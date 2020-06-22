@@ -10,10 +10,9 @@ import {
     getUserDetails,
 } from "../../state/actions/userActions";
 
-const PlayContainer = ({ getUserDetailsDispatchAction, getTracksDispatchAction, tracks, userDetails }) => {
+const PlayContainer = ({ getUserDetailsDispatchAction, getTracksDispatchAction, tracks, userDetails, updatedCoin, postPlayTrackFeedback }) => {
 
     const [feedback, setFeedback] = useState({});
-    const [updatedCoin, setUpdatedCoin] = useState(null);
     const [showPointsEarnedContainer, setShowPointsEarned] = useState(false);
     const [componentIndex, setComponentIndex] = useState(0);
 
@@ -31,18 +30,13 @@ const PlayContainer = ({ getUserDetailsDispatchAction, getTracksDispatchAction, 
     const postTrackFeedback = useCallback(() => {
         const data = feedback;
         data.feedbackId = tracks[0]._id;
-        postPlayTrackFeedback(data)
-            .then(res => res.json())
-            .then((resp) => {
-                setUpdatedCoin(resp.updatedCoin);
-                setShowPointsEarned(true);
-                setComponentIndex(componentIndex + 1);
-                getUserDetailsDispatchAction();
-            })
-            .catch((err) => {
-                console.log(err);
-            });
-    }, [feedback, tracks, componentIndex, getUserDetailsDispatchAction])
+        postPlayTrackFeedback(data, () => {
+            setShowPointsEarned(true);
+            setComponentIndex(componentIndex + 1);
+            getUserDetailsDispatchAction();
+            setFeedback({});
+        });
+    }, [feedback, tracks, postPlayTrackFeedback, componentIndex, getUserDetailsDispatchAction])
 
     const handleOnClosePointEarnedContainer = useCallback(() => {
         setShowPointsEarned(!showPointsEarnedContainer);
@@ -65,6 +59,7 @@ const PlayContainer = ({ getUserDetailsDispatchAction, getTracksDispatchAction, 
 const dispatchActions = (dispatch) => ({
     getUserDetailsDispatchAction: () => dispatch(getUserDetails()),
     getTracksDispatchAction: () => dispatch(getTracksForDiscover()),
+    postPlayTrackFeedback: (data, callback) => dispatch(postPlayTrackFeedback(data, callback)),
 });
 
 export default connect(

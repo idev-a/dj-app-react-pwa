@@ -1,6 +1,7 @@
 import api, { authHeaders } from "../../config";
 
 export const GET_TRACKS_SUCCESS = "GET_TRACKS_SUCCESS";
+export const GET_UPDATED_COIN = "GET_UPDATED_COIN";
 
 const getTracksURI = "/discover/tracks";
 const postTrackFeedback = "/discover/";
@@ -31,12 +32,19 @@ export const postDiscoverFeedback = (payload, isPro) =>
     }
   );
 
-  export const postPlayTrackFeedback = (payload) =>
+  export const postPlayTrackFeedback = (payload, callback) => dispatch =>
   fetch(
     `${api}${postPlayTrackFeedbackURL}${payload.feedbackId}`,
     {
       method: "POST",
       headers: authHeaders(),
       body: JSON.stringify(payload)
-    }
-  );
+    })
+    .then(res => res.json())
+    .then(data => {
+      dispatch({
+        type: GET_UPDATED_COIN,
+        payload: data.updatedCoin
+      });
+      callback();
+    });
