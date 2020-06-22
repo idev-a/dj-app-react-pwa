@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 16" width="20" height="16">
+	<defs>
+		<clipPath clipPathUnits="userSpaceOnUse" id="cp1">
+			<path d="M-366 -344L384 -344L384 990L-366 990Z" />
+		</clipPath>
+	</defs>
+	<style>
+		tspan { white-space:pre }
+		.icon-check-shp0 { fill: #05161d } 
+	</style>
+	<g id="Onboarding 2" clip-path="url(#cp1)">
+		<g id="star">
+			<path id="Icon metro-checkmark" class="icon-check-shp0" d="M16.32 0.77L7.77 9.33L3.77 5.33L0.92 8.19L7.77 15.03L19.18 3.62L16.32 0.77Z" />
+		</g>
+	</g>
+</svg>

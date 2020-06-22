@@ -2,7 +2,8 @@ import React from 'react';
 import './OnboardingComponent.styles.scss';
 import Button from './../../common/Button/index';
 import content from "./content";
-
+import { ReactComponent as Star} from '../../assets/icon/Icon awesome-star.svg';
+import { ReactComponent as Check} from '../../assets/icon/Icon metro-checkmark.svg';
 const OnboardingComponent = ({ user }) => {
 
     return (
@@ -19,24 +20,18 @@ const OnboardingComponent = ({ user }) => {
                     </span>
                 </div>
                 <div className="stars">
-                    <span class="fa-stack fa-lg">
-                        <i className="fas fa-star fa-stack-2x yellow-star-icon"></i>
-                        <i className="fas fa-stack-1x">
-                            <i className="fas fa-check gray-check-icon"></i>
-                        </i>
-                    </span>
-                    <span className="fa-stack fa-lg">
-                        <i className="fas fa-star fa-stack-2x yellow-star-icon"></i>
-                        <i className="fas fa-stack-1x">
-                            <i className="fas fa-check gray-check-icon"></i>
-                        </i>
-                    </span>
-                    <span className="fa-stack fa-lg">
-                        <i className="fas fa-star fa-stack-2x gray-star-icon"></i>
-                        <i className="fas fa-stack-1x">
-                            <div className="gray-number">3</div>
-                        </i>
-                    </span>
+                    <div className="star-container">
+                        <Star className="star-icon" />
+                        <Check className="star-check-icon"/>
+                    </div>
+                    <div className="star-container">
+                        <Star className="star-icon" />
+                        <Check className="star-check-icon"/>
+                    </div>
+                    <div className="star-container">
+                        <Star className="star-icon-2" />
+                        <span className="star-icon-text">3</span>
+                    </div>
                 </div>
                 <div className="stars-progress-bar">
                     <div className="bar-1" />

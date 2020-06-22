@@ -133,7 +133,8 @@
 }
 .stars {
     margin-top: 20px;
-    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
     .yellow-star-icon {
         color: $color-42;
         font-size: $font-size-32;
@@ -154,6 +155,32 @@
         font-family: monospace; 
         top: -5px;
         position: relative;
+    }
+    .star-container {
+        width: fit-content;
+        padding: 5px;
+        position: relative;
+        .star-icon {
+            width: 30px;
+            fill: $color-42
+        }
+        .star-icon-2 {
+            width: 30px;
+            fill: $color-18;
+        }
+        .star-check-icon {
+            position: absolute;
+            top: 27px;
+            left: 10px;
+            height: 10px;
+        }
+        .star-icon-text {
+            position: absolute;
+            top: 23px;
+            left: 16px;
+            color: $main-3;
+            font-weight: bold;
+        }
     }
 }
 .stars-progress-bar {
