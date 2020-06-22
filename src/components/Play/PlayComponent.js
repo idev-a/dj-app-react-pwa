@@ -7,7 +7,8 @@ import { ReactComponent as FireIcon } from '../../assets/icon/FireIcon.svg';
 import { ReactComponent as Help } from '../../assets/icon/help.svg';
 import { ReactComponent as Like } from '../../assets/icon/Like.svg';
 import { ReactComponent as Dislike } from '../../assets/icon/ThumbsDown.svg';
-import IMG from '../../assets/img/playImg1.png'
+import { ReactComponent as MusiMultimedia } from '../../assets/icon/music-and-multimedia.svg';
+import IMG from '../../assets/img/playImg1.png';
 import NewAudioPlayer from '../NewAudioPlayer';
 import DialogBox from '../../common/DialogBox/DialogBox';
 import ScoreRating from './ScoreRating/ScoreRating';
@@ -111,7 +112,10 @@ const PlayComponent = ({
                 <section>
                     <div className="play-image-container">
                         <div className="image-container">
-                            <img src={IMG} alt="no img" className="center-img" />
+                            {/* <img src={IMG} alt="no img" className="center-img" /> */}
+                            <div className="cover-image-container">
+                                <MusiMultimedia className="multimedia-icon" />
+                            </div>
                             <div className="song-name-container">
                                 <span className="song-name-text">{track.trackTitle}</span><br />
                                 <small className="creator-name-text">{track.display_name}</small>
