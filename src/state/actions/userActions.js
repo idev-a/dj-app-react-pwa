@@ -97,7 +97,7 @@ export const authenticateUser = requestData => dispatch =>
           localStorage.removeItem("x-access-token");
           localStorage.removeItem("isPremiumUser");
         }, expireTime);
-        history.push(isFirstUserLogin ? "/welcome" : "/discover");
+        history.push(isFirstUserLogin ? "/welcome" : "/home");
         dispatch({ type: AUTHENTICATE_USER_SUCCESS, payload: token });
       }
     });
@@ -122,6 +122,7 @@ export const postListenerPreferences = payload => dispatch => {
       dispatch(getUserDetails());
       localStorage.removeItem("isFirstUserLogin");
       toast.success("Changes saved successfully !!!");
+      history.push("/home");
     } else {
       toast.error("Failed to save changes !!!");
     }

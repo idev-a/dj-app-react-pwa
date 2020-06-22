@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import { connect } from "react-redux";
 import LoginComponent from "../../components/Login/LoginComponent";
 import { authenticateUser } from "../../state/actions/userActions";
@@ -7,6 +7,9 @@ import { userSelector } from "../../state/selectors/users";
 const LoginContainer = ({ loginUser, isForgotPassword, setIsForgotPassword }) => {
   const [loginDetails, setLoginDetails] = useState({});
   const [isRememberUser, setIsRememberUser] = useState(true);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  });
   const handleInputChange = (e) => {
     if (e.target.name) {
       setIsRememberUser(e.target.checked);

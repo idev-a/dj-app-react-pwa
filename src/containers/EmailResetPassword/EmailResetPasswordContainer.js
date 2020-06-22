@@ -1,10 +1,14 @@
-import React, { useCallback, useState } from 'react'
+import React, { useCallback, useState, useEffect } from 'react'
 import EmailResetPassword from '../../components/EmaiResetPassword/EmailResetPassword'
 import { forgotPassword } from "../../state/actions/userActions";
 import { validateRegex } from "../../utils";
 import { toast } from "react-toastify";
 
 const EmailResetPasswordContainer = (props) => {
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    });
 
     const [email, setEmail] = useState("");
 

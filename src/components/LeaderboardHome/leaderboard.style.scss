@@ -1,0 +1,111 @@
+@import "../../scss/common.styles.scss";
+@import "../../scss/variables.scss";
+
+.leaderboard-home-main-container {
+    min-height: 100vh;
+    width: 100%;
+    max-width: 600px;
+    background: $color-24;
+    text-align: center;
+    color: $main-1;
+    padding: 25px;
+    padding-bottom: 35px;
+}
+
+.home-header-container {
+    width: 100%;
+    color: $color-25;
+    display: flex;
+    justify-content: space-between;
+    height: fit-content;
+    margin-top: 30px;
+    .app-name-container {
+        text-align: left;
+        .app-display-name {
+            font-size: $font-size-xxl;
+            text-align: left;
+            font-weight: bold;
+            font-family: 'AvenirBold';
+        }
+        .trending-text {
+            margin: 0px;
+            color: $main-1;
+            padding-left: 0px;
+            font-family: 'AvenirNextLTPro';
+        }
+    }
+    .header-icon-container {
+        color: $main-1;
+        display: flex;
+        .header-icon-text-container{
+            margin-right: 15px;
+            .coin-number {
+                margin: 0px;
+                margin-bottom: -9px;
+                margin-top: 8px;
+                font-size: 12px;
+            }
+            .coin-text {
+                height: fit-content;
+                font-size: 8px;
+                width: fit-content;
+                font-weight: 100;
+        }
+        }
+    }
+}
+
+.search-container {
+    height: 50px;
+    margin-top: 40px;
+    border: 1px solid $color-21;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    padding: 0px 10px;
+    .search-field {
+        background: transparent;
+        border: none;
+        width: 100%;
+        padding-left: 10px;
+        color: $main-1;
+        font-family: 'AvenirNextLTPro',
+    }
+}
+
+.leaderbord-header {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .leaderbord-updates {
+        font-family: 'AvenirNextLTPro';
+        font-size: $font-size-medium;
+    }
+}
+
+.leaderbord-card-container {
+    width: 100%;
+    min-height: 200px;
+    padding: 10px 0px;
+    .leaderbord-card{
+        width: 100%;
+        height: 65px;
+        background: $color-19;
+        margin-top: 10px;
+        border-radius: 5px;
+        display: flex;
+        align-items: center
+    }
+    .leaderbord-icon {
+        padding: 10px;
+        width: 40px;
+        height: 40px;
+    }
+    .leaderboard-card-text {
+        font-family: 'AvenirNextLTPro';
+        font-size: $font-size-normal;
+        margin-left: 20px;
+    }
+}

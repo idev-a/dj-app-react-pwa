@@ -41,7 +41,7 @@ const ProfileSettingsContainer = ({
         localStorage.removeItem("x-access-token");
         localStorage.removeItem("isPremiumUser");
         localStorage.removeItem("isFirstUserLogin");
-        history.push("/signin");
+        history.push("/");
     }, [history]);
 
     const handleInputChange = useCallback((e) => {

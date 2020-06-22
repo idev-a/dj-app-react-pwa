@@ -4,14 +4,15 @@ import { connect } from 'react-redux';
 import {
     getUserDetails,
 } from "../../state/actions/userActions";
-import  { getActivities } from '../../state/actions/homeAction';
+import { getActivities } from '../../state/actions/homeAction';
 import { preferencsSelector } from "../../state/selectors/preferences";
 import { homeSelector } from './../../state/selectors/home';
 
 const HomeContainer = ({ getUserDetailsDispatchAction, getActivitiesDispatchAction, userDetails, activities }) => {
 
-    
+
     useEffect(() => {
+        window.scrollTo(0, 0);
         Promise.all([
             getUserDetailsDispatchAction(),
             getActivitiesDispatchAction(),
@@ -19,7 +20,7 @@ const HomeContainer = ({ getUserDetailsDispatchAction, getActivitiesDispatchActi
     }, [getUserDetailsDispatchAction, getActivitiesDispatchAction]);
 
     return (
-        <HomeComponent 
+        <HomeComponent
             details={userDetails}
             activities={activities}
         />
@@ -37,4 +38,4 @@ export default connect(
         ...homeSelector(state),
     }),
     dispatchAction
-)( HomeContainer );
+)(HomeContainer);

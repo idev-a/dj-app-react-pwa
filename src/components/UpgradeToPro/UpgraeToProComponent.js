@@ -20,6 +20,7 @@ const UpgradeToProComponent = ({
     paymentMethods,
     selectedPaymentId,
     handleSavedCardSelect,
+    handleOnClickBack,
 }) => {
 
     return (
@@ -27,7 +28,7 @@ const UpgradeToProComponent = ({
             <div className="home-header-container">
                 <div className="app-name-container">
                     <span className="app-display-name">{content.UPLOAD}</span><br />
-                    <svg className="back-arrow"><BackArrow /></svg>
+                    <svg className="back-arrow" onClick={handleOnClickBack}><BackArrow /></svg>
                 </div>
                 <div className="header-icon-container">
                     <MoneyBag />

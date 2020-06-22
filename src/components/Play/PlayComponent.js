@@ -1,7 +1,7 @@
 import React, { useState, useCallback } from 'react';
 import './play.style.scss';
 import content from './content';
-import { ReactComponent as Dollar } from '../../assets/icon/Dollar.svg';
+import { ReactComponent as Dollar } from '../../assets/icon/Multiplier.svg';
 import { ReactComponent as MoneyBag } from '../../assets/icon/MoneyBag.svg';
 import { ReactComponent as FireIcon } from '../../assets/icon/FireIcon.svg';
 import { ReactComponent as Help } from '../../assets/icon/help.svg';

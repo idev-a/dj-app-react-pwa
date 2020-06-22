@@ -1,4 +1,4 @@
-import React, {useState, useCallback} from 'react';
+import React, {useState, useCallback, useEffect} from 'react';
 import content from '../content';
 import cx from "classnames";
 import '../upload.style.scss';
@@ -17,7 +17,17 @@ const GenresContainer = ({
     setAddStyle,
 }) => {
     const [addGenres, setAddGenres] = useState(false);
+    const [genresSearchValue, setGeneresSerchValue] = useState("");
     const [addStyles, setAddStyles] = useState(false);
+    const [stylesSearchValue, setStylesSerchValue] = useState("");
+
+    const [filteredGenres, setFilteredGenres] = useState([]);
+    const [filteredStyles, setFilteredStyles] = useState([]);
+
+    useEffect(() => {
+        setFilteredGenres(genres);
+        setFilteredStyles(styles);
+    }, [genres, styles])
 
     const handleOnToggleGenres = useCallback(() => {
         setAddGenres(!addGenres);
@@ -27,6 +37,24 @@ const GenresContainer = ({
         setAddStyles(!addStyles);
     }, [addStyles]);
 
+    const onChangeStyles = useCallback((e) => {
+        let data = styles.filter((element) => {
+            return element.name.toLowerCase().includes(e.target.value.toLowerCase())
+        })
+        setStylesSerchValue(e.target.value);
+        setAddStyles(true);
+        setFilteredStyles(data);
+    }, [styles]);
+
+    const onChangeGenres = useCallback((e) => {
+        let data = genres.filter((element) => {
+            return element.name.toLowerCase().includes(e.target.value.toLowerCase())
+        })
+        setGeneresSerchValue(e.target.value);
+        setAddGenres(true);
+        setFilteredGenres(data);
+    }, [genres]);
+
     return (
         <div className="genres-container">
             <span className="genres-label">{content.GENRES_STYLES}</span>
@@ -34,7 +62,8 @@ const GenresContainer = ({
                 <InputField
                     id="genres"
                     className="formInputField"
-                    // onChange={onInputChange}
+                    onChange={onChangeGenres}
+                    value={genresSearchValue}
                     placeholder={content.SEARCH_GENRES}
                 />
                 <div className="icon-container" onClick={handleOnToggleGenres}>
@@ -44,11 +73,11 @@ const GenresContainer = ({
             <div className={cx("genres-button-container", selectedGenre && "generes-container-border")}>
                 {selectedGenre && <div className="genres-added-button">
                     {selectedGenre.name}
-                    <div className="icon-plus-circle"/*  onClick={(e) => handleClickAddGenres(element, true)} */ ><IconCloseCircle /></div>
+                    <div className="icon-plus-circle" onClick={() => setAddGenre(undefined, 0)} ><IconCloseCircle /></div>
                 </div>}
             </div>
             {!selectedGenre && <div className="genres-button-container">
-                {(genres.length > 0 && addGenres) && genres.map(element => {
+                {(filteredGenres.length > 0 && addGenres) && filteredGenres.map(element => {
                     return <div className="genres-button">
                         {element.name}
                         <div className="icon-plus-circle" onClick={() => setAddGenre(element, 0)} ><IconPlusCircle /></div>
@@ -60,7 +89,8 @@ const GenresContainer = ({
                     <InputField
                         id="styles"
                         className="formInputField"
-                        // onChange={onInputChange}
+                        value={stylesSearchValue}
+                        onChange={onChangeStyles}
                         placeholder={content.SEARCH_STYLES}
                     />
                     <div className="icon-container" onClick={handleOnToggleStyles}>
@@ -70,12 +100,12 @@ const GenresContainer = ({
                 {<div className="genres-button-container">
                     {selectedStyles && <div className="genres-added-button">
                         {selectedStyles.name}
-                        <div className="icon-plus-circle" /* onClick={(e) => handleClickAddStyles(element, true)} */ ><IconCloseCircle /></div>
+                        <div className="icon-plus-circle"  onClick={() => setAddStyle(undefined, 0)} ><IconCloseCircle /></div>
                     </div>
                     }
                 </div>}
                 <div className="genres-button-container">
-                    {(styles.length > 0 && addStyles) && styles.map(element => {
+                    {(filteredStyles.length > 0 && addStyles) && filteredStyles.map(element => {
                         return <div className="genres-button">
                             {element.name}
                             <div className="icon-plus-circle" onClick={() => setAddStyle(element, 0)}><IconPlusCircle /></div>
