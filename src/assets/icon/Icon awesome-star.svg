@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 54 52" width="54" height="52">
+	<defs>
+		<clipPath clipPathUnits="userSpaceOnUse" id="cp1">
+			<path d="M-277 -324L473 -324L473 1010L-277 1010Z" />
+		</clipPath>
+	</defs>
+	<g id="Onboarding 2" clip-path="url(#cp1)">
+		<g id="star">
+			<path id="Icon awesome-star" class="icon-star-shp0" d="M24.18 1.79L17.61 15.12L2.9 17.26C0.26 17.65 -0.79 20.9 1.12 22.76L11.76 33.13L9.24 47.78C8.79 50.42 11.58 52.41 13.91 51.17L27.07 44.25L40.23 51.17C42.56 52.4 45.35 50.42 44.9 47.78L42.38 33.13L53.02 22.76C54.93 20.9 53.88 17.65 51.24 17.26L36.53 15.12L29.96 1.79C28.78 -0.58 25.37 -0.61 24.18 1.79L24.18 1.79Z" />
+		</g>
+	</g>
+</svg>
