@@ -16,9 +16,10 @@
     display: block;
 }
 .header-section {
-    height: 80px;
+    height: 60px;
     margin-top: 20px;
     display: flex;
+    justify-content: space-between;
     .left-section {
         flex: 0 0 14%;
     }
@@ -30,72 +31,6 @@
     .right-section {
         flex: 0 0 140%;
     }
-    .gold-coin {
-        display: inline-table;
-        position: relative;
-        top: -18px;
-    }
-    .gold-coin-icon {
-        width: 20px;
-        height: 20px
-    } 
-    .coins-value {
-        padding-left: 8px; 
-        position: relative; 
-        top: -4px;
-        font-family: $font-family-1;
-        color: $color-33;
-    }
-    .coins-text {
-        display: block;
-        padding-left: 10px;
-        font-size: $font-size-normal;
-        font-family: $font-family-1;
-        color: $color-33;
-    }
-    .rating-circle {
-        display: flex;
-    }
-    .left-half-circle {
-        width: 20px;
-        height: 40px;
-        border-bottom-left-radius: 110px;
-        border-top-left-radius: 110px;
-        border: 2px solid $color-34;
-        border-right: 0;
-    
-    } 
-    .right-half-circle {
-        width: 20px;
-        height: 40px;
-        border-bottom-right-radius: 110px;
-        border-top-right-radius: 110px;
-        border: 2px solid $color-35;
-        border-left: 0;
-    }
-    .rating-value {
-        font-size: $font-size-l;
-        font-weight: $font-weight-1;
-        font-family: $font-family-1;
-        color: $color-35;
-        top: 12px;
-        right: 5px;
-        width: 0px;
-        height: 0px;
-        position: relative;
-    }
-    .rating-text {
-        display: block;
-        margin-top: 5px;
-        font-size: $font-size-small;
-        font-family: $font-family-1;
-        color: $main-1;
-    }
-    .rating {
-        display: inline-table;
-        margin-left: 32px;
-        margin-top: -8px;
-    }
 }
 .listeners-data {
     .listeners-data-header {
@@ -104,26 +39,25 @@
     }
     .top-listeners {
         flex: 0 0 50%;
-        font-family: $font-family-1;
+        font-family: "AvenirBold";
         font-size: $font-size-l;
     }
     .tracks {
         flex: 0 0 78%;
-        font-family: $font-family-1;
+        font-family: "AvenirBold";
         font-size: $font-size-l;
     }
     .listeners-data-row {
         display: flex;
         padding-top: 15px;
+        align-items: center;
     }
     .serial-number {
         width: 20%; 
-        padding-top: 40px;
         padding-right: 5px;
     }
     .serial-number-circle {
         position: relative;
-        bottom: 25px;    
         height: 25px;
         width: 25px;
         background-color: $color-36;
@@ -141,6 +75,7 @@
     .listener-name-image {
         display: flex; 
         width: 60%;
+        align-items: center;
     }
     .listener-image {
         width: 50px;
@@ -149,14 +84,36 @@
         transform: rotate(0);
     }
     .listener-name {
-        font-size: $font-size-15;
+        font-size: $font-size-normal;
         padding-left: 12px;
         font-family: $font-family-1;
     }
     .listener-tracks {
-        font-size: $font-size-15;
+        font-size: $font-size-normal;
         width: 20%;
-        padding-top: 16px;
         font-family: $font-family-1;
+    }
+}
+.header-icon-container {
+    color: $main-1;
+    display: flex;
+    .header-icon {
+        width: 35px;
+        height: 35px;
+    }
+    .header-icon-text-container{
+        margin-right: 15px;
+        .coin-number {
+            margin: 0px;
+            margin-bottom: -9px;
+            margin-top: 8px;
+            font-size: 12px;
+        }
+        .coin-text {
+            height: fit-content;
+            font-size: $font-size-xxs;
+            width: fit-content;
+            font-weight: 100;
+        }
     }
 }
