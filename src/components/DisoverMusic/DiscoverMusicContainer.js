@@ -5,6 +5,7 @@ import cx from 'classnames';
 import { ReactComponent as Back } from '../../assets/icon/back.svg';
 import DiscoverNewMusic from './DiscoverNewMusic';
 import MusicInfluencer from './MusicInfluencer';
+import BeakerFame from './BeakerFame';
 
 const DiscoverMusicContainer = () => {
 
@@ -33,6 +34,7 @@ const DiscoverMusicContainer = () => {
             </section>
             {currentScreen === 0 && <DiscoverNewMusic />}
             {currentScreen === 1 && <MusicInfluencer />}
+            {currentScreen === 2 && <BeakerFame />}
             <section className="discover-music-footer-container">
                 <Back className="discover-back-icon" onClick={handleOnClickBack} />
                 <div className="progress-dots-container">

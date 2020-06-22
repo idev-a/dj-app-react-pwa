@@ -67,6 +67,7 @@ export default props => {
           <Route path="/phoneSignin" component={PhoneSigninContainer} exact />
           <Route path="/verifySignup" component={VerifyPhoneContainer} exact />
           <Route path="/verifySignin" component={VerifySigninContainer} exact />
+          <Route path="/discoverMusic" component={DiscoverMusic} exact />
           <Route path="/signin" component={AuthContainer} exact />
           <Route
             path="/forgot-password"
@@ -79,7 +80,6 @@ export default props => {
             exact
           />
           <Route path="/discover" component={withValidToken(Discover)} exact />
-          <Route path="/discoverMusic" component={withValidToken(DiscoverMusic)} exact />
           <Route path="/onboarding" component={withValidToken(Onboarding1)} exact />
           <Route
             path="/feedback"

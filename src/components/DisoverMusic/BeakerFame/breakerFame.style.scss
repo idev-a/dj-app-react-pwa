@@ -1,0 +1,26 @@
+@import "../../../scss/common.styles.scss";
+@import "../../../scss/variables.scss";
+
+.breaker-fame-main-container {
+    min-height: 380px;
+    text-align: -webkit-center;
+}
+.breaker-fame-inner-container {
+    position: relative;
+    height: 200px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    .breaker-fame-eclipse {
+        height: 160px;
+        width: 160px;
+        border: 3px solid #e5bb3b;
+        border-radius: 50%;
+    }
+    .breaker-fame-triangles-main-container {
+        width: 200px;
+        height: 200px;
+        position: absolute;
+        top: 0px;
+    }
+}
