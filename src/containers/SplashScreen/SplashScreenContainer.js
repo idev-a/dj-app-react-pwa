@@ -1,7 +1,10 @@
-import React, {useCallback} from "react";
+import React, {useCallback, useEffect} from "react";
 import SplashScreen from '../../components/SplashScreen/SplashScreen'
 
 const SplashScreenContainer = (props) => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  });
   const handleClick = useCallback(() => props.history.push("/loginScreen"), [
     props.history,
   ]);

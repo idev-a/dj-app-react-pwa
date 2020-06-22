@@ -51,12 +51,16 @@ const ProfileSettingsComponent = ({ logOutClick, userObject, password, repeatPas
         setShowPrivacy(!showPrivacy);
     }, [showPrivacy, setShowPrivacy]);
 
+    const handleClickBack = () => {
+        window.history.back();
+    }
+
     return (
         <div className="profile-settings-container">
             <div className="settings-header-container">
                 <div className="user-name-container">
                     <span className="user-display-name">{display_name || ""}</span><br />
-                    <svg className="back-arrow"><BackArrow /></svg>
+                    <BackArrow className="back-arrow" onClick={handleClickBack} />
                 </div>
                 <div className="header-icon-container">
                     <MoneyBag />

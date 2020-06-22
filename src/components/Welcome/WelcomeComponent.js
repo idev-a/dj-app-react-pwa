@@ -1,12 +1,11 @@
 import React from 'react';
 import './WelcomeComponent.styles.scss';
 import Button from './../../common/Button/index';
-import HearBKNewIcon from './../../common/HearBKNewIcon/index';
 import content from "./content";
 import {ReactComponent as PlusBoxIcon} from '../../assets/icon/plus box.svg';
 import {ReactComponent as UploadPhoto} from '../../assets/icon/upload photo.svg';
 
-const WelcomeComponent = ({ user }) => {
+const WelcomeComponent = ({ user, handleOnClickContinue }) => {
 
     return (
         <div className='welcome-container'>
@@ -14,7 +13,7 @@ const WelcomeComponent = ({ user }) => {
                 <div className="logo-main-container">
                     <div className="logo-container" />
                 </div>
-                <div className='avatar-container'>
+                <div className='welcome-avatar-container'>
                     <svg className="upload-photo"><UploadPhoto /></svg>
                     <svg className="add-photo"><PlusBoxIcon/></svg>
                 </div>
@@ -33,6 +32,7 @@ const WelcomeComponent = ({ user }) => {
                 <Button
                     className="continue-button"
                     buttonText={content.CONTINUE}
+                    onClick={handleOnClickContinue }
                 />
                 <div className="progress-bar">
                     <div className="bar-1" />

@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useState, useEffect } from 'react';
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import EmailSignup from '../../components/EmailSignup/EmailSignup'
@@ -12,6 +12,10 @@ const EmailSignupContainer = ({ history, registerUser }) => {
     const [displayName, setDisplayName] = useState("");
     const [username, setUserName] = useState("");
     const [password, setPassword] = useState("");
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    });
 
     const emailBack = useCallback(() => history.push("/signupScreen"), [
         history,
