@@ -30,12 +30,14 @@ import MenuComponent from "./components/Menu";
 import OrderFeedbackStartComponent from "./components/OrderFeedbackStart";
 import ForgotPasswordContainer from "./containers/ForgotPassword/ForgotPasswordContainer";
 import ResetPasswordContainer from "./containers/ResetPassword/ResetPasswordContainer";
+import Onboarding2 from './containers/OnBoarding2/OnboardingContainer';
 import Onboarding1 from "./containers/Onboarding1/OnboardingContainer";
 import WelcomeContainer from './containers/Welcome/WelcomeContainer';
 import ProfileSettingsContainer from './containers/ProfileSettings/ProfileSettingsContainer';
 import HomeContainer from './containers/Home/HomeContainer';
 import ResultContainer from './containers/Result/ResultContainer';
 import UpgradeToPro from './containers/UpgradeToPro/UpgradeToProContainer';
+import LeaderboardHomeContainer from './containers/LeaderoardHome/LeaderoardHomeContainner';
 import UploadContainer from './containers/Upload/UploadContainer';
 import PlayContainer from './containers/Play/PlayContainer';
 import DiscoverMusic from './containers/DiscoverMusic/DiscoverMusic';
@@ -102,6 +104,11 @@ export default props => {
             exact
           />
           <Route
+            path="/onboarding-complete"
+            component={withValidToken(Onboarding2)}
+            exact
+          />
+          <Route
             path="/upload"
             component={withValidToken(UploadContainer)}
             exact
@@ -134,6 +141,11 @@ export default props => {
           <Route
             path="/home"
             component={withValidToken(HomeContainer)}
+            exact
+          />
+          <Route
+            path="/leaderboard-home"
+            component={withValidToken(LeaderboardHomeContainer)}
             exact
           />
           <Route
