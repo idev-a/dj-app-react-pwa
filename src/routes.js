@@ -55,10 +55,11 @@ export default props => {
     <Router history={history}>
       {showMenu && (
         <MenuComponent handleClickMenuToggle={handleToggleMenuClick} />
-      )}
+        )}
       <MenuHandlerContext.Provider value={handleToggleMenuClick}>
         <Switch>
-          <Route path="/" component={SplashScreenContainer} exact />
+          <Route path="/" component={DiscoverMusic} exact />
+          <Route path="/splash" component={SplashScreenContainer} exact />
           <Route path="/loginScreen" component={LoginScreenContainer} exact />
           <Route path="/signupScreen" component={SignUpScreenContainer} exact />
           <Route path="/emailSignup" component={EmailSignupContainer} exact />
@@ -69,7 +70,6 @@ export default props => {
           <Route path="/phoneSignin" component={PhoneSigninContainer} exact />
           <Route path="/verifySignup" component={VerifyPhoneContainer} exact />
           <Route path="/verifySignin" component={VerifySigninContainer} exact />
-          <Route path="/discoverMusic" component={DiscoverMusic} exact />
           <Route path="/signin" component={AuthContainer} exact />
           <Route
             path="/forgot-password"
