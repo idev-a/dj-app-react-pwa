@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import {
     getUserDetails,
 } from "../../state/actions/userActions";
+import history from "../../history";
 import { preferencsSelector } from "../../state/selectors/preferences";
 
 const LeaderboardHomeContainer = ({ getUserDetailsDispatchAction, userDetails }) => {
@@ -12,9 +13,14 @@ const LeaderboardHomeContainer = ({ getUserDetailsDispatchAction, userDetails })
         getUserDetailsDispatchAction()
     }, [getUserDetailsDispatchAction]);
 
+    const handleOnClickTopListners = () => {
+        history.push("/leaderboard")
+    }
+
     return (
         <LeaderboardHomeComponent
             details={userDetails}
+            handleOnClickTopListners={handleOnClickTopListners}
         />
     )
 }
