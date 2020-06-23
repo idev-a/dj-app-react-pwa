@@ -26,9 +26,11 @@
         background-size: cover
     }
 }
-.avatar-container {
-    width: 100%;
+.welcome-avatar-container {
     height: 80px;
+    width: 80px;
+    position: relative;
+    justify-self: center;
     .upload-photo {
         height: 80px;
         width: 80px;
@@ -37,7 +39,7 @@
         height: 20px;
         width: 20px;
         position: absolute;
-        left: 40%;
+        left: 0px;
     }
 }
 .container-2 {

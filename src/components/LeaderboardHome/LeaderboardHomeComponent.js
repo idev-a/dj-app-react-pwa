@@ -12,7 +12,7 @@ import DialogBox from '../../common/DialogBox/DialogBox';
 import InputField from './../../common/InputField';
 import DialogContent from './DialogContent/index';
 
-const LeaderboardHomeComponent = ({ details }) => {
+const LeaderboardHomeComponent = ({ details, handleOnClickTopListners }) => {
 
     const { balance } = details;
 
@@ -60,7 +60,7 @@ const LeaderboardHomeComponent = ({ details }) => {
                 <HelpIcon onClick={() => handleOnToggleHelp(true)} />
             </div>
             <div className="leaderbord-card-container">
-                <div className="leaderbord-card">
+                <div className="leaderbord-card" onClick={handleOnClickTopListners}>
                     <Music className="leaderbord-icon" />
                     <span className="leaderboard-card-text">{content.TOP_LISTNERS}</span>
                 </div>

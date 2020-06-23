@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 67 62" width="67" height="62">
+	<defs>
+		<clipPath clipPathUnits="userSpaceOnUse" id="cp1">
+			<path d="M-562 -491L188 -491L188 843L-562 843Z" />
+		</clipPath>
+		<linearGradient id="grd1" gradientUnits="userSpaceOnUse"  x1="0" y1="33.965" x2="55.448" y2="33.965">
+			<stop offset="0" stop-color="#fc4f35"  />
+			<stop offset="1" stop-color="#c8013b"  />
+		</linearGradient>
+	</defs>
+	<style>
+		tspan { white-space:pre }
+		.multiplier-style-shp0 { fill: url(#grd1) } 
+		.multiplier-style-shp1 { fill: #ffffff } 
+		.multiplier-style-shp2 { fill: #fdcc36 } 
+	</style>
+	<g id="Rating – star" clip-path="url(#cp1)">
+		<g id="Group 491">
+			<g id="Group 490">
+				<g id="Group 489">
+					<path id="Path 2247" class="multiplier-style-shp0" d="M27.72 6.24C12.41 6.24 0 18.65 0 33.97C0 49.28 12.41 61.69 27.72 61.69C43.04 61.69 55.45 49.28 55.45 33.97C55.45 18.65 43.04 6.24 27.72 6.24Z" />
+					<path id="Path 2248" class="multiplier-style-shp1" d="M27.1 49.03L27.1 45.51C25.29 45.3 23.55 44.71 22.39 43.87L21.67 43.36L23.29 38.83L24.54 39.66C25.75 40.47 27.29 40.93 28.79 40.93C30.53 40.93 31.66 40.08 31.66 38.77C31.66 37.89 31.28 36.92 28.55 35.81C27.19 35.28 25.47 34.52 24.21 33.37C22.86 32.14 22.2 30.66 22.2 28.84C22.2 27.25 22.73 25.81 23.72 24.65C24.61 23.6 25.86 22.83 27.34 22.42L27.34 18.76L31.8 18.76L31.8 22.14C33.23 22.32 34.49 22.73 35.64 23.41L36.49 23.91L34.8 28.37L33.61 27.69C33.08 27.39 31.86 26.69 29.91 26.69C28.39 26.69 27.48 27.34 27.48 28.43C27.48 29.36 27.98 29.99 30.97 31.22C33.06 32.07 34.54 33.05 35.5 34.21C36.49 35.39 36.97 36.81 36.97 38.53C36.97 40.17 36.42 41.68 35.37 42.9C34.42 44.02 33.12 44.83 31.59 45.26L31.59 49.03L27.1 49.03Z" />
+					<g id="Group 488">
+						<path id="Path 2249" class="multiplier-style-shp1" d="M13.06 30.99L14.37 33.03L15.72 30.99L18.22 30.99L15.59 34.72L18.32 38.63L15.78 38.63L14.29 36.53L12.84 38.63L10.38 38.63L13.05 34.74L10.52 30.99L13.06 30.99Z" />
+					</g>
+				</g>
+				<path id="Path 2250" class="multiplier-style-shp2" d="M48.38 30.83L48.38 15.91L42.43 15.91L54.33 1L66.22 15.91L60.28 15.91L60.28 30.83L48.38 30.83Z" />
+			</g>
+		</g>
+	</g>
+</svg>

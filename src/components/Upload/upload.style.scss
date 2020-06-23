@@ -51,27 +51,20 @@
     margin-top: 35px;
     display: flex;
     justify-content: space-between;
-    .upload-button {
+    .unSelected-button {
         height: 40px;
         width: 45%;
         margin: 10px;
         border-radius: 5px;
-        background: $color-21 0% 0% no-repeat padding-box;
-        border: none;
+        background: transparent;
+        border: 2px solid $color-21;
         opacity: 1;
         color: $main-1;
         margin-left: 0px;
     }
-    .results-button {
-        height: 40px;
-        width: 45%;
-        margin: 10px;
-        border: 2px solid $color-21;
-        background: transparent;
-        border-radius: 5px;
-        opacity: 1;
-        color: $main-1;
-        margin-right: 0px;
+    .selected-button {
+        background: $color-21 0% 0% no-repeat padding-box;
+        border: none;
     }
 }
 .submit-music-heading-container {

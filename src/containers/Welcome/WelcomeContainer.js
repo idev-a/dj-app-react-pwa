@@ -12,9 +12,16 @@ class WelcomeContainer extends React.Component {
         getUserDetailsDispatchAction();
     }
 
+    handleOnClickContinue = () => {
+        this.props.history.push("/onboarding");
+    }
+
     render() {
         return (
-            <WelcomeComponent user={this.props.user}/>
+            <WelcomeComponent
+                user={this.props.user}
+                handleOnClickContinue={this.handleOnClickContinue}
+            />
         )
     }
 
@@ -23,8 +30,8 @@ class WelcomeContainer extends React.Component {
 const mapStateToProps = (state) => {
     const targetState = state.userDetails || {};
 
-    return{
-        user : targetState.user || {},
+    return {
+        user: targetState.user || {},
     }
 }
 

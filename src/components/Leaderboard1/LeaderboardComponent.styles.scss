@@ -1,0 +1,119 @@
+@import "../../scss/common.styles.scss";
+
+.leaderboard1-container {
+    min-height: 100vh;
+    width: 100%;
+    max-width: 600px;
+    background: $color-32;
+    justify-content: center;
+    display: flex;
+    color: $main-1;
+}
+.container-2 {
+    text-align: -webkit-center;
+    margin: 25px;
+    width: 100%;
+    display: block;
+}
+.header-section {
+    height: 60px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    .left-section {
+        flex: 0 0 14%;
+    }
+    .left-arrow-icon {
+        width: 20px; 
+        height: 21px;
+        padding-top: 5px;
+    }
+    .right-section {
+        flex: 0 0 140%;
+    }
+}
+.listeners-data {
+    .listeners-data-header {
+        display: flex; 
+        padding-bottom: 18px;
+    }
+    .top-listeners {
+        flex: 0 0 50%;
+        font-family: "AvenirBold";
+        font-size: $font-size-l;
+    }
+    .tracks {
+        flex: 0 0 78%;
+        font-family: "AvenirBold";
+        font-size: $font-size-l;
+    }
+    .listeners-data-row {
+        display: flex;
+        padding-top: 15px;
+        align-items: center;
+    }
+    .serial-number {
+        width: 20%; 
+        padding-right: 5px;
+    }
+    .serial-number-circle {
+        position: relative;
+        height: 25px;
+        width: 25px;
+        background-color: $color-36;
+        border-radius: 50%;
+        display: inline-block;
+    }
+    .serial-number-value {
+        position: relative;
+        color: $color-37;
+        font-family: $font-family-1;
+        top: 3px;
+        font-size: $font-size-15;
+        font-weight: $font-weight-1;
+    }
+    .listener-name-image {
+        display: flex; 
+        width: 60%;
+        align-items: center;
+    }
+    .listener-image {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        transform: rotate(0);
+    }
+    .listener-name {
+        font-size: $font-size-normal;
+        padding-left: 12px;
+        font-family: $font-family-1;
+    }
+    .listener-tracks {
+        font-size: $font-size-normal;
+        width: 20%;
+        font-family: $font-family-1;
+    }
+}
+.header-icon-container {
+    color: $main-1;
+    display: flex;
+    .header-icon {
+        width: 35px;
+        height: 35px;
+    }
+    .header-icon-text-container{
+        margin-right: 15px;
+        .coin-number {
+            margin: 0px;
+            margin-bottom: -9px;
+            margin-top: 8px;
+            font-size: 12px;
+        }
+        .coin-text {
+            height: fit-content;
+            font-size: $font-size-xxs;
+            width: fit-content;
+            font-weight: 100;
+        }
+    }
+}

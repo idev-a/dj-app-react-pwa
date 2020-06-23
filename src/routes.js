@@ -30,6 +30,7 @@ import MenuComponent from "./components/Menu";
 import OrderFeedbackStartComponent from "./components/OrderFeedbackStart";
 import ForgotPasswordContainer from "./containers/ForgotPassword/ForgotPasswordContainer";
 import ResetPasswordContainer from "./containers/ResetPassword/ResetPasswordContainer";
+import Leaderboard1 from './containers/Leaderboard1/LeaderboardContainer';
 import Onboarding2 from './containers/OnBoarding2/OnboardingContainer';
 import Onboarding1 from "./containers/Onboarding1/OnboardingContainer";
 import WelcomeContainer from './containers/Welcome/WelcomeContainer';
@@ -101,6 +102,11 @@ export default props => {
           <Route
             path="/preferences"
             component={withValidToken(ListenerPreferencesContainer)}
+            exact
+          />
+          <Route
+            path="/leaderboard"
+            component={withValidToken(Leaderboard1)}
             exact
           />
           <Route
@@ -190,7 +196,7 @@ const withValidToken = WrappedComponent => {
         localStorage.removeItem("x-access-token");
         localStorage.removeItem("isPremiumUser");
         localStorage.removeItem("isFirstUserLogin");
-        this.props.history && this.props.history.push("/signin");
+        this.props.history && this.props.history.push("/");
       }
     }
     componentDidUpdate(prevProps) {
