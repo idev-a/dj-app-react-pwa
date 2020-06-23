@@ -22,6 +22,7 @@ const EmailSignup = ({
     username,
     password,
     registerUser,
+    validateEmail,
 }) => {
     const [values, setValues] = React.useState({
         showPassword: false,
@@ -44,7 +45,7 @@ const EmailSignup = ({
             </div>
             <hr className="underline" />
             <div className="emailBox">
-                <p className="emailBoxHeading">{content.HELLO_CREATE} <br/>{content.YOUR_ACCOUNT}</p>
+                <p className="emailBoxHeading">{content.HELLO_CREATE} <br />{content.YOUR_ACCOUNT}</p>
                 <div className="form-container" autoComplete="off">
                     <TextField
                         id="displayName"
@@ -61,6 +62,8 @@ const EmailSignup = ({
                         id="email"
                         value={email}
                         label={content.EMAIL}
+                        error={validateEmail(email).isError}
+                        helperText={validateEmail(email).errorMessage}
                         type="email"
                         defaultValue=""
                         variant="outlined"
