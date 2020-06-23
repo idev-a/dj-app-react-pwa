@@ -1,0 +1,39 @@
+@import "../../../scss/common.styles.scss";
+@import "../../../scss/variables.scss";
+
+.music-creator-main-container {
+    min-height: 380px;
+    text-align: -webkit-center;
+}
+.music-creators-images-container {
+    .music-creators-image {
+        height: 50px;
+    }
+    .music-creators-icon-container {
+        height: 50px;
+        width: 265px;
+        border-radius: 5px;
+        background: #0e222b;
+        margin: 2px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    .music-creator-icon {
+        height: 30px;
+    }
+}
+.discover-music-text-container {
+    margin: 20px;
+    margin-top: 55px;
+    .discover-music-text {
+        font-family: 'AvenirBold';
+        color: $color-20;
+        font-size: $font-size-l;
+    }
+}
+.discover-music-content-text {
+    font-family: 'AvenirNextLTPro';
+    padding: 0px 25px;
+    font-size: $font-size-small;
+}
