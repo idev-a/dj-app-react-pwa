@@ -1,6 +1,6 @@
 import api, { genericHeaders } from "../../config";
 
-const getActivityUrl = "/activity/getActivities";
+const getActivityUrl = "/activities";
 
 
 export const GET_ACTIVITY_SUCCESS = "GET_ACTIVITY_SUCCESS"

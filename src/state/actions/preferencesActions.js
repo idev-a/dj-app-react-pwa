@@ -11,7 +11,7 @@ export const SELECTED_STYLE_UPDATE = "SELECTED_STYLE_UPDATE";
 
 const GENRE_URI = "/genres";
 const TAGS_URI = "/listeners/tags";
-const STYLES_URI = "/styles/getStyles";
+const STYLES_URI = "/styles";
 
 export const getGenres = () => (dispatch) =>
   fetch(`${api}${GENRE_URI}`, {
