@@ -21,6 +21,7 @@ const UpgradeToProComponent = ({
     selectedPaymentId,
     handleSavedCardSelect,
     handleOnClickBack,
+    userDetails,
 }) => {
 
     return (
@@ -33,7 +34,7 @@ const UpgradeToProComponent = ({
                 <div className="header-icon-container">
                     <MoneyBag />
                     <div className="header-icon-text-container">
-                        <p className="coin-number">1.2</p><p className="coin-text">{content.COIN}</p>
+                        <p className="coin-number">{userDetails.balance}</p><p className="coin-text">{content.COIN}</p>
                     </div>
                     <FireIcon />
                     <div className="header-icon-text-container" >

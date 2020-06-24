@@ -7,18 +7,20 @@ import {
 } from "../../state/actions/orderActions";
 import {
     getPaymentMethods,
+    getUserDetails,
 } from "../../state/actions/userActions";
 import { orderSelector } from "../../state/selectors/order";
 import { toast } from 'react-toastify';
 
-const UpgradeToProContainer = ({ dispatchUpdate, accountName, isSaveCardDetails, getPaymentMethodsDispatchAction, paymentMethods }) => {
+const UpgradeToProContainer = ({ dispatchUpdate, accountName, isSaveCardDetails, getPaymentMethodsDispatchAction, paymentMethods, getUserDetailsDispatchAction, userDetails }) => {
     const [shouldCreateToken, setShouldCreateToken] = useState(false);
     const [selectedPaymentId, setSelectedPaymentId] = useState(undefined);
 
     useEffect(() => {
         window.scrollTo(0, 0);
         getPaymentMethodsDispatchAction();
-    }, [getPaymentMethodsDispatchAction]);
+        getUserDetailsDispatchAction();
+    }, [getPaymentMethodsDispatchAction, getUserDetailsDispatchAction]);
 
     const handleInputChange = useCallback(
         (e) => {
@@ -115,12 +117,14 @@ const UpgradeToProContainer = ({ dispatchUpdate, accountName, isSaveCardDetails,
             selectedPaymentId={selectedPaymentId}
             handleSavedCardSelect={handleSelectPayment}
             handleOnClickBack={handleOnClickBack}
+            userDetails={userDetails}
         />
     )
 }
 
 
 const dispatchAction = (dispatch) => ({
+    getUserDetailsDispatchAction: () => dispatch(getUserDetails()),
     dispatchUpdate: (payload) => dispatch(updateOrderData(payload)),
     getPaymentMethodsDispatchAction: () => dispatch(getPaymentMethods()),
 });
