@@ -35,15 +35,15 @@
 .listeners-data {
     .listeners-data-header {
         display: flex; 
+        justify-content: space-between;
+        padding: 0px 15px;
         padding-bottom: 18px;
     }
     .top-listeners {
-        flex: 0 0 50%;
         font-family: "AvenirBold";
         font-size: $font-size-l;
     }
     .tracks {
-        flex: 0 0 78%;
         font-family: "AvenirBold";
         font-size: $font-size-l;
     }
