@@ -69,7 +69,7 @@ const ProfileSettingsComponent = ({ logOutClick, userObject, password, repeatPas
                     </div>
                     <FireIcon />
                     <div className="header-icon-text-container" >
-                        <p className="coin-number">Lv.3</p><p className="coin-text">rator</p>
+                        <p className="coin-number">Lv.0</p><p className="coin-text">rator</p>
                     </div>
                 </div>
             </div>

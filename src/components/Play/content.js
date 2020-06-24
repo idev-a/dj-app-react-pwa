@@ -1,6 +1,6 @@
 export default {
     BREAKER: "BREAKER",
-    COIN: "coin",
+    COIN: "coins",
     RATER: "rater",
     LISTEN: "Listen",
     DISCOVER_ARTIST: "Discover artists to help break",
