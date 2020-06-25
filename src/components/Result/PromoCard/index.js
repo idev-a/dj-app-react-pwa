@@ -10,6 +10,7 @@ import { ReactComponent as Social } from '../../../assets/icon/social.svg';
 import { ReactComponent as ThumbsDown } from '../../../assets/icon/ThumbsDown.svg';
 import { ReactComponent as Edit } from '../../../assets/icon/Edit.svg';
 import { ReactComponent as Key } from '../../../assets/icon/access.svg';
+import AltImg from '../../../assets/img/settings/Ellipse 24.png';
 import moment from 'moment';
 
 export const IconContainer = ({ icon, number, text }) => (
@@ -30,6 +31,28 @@ const PromoCard = ({ hasKey, hasFeedback, cardData }) => {
 
     const hitPercentageRounded = Math.round(cardData.stats.hit);
     const missPercentageRounded = Math.round(cardData.stats.miss);
+
+    const timeDiffCalc = (dateFuture, dateNow) => {
+        let diffInMilliSeconds = Math.abs(dateFuture - dateNow) / 1000;
+        const days = Math.floor(diffInMilliSeconds / 86400);
+        diffInMilliSeconds -= days * 86400;
+        const hours = Math.floor(diffInMilliSeconds / 3600) % 24;
+        diffInMilliSeconds -= hours * 3600;
+        const minutes = Math.floor(diffInMilliSeconds / 60) % 60;
+        diffInMilliSeconds -= minutes * 60;
+
+        if (days > 0) {
+            return `${days} day ago`;
+        }
+        if (hours > 0) {
+            return `${hours} hr ago`;
+        }
+        if (minutes > 0) {
+            return `${minutes} min ago`;
+        }
+
+        return 'now';
+    }
 
     return (
         <div className={hasKey ? "promo-campaign-card-border" : "promo-campaign-card"}>
@@ -71,22 +94,27 @@ const PromoCard = ({ hasKey, hasFeedback, cardData }) => {
                             <IconContainer icon={<ThumbsDown className="icon-3" />} number={`${missPercentageRounded ? missPercentageRounded : 0}%`} text="Thumbs Down" />
                         </div>
                         <div className="icon-second-row">
-                            <IconContainer icon={<Happy className="icon-3" />} number="299" text="Impressed" />
-                            <IconContainer icon={<Edit className="icon-3" />} number="299" text="Would Sign" />
+                            <IconContainer icon={<Happy className="icon-3" />} number={cardData.stats.impressed || 0} text="Impressed" />
+                            <IconContainer icon={<Edit className="icon-3" />} number={cardData.stats.signed || 0} text="Would Sign" />
                         </div>
                         {hasKey && <div className="key-component">
                             <Key className="key-icon" />
                             <span className="key-number">x 1</span>
                             <span>Keys Earned</span>
                         </div>}
-                        {hasFeedback && <div className="feedback-container">
-                            <span>Feedbacks</span>
-                            <div className="activity-card">
-                                <div className="avatar-container" />
-                                <p className="card-text" >Update to view</p>
-                                <span className="time-text">1hr ago</span>
-                            </div>
-                        </div>}
+                        {cardData.stats.trackfeedbacks &&
+                            <div className="feedback-container">
+                                <span>Feedbacks</span>
+                                {cardData.stats.trackfeedbacks.map((data) => {
+                                    return (
+                                        <div className="activity-card">
+                                            <img src={data.users && (data.users[0].profile_image || AltImg)} alt="noImg" className="avatar-container"/>
+                                            <p className="card-text" >{data.trackFeedback}</p>
+                                            <span className="time-text">{timeDiffCalc(moment(data.submittedOn), new Date())}</span>
+                                        </div>
+                                    )
+                                })}
+                            </div>}
                     </div>
                 </div>
             }

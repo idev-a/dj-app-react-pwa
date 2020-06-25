@@ -17,7 +17,7 @@ const ResultComponent = ({ tracksHistory }) => {
             <span className="promo-campaign-txt">{content.PROMO_CAMPAIGN}</span>
             <div className="cards-main-container">
                 {tracksHistory.trackStats && tracksHistory.trackStats.map((data) => (
-                    <PromoCard hasKey={true} cardData={data}/>
+                    <PromoCard cardData={data}/>
                 ))}
                 {/* <PromoCard hasKey={true} />
                 <PromoCard hasFeedback={true} /> */}
