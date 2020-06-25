@@ -108,7 +108,7 @@ const PromoCard = ({ hasKey, hasFeedback, cardData }) => {
                                 {cardData.stats.trackfeedbacks.map((data) => {
                                     return (
                                         <div className="activity-card">
-                                            <img src={data.users && (data.users[0].profile_image || AltImg)} alt="noImg" className="avatar-container"/>
+                                            <img src={data.users && (data.users[0]?.profile_image || AltImg)} alt="noImg" className="avatar-container"/>
                                             <p className="card-text" >{data.trackFeedback}</p>
                                             <span className="time-text">{timeDiffCalc(moment(data.submittedOn), new Date())}</span>
                                         </div>
