@@ -9,7 +9,7 @@
     display: flex;
     color: $main-1;
 }
-.container-2 {
+.leaderboard1-sub-container {
     text-align: -webkit-center;
     margin: 25px;
     width: 100%;
@@ -33,6 +33,7 @@
     }
 }
 .listeners-data {
+    margin-top: 25px;
     .listeners-data-header {
         display: flex; 
         justify-content: space-between;

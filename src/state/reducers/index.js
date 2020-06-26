@@ -7,6 +7,7 @@ import searchReducer from "./searchReducer";
 import profileReducer from "./profileReducer";
 import rateProFeedbackReducer from "./rateProFeedbackReducer";
 import homeReducer from "./homeReducer";
+import listemersReducer from "./listenersReducer";
 
 export default combineReducers({
   userDetails: userReducer,
@@ -17,4 +18,5 @@ export default combineReducers({
   profile: profileReducer,
   proFeedback: rateProFeedbackReducer,
   home: homeReducer,
+  listeners: listemersReducer,
 });

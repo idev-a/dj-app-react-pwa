@@ -10,7 +10,7 @@ import { ReactComponent as Social } from '../../../assets/icon/social.svg';
 import { ReactComponent as ThumbsDown } from '../../../assets/icon/ThumbsDown.svg';
 import { ReactComponent as Edit } from '../../../assets/icon/Edit.svg';
 import { ReactComponent as Key } from '../../../assets/icon/access.svg';
-import AltImg from '../../../assets/img/settings/Ellipse 24.png';
+import AltImg from '../../../assets/img/upload photo.png';
 import moment from 'moment';
 
 export const IconContainer = ({ icon, number, text }) => (
