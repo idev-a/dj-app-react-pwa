@@ -107,7 +107,7 @@ const UploadComponent = ({
             {selectedContainer === 1 && <section>
                 <div className="submit-music-heading-container">
                     <span className="submit-music-queue-txt">{content.SUBMIT_MUSIC_QUEUE}</span>
-                    <Help />
+                    {/* <Help /> */}
                 </div>
                 <div className="imput-container">
                     <small className="title-text">{content.TITLE}</small>
