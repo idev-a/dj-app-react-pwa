@@ -63,7 +63,7 @@ const HomeComponent = ({ details, activities }) => {
                     </div>
                     <FireIcon />
                     <div className="header-icon-text-container" >
-                        <p className="coin-number">Lv.3</p><p className="coin-text">{content.RATER}</p>
+                        <p className="coin-number">Lv.0</p><p className="coin-text">{content.RATER}</p>
                     </div>
                 </div>
             </div>

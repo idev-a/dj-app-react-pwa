@@ -10,6 +10,8 @@ import { ReactComponent as FireIcon } from '../../assets/icon/FireIcon.svg';
 import Button from './../../common/Button';
 import { TextField, FormControl, InputLabel, OutlinedInput, InputAdornment, IconButton } from '@material-ui/core';
 import { Visibility, VisibilityOff } from '@material-ui/icons';
+import PrivacyPolicy from './PrivacyPolicy';
+import TermServices from './TermsServices';
 
 const ProfileSettingsComponent = ({ logOutClick, userObject, password, repeatPassword, onInputChange, handleProfileUpdate, cancelSubscription, details }) => {
     const { subscriptionEndDate, balance } = details;
@@ -69,17 +71,18 @@ const ProfileSettingsComponent = ({ logOutClick, userObject, password, repeatPas
                     </div>
                     <FireIcon />
                     <div className="header-icon-text-container" >
-                        <p className="coin-number">Lv.3</p><p className="coin-text">rator</p>
+                        <p className="coin-number">Lv.0</p><p className="coin-text">rator</p>
                     </div>
                 </div>
             </div>
             <div className="version-main-container">
                 <span className="version-header">{content.VERSION_HISTORY}</span>
-                <span>V 1.2.3 - Bug Fixes</span>
-                <div className="version-sub-cotent">
-                    <div className="dot" />
-                    <span>V 1.2.3 - Bug fixes</span>
-                </div>
+                <span>Version 0.1 - Includes:</span>
+                <div className="version-sub-cotent"><div className="dot" /><span>Login</span></div>
+                <div className="version-sub-cotent"> <div className="dot" /><span>Password Reset</span></div>
+                <div className="version-sub-cotent"><div className="dot" /><span>Uploading Tracks</span></div>
+                <div className="version-sub-cotent"><div className="dot" /><span>Rating Tracks</span></div>
+                <div className="version-sub-cotent"><div className="dot" /><span>Profile Editing</span></div>
             </div>
             <div className="accordian-container">
                 <div className="header-main-container">
@@ -181,7 +184,7 @@ const ProfileSettingsComponent = ({ logOutClick, userObject, password, repeatPas
                         {showTerms ? <OpenArrow /> : <CloseArrow />}
                     </div>
                     {showTerms && <div className="accordian-content-container" >
-                        <p>{content.DUMMY_TXT}</p>
+                        <TermServices />
                     </div>}
                 </div>
                 <div className="header-main-container">
@@ -190,7 +193,7 @@ const ProfileSettingsComponent = ({ logOutClick, userObject, password, repeatPas
                         {showPrivacy ? <OpenArrow /> : <CloseArrow />}
                     </div>
                     {showPrivacy && <div className="accordian-content-container">
-                        <p>{content.DUMMY_TXT}</p>
+                        <PrivacyPolicy />
                     </div>}
                 </div>
             </div>
@@ -206,10 +209,12 @@ const ProfileSettingsComponent = ({ logOutClick, userObject, password, repeatPas
                 onClick={logOutClick}
                 buttonText={content.LOGOUT}
             />
-            <Button
-                className="contact-us-button"
-                buttonText={content.CONTACT_US}
-            />
+            <a href="mailto:hearbkapp@gmail.com?subject=App inquiry" >
+                <Button
+                    className="contact-us-button"
+                    buttonText={content.CONTACT_US}
+                />
+            </a>
         </div>
     )
 };

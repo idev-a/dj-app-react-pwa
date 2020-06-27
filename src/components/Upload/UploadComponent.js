@@ -35,6 +35,7 @@ const UploadComponent = ({
     handlePaymentFormError,
     isSaveCardDetails,
     onSubmitFeedback,
+    userDetails,
 }) => {
     const fileUploadEl = useRef(null);
 
@@ -78,11 +79,11 @@ const UploadComponent = ({
                 <div className="header-icon-container">
                     <MoneyBag />
                     <div className="header-icon-text-container">
-                        <p className="coin-number">1.2</p><p className="coin-text">{content.COIN}</p>
+                        <p className="coin-number">{userDetails.balance}</p><p className="coin-text">{content.COIN}</p>
                     </div>
                     <FireIcon />
                     <div className="header-icon-text-container" >
-                        <p className="coin-number">Lv.3</p><p className="coin-text">{content.RATER}</p>
+                        <p className="coin-number">Lv.0</p><p className="coin-text">{content.RATER}</p>
                     </div>
                 </div>
             </div>
@@ -106,7 +107,7 @@ const UploadComponent = ({
             {selectedContainer === 1 && <section>
                 <div className="submit-music-heading-container">
                     <span className="submit-music-queue-txt">{content.SUBMIT_MUSIC_QUEUE}</span>
-                    <Help />
+                    {/* <Help /> */}
                 </div>
                 <div className="imput-container">
                     <small className="title-text">{content.TITLE}</small>

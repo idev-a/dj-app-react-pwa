@@ -76,7 +76,7 @@
         align-items: center;
         color: #7B7B7B;
         font-size: $font-size-small;
-        padding: 10px;
+        padding-top: 5px;
         .dot {
             height: 10px;
             width: 10px;
@@ -204,4 +204,52 @@
     border-radius: 5px;
     color: #ffffff;
     margin-top: 15px;
+}
+.c11 {
+    padding-top: 15pt;
+    padding-bottom: 8pt;
+    line-height: 1.1;
+    orphans: 2;
+    widows: 2;
+    text-align: left;
+}
+.c8 {
+    font-size: $font-size-small;
+    font-weight: 700;
+}
+.c0 {
+    font-weight: 400;
+    text-decoration: none;
+    vertical-align: baseline;
+    font-size: $font-size-small;
+    font-family: "AvenirNextLTPro";
+    font-style: normal;
+}
+
+.c1 {
+    padding-top: 0pt;
+    padding-bottom: 0pt;
+    line-height: 1.15;
+    orphans: 2;
+    widows: 2;
+    text-align: left;
+}
+.c2 {
+    padding-top: 0pt;
+    padding-bottom: 8pt;
+    line-height: 1.15;
+    orphans: 2;
+    widows: 2;
+    text-align: left;
+}
+.c4 {
+    text-decoration: none;
+    vertical-align: baseline;
+    font-family: "AvenirNextLTPro";
+    font-style: normal;
+}
+
+.c3 {
+    font-size: $font-size-small;
+    font-weight: 700;
 }

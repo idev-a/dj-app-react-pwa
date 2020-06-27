@@ -11,6 +11,7 @@ import {
 } from "../../state/actions/orderActions";
 import {
     getPaymentMethods,
+    getUserDetails,
 } from "../../state/actions/userActions";
 import { toast } from "react-toastify";
 import { ENUMS } from "../../utils";
@@ -27,6 +28,8 @@ const UploadContainer = ({
     tracks,
     paymentMethods,
     isSaveCardDetails,
+    getUserDetailsDispatchAction,
+    userDetails,
 }) => {
     const [promoCode, setPromoCode] = useState("");
     const [selectedPaymentId, setSelectedPaymentId] = useState(undefined);
@@ -42,10 +45,11 @@ const UploadContainer = ({
 
     useEffect(() => {
         window.scrollTo(0, 0);
+        getUserDetailsDispatchAction();
         dispatchGetGenres();
         getStylesDispatchAction();
         getPaymentMethodsDispatchAction();
-    }, [dispatchGetGenres, getPaymentMethodsDispatchAction, getStylesDispatchAction]);
+    }, [dispatchGetGenres, getPaymentMethodsDispatchAction, getStylesDispatchAction, getUserDetailsDispatchAction]);
 
     const setAddGenre = useCallback(
         (genre, index) => {
@@ -263,11 +267,13 @@ const UploadContainer = ({
             handlePaymentFormError={handlePaymentFormError}
             isSaveCardDetails={isSaveCardDetails}
             onSubmitFeedback={handleOrderNowClick}
+            userDetails={userDetails}
         />
     )
 }
 
 const dispatchAction = (dispatch) => ({
+    getUserDetailsDispatchAction: () => dispatch(getUserDetails()),
     dispatchUpdate: (payload) => dispatch(updateOrderData(payload)),
     dispatchGetGenres: () => dispatch(getGenres()),
     getStylesDispatchAction: () => dispatch(getStyles()),

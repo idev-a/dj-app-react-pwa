@@ -1,6 +1,6 @@
 export default {
     UPLOAD: "UPLOAD",
-    COIN: "coin",
+    COIN: "coins",
     RATER: "rater",
     SUBMIT_MUSIC_QUEUE: "Submit Music to the Queue",
     TITLE: "Title",
