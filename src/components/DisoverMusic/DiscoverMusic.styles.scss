@@ -18,7 +18,7 @@
     display: flex;
     justify-content: flex-end;
     padding-top: 10px;
-    font-family: 'AvenirNextLTPro';
+    font-family: $font-family-2;
 }
 .discover-logo-container {
     text-align: -webkit-center;
@@ -31,7 +31,7 @@
         background-size: cover
     }
     .discover-breaker-text {
-        font-family: 'AvenirNextLTPro';
+        font-family: $font-family-2;
         font-size: $font-size-normal;
         letter-spacing: 6px;
     }
@@ -83,13 +83,13 @@
     margin: 20px;
     margin-top: 55px;
     .discover-music-text {
-        font-family: 'AvenirBold';
+        font-family: $font-family-3;
         color: $color-20;
         font-size: $font-size-l;
     }
 }
 .discover-music-content-text {
-    font-family: 'AvenirNextLTPro';
+    font-family: $font-family-2;
     padding: 0px 25px;
     font-size: $font-size-small;
 }
@@ -109,7 +109,7 @@
         width: 7px;
         margin: 5px;
         border-radius: 50%;
-        background: #7B7B7B
+        background: $color-22;
     }
     .progress-dot-red {
         background: $color-20;

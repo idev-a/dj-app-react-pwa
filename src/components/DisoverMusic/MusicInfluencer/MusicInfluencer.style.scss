@@ -42,7 +42,7 @@
     align-items: flex-end;
     .influencer-level-rating-text {
         margin: 0;
-        font-family: 'AvenirNextLTPro';
+        font-family: $font-family-2;
         font-size: 12px;
     }
     .influencer-level-rating-tag {
@@ -70,13 +70,13 @@
     margin: 20px;
     margin-top: 55px;
     .discover-music-text {
-        font-family: 'AvenirBold';
+        font-family: $font-family-3;
         color: $color-20;
         font-size: $font-size-l;
     }
 }
 .discover-music-content-text {
-    font-family: 'AvenirNextLTPro';
+    font-family: $font-family-2;
     padding: 0px 25px;
     font-size: $font-size-small;
 }
