@@ -15,6 +15,11 @@ import { toast } from 'react-toastify';
 const UpgradeToProContainer = ({ dispatchUpdate, accountName, isSaveCardDetails, getPaymentMethodsDispatchAction, paymentMethods, getUserDetailsDispatchAction, userDetails }) => {
     const [shouldCreateToken, setShouldCreateToken] = useState(false);
     const [selectedPaymentId, setSelectedPaymentId] = useState(undefined);
+    const [selectedPlan, setSelectedPlan] = useState(1);
+
+    const handleOnSelectPlan = useCallback((value) => {
+        setSelectedPlan(value);
+    }, []);
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -56,6 +61,7 @@ const UpgradeToProContainer = ({ dispatchUpdate, accountName, isSaveCardDetails,
                 saveCardDetails: isSaveCardDetails,
                 paymentToken: cardInfo.id,
                 isAddPremium: true,
+                selectedPlan: selectedPlan === 1 ? "year" : "month",
                 ...(cardInfo &&
                     cardInfo.paymentFromSavedCard && { paymentFromSaveCard: true }),
             };
@@ -70,6 +76,7 @@ const UpgradeToProContainer = ({ dispatchUpdate, accountName, isSaveCardDetails,
         [
             isSaveCardDetails,
             accountName,
+            selectedPlan,
         ]
     );
 
@@ -118,6 +125,8 @@ const UpgradeToProContainer = ({ dispatchUpdate, accountName, isSaveCardDetails,
             handleSavedCardSelect={handleSelectPayment}
             handleOnClickBack={handleOnClickBack}
             userDetails={userDetails}
+            handleOnSelectPlan={handleOnSelectPlan}
+            selectedPlan={selectedPlan}
         />
     )
 }

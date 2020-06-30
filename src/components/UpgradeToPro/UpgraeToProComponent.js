@@ -1,5 +1,6 @@
 import React from 'react';
 import './UpgradePro.style.scss';
+import cx from "classnames";
 import content from './content';
 import { ReactComponent as MoneyBag } from '../../assets/icon/MoneyBag.svg';
 import { ReactComponent as FireIcon } from '../../assets/icon/FireIcon.svg';
@@ -22,6 +23,8 @@ const UpgradeToProComponent = ({
     handleSavedCardSelect,
     handleOnClickBack,
     userDetails,
+    handleOnSelectPlan,
+    selectedPlan,
 }) => {
 
     return (
@@ -43,8 +46,65 @@ const UpgradeToProComponent = ({
                 </div>
             </div>
             <div className="upgrade-premium-text-container">
-                <span className="upgrade-premium-text-header">{content.UPGRADE_TO_PREMIUM}</span>
+                <section className="upgrade-premium-text-inner-container">
+                    <span className="upgrade-premium-text-header">{content.BECAME}</span>
+                    <span className="upgrade-premium-text-header-red">{content.BREAKER}</span>
+                    <span className="upgrade-premium-text-header">{content.PRO}</span>
+                </section><br />
                 <p className="upgrade-premium-text">{content.PREMIUM_TEXT}</p>
+            </div>
+            <div className="upgrade-premium-table-container">
+                <div className="premium-table-content">
+                    <span className="premium-table-text-1">{content.SUBMIT_MUSIC}</span><br />
+                    <span className="premium-table-text-2">{content.WITH_KEY}</span><br /><br />
+                    <small className="premium-table-text-3">{content.BASIC_MEMBER}</small>
+                </div>
+                <div className="premium-table-content">
+                    <span className="premium-table-text-1">{content.ACCESS_ADVANCE}</span><br /><br />
+                    <small className="premium-table-text-3">{content.BASIC_MEMBER_COMMENT}</small>
+                </div>
+                <div className="premium-table-content">
+                    <span className="premium-table-text-1">{content.GET_NOTIFIED}</span><br /><br />
+                    <small className="premium-table-text-3">{content.BASIC_MEMBER_COMMENT}</small>
+                </div>
+                <div className="premium-table-content">
+                    <span className="premium-table-text-1">{content.GET_PRO_BADGE}</span><br /><br />
+                </div>
+                <div className="premium-table-content">
+                    <span className="premium-table-text-1">{content.RECEIVE_PRIORITY}</span><br /><br />
+                </div>
+                <div className="premium-table-content-2">
+                    <span className="premium-table-text-1">{content.LEVEL_UP}</span><br /><br />
+                </div>
+            </div>
+            <div className="membership-main-container">
+                <span className="rating-header-text">{content.MEMBERSHIP}</span>
+                <div className="subscription-swith-main-container">
+                    <div className="subscription-swith-container">
+                        <div
+                            className={cx(
+                                "subscription-button-inactive",
+                                selectedPlan === 1 && "subscription-button-active"
+                            )}
+                            onClick={() => handleOnSelectPlan(1)}
+                        >
+                            <small className="subscription-button-text">{content.YEARLY}</small>
+                        </div>
+                        <div
+                            className={cx(
+                                "subscription-button-inactive",
+                                selectedPlan === 2 && "subscription-button-active"
+                            )}
+                            onClick={() => handleOnSelectPlan(2)}
+                        >
+                            <small className="subscription-button-text">{content.MONTHLY}</small>
+                        </div>
+                    </div>
+                </div>
+                <div className="rating-container-1">
+                    {selectedPlan === 1 && <><span className="rating-amount-text">$100/</span><small className="listner-text">{content.YEAR}</small></>}
+                    {selectedPlan === 2 && <><span className="rating-amount-text">$15/</span><small className="listner-text">{content.MONTH}</small></>}
+                </div>
             </div>
             <StripeProvider apiKey={STRIPE_KEY}>
                 <Elements>
@@ -75,7 +135,7 @@ const UpgradeToProComponent = ({
             </StripeProvider>
             <Button
                 className="upgrade-button"
-                buttonText={content.UPGRADE_LABEL}
+                buttonText={selectedPlan === 1 ? content.YEARLY_LABEL : content.MONTHLY_LABEL}
                 onClick={onSubmitFeedback}
             ></Button>
             <small className="footer-text">{content.FOOTER_TEXT}</small>
