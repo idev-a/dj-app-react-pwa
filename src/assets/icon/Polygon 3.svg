@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 238 203" width="100" height="100">
+	<defs>
+		<clipPath clipPathUnits="userSpaceOnUse" id="cp1">
+			<path d="M-139 -552L611 -552L611 782L-139 782Z" />
+		</clipPath>
+	</defs>
+	<style>
+		tspan { white-space:pre }
+		.polyBack-shp0 { fill: #0e222b } 
+	</style>
+	<g id="Gain BREAKER Fame" clip-path="url(#cp1)">
+		<g id="Group 142">
+			<g id="Group 141">
+				<path id="Polygon 3" class="polyBack-shp0" d="M119.07 0.34L237.47 202.77L0.67 202.77L119.07 0.34Z" />
+			</g>
+		</g>
+	</g>
+</svg>

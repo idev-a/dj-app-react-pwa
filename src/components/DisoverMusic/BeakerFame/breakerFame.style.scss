@@ -1,0 +1,64 @@
+@import "../../../scss/common.styles.scss";
+@import "../../../scss/variables.scss";
+
+.breaker-fame-main-container {
+    min-height: 380px;
+    text-align: -webkit-center;
+}
+.breaker-fame-inner-container {
+    position: relative;
+    height: fit-content;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    .breaker-fame-eclipse {
+        height: 185px;
+        width: 185px;
+        border: 3px solid #e5bb3b;
+        border-radius: 50%;
+        margin-top: 25px;
+    }
+    .breaker-fame-triangles-main-container {
+        width: 200px;
+        height: 200px;
+        position: absolute;
+        top: 0px;
+    }
+    .breaker-fame-moneybag-icon {
+        position: absolute;
+        top: 105px;
+        right: 82px;
+        width: 35px;
+        height: 35px;
+    }
+    .breaker-fame-polygon-container {
+        width: fit-content;
+        position: relative;
+        height: 87px;
+        .polygon-gradient {
+            position: absolute;
+        }
+        .polygon-text {
+            position: absolute;
+            bottom: 5px;
+            left: 23px;
+        }
+    }
+    .polygon-container-row-2 {
+        display: flex;
+    }
+}
+.discover-music-text-container {
+    margin: 20px;
+    margin-top: 55px;
+    .discover-music-text {
+        font-family: 'AvenirBold';
+        color: $color-20;
+        font-size: $font-size-l;
+    }
+}
+.discover-music-content-text {
+    font-family: 'AvenirNextLTPro';
+    padding: 0px 25px;
+    font-size: $font-size-small;
+}
