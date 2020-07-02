@@ -1,5 +1,5 @@
 import React, { useCallback, useState, useEffect } from 'react';
-import UpgradeToProComponent from './../../components/UpgradeToPro/UpgraeToProComponent';
+import UpgradeToProComponent from '../../components/UpgradeToPro/UpgradeToProComponent';
 import { connect } from "react-redux";
 import {
     updateOrderData,

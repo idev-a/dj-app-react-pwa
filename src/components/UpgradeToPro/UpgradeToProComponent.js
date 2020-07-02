@@ -7,7 +7,7 @@ import { ReactComponent as FireIcon } from '../../assets/icon/FireIcon.svg';
 import { ReactComponent as BackArrow } from '../../assets/icon/arrow.svg';
 import { StripeProvider, Elements } from "react-stripe-elements";
 import { STRIPE_KEY } from "../../config";
-import Button from './../../common/Button';
+import Button from '../../common/Button';
 import CardForm from './CardForm';
 import Cards from './Cards';
 const UpgradeToProComponent = ({
