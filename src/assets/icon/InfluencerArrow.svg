@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 43 45" width="43" height="45">
+	<defs>
+		<clipPath clipPathUnits="userSpaceOnUse" id="cp1">
+			<path d="M-439 -419L311 -419L311 915L-439 915Z" />
+		</clipPath>
+	</defs>
+	<style>
+		tspan { white-space:pre }
+		.influencer-arrow-shp0 { fill: #cb1f3e } 
+	</style>
+	<g id="Become a Music Influencer " clip-path="url(#cp1)">
+		<path id="Path 2506" class="influencer-arrow-shp0" d="M39.79 1.05C36.71 2.02 33.88 1.94 30.72 1.47C28.35 1.12 27.34 4.23 29.67 5.1C31.52 5.8 33.49 6.03 35.45 5.95C29.85 11.23 24.74 17.21 19.45 22.73C13.16 29.29 6.69 35.67 0.42 42.25C-0.62 43.35 0.89 44.9 2.04 43.94C9.2 37.99 15.97 31.55 22.64 25.06C27 20.81 31.55 16.48 35.69 11.86C35.62 13.02 35.68 14.16 35.9 15.29C36.15 16.58 38.09 16.54 38.43 15.33C39.51 11.4 40.03 7.72 42.01 4.06C42.79 2.61 41.57 0.5 39.79 1.05Z" />
+	</g>
+</svg>

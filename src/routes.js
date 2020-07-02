@@ -41,6 +41,7 @@ import UpgradeToPro from './containers/UpgradeToPro/UpgradeToProContainer';
 import LeaderboardHomeContainer from './containers/LeaderoardHome/LeaderoardHomeContainner';
 import UploadContainer from './containers/Upload/UploadContainer';
 import PlayContainer from './containers/Play/PlayContainer';
+import DiscoverMusic from './containers/DiscoverMusic/DiscoverMusic';
 
 export const MenuHandlerContext = React.createContext();
 
@@ -55,10 +56,11 @@ export default props => {
     <Router history={history}>
       {showMenu && (
         <MenuComponent handleClickMenuToggle={handleToggleMenuClick} />
-      )}
+        )}
       <MenuHandlerContext.Provider value={handleToggleMenuClick}>
         <Switch>
-          <Route path="/" component={SplashScreenContainer} exact />
+          <Route path="/" component={DiscoverMusic} exact />
+          <Route path="/splash" component={SplashScreenContainer} exact />
           <Route path="/loginScreen" component={LoginScreenContainer} exact />
           <Route path="/signupScreen" component={SignUpScreenContainer} exact />
           <Route path="/emailSignup" component={EmailSignupContainer} exact />

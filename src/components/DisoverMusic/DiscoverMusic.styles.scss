@@ -1,0 +1,117 @@
+@import "../../scss/common.styles.scss";
+@import "../../scss/variables.scss";
+
+.discover-music-container {
+    min-height: 100vh;
+    width: 100%;
+    max-width: 600px;
+    background: $color-24;
+    text-align: center;
+    color: $main-1;
+    padding-bottom: 35px;
+}
+.discover-music-container-section-1 {
+    padding: 25px;
+}
+.discover-skip-text {
+    color: $color-20;
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 10px;
+    font-family: $font-family-2;
+}
+.discover-logo-container {
+    text-align: -webkit-center;
+    padding-top: 15px;
+    .discover-logo-content {
+        height: 40px;
+        width: 40px;
+        margin: 5px;
+        background: transparent url('../../assets/icon/app-icon.png') 0% 0% no-repeat padding-box;
+        background-size: cover
+    }
+    .discover-breaker-text {
+        font-family: $font-family-2;
+        font-size: $font-size-normal;
+        letter-spacing: 6px;
+    }
+}
+
+.discover-music-image-container {
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    align-items: center;
+    height: 220px;
+    margin-top: 25px;
+    .discover-image-container {
+        height: inherit;
+        position: relative;
+        display: flex;
+        align-items: center;
+    }
+    .discover-image-title {
+        position: absolute;
+        bottom: 10px;
+        left: 16px;
+        text-align: left;
+        .dicover-creator-name {
+            font-size: $font-size-xs;
+        }
+    }
+    .discover-image-title-2 {
+        zoom: 0.7;
+        left: 31px;
+        bottom: 25%;
+        position: absolute;
+        text-align: left;
+        .dicover-creator-name {
+            font-size: $font-size-xs;
+        }
+    }
+    .discover-sideImages {
+        height: 70%;
+        object-fit: cover;
+        padding: 20px 10px;
+    }
+    .discover-centerImages {
+        height: inherit;
+        object-fit: cover;
+    }
+}
+.discover-music-text-container {
+    margin: 20px;
+    margin-top: 55px;
+    .discover-music-text {
+        font-family: $font-family-3;
+        color: $color-20;
+        font-size: $font-size-l;
+    }
+}
+.discover-music-content-text {
+    font-family: $font-family-2;
+    padding: 0px 25px;
+    font-size: $font-size-small;
+}
+.discover-music-footer-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 25px;
+    align-items: center;
+    .discover-back-icon {
+        height: 20px;
+    }
+}
+.progress-dots-container {
+    display: flex;
+    .progress-dots {
+        height: 7px;
+        width: 7px;
+        margin: 5px;
+        border-radius: 50%;
+        background: $color-22;
+    }
+    .progress-dot-red {
+        background: $color-20;
+    }
+}

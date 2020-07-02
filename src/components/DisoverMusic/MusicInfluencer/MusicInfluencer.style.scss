@@ -1,0 +1,82 @@
+@import "../../../scss/common.styles.scss";
+@import "../../../scss/variables.scss";
+
+.music-influencer-main-container {
+    min-height: 380px;
+    text-align: -webkit-center;
+}
+.music-influencer-level-main {
+    position: relative;
+    min-height: 250px;
+    width: 320px;
+}
+.music-influencer-rating-container-1 {
+    width: fit-content;
+    position: absolute;
+    right: 10px;
+    min-height: 70px;
+}
+.music-influencer-rating-container-2 {
+    position: absolute;
+    width: fit-content;
+    right: 75px;
+    top: 60px;
+    min-height: 70px;
+}
+.music-influencer-rating-container-3 {
+    position: absolute;
+    width: fit-content;
+    right: 140px;
+    top: 120px;
+    min-height: 70px;
+}
+.music-influencer-rating-container-4 {
+    position: absolute;
+    width: fit-content;
+    top: 180px;
+    right: 205px;
+    min-height: 70px;
+}
+.music-influencer-container-1 {
+    display: flex;
+    align-items: flex-end;
+    .influencer-level-rating-text {
+        margin: 0;
+        font-family: $font-family-2;
+        font-size: 12px;
+    }
+    .influencer-level-rating-tag {
+        margin: 0;
+        font-size: 8px;
+    }
+}
+.influencer-level-rating-desc {
+    font-size: 8px;
+    width: 100px;
+    margin: 5px 0px;
+}
+.music-influencer-fire-icon {
+    width: 35px;
+    height: 40px;
+}
+.influencer-arrow {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    left: -25px;
+    bottom: 10px;
+}
+.discover-music-text-container {
+    margin: 20px;
+    margin-top: 55px;
+    .discover-music-text {
+        font-family: $font-family-3;
+        color: $color-20;
+        font-size: $font-size-l;
+    }
+}
+.discover-music-content-text {
+    font-family: $font-family-2;
+    padding: 0px 25px;
+    font-size: $font-size-small;
+}
