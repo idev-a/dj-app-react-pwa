@@ -23,11 +23,11 @@ const LoginScreen = ({loginBack, handleSignIn, handlephoneSignIn}) => {
             <div className="logInBox">
                 <p className="logInHeading">{content.SIGN_IN_LABEL}</p>
                 <div className="buttonBox">
-                    <button className="facebookButton"><FacebookIcon/>{content.USE_FACEBOOK}</button>
-                    <br/>
+                    {/* <button className="facebookButton"><FacebookIcon/>{content.USE_FACEBOOK}</button>
+                    <br/> */}
                     <button className="emailButton" onClick={handleSignInScreen}><EmailIcon/>{content.USE_EMAIL}</button>
-                    <br/>
-                    <button className="phoneButton" onClick = {handlePhoneScreen}><PhoneIcon/>{content.USE_PHONE}</button>
+                    {/* <br/>
+                    <button className="phoneButton" onClick = {handlePhoneScreen}><PhoneIcon/>{content.USE_PHONE}</button> */}
                 </div>
             </div>
         </div>

@@ -20,7 +20,7 @@ const VerifyPhone = ({verifybackClick, verifycloseClick }) => {
                 <p className="verifyheading">Sign Up</p>
                 <CloseIcon className="verifyheadericon" onClick={verifySignupClose}/>
             </div>
-            <hr className="verifyunderline"/>
+            {/* <hr className="verifyunderline"/> */}
             <div className="verifyBox">
                 <p className="verifyBoxHeading">Verify</p>
                 <p className="verifyfootertext">"Enter the text code we have sent<br/> to +14048601543 below"</p>

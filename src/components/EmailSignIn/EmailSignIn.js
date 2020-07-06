@@ -33,7 +33,7 @@ const EmailSignIn = ({emailSigninBack, emailSigninClose, emailSignupPage, emailr
                     <p className="signinHeading">{content.LOGIN_LABEL}</p>
                     <CloseIcon className="signinHeaderIcon" onClick={emailSigninClose}/>
                 </div>
-                <hr className="signinUnderline"/>
+                {/* <hr className="signinUnderline"/> */}
             </div>
             <div className="signinEmailBox">
                 <p className="signinEmailBoxHeading">{content.HELLO}<br/>{content.WELCOME_BACK}</p>
