@@ -3,14 +3,14 @@
 		<clipPath clipPathUnits="userSpaceOnUse" id="cp1">
 			<path d="M-474 -83L276 -83L276 1860L-474 1860Z" />
 		</clipPath>
-		<linearGradient id="grd1" gradientUnits="userSpaceOnUse"  x1="0" y1="28.4" x2="45.782" y2="28.4">
+		<linearGradient id="moneyGrad1" gradientUnits="userSpaceOnUse"  x1="0" y1="28.4" x2="45.782" y2="28.4">
 			<stop offset="0" stop-color="#fc4f35"  />
 			<stop offset="1" stop-color="#c8013b"  />
 		</linearGradient>
 	</defs>
 	<style>
 		tspan { white-space:pre }
-		.moneyShp0 { fill: url(#grd1) } 
+		.moneyShp0 { fill: url(#moneyGrad1) } 
 		.moneyShp1 { fill: #ffffff } 
 		.moneyShp2 { fill: #fdcc36 } 
 	</style>

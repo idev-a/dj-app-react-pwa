@@ -2,7 +2,7 @@ import React, { useState, useCallback } from 'react';
 import './play.style.scss';
 import content from './content';
 import cx from 'classnames';
-import { ReactComponent as Dollar } from '../../assets/icon/Multiplier.svg';
+import { ReactComponent as Multiplier2 } from '../../assets/icon/Multiplier2.svg';
 import { ReactComponent as MoneyBag } from '../../assets/icon/MoneyBag.svg';
 import { ReactComponent as FireIcon } from '../../assets/icon/FireIcon.svg';
 import { ReactComponent as Help } from '../../assets/icon/help.svg';
@@ -150,7 +150,7 @@ const PlayComponent = ({
                         </div>
                         <div className="image-footer-icon-container">
                             <Like className="image-footer-icons" onClick={() => handleClickLIkeDislike(true)} />
-                            <Dollar className="image-footer-icons-2" />
+                            <Multiplier2 className="image-footer-icons-2" />
                             <div className="multiplier-container">
                                 <p className="coin-number">{content.x3}</p><p className="coin-text">{content.MULTIPLIER}</p>
                             </div>
