@@ -3,37 +3,37 @@
   "name": "HEARBK - We are the Influencers",
   "icons": [
     {
-      "src": "favicon.png",
+      "src": "favicon1.png",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
     },
     {
-      "src": "icon_57.png",
+      "src": "favicon1.png",
       "type": "image/png",
       "sizes": "57x57"
     },
     {
-      "src": "icon_50.png",
+      "src": "favicon1.png",
       "type": "image/png",
       "sizes": "50"
     },
     {
-      "src": "icon_114.png",
+      "src": "favicon1.png",
       "type": "image/png",
       "sizes": "114x114"
     },
     {
-      "src": "icon_120.png",
+      "src": "favicon1.png",
       "type": "image/png",
       "sizes": "120x120"
     },
     {
-      "src": "icon_167.png",
+      "src": "favicon1.png",
       "type": "image/png",
       "sizes": "167x167"
     },
     {
-      "src": "icon_180.png",
+      "src": "favicon1.png",
       "type": "image/png",
       "sizes": "180x180"
     }
