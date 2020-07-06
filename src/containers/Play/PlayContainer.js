@@ -52,6 +52,8 @@ const PlayContainer = ({ getUserDetailsDispatchAction, getTracksDispatchAction, 
             showPointsEarnedContainer={showPointsEarnedContainer}
             handleOnClosePointEarnedContainer={handleOnClosePointEarnedContainer}
             userDetails={userDetails}
+            tracks={tracks}
+            componentIndex={componentIndex}
         />
     )
 }

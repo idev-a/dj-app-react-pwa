@@ -8,8 +8,11 @@
     background: $color-24;
     text-align: center;
     color: $main-1;
-    padding: 25px;
+    padding: 25px 0px;
     padding-bottom: 35px;
+}
+.play-sub-container {
+    padding: 0px 25px;
 }
 
 .result-header-container {
@@ -78,12 +81,13 @@
         position: relative;
         min-height: 200px;
         display: flex;
+        width: 100%;
         justify-content: center;
         .song-name-container {
             width: fit-content;
             position: absolute;
             bottom: 20px;
-            left: 50px;
+            left: 30px;
             text-align: left;
             .song-name-text{
                 font-size: 12px;
@@ -99,7 +103,7 @@
         width: 80%;
     }
     .cover-image-container {
-        width: 80%;
+        width: 95%;
         height: 200px;
         border-radius: 5px;
         background: $color-27;
@@ -148,4 +152,22 @@
             font-weight: 100;
         }
     }
+}
+.discover-music-image-container {
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    align-items: center;
+    height: 220px;
+    margin-top: 25px;
+    .discover-image-container {
+        height: inherit;
+        position: relative;
+        display: flex;    
+        min-width: 70%;
+        align-items: center;
+    }
+}
+.discover-side-images {
+    zoom: 0.7;
 }

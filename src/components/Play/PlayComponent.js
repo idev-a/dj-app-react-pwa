@@ -1,6 +1,7 @@
 import React, { useState, useCallback } from 'react';
 import './play.style.scss';
 import content from './content';
+import cx from 'classnames';
 import { ReactComponent as Multiplier2 } from '../../assets/icon/Multiplier2.svg';
 import { ReactComponent as MoneyBag } from '../../assets/icon/MoneyBag.svg';
 import { ReactComponent as FireIcon } from '../../assets/icon/FireIcon.svg';
@@ -27,6 +28,8 @@ const PlayComponent = ({
     handleOnClosePointEarnedContainer,
     updatedCoin,
     userDetails,
+    tracks,
+    componentIndex,
 }) => {
     const [showScoreContainer, showSetScoreContainer] = useState(false);
     const [showImpressedContainer, showSetImpressedContainer] = useState(false);
@@ -85,40 +88,64 @@ const PlayComponent = ({
 
     return (
         <div className="play-main-container">
-            <div className="result-header-container">
-                <div className="app-name-container">
-                    <span className="app-display-name">{content.BREAKER}</span><br />
-                    <small className="app-footer-text">{content.HEADER_TAG_TEXT}</small>
-                </div>
-                <div className="header-icon-container">
-                    <MoneyBag className="header-icon" />
-                    <div className="header-icon-text-container">
-                        <p className="coin-number">{userDetails?.balance}</p><p className="coin-text">{content.COIN}</p>
+            <div className="play-sub-container">
+                <div className="result-header-container">
+                    <div className="app-name-container">
+                        <span className="app-display-name">{content.BREAKER}</span><br />
+                        <small className="app-footer-text">{content.HEADER_TAG_TEXT}</small>
                     </div>
-                    <FireIcon className="header-icon" />
-                    <div className="header-icon-text-container" >
-                        <p className="coin-number">Lv.0</p><p className="coin-text">{content.RATER}</p>
+                    <div className="header-icon-container">
+                        <MoneyBag className="header-icon" />
+                        <div className="header-icon-text-container">
+                            <p className="coin-number">{userDetails ?.balance}</p><p className="coin-text">{content.COIN}</p>
+                        </div>
+                        <FireIcon className="header-icon" />
+                        <div className="header-icon-text-container" >
+                            <p className="coin-number">Lv.0</p><p className="coin-text">{content.RATER}</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div className="play-screen-container-2">
-                <div className="play-screen-inner-container-2">
-                    <span className="listen-text">{content.LISTEN}</span><br />
-                    <small className="disover-artist-text">{content.DISCOVER_ARTIST}</small>
+                <div className="play-screen-container-2">
+                    <div className="play-screen-inner-container-2">
+                        <span className="listen-text">{content.LISTEN}</span><br />
+                        <small className="disover-artist-text">{content.DISCOVER_ARTIST}</small>
+                    </div>
+                    <Help />
                 </div>
-                <Help />
             </div>
             {!isEmpty(track) &&
                 <section>
                     <div className="play-image-container">
-                        <div className="image-container">
-                            {/* <img src={IMG} alt="no img" className="center-img" /> */}
-                            <div className="cover-image-container">
-                                <MusiMultimedia className="multimedia-icon" />
+                        <div className="discover-music-image-container">
+                            <div className={cx("discover-image-container", "discover-side-images")}>
+                                <div className="image-container">
+                                    <div className="cover-image-container">
+                                        <MusiMultimedia className="multimedia-icon" />
+                                    </div>
+                                </div>
                             </div>
-                            <div className="song-name-container">
-                                <span className="song-name-text">{track.trackTitle}</span><br />
-                                <small className="creator-name-text">{track.display_name}</small>
+                            <div className="discover-image-container">
+                                <div className="image-container">
+                                     {/* <img src={IMG} alt="no img" className="center-img" /> */}
+                                      <div className="cover-image-container">
+                                        <MusiMultimedia className="multimedia-icon" />
+                                    </div>
+                                    <div className="song-name-container">
+                                        <span className="song-name-text">{track.trackTitle}</span><br />
+                                        <small className="creator-name-text">{track.display_name}</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className={cx("discover-image-container", "discover-side-images")}>
+                                {tracks[componentIndex+1] && <div className="image-container">
+                                    <div className="cover-image-container">
+                                        <MusiMultimedia className="multimedia-icon" />
+                                    </div>
+                                    <div className="song-name-container">
+                                        <span className="song-name-text">{tracks[componentIndex+1]?.trackTitle}</span><br />
+                                        <small className="creator-name-text">{tracks[componentIndex+1]?.display_name}</small>
+                                    </div>
+                                </div>}
                             </div>
                         </div>
                         <div className="image-footer-icon-container">
