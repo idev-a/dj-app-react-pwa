@@ -46,7 +46,7 @@ const PhoneSignup = ({phonebackClick, phonecloseClick, onNextClick}) => {
                 <p className="phoneheading">Sign Up</p>
                 <CloseIcon className="phoneheadericon" onClick={phoneSignupClose}/>
             </div>
-            <hr className="phoneunderline"/>
+            {/* <hr className="phoneunderline"/> */}
             <div className="phoneBox">
                 <p className="phoneBoxHeading">Enter Your <br/> Phone Number</p>
                 <form className="phoneform-container" autoComplete="off">

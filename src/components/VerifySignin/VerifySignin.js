@@ -20,7 +20,7 @@ const VerifySignin = ({verifysigninbackClick, verifysignincloseClick }) => {
                 <p className="verifysigninheading">Sign In</p>
                 <CloseIcon className="verifysigninheadericon" onClick={verifySigninClose}/>
             </div>
-            <hr className="verifysigninunderline"/>
+            {/* <hr className="verifysigninunderline"/> */}
             <div className="verifysigninBox">
                 <p className="verifysigninBoxHeading">Verify</p>
                 <p className="verifysigninfootertext">"Enter the text code we have sent<br/> to +14048601543 below"</p>

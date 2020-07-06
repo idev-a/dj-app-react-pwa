@@ -36,7 +36,7 @@ const NewPassword = ({ resetSignInBack, resetSignInClose, onInputChange, passwor
                 <p className="new-pass-heading">{content.REST_PASSWORD}</p>
                 <CloseIcon className="new-pass-header-icon" onClick={resetSignInClose} />
             </div>
-            <hr className="new-pass-underline" />
+            {/* <hr className="new-pass-underline" /> */}
             <div className="new-pass-emailBox">
                 <p className="new-pass-emailBoxHeading">{content.CHANGE_YOUR} <br /> {content.PASSWORD}</p>
                 <div className="new-pass-form-container" >

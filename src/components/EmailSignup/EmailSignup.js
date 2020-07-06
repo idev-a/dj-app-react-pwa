@@ -43,7 +43,7 @@ const EmailSignup = ({
                 <p className="heading">{content.SIGN_UP}</p>
                 <CloseIcon className="header-icon" onClick={emailClose} />
             </div>
-            <hr className="underline" />
+            {/* <hr className="underline" /> */}
             <div className="emailBox">
                 <p className="emailBoxHeading">{content.HELLO_CREATE} <br />{content.YOUR_ACCOUNT}</p>
                 <div className="form-container" autoComplete="off">

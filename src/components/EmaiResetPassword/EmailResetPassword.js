@@ -12,7 +12,7 @@ const EmailResetPassword = ({ setNewPassword, emailLoginBack, resetBack, resetCl
                 <p className="resetheading">Reset Password</p>
                 <CloseIcon className="resetHeaderIcon" onClick={resetClose} />
             </div>
-            <hr className="resetUnderline" />
+            {/* <hr className="resetUnderline" /> */}
             <div className="resetEmailBox">
                 <p className="resetEmailBoxHeading">Forgot Your <br /> Password?</p>
                 <p className="resetDescription">"Don't worry! Resetting your password <br /> is easy. Just type in the email you<br /> registered here."</p>

@@ -46,7 +46,7 @@ const PhoneSignin = ({phonesigninbackClick, phonesignincloseClick, onNextsigninC
                 <p className="phonesigninheading">Sign In</p>
                 <CloseIcon className="phonesigninheadericon" onClick={phoneSigninClose}/>
             </div>
-            <hr className="phonesigninunderline"/>
+            {/* <hr className="phonesigninunderline"/> */}
             <div className="phonesigninBox">
                 <p className="phonesigninBoxHeading">Enter Your <br/> Phone Number</p>
                 <form className="phonesigninform-container" autoComplete="off">
