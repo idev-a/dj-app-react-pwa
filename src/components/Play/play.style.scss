@@ -153,14 +153,14 @@
         }
     }
 }
-.discover-music-image-container {
+.play-music-image-container {
     display: flex;
     justify-content: center;
     overflow: hidden;
     align-items: center;
     height: 220px;
     margin-top: 25px;
-    .discover-image-container {
+    .play-image-container {
         height: inherit;
         position: relative;
         display: flex;    
@@ -168,6 +168,6 @@
         align-items: center;
     }
 }
-.discover-side-images {
+.play-side-images {
     zoom: 0.7;
 }

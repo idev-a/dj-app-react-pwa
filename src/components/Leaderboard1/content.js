@@ -10,7 +10,7 @@ export default {
     COINS_VALUE: 32,
     COINS_TEXT: "coins",
     RATING_VALUE: 3,
-    RATING_TEXT: "Rater",
+    RATING_TEXT: "A&R Intern",
     TOP_LISTENERS: "Top Listeners",
     TRACKS: "Tracks",
     LISTENERS_DATA: [

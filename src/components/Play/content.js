@@ -1,7 +1,7 @@
 export default {
     BREAKER: "BREAKER",
     COIN: "coins",
-    RATER: "rater",
+    RATER: "A&R Intern",
     LISTEN: "Listen",
     DISCOVER_ARTIST: "Discover artists to help break",
     HEADER_TAG_TEXT: "The journey starts here",

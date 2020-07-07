@@ -116,15 +116,15 @@ const PlayComponent = ({
             {!isEmpty(track) &&
                 <section>
                     <div className="play-image-container">
-                        <div className="discover-music-image-container">
-                            <div className={cx("discover-image-container", "discover-side-images")}>
+                        <div className="play-music-image-container">
+                            <div className={cx("play-image-container", "play-side-images")}>
                                 <div className="image-container">
                                     <div className="cover-image-container">
                                         <MusiMultimedia className="multimedia-icon" />
                                     </div>
                                 </div>
                             </div>
-                            <div className="discover-image-container">
+                            <div className="play-image-container">
                                 <div className="image-container">
                                      {/* <img src={IMG} alt="no img" className="center-img" /> */}
                                       <div className="cover-image-container">
@@ -136,7 +136,7 @@ const PlayComponent = ({
                                     </div>
                                 </div>
                             </div>
-                            <div className={cx("discover-image-container", "discover-side-images")}>
+                            <div className={cx("play-image-container", "play-side-images")}>
                                 {tracks[componentIndex+1] && <div className="image-container">
                                     <div className="cover-image-container">
                                         <MusiMultimedia className="multimedia-icon" />
