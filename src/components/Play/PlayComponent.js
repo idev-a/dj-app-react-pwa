@@ -150,9 +150,9 @@ const PlayComponent = ({
                         </div>
                         <div className="image-footer-icon-container">
                             <Like className="image-footer-icons" onClick={() => handleClickLIkeDislike(true)} />
-                            <Multiplier2 className="image-footer-icons-2" />
+                            {/* <Multiplier2 className="image-footer-icons-2" /> */}
                             <div className="multiplier-container">
-                                <p className="coin-number">{content.x3}</p><p className="coin-text">{content.MULTIPLIER}</p>
+                                {/* <p className="coin-number">{content.x3}</p><p className="coin-text">{content.MULTIPLIER}</p> */}
                             </div>
                             <Dislike className="image-footer-icons" onClick={() => handleClickLIkeDislike(false)} />
                         </div>
