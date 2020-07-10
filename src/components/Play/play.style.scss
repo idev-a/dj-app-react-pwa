@@ -117,19 +117,20 @@
     .image-footer-icon-container {
         display: flex;
         justify-content: center;
+        align-items: center;
     }
     .image-footer-icons {
         fill:  $main-1;
         width: 30px;
         height: 30px;
-        padding: 10px 30px;
+        padding: 10px;
         .thumbs-down-shp0 {
             fill:  $main-1;
         }
     }
     .image-footer-icons-2 {
-        width: 40px;
-        height: 40px;
+        width: 35px;
+        height: 35px;
         padding: 5px;
         padding-right: 5px;
         padding-left: 10px;
