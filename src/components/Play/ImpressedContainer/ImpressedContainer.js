@@ -1,6 +1,6 @@
 import React from 'react';
 import './ImpressedContainer.scss';
-import { ReactComponent as Dollar } from '../../../assets/icon/Multiplier.svg';
+import { ReactComponent as Dollar } from '../../../assets/icon/MoneyBag.svg';
 import { ReactComponent as Happy } from '../../../assets/icon/happy-face.svg';
 import Button from '../../../common/Button/index';
 
@@ -14,7 +14,7 @@ const ScoreRating = ({ handleSubmitImpressed }) => {
             <div className="image-footer-icon-container-2">
                 <Dollar className="image-footer-icons-2" />
                 <div className="multiplier-container">
-                    <p className="coin-number">{content.x3}</p><p className="coin-text">{content.MULTIPLIER}</p>
+                    <p className="coin-number">10</p><p className="coin-text">{content.COIN}</p>
                 </div>
             </div>
             <h3>{content.IMPRESSED_TEXT}</h3>

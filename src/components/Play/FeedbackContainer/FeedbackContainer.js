@@ -1,7 +1,8 @@
 import React, { useState, useCallback } from 'react';
 import content from '../content';
 import './feedback.style.scss';
-import { ReactComponent as Dollar } from '../../../assets/icon/Multiplier.svg';
+import { ReactComponent as Dollar } from '../../../assets/icon/MoneyBag.svg';
+import { ReactComponent as Multiplier2 } from '../../../assets/icon/Multiplier2.svg';
 import { ReactComponent as Like } from '../../../assets/icon/Like.svg';
 import { ReactComponent as Dislike } from '../../../assets/icon/ThumbsDown.svg';
 import { ReactComponent as StarFilled } from '../../../assets/icon/star-filled.svg';
@@ -22,7 +23,13 @@ const FeedbackContainer = ({ feedback, handleSubmitFeedback }) => {
             <div className="image-footer-icon-container-2">
                 <Dollar className="image-footer-icons-2" />
                 <div className="multiplier-container">
-                    <p className="coin-number">{content.x3}</p><p className="coin-text">{content.MULTIPLIER}</p>
+                    <p className="coin-number">10</p><p className="coin-text">{content.COIN}</p>
+                </div>
+            </div>
+            <div className="image-footer-icon-container-3">
+                <Multiplier2 className="image-footer-icons-2" />
+                <div className="multiplier-container">
+                    <p className="coin-number">{content.x2}</p><p className="coin-text">{content.MULTIPLIER}</p>
                 </div>
             </div>
             <div className="feedback-data-container">
