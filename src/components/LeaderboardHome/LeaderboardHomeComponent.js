@@ -62,7 +62,7 @@ const LeaderboardHomeComponent = ({ details, handleOnClickTopListners }) => {
             <div className="leaderbord-card-container">
                 <div className="leaderbord-card" onClick={handleOnClickTopListners}>
                     <Music className="leaderbord-icon" />
-                    <span className="leaderboard-card-text">{content.TOP_LISTNERS}</span>
+                    <span className="leaderboard-card-text">{content.TOP_LISTENERS}</span>
                 </div>
                 <div className="leaderbord-card">
                     <Multimedia className="leaderbord-icon" />

@@ -6,5 +6,5 @@ export default {
     HOME: "HOME",
     HOME_OVERLAY_TEXT: "Home shows recent activity on BREAKER. From who just joined, to who's getting promoted & more it's all here live for you!",
     COIN: "coins",
-    RATER: "rater",
+    RATER: "A&R Intern",
 }

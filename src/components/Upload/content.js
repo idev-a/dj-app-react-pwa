@@ -1,7 +1,7 @@
 export default {
     UPLOAD: "UPLOAD",
     COIN: "coins",
-    RATER: "rater",
+    RATER: "A&R Intern",
     SUBMIT_MUSIC_QUEUE: "Submit Music to the Queue",
     TITLE: "Title",
     UPLOAD_FILE: "Upload File",
@@ -15,7 +15,7 @@ export default {
     PROMO_CODE: "Promo Code",
     RATING_HEADER: "Select # of Ratings",
     PLAN_A: "Plan A",
-    LISTNERS: "Listners",
+    LISTENERS: "Listeners",
     PLAN_B: "Plan B",
     CARD_INFORMATION: "Card Information",
     NAME: "Name",

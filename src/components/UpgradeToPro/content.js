@@ -1,7 +1,7 @@
 export default {
     UPLOAD: "UPLOAD",
     COIN: "coins",
-    RATER: "rater",
+    RATER: "A&R Intern",
     UPGRADE_TO_PREMIUM: "Upgrade To Premium",
     PREMIUM_TEXT: "Pro memberships include instant access to upgraded benefits and historical analytics.  Cancel anytime.",
     PAYMENT_OPTIONS: "Payment Options",

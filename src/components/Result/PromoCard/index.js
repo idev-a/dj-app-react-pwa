@@ -89,7 +89,7 @@ const PromoCard = ({ hasKey, hasFeedback, cardData }) => {
                     </div>
                     <div className="card-icons-container">
                         <div className="icon-first-row">
-                            <IconContainer icon={<Social className="icon-3" />} number={cardData.listenersCount} text="Listners" />
+                            <IconContainer icon={<Social className="icon-3" />} number={cardData.listenersCount} text="Listeners" />
                             <IconContainer icon={<Like className="icon-3" />} number={`${hitPercentageRounded ? hitPercentageRounded : 0}%`} text="Thumbs Up" />
                             <IconContainer icon={<ThumbsDown className="icon-3" />} number={`${missPercentageRounded ? missPercentageRounded : 0}%`} text="Thumbs Down" />
                         </div>

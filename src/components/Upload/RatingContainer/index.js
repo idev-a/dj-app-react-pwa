@@ -20,7 +20,7 @@ const RatingContainer = ({
                         onClick={() => handleSelectedFeedback(1)}
                     >
                         <small className="plan-text">{content.PLAN_A}</small>
-                        <div><span><b>10</b></span> <small className="listner-text">{content.LISTNERS}</small></div>
+                        <div><span><b>10</b></span> <small className="listner-text">{content.LISTENERS}</small></div>
                         <span className="rating-amount-text">$1</span>
                     </div>
                     <div
@@ -31,7 +31,7 @@ const RatingContainer = ({
                         onClick={() => handleSelectedFeedback(5)}
                     >
                         <small className="plan-text">{content.PLAN_B}</small>
-                        <div><span><b>100</b></span> <small className="listner-text">{content.LISTNERS}</small></div>
+                        <div><span><b>100</b></span> <small className="listner-text">{content.LISTENERS}</small></div>
                         <span className="rating-amount-text">$5</span>
                     </div>
                 </div>
