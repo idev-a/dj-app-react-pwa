@@ -1,0 +1,165 @@
+@import "../../scss/common.styles.scss";
+@import "../../scss/variables.scss";
+
+.profile-main-container {
+    min-height: 100vh;
+    width: 100%;
+    max-width: 600px;
+    background: $color-24;
+    text-align: center;
+    color: $main-1;
+    padding: 25px;
+    padding-bottom: 35px;
+}
+
+.profile-header-container {
+    width: 100%;
+    color: $color-25;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: fit-content;
+    margin-top: 30px;
+    .user-name-container {
+        text-align: left;
+        text-transform: uppercase;
+        .user-display-name {
+            font-size: $font-size-xl;
+            text-align: left;
+            font-family: $font-family-3;
+            font-weight: bold;
+        }
+        .back-arrow {
+            width: 18px;
+            height: 15px;
+            padding: 10px;
+            padding-left: 0px;
+        }
+    }
+    .header-icon-container {
+        color:  $main-1;
+        display: flex;
+        .header-icon-text-container{
+            margin-right: 15px;
+            .coin-number {
+                margin: 0px;
+                margin-bottom: -9px;
+                margin-top: 8px;
+                font-size: 12px;
+            }
+            .coin-text {
+                height: fit-content;
+                font-size: 8px;
+                width: fit-content;
+                font-weight: 100;
+        }
+        }
+    }
+}
+
+.profile-upload-image-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    .profile-upload-image-sub-container{
+        position: relative;
+        width: 100px;
+        .profile-upload-image {
+            width: 100px;
+            height: 100px;
+        }
+        .profilePicIcon {
+            height: 100px;
+            width: 100px;
+            min-width: 100px;
+            min-height: 100px;
+            border-radius: 50%;
+            border: 3px solid $color-21;
+        }
+        .edit-icon-container {
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            display: flex;
+            align-items: center;
+            background: $color-20;
+            border-radius: 50%;
+            justify-content: center;
+            bottom: 5px;
+            right: 5px;
+            .edit-icon {
+                width: 15px;
+                height: 15px;
+            }
+        }
+    }
+    .profile-share-icon {
+        width: 15px;
+        height: 15px;
+        position: absolute;
+        right: 25px;
+    }
+}
+.profile-star-container {
+    margin-top: 10px;
+    .profile-star-filled {
+        height: 12px;
+        width: 12px;
+        margin: 2px;
+    }
+    .profile-star-count {
+        font-size: 12px;
+        color: #FFC107;
+        margin-left: 5px;
+    }
+}
+.profile-settings-username-container {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    justify-content: space-between;
+    .user-display-name {
+        font-size: 24px;
+    }
+    .profile-settings-icon {
+        width: 15px;
+        height: 15px;
+    }
+}
+.profile-review-rate-container {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    justify-content: space-between;
+    .profile-review-rate {
+        font-family: $font-family-2;
+        color: #FFC107;
+    }
+    .add-to-list-button {
+        border: 1px solid $color-20;
+        background: none;
+        color: $main-1;
+        border-radius: 5px;
+        font-size: 8px;
+        min-height: 30px;
+    }
+}
+.MuiTabs-root {
+    margin-top: 20px;
+}
+.MuiTab-wrapper {
+    color: $main-1;
+    opacity: 0.5;
+    text-transform: none;
+    font-size: 14px;
+    font-family: $font-family-2;
+}
+.MuiTab-textColorPrimary.Mui-selected {
+    color: $color-20 !important;
+    .MuiTab-wrapper {
+        opacity: 1;
+    }
+}
+.PrivateTabIndicator-colorPrimary-26 {
+    background-color: $color-20 !important;
+}

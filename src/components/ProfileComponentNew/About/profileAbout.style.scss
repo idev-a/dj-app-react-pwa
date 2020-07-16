@@ -1,0 +1,88 @@
+@import "../../../scss/variables.scss";
+
+.profile-about-main-container {
+    padding-top: 25px;
+    .profile-about-location-container {
+        display: flex;
+        align-items: center;
+        .location-icon {
+            height: 15px;
+        }
+        .location-text {
+            font-size: $font-size-xs;
+            font-family: $font-family-2;
+            padding-left: 5px;
+        }
+    }
+    .profile-bio-container {
+        text-align: left;
+        margin-top: 20px;
+        .profile-bio-content{
+            font-size: $font-size-small;
+            font-family: $font-family-2;
+            color: $color-22;            
+        }
+        .profile-roles-tags-container {
+            padding: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            .profile-roles-tags {
+                width: fit-content;
+                margin: 5px;
+                padding: 5px 15px;
+                font-family: $font-family-2;
+                border-radius: 50px;
+                font-size: $font-size-small;
+                background: transparent linear-gradient(259deg, #C7003B 0%, #FF5335 100%) 0% 0% no-repeat padding-box;
+            }
+        }
+    }
+    .profile-experience-container {
+        text-align: left;
+        margin-top: 20px;
+        .experience-line-container {
+            display: flex;
+            .experience-growth-container {
+                min-height: 70px;
+                min-width: 40px;
+                position: relative;
+                padding: 10px;
+                .hrTag {
+                    transform: rotate(270deg);
+                    position: absolute;
+                    top: 40px;
+                    right: 20px;
+                    width: 40px;
+                }
+                .hr-tag-circle {
+                    height: 20px;
+                    width: 20px;
+                    border-radius: 50%;
+                    position: absolute;
+                    background-color: $color-20;
+                    box-shadow: 0px 0px 20px 3px $color-20
+                }
+            }
+            .profile-experience-detail-container {
+                padding-top: 10px;
+                .profile-eperience-txt {
+                    font-family: $font-family-2;
+                    font-size: $font-size-small;
+                    line-height: 20px;
+                }
+                .profile-experience-app-name {
+                    font-size: $font-size-small;
+                    font-family: $font-family-2;
+                    color: $color-20;
+                    line-height: 20px;
+                }
+                .profile-experience-date-text {
+                    font-size: 8px;
+                    font-family: $font-family-2;
+                    color: $color-22;
+                }
+            }
+        }
+    }
+    
+}

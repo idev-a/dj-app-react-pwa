@@ -42,6 +42,7 @@ import LeaderboardHomeContainer from './containers/LeaderoardHome/LeaderoardHome
 import UploadContainer from './containers/Upload/UploadContainer';
 import PlayContainer from './containers/Play/PlayContainer';
 import DiscoverMusic from './containers/DiscoverMusic/DiscoverMusic';
+import ProfileContainerNew from './containers/ProfileContainerNew/ProfileContainerNew';
 
 export const MenuHandlerContext = React.createContext();
 
@@ -137,6 +138,11 @@ export default props => {
           <Route
             path="/settings"
             component={withValidToken(SettingsContainer)}
+            exact
+          />
+          <Route
+            path="/profile/:username"
+            component={withValidToken(ProfileContainerNew)}
             exact
           />
           <Route
