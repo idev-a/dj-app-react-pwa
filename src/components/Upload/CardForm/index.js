@@ -28,6 +28,12 @@ const CardForm = ({
       }
     }, [shouldCreateToken, accountName, stripe, submitPayment]);
 
+    const style = {
+        base: {
+            color: '#ffffff',
+        }
+    }
+
     return (
         <div className="card-information-container">
             <span className="card-information-header-txt">{content.CARD_INFORMATION}</span>
@@ -43,17 +49,20 @@ const CardForm = ({
                 className="inputField"
                 placeholder={content.CARD_NUMBER}
                 onReady={handlePaymentFormError}
+                style={style} 
             />
             <div className="month-year-cvc-container">
                 <CardCVCElement
                     className="card-cvc"
                     placeholder={content.CARD_CVC}
                     onReady={handlePaymentFormError}
+                    style={style} 
                 />
                 <CardExpiryElement
                     className="card-month-year"
                     placeholder={content.CARD_MONTH}
                     onReady={handlePaymentFormError}
+                    style={style} 
                 />
             </div>
             <FormControlLabel
