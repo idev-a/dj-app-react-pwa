@@ -15,6 +15,9 @@ import CardForm from './CardForm';
 import Cards from './../UpgradeToPro/Cards/index';
 import { ENUMS } from "../../utils";
 import ResultContainer from "../../containers/Result/ResultContainer";
+import DialogBox from './../../common/DialogBox/DialogBox';
+import OrderProcessing from './../PopUps/OrderProcessing/index';
+import SucessUnsuccessContainer from './SucessUnsuccessContainer/inde';
 
 const UploadComponent = ({
     index = 0,
@@ -36,6 +39,11 @@ const UploadComponent = ({
     isSaveCardDetails,
     onSubmitFeedback,
     userDetails,
+    isProcessing,
+    isSuccess,
+    onCloseSucess,
+    isUnSuccess,
+    onCloseUnSucess,
 }) => {
     const fileUploadEl = useRef(null);
 
@@ -200,6 +208,31 @@ const UploadComponent = ({
             </section>}
             {selectedContainer === 2 &&
                 <ResultContainer />
+            }
+            {isProcessing &&
+                <DialogBox
+                    bodyComponent={<OrderProcessing />}
+                    hideClose
+                />
+            }
+            {
+                isSuccess &&
+                <DialogBox
+                    bodyComponent={<SucessUnsuccessContainer
+                        sucess
+                        onCloseSucess={onCloseSucess}
+                    />}
+                    hideClose
+                />
+            }
+            {
+                isUnSuccess &&
+                <DialogBox
+                    bodyComponent={<SucessUnsuccessContainer
+                        onCloseSucess={onCloseUnSucess}
+                    />}
+                    hideClose
+                />
             }
         </div>
     )

@@ -16,6 +16,8 @@ const UpgradeToProContainer = ({ dispatchUpdate, accountName, isSaveCardDetails,
     const [shouldCreateToken, setShouldCreateToken] = useState(false);
     const [selectedPaymentId, setSelectedPaymentId] = useState(undefined);
     const [selectedPlan, setSelectedPlan] = useState(1);
+    const [isProcessing, setIsProcessing] = useState(false);
+    const [isSuccess, setIsSuccess] = useState(false);
 
     const handleOnSelectPlan = useCallback((value) => {
         setSelectedPlan(value);
@@ -57,6 +59,7 @@ const UpgradeToProContainer = ({ dispatchUpdate, accountName, isSaveCardDetails,
                 toast.error("Enter valid card details");
                 return;
             }
+            setIsProcessing(true);
             const payload = {
                 saveCardDetails: isSaveCardDetails,
                 paymentToken: cardInfo.id,
@@ -68,8 +71,11 @@ const UpgradeToProContainer = ({ dispatchUpdate, accountName, isSaveCardDetails,
 
             const response = await renewSubscription(payload, true);
             if (response.ok) {
+                setIsProcessing(false);
+                setIsSuccess(true);
                 toast.success("Payment sucess")
             } else {
+                setIsProcessing(false);
                 toast.error("Payment failed. Please check your card details or promo code")
             }
         },
@@ -127,6 +133,9 @@ const UpgradeToProContainer = ({ dispatchUpdate, accountName, isSaveCardDetails,
             userDetails={userDetails}
             handleOnSelectPlan={handleOnSelectPlan}
             selectedPlan={selectedPlan}
+            isProcessing={isProcessing}
+            isSuccess={isSuccess}
+            onCloseSucess={()=> setIsSuccess(false)}
         />
     )
 }

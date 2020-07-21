@@ -15,6 +15,7 @@ import {
 } from "../../state/actions/userActions";
 import { toast } from "react-toastify";
 import { ENUMS } from "../../utils";
+import history from "../../history";
 
 const UploadContainer = ({
     accountName,
@@ -35,6 +36,9 @@ const UploadContainer = ({
     const [selectedPaymentId, setSelectedPaymentId] = useState(undefined);
     const [shouldCreateToken, setShouldCreateToken] = useState(false);
     const [isError, setIsError] = useState(true);
+    const [isProcessing, setIsProcessing] = useState(false);
+    const [isSuccess, setIsSuccess] = useState(false);
+    const [isUnSuccess, setIsUnSuccess] = useState(false);
 
     const getTotalAmount = useCallback(() => {
         const amount = tracks.reduce((total, track) => {
@@ -53,22 +57,14 @@ const UploadContainer = ({
 
     const setAddGenre = useCallback(
         (genre, index) => {
-            if(genre){
-                dispatchTrackUpdate({ genreId: genre._id }, index);
-            } else {
-                dispatchTrackUpdate({ genreId: undefined } , index);
-            }
+            dispatchTrackUpdate({ genreId: genre ?._id }, index);
         },
         [dispatchTrackUpdate]
     );
 
     const setAddStyle = useCallback(
         (styles, index) => {
-            if(styles){
-                dispatchTrackUpdate({ stylesId: styles._id }, index);
-            } else {
-                dispatchTrackUpdate({ stylesId: undefined } , index);
-            }
+            dispatchTrackUpdate({ stylesId: styles ?._id }, index);
         },
         [dispatchTrackUpdate]
     );
@@ -156,8 +152,8 @@ const UploadContainer = ({
             }
             if (
                 promoCode.length === 0 &&
-                !cardInfo?.paymentFromSavedCard &&
-                !(cardInfo && cardInfo.id && accountName.length > 0)
+                    !cardInfo ?.paymentFromSavedCard &&
+                    !(cardInfo && cardInfo.id && accountName.length > 0)
             ) {
                 toast.error("Enter valid card details");
                 return;
@@ -173,6 +169,7 @@ const UploadContainer = ({
                 track.stylesId = [track.stylesId];
                 return track;
             });
+            setIsProcessing(true);
             const payload = {
                 tracks: tracksToUpload,
                 saveCardDetails: isSaveCardDetails,
@@ -201,9 +198,12 @@ const UploadContainer = ({
                         }
                     })
                 ).then(() => {
-                    toast.success("Payment sucessful");
+                    setIsProcessing(false);
+                    setIsSuccess(true);
                 });
             } else {
+                setIsProcessing(false);
+                setIsUnSuccess(true);
                 toast.error("Payment failed. Please check your card details or promo code")
             }
         },
@@ -248,6 +248,11 @@ const UploadContainer = ({
         }
     }, [onSubmitPayment, selectedPaymentId]);
 
+    const handeOnCloseSuccessPopup = () => {
+        setIsSuccess(false);
+        history.push("/play")
+    }
+
     return (
         <UploadComponent
             genres={genres}
@@ -268,6 +273,11 @@ const UploadContainer = ({
             isSaveCardDetails={isSaveCardDetails}
             onSubmitFeedback={handleOrderNowClick}
             userDetails={userDetails}
+            isProcessing={isProcessing}
+            isSuccess={isSuccess}
+            onCloseSucess={handeOnCloseSuccessPopup}
+            isUnSuccess={isUnSuccess}
+            onCloseUnSucess={() => setIsUnSuccess(false)}
         />
     )
 }

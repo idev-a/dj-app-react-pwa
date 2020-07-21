@@ -45,7 +45,7 @@ const LeaderboardHomeComponent = ({ details, handleOnClickTopListners }) => {
                     </div>
                 </div>
             </div>
-            <div className="search-container">
+            {/* <div className="search-container">
                 <SearchIcon />
                 <InputField
                     id="search"
@@ -54,7 +54,7 @@ const LeaderboardHomeComponent = ({ details, handleOnClickTopListners }) => {
                     placeholder={content.SEARCH_TEXT}
                     className="search-field"
                 />
-            </div>
+            </div> */}
             <div className="leaderbord-header">
                 <span className="leaderbord-updates">{content.LEADERBOARDS}</span>
                 <HelpIcon onClick={() => handleOnToggleHelp(true)} />
@@ -64,14 +64,14 @@ const LeaderboardHomeComponent = ({ details, handleOnClickTopListners }) => {
                     <Music className="leaderbord-icon" />
                     <span className="leaderboard-card-text">{content.TOP_LISTENERS}</span>
                 </div>
-                <div className="leaderbord-card">
+                {/* <div className="leaderbord-card">
                     <Multimedia className="leaderbord-icon" />
                     <span className="leaderboard-card-text">{content.TOP_ARTISTS}</span>
                 </div>
                 <div className="leaderbord-card">
                     <Music2 className="leaderbord-icon" />
                     <span className="leaderboard-card-text">{content.TRENDING_TRACKS}</span>
-                </div>
+                </div> */}
             </div>
             {showHelp &&
                 <DialogBox

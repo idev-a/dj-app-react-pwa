@@ -1,8 +1,6 @@
 @import "../../../scss/common.styles.scss";
 
-.popUpSmallContainer {
   .orderProcessingContainer {
-    padding: 200px 0 170px 0;    
     .refreshIcon {
       width: 57px;
       height: 64px;
@@ -19,11 +17,11 @@
     }
     .processingLabel {
       margin-top: 96px;
-      color: $main-3;
+      color: $main-1;
       font-size: $font-size-normal;
+      font-family: $font-family-2;
       font-weight: 700;
       letter-spacing: 1.4px;
       text-align: center;
-    }
     }
 }

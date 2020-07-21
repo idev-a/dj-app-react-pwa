@@ -67,7 +67,7 @@ const HomeComponent = ({ details, activities }) => {
                     </div>
                 </div>
             </div>
-            <div className="search-container">
+            {/* <div className="search-container">
                 <SearchIcon />
                 <InputField
                     id="search"
@@ -76,7 +76,7 @@ const HomeComponent = ({ details, activities }) => {
                     placeholder={content.SEARCH_TEXT}
                     className="search-field"
                 />
-            </div>
+            </div> */}
             <div className="activity-header">
                 <span className="activity-updates">{content.ACTIVITY_UPDATES}</span>
                 <HelpIcon onClick={() => handleOnToggleHelp(true)} />

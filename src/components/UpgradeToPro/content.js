@@ -30,4 +30,6 @@ export default {
     BECAME: "BEACAME A ",
     BREAKER: "BREAKER",
     PRO: "PRO",
+    UPGRADE_SUCESSFUL: "Upgrade Successful",
+    DONE: "Done",
 }

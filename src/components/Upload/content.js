@@ -24,4 +24,8 @@ export default {
     CARD_MONTH: "MM/YY",
     PAYMENT_OPTIONS: "Payment Options",
     ORDER_NOW: "Order Now",
+    PAYMENT_SUCESSFUL: "Payment Successful",
+    DONE: "Done",
+    RETRY: "Retry",
+    UNSUCESSFUL: "Payment Unsuccessful"
 }

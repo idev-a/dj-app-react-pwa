@@ -18,6 +18,8 @@ import SignContainer from "./SignContainer/SignContainer";
 import isEmpty from 'lodash/isEmpty';
 import FeedbackContainer from './FeedbackContainer/FeedbackContainer';
 import PointsEarnedContainer from './PointsEarnedContainer/PointsEarnedContainer';
+import Iframe from "../../common/Iframe";
+import { ENUMS } from "../../utils";
 
 const PlayComponent = ({
     track = {},
@@ -125,25 +127,44 @@ const PlayComponent = ({
                                 </div>
                             </div>
                             <div className="play-image-container">
-                                <div className="image-container">
-                                     {/* <img src={IMG} alt="no img" className="center-img" /> */}
-                                      <div className="cover-image-container">
-                                        <MusiMultimedia className="multimedia-icon" />
+                                {track.mediaType === ENUMS.MEDIA_TYPE_YOUTUBE ? (
+                                    <div className="image-container">
+                                        <Iframe
+                                            width=""
+                                            height=""
+                                            className="discoverIFrame"
+                                            src={track.trackUrl}
+                                            title="video-iframe"
+                                            frameBorder="0"
+                                            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                            allowFullScreen
+                                        ></Iframe>
+                                        <div className="song-name-container">
+                                            <span className="song-name-text">{track.trackTitle}</span><br />
+                                            <small className="creator-name-text">{track.display_name}</small>
+                                        </div>
                                     </div>
-                                    <div className="song-name-container">
-                                        <span className="song-name-text">{track.trackTitle}</span><br />
-                                        <small className="creator-name-text">{track.display_name}</small>
-                                    </div>
-                                </div>
+                                ) : (
+                                        <div className="image-container">
+                                            {/* <img src={IMG} alt="no img" className="center-img" /> */}
+                                            <div className="cover-image-container">
+                                                <MusiMultimedia className="multimedia-icon" />
+                                            </div>
+                                            <div className="song-name-container">
+                                                <span className="song-name-text">{track.trackTitle}</span><br />
+                                                <small className="creator-name-text">{track.display_name}</small>
+                                            </div>
+                                        </div>
+                                    )}
                             </div>
                             <div className={cx("play-image-container", "play-side-images")}>
-                                {tracks[componentIndex+1] && <div className="image-container">
+                                {tracks[componentIndex + 1] && <div className="image-container">
                                     <div className="cover-image-container">
                                         <MusiMultimedia className="multimedia-icon" />
                                     </div>
                                     <div className="song-name-container">
-                                        <span className="song-name-text">{tracks[componentIndex+1]?.trackTitle}</span><br />
-                                        <small className="creator-name-text">{tracks[componentIndex+1]?.display_name}</small>
+                                        <span className="song-name-text">{tracks[componentIndex + 1] ?.trackTitle}</span><br />
+                                        <small className="creator-name-text">{tracks[componentIndex + 1] ?.display_name}</small>
                                     </div>
                                 </div>}
                             </div>
@@ -157,7 +178,6 @@ const PlayComponent = ({
                             <Dislike className="image-footer-icons" onClick={() => handleClickLIkeDislike(false)} />
                         </div>
                     </div>
-                    {/* Below provided source is a demo link */}
                     <NewAudioPlayer src={track.trackUrl} />
                 </section>
             }

@@ -10,6 +10,10 @@ import { STRIPE_KEY } from "../../config";
 import Button from '../../common/Button';
 import CardForm from './CardForm';
 import Cards from './Cards';
+import DialogBox from './../../common/DialogBox/DialogBox';
+import OrderProcessing from './../PopUps/OrderProcessing/index';
+import UpgradeSucess from './UpgradeSuccess/index';
+
 const UpgradeToProComponent = ({
     onInputChange,
     accountName,
@@ -25,6 +29,9 @@ const UpgradeToProComponent = ({
     userDetails,
     handleOnSelectPlan,
     selectedPlan,
+    isProcessing,
+    onCloseSucess,
+    isSuccess,
 }) => {
 
     return (
@@ -139,6 +146,21 @@ const UpgradeToProComponent = ({
                 onClick={onSubmitFeedback}
             ></Button>
             <small className="footer-text">{content.FOOTER_TEXT}</small>
+            {isProcessing &&
+                <DialogBox
+                    bodyComponent={<OrderProcessing />}
+                    hideClose
+                />
+            }
+            {
+                isSuccess &&
+                <DialogBox
+                    bodyComponent={<UpgradeSucess
+                        onCloseSucess={onCloseSucess}
+                    />}
+                    hideClose
+                />
+            }
         </div>
     )
 }
