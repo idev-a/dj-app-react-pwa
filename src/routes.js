@@ -13,23 +13,17 @@ import PhoneSigninContainer from './containers/PhoneSignin/PhoneSigninContainer'
 import VerifySigninContainer from './containers/VerifySignin/VerifySigninContainer'
 import VerifyPhoneContainer from './containers/VerifyPhone/VerifyPhoneContainer'
 import NewPasswordContainer from './containers/NewPassword/NewPasswordContainer'
-import AuthContainer from "./containers/Auth/AuthContainer";
-import Discover from "./containers/Discover";
 import OrderFeedbackContainer from "./containers/OrderFeedback";
 import ProFeedbackContainer from "./containers/ProFeeback";
 import ListenerPreferencesContainer from "./containers/ListenerPreferences";
 import SettingsContainer from "./containers/Settings";
 import OrderFeedbackHistoryContainer from "./containers/OrderFeedbackHistory";
-import GiveProFeedbackContainer from "./containers/GiveProFeedback";
-import FooterNav from "./components/FooterNav";
 import Footer from "./components/Footer";
 import SearchContainer from "./containers/Search";
 import { getTokenDetails } from "./state/actions/userActions";
 import ProfileContainer from "./containers/Profile";
 import MenuComponent from "./components/Menu";
 import OrderFeedbackStartComponent from "./components/OrderFeedbackStart";
-import ForgotPasswordContainer from "./containers/ForgotPassword/ForgotPasswordContainer";
-import ResetPasswordContainer from "./containers/ResetPassword/ResetPasswordContainer";
 import Leaderboard1 from './containers/Leaderboard1/LeaderboardContainer';
 import Onboarding2 from './containers/OnBoarding2/OnboardingContainer';
 import Onboarding1 from "./containers/Onboarding1/OnboardingContainer";
@@ -72,18 +66,11 @@ export default props => {
           <Route path="/phoneSignin" component={PhoneSigninContainer} exact />
           <Route path="/verifySignup" component={VerifyPhoneContainer} exact />
           <Route path="/verifySignin" component={VerifySigninContainer} exact />
-          <Route path="/signin" component={AuthContainer} exact />
-          <Route
-            path="/forgot-password"
-            component={ForgotPasswordContainer}
-            exact
-          />
           <Route
             path="/reset"
             component={NewPasswordContainer}
             exact
           />
-          <Route path="/discover" component={withValidToken(Discover)} exact />
           <Route path="/onboarding" component={withValidToken(Onboarding1)} exact />
           <Route
             path="/feedback"
@@ -166,11 +153,6 @@ export default props => {
             exact
           />
           <Route
-            path="/give"
-            component={withValidToken(GiveProFeedbackContainer)}
-            exact
-          />
-          <Route
             path="/p/:username"
             component={ProfileContainer}
             exact
@@ -187,7 +169,6 @@ export default props => {
           />
         </Switch>
       </MenuHandlerContext.Provider>
-      {/* <FooterNav /> */}
       <Footer />
     </Router>
   );
