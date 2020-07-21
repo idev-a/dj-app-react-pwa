@@ -158,10 +158,6 @@ const UploadContainer = ({
                 toast.error("Enter valid card details");
                 return;
             }
-            if (promoCode.length > 0 && promoCode !== "DAY_ONES") {
-                toast.error("Enter valid promo code");
-                return;
-            }
             const tracksToUpload = tracks.map((track, index) => {
                 delete track.fileToUpload;
                 track.id = index;
