@@ -140,8 +140,20 @@
         background: none;
         color: $main-1;
         border-radius: 5px;
-        font-size: 8px;
         min-height: 30px;
+        .add-to-list-container {
+            display: flex;
+            align-items: center;
+        }
+        .focus-icon {
+            width: 15px;
+            height: 15px;
+            margin-right: 5px;
+        }
+        .addToList-text {
+            font-size: 10px;
+            font-family: $font-family-2;
+        }
     }
 }
 .MuiTabs-root {

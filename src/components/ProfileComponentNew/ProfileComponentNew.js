@@ -7,13 +7,15 @@ import { ReactComponent as UploadPhoto } from '../../assets/icon/upload photo.sv
 import { ReactComponent as Edit } from '../../assets/icon/edit-tools.svg';
 import { ReactComponent as Share } from '../../assets/icon/share.svg';
 import { ReactComponent as Settings } from '../../assets/icon/setting.svg';
+import { ReactComponent as Focus } from '../../assets/icon/focus.svg';
 import Ratings from "../../common/Ratings";
 import Button from './../../common/Button';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import About from './About';
+import Submit from './Submit';
 
-const ProfileComponentNew = ({ userDetails, handleOnClickSettings }) => {
+const ProfileComponentNew = ({ userDetails, user, handleOnClickSettings, handleShareProfileClick, tracksHistory, handleOnClickFollow }) => {
     const [tabValue, setTabValue] = useState(0);
     const handleChangeTabs = useCallback((event, newValue) => {
         setTabValue(newValue)
@@ -28,7 +30,7 @@ const ProfileComponentNew = ({ userDetails, handleOnClickSettings }) => {
                 <div className="header-icon-container">
                     <MoneyBag />
                     <div className="header-icon-text-container">
-                        <p className="coin-number">{userDetails ?.balance || "0"}</p><p className="coin-text">coin</p>
+                        <p className="coin-number">{user ?.balance || "0"}</p><p className="coin-text">coin</p>
                     </div>
                     <FireIcon />
                     <div className="header-icon-text-container" >
@@ -46,7 +48,7 @@ const ProfileComponentNew = ({ userDetails, handleOnClickSettings }) => {
                         <Edit className="edit-icon" />
                     </div>
                 </div>
-                <Share className="profile-share-icon" />
+                <Share className="profile-share-icon" onClick={handleShareProfileClick} />
             </div>
             <div className="profile-star-container">
                 <Ratings
@@ -63,7 +65,12 @@ const ProfileComponentNew = ({ userDetails, handleOnClickSettings }) => {
                 <span className="profile-review-rate">{`Review Rate: $${userDetails ?.price}`}</span>
                 <Button
                     className="add-to-list-button"
-                    buttonText={"Add to List"}
+                    buttonText={
+                        <div className="add-to-list-container">
+                            <Focus className="focus-icon" />
+                            <small className="addToList-text">Add to List</small>
+                        </div>
+                    }
                 />
             </div>
             <Tabs
@@ -79,6 +86,13 @@ const ProfileComponentNew = ({ userDetails, handleOnClickSettings }) => {
                 <Tab label="Reviews" />
             </Tabs>
             {tabValue === 0 && <About userDetails={userDetails} />}
+            {tabValue === 1 &&
+                <Submit
+                    userDetails={userDetails}
+                    tracksHistory={tracksHistory}
+                    handleOnClickFollow={handleOnClickFollow}
+                />
+            }
         </div>
     )
 }

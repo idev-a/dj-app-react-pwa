@@ -1,0 +1,160 @@
+@import "../../../scss/variables.scss";
+
+.profile-submit-main-container {
+    padding-top: 25px;
+    .profile-send-me-container {
+        text-align: left;
+        .profile-send-me-header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .profile-send-me-header {
+            font-family: $font-family-2;
+        }
+        .profile-send-me-content{
+            font-size: $font-size-small;
+            font-family: $font-family-2;
+            color: $color-20;
+            line-height: 20px;
+            font-style: italic;       
+        }
+        .follow-button {
+            border: 1px solid $color-20;
+            background: none;
+            color: $main-1;
+            border-radius: 5px;
+            min-height: 30px;
+            .follow-container {
+                display: flex;
+                align-items: center;
+            }
+            .bell-icon {
+                width: 15px;
+                height: 15px;
+                margin-right: 5px;
+            }
+            .follow-text {
+                font-size: $font-size-xs;
+                font-family: $font-family-2;
+            }
+        }
+        .follow-button-red {
+            background: $color-20;
+        }
+    }
+    .profile-filter-rate-container {
+        text-align: left;
+        margin-top: 25px;
+        .profile-filterRate-header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .filterRate-button {
+            border: 1px solid $color-20;
+            background: none;
+            color: $main-1;
+            font-family: $font-family-2;
+            border-radius: 5px;
+            font-size: $font-size-xs;
+            min-height: 30px;
+        }
+        .profile-filter-rate-header {
+            font-family: $font-family-2;
+        }
+        .profile-filter-rate-content {
+            font-size: $font-size-small;
+            font-family: $font-family-2;
+            color: $color-28;
+            line-height: 20px;
+            font-style: italic;    
+        }
+    }
+    .qualifyingTrack-text-content {
+        font-size: $font-size-small;
+        font-family: $font-family-2;
+        color: $color-28;
+        line-height: 20px;
+        font-style: italic;  
+    }
+    .qualifyingTracks-main-container {
+        border: 1px solid $color-20;
+        border-radius: 5px;
+        min-height: 100px;
+        position: relative;
+        margin-top: 35px;
+        .qualifyingTrack-main-inner {
+            max-height: 200px;
+            overflow: auto;
+        }
+        .qualifyingTrack-header {
+            position: absolute;
+            color: $color-20;
+            font-size: 12px;
+            top: -14px;
+            left: 10px;
+            padding: 5px;
+            background: $color-24;
+            z-index: 1;
+        }
+        .qualifyingTrack-inner-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            .qualifyingTrack-container {
+                width: 100%;
+                display: flex;
+                padding: 10px;
+                justify-content: space-between;
+                .qualifyingTrack-container-1 {
+                    display: flex;
+                    align-items: center;
+                }
+                .qualifyingTrack-container-2 {
+                    width: 70px;
+                    justify-content: space-between;
+                    display: flex;
+                    align-items: center;
+                    .qualifrying-track-rate {
+                        font-family: $font-family-2;
+                        font-size: $font-size-small;
+                    }
+                }
+            }
+            .qualifying-image {
+                width: 35px;
+                height: 35px;
+                border-radius: 5px;
+            }
+            .qualifying-tract-detail {
+                margin-left: 10px;
+                text-align: left;
+                .qualifying-track-name {
+                    font-family: $font-family-2;
+                    font-size: $font-size-small;
+                }
+                .qualifying-track-author {
+                    font-family: $font-family-2;
+                    font-size: $font-size-xxs;
+                    font-style: italic;
+                    opacity: 0.7;
+                }
+            }
+            .qualifying-track-key {
+                width: 15px;
+                height: 15px;
+            }
+        }
+    }
+    .submit-music-now-button {
+        width: 100%;
+        height: 40px;
+        margin-top: 40px;
+        background: $color-21;
+        border: none;
+        font-family: $font-family-2;
+        border-radius: 5px;
+        color: $main-1;
+    }
+}

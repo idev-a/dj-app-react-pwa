@@ -1,7 +1,8 @@
-import { GET_USER_PROFILE_SUCCESS } from "../actions/profileActions";
+import { GET_USER_PROFILE_SUCCESS, GET_USER_QUALIFYING_TRACK_SUCCESS } from "../actions/profileActions";
 
 const initialState = {
-  profileDetails: undefined
+  profileDetails: undefined,
+  qualifyingTrack: undefined
 };
 
 const reducer = (state = initialState, action) => {
@@ -9,6 +10,10 @@ const reducer = (state = initialState, action) => {
     [GET_USER_PROFILE_SUCCESS]: (state, { payload }) => ({
       ...state,
       profileDetails: payload
+    }),
+    [GET_USER_QUALIFYING_TRACK_SUCCESS]: (state, { payload }) => ({
+      ...state,
+      qualifyingTrack: payload
     })
   };
 
