@@ -38,7 +38,7 @@ const Footer = ({history, getUserDetailsDispatchAction, userDetails}) => {
                 <NavLink to="/leaderboard-home" className="footer-Links">
                     <svg className="footer-Icon" > <Business /> </svg>
                 </NavLink>
-                <NavLink to={`/profile/${userDetails?.user_name}`} className="footer-Links">
+                <NavLink to="profile-settings" className="footer-Links">
                     <svg className="footer-Icon" > <Social /> </svg>
                 </NavLink>
             </div>
