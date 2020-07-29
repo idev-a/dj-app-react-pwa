@@ -122,7 +122,7 @@ export const postListenerPreferences = payload => dispatch => {
       dispatch(getUserDetails());
       localStorage.removeItem("isFirstUserLogin");
       toast.success("Changes saved successfully !!!");
-      history.push("/home");
+      history.push("/onboarding-complete");
     } else {
       toast.error("Failed to save changes !!!");
     }

@@ -44,6 +44,7 @@ const EmailSignInContainer = ({ history, loginUser, isRememberUser = false }) =>
       emailresetPassword={emailresetPassword}
       onInputChange={handleInputChange}
       loginUser={handleUserLogin}
+      loginDetails={loginDetails}
     />
   )
 }

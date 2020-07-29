@@ -4,7 +4,7 @@
 .emailSigninContainer{
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    min-height: 100vh;
     width: 100%;
     background-image: url('../../assets/img/back.jpg');
     -webkit-background-size: cover;
@@ -96,11 +96,13 @@
     font-family: "AvenirNextLTPro";
     width: 100%;
     height: 50px;
+    align-items: center;
 }
 .signinFooterText{
     color: $color-18;
     text-align: center;
     font-family: "AvenirNextLTPro";
+    font-size: $font-size-normal;
     a{
         color: $color-12;
     }

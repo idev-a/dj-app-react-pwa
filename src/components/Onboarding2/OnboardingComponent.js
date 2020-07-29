@@ -4,7 +4,7 @@ import Button from './../../common/Button/index';
 import content from "./content";
 import { ReactComponent as Star} from '../../assets/icon/Icon awesome-star.svg';
 import { ReactComponent as Check} from '../../assets/icon/Icon metro-checkmark.svg';
-const OnboardingComponent = ({ user }) => {
+const OnboardingComponent = ({ user, handleClickGetStarted }) => {
 
     return (
         <div className='onboarding2-container'>
@@ -78,6 +78,7 @@ const OnboardingComponent = ({ user }) => {
                 <Button
                     className="get-started-button"
                     buttonText={content.GET_STARTED}
+                    onClick={handleClickGetStarted}
                 />
                 <div className="progress-bar">
                     <div />

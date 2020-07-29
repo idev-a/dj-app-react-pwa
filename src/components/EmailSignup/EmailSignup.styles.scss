@@ -4,7 +4,7 @@
 .email-signup-container {
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  min-height: 100vh;
   width: 100%;
   background-image: url('../../assets/img/back.jpg');
   -webkit-background-size: cover;
@@ -101,6 +101,7 @@
   background-color: $color-12;
   border: none;
   display: flex;
+  align-items: center;
   flex-direction: row;
   justify-content: center;
   border-radius: 5px;
@@ -111,7 +112,7 @@
   height: 50px;
 }
 
-.footer-text {
+.footer-text-email {
   color: $color-18;
   text-align: center;
   font-family: "AvenirNextLTPro";

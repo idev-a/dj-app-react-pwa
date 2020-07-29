@@ -15,11 +15,16 @@ class LeaderboardContainer extends React.Component {
         getTopListeners();
     }
 
+    handleOnClickBack = () => {
+        window.history.back();
+    }
+
     render() {
         return (
-            <LeaderboardComponent 
-            user={this.props.user}
-            topListeners={this.props.topListeners}
+            <LeaderboardComponent
+                user={this.props.user}
+                topListeners={this.props.topListeners}
+                handleOnClickBack={this.handleOnClickBack}
             />
         )
     }
@@ -30,15 +35,15 @@ const mapStateToProps = (state) => {
     const targetState = state.userDetails || {};
     const listenerState = state.listeners || {};
 
-    return{
-        user : targetState.user || {},
+    return {
+        user: targetState.user || {},
         topListeners: listenerState.topListeners || {},
     }
 }
 
 const mapDispatchToProps = (dispatch) => ({
     getUserDetailsDispatchAction: () => dispatch(getUserDetails()),
-    getTopListeners: ()=> dispatch(getTopListeners()),
+    getTopListeners: () => dispatch(getTopListeners()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(LeaderboardContainer);

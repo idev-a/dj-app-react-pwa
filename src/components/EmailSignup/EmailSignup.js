@@ -95,7 +95,7 @@ const EmailSignup = ({
                         />
                     </FormControl>
                     <button className="signupButton" onClick={registerUser} >{content.SIGN_UP}</button>
-                    <p className="footer-text">{content.HAVE_A_ACCOUNT} &nbsp; <a onClick={emailPage}>{content.SIGN_IN}</a></p>
+                    <p className="footer-text-email">{content.HAVE_A_ACCOUNT} &nbsp; <a onClick={emailPage}>{content.SIGN_IN}</a></p>
                 </div>
             </div>
         </div>

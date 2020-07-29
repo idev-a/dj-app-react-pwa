@@ -119,13 +119,6 @@ const PlayComponent = ({
                 <section>
                     <div className="play-image-container">
                         <div className="play-music-image-container">
-                            <div className={cx("play-image-container", "play-side-images")}>
-                                <div className="image-container">
-                                    <div className="cover-image-container">
-                                        <MusiMultimedia className="multimedia-icon" />
-                                    </div>
-                                </div>
-                            </div>
                             <div className="play-image-container">
                                 {track.mediaType === ENUMS.MEDIA_TYPE_YOUTUBE ? (
                                     <div className="image-container">
@@ -156,17 +149,6 @@ const PlayComponent = ({
                                             </div>
                                         </div>
                                     )}
-                            </div>
-                            <div className={cx("play-image-container", "play-side-images")}>
-                                {tracks[componentIndex + 1] && <div className="image-container">
-                                    <div className="cover-image-container">
-                                        <MusiMultimedia className="multimedia-icon" />
-                                    </div>
-                                    <div className="song-name-container">
-                                        <span className="song-name-text">{tracks[componentIndex + 1] ?.trackTitle}</span><br />
-                                        <small className="creator-name-text">{tracks[componentIndex + 1] ?.display_name}</small>
-                                    </div>
-                                </div>}
                             </div>
                         </div>
                         <div className="image-footer-icon-container">

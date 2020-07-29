@@ -13,7 +13,7 @@ import { ReactComponent as Business } from '../../assets/icon/business.svg';
 import { ReactComponent as Social } from '../../assets/icon/social.svg';
 
 const excludesRoutes = ["/", "/signin", "/forgot-password", "/reset", "/splash", "/loginScreen", "/signupScreen", "/emailSignup", "/emailSignin", "/emailReset",
-"/changePassword", "/phoneSignup", "/phoneSignin", "/verifySignup", "/verifySignin" ];
+"/changePassword", "/phoneSignup", "/phoneSignin", "/verifySignup", "/verifySignin", "/welcome", "/onboarding", "/onboarding-complete" ];
 
 const Footer = ({history, getUserDetailsDispatchAction, userDetails}) => {
     

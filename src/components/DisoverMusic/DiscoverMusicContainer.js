@@ -45,7 +45,7 @@ const DiscoverMusicContainer = () => {
             {currentScreen === 2 && <BeakerFame />}
             {currentScreen === 3 && <MusicCreators />}
             <section className="discover-music-footer-container">
-                <Back className="discover-back-icon" onClick={handleOnClickBack} />
+                {currentScreen !== 0 ? <Back className="discover-back-icon" onClick={handleOnClickBack} /> : <div className="discover-back-icon" />}
                 <div className="progress-dots-container">
                     {[...Array(4)].map((e, i) => {
                         return <div className={cx("progress-dots", i === currentScreen && "progress-dot-red")} />

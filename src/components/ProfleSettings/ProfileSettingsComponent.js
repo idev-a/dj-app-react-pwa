@@ -2,6 +2,7 @@ import React, { useCallback, useState } from 'react';
 import './profileSettings.style.scss'
 import content from './content'
 import moment from "moment";
+import { toast } from "react-toastify";
 import { ReactComponent as BackArrow } from '../../assets/icon/arrow.svg';
 import { ReactComponent as CloseArrow } from '../../assets/icon/close-arow.svg';
 import { ReactComponent as OpenArrow } from '../../assets/icon/open-arrow.svg';
@@ -12,8 +13,19 @@ import { TextField, FormControl, InputLabel, OutlinedInput, InputAdornment, Icon
 import { Visibility, VisibilityOff } from '@material-ui/icons';
 import PrivacyPolicy from './PrivacyPolicy';
 import TermServices from './TermsServices';
+import { validateRegex } from "../../utils";
 
-const ProfileSettingsComponent = ({ logOutClick, userObject, password, repeatPassword, onInputChange, handleProfileUpdate, cancelSubscription, details }) => {
+const ProfileSettingsComponent = ({
+    logOutClick,
+    userObject,
+    password,
+    repeatPassword,
+    onInputChange,
+    handleProfileUpdate,
+    cancelSubscription,
+    details,
+    validateEmail
+}) => {
     const { subscriptionEndDate, balance } = details;
     const { display_name, email, newEmail } = userObject;
     const [showEmail, setShowEmail] = useState(false);
@@ -56,6 +68,30 @@ const ProfileSettingsComponent = ({ logOutClick, userObject, password, repeatPas
     const handleClickBack = () => {
         window.history.back();
     }
+
+    const handleOnSavePassword = useCallback(() => {
+        if (!password) {
+            toast.error("Please enter new password!");
+            return;
+        }
+        if (!repeatPassword) {
+            toast.error("Please enter confirm password!");
+            return;
+        }
+        if(!validateRegex("password", password)){
+            toast.error("Password must contain uppercase, lowercase, numeric, special character and should be of atleast 6 character");
+            return;
+        }
+        handleProfileUpdate();
+    }, [handleProfileUpdate, password, repeatPassword]);
+
+    const handleSaveEmail = useCallback(() => {
+        if (!newEmail) {
+            toast.error("Please enter new email!");
+            return;
+        }
+        handleProfileUpdate();
+    }, [newEmail, handleProfileUpdate])
 
     return (
         <div className="profile-settings-container">
@@ -106,6 +142,8 @@ const ProfileSettingsComponent = ({ logOutClick, userObject, password, repeatPas
                             label={content.NEW_EMAIL}
                             type="email"
                             defaultValue=""
+                            error={validateEmail(newEmail).isError}
+                            helperText={validateEmail(newEmail).errorMessage}
                             variant="outlined"
                             className="form-input"
                             autoComplete="off"
@@ -114,7 +152,7 @@ const ProfileSettingsComponent = ({ logOutClick, userObject, password, repeatPas
                         />
                         <Button
                             className="update-button"
-                            onClick={handleProfileUpdate}
+                            onClick={handleSaveEmail}
                             buttonText={content.SAVE}
                         />
                     </div>}
@@ -173,7 +211,7 @@ const ProfileSettingsComponent = ({ logOutClick, userObject, password, repeatPas
                         </FormControl>
                         <Button
                             className="update-button"
-                            onClick={handleProfileUpdate}
+                            onClick={handleOnSavePassword}
                             buttonText={content.SAVE}
                         />
                     </div>}

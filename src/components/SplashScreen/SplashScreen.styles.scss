@@ -52,10 +52,16 @@
     background-color: $color-12;
     border: none;
     margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .signup-splashButton{
     background-color: transparent;
     border-color: $color-17;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .logo-content {
     height: 40px;

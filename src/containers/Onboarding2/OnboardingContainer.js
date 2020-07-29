@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from "react-redux";
 import OnboardingComponent from '../../components/OnBoarding2/OnboardingComponent';
 import { getUserDetails } from "../../state/actions/userActions";
+import history from "../../history";
 
 class OnboardingContainer extends React.Component {
 
@@ -12,9 +13,13 @@ class OnboardingContainer extends React.Component {
         getUserDetailsDispatchAction();
     }
 
+    handleClickGetStarted = () => {
+        history.push("/home")
+    }
+
     render() {
         return (
-            <OnboardingComponent user={this.props.user}/>
+            <OnboardingComponent user={this.props.user} handleClickGetStarted={this.handleClickGetStarted} />
         )
     }
 

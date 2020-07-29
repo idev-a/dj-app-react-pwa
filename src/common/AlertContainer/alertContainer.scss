@@ -1,0 +1,26 @@
+@import "../../scss/variables.scss";
+
+.alert-main-container {
+    height: 90%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    font-family: "AvenirNextLTPro";
+    color: $main-1;
+    .alertButton{
+        margin-top: 45px;
+        background-color: $color-12;
+        border: none;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        border-radius: 5px;
+        color: $color-17;
+        font-size: $font-size-normal;
+        font-family: "AvenirNextLTPro";
+        width: 30%;
+        height: 40px;
+        align-items: center;
+    }
+}

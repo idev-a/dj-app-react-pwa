@@ -7,7 +7,7 @@ import altImg from '../../assets/img/upload photo.png'
 import { ReactComponent as MoneyBag } from '../../assets/icon/MoneyBag.svg';
 import { ReactComponent as FireIcon } from '../../assets/icon/FireIcon.svg';
 
-const LeaderboardComponent = ({ user, topListeners }) => {
+const LeaderboardComponent = ({ user, topListeners, handleOnClickBack }) => {
 
     return (
         <div className='leaderboard1-container'>
@@ -15,7 +15,7 @@ const LeaderboardComponent = ({ user, topListeners }) => {
 
                 <div className="header-section">
                     <div className="left-section">
-                        <svg className="left-arrow-icon"><LeftArrowIcon /></svg>
+                        <svg className="left-arrow-icon" onClick={handleOnClickBack}><LeftArrowIcon /></svg>
                     </div>
                     <div className="header-icon-container">
                         <MoneyBag className="header-icon" />

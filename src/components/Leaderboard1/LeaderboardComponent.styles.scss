@@ -3,11 +3,12 @@
 .leaderboard1-container {
     min-height: 100vh;
     width: 100%;
-    max-width: 600px;
+    max-width: 800px;
     background: $color-32;
     justify-content: center;
     display: flex;
     color: $main-1;
+    padding-bottom: 110px;
 }
 .leaderboard1-sub-container {
     text-align: -webkit-center;
