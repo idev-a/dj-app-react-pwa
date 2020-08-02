@@ -17,15 +17,15 @@ const DiscoverNewMusic = () => {
                     <div className="discover-image-container">
                         <img src={IMG1} alt="No Img" className="discover-centerImages" />
                         <div className="discover-image-title">
-                            <small>{content.SONG_NAME}</small><br />
+                            <small>{content.CANCELLED}</small><br />
                             <small className="dicover-creator-name">{content.ABE}</small>
                         </div>
                     </div>
                     <div className="discover-image-container">
                         <img src={IMG2} alt="No Img" className="discover-sideImages" />
                         <div className="discover-image-title-2">
-                            <small>{content.SONG_NAME}</small><br />
-                            <small className="dicover-creator-name">{content.CREATOR}</small>
+                            <small>{content.ZONE}</small><br />
+                            <small className="dicover-creator-name">{content.ABE}</small>
                         </div>
                     </div>
                 </div>

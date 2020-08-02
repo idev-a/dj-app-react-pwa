@@ -60,16 +60,16 @@ const EmailSignupContainer = ({ history, registerUser }) => {
     }
 
     const handleNewUserRegister = useCallback(() => {
+        if (displayName.trim().length === 0) {
+            toast.error("Enter display name");
+            return;
+        }
         if (email.length === 0 || validateEmail(email).isError) {
             toast.error("Enter valid email address");
             return;
         }
         if (password.length === 0 || !validateRegex("password", password)) {
             toast.error("Password must contain uppercase, lowercase, numeric, special character and should be of atleast 6 character");
-            return;
-        }
-        if (displayName.length === 0) {
-            toast.error("Enter display name");
             return;
         }
         if(displayName.length < 3){
@@ -79,7 +79,7 @@ const EmailSignupContainer = ({ history, registerUser }) => {
         const payload = {
             email,
             username,
-            displayName,
+            displayName: displayName.trim(),
             password
         };
 
