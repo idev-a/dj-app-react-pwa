@@ -15,7 +15,7 @@ const EmailSignupContainer = ({ history, registerUser }) => {
 
     useEffect(() => {
         window.scrollTo(0, 0);
-    });
+    }, []);
 
     const emailBack = useCallback(() => history.push("/signupScreen"), [
         history,

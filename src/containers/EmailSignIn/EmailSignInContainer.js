@@ -7,7 +7,7 @@ import { userSelector } from "../../state/selectors/users";
 const EmailSignInContainer = ({ history, loginUser, isRememberUser = false }) => {
   useEffect(() => {
     window.scrollTo(0, 0);
-  });
+  }, []);
   const [loginDetails, setLoginDetails] = useState({});
   const handleInputChange = (e) => {
     let value = e.target.value;
