@@ -8,7 +8,7 @@ const EmailResetPasswordContainer = (props) => {
 
     useEffect(() => {
         window.scrollTo(0, 0);
-    });
+    }, []);
 
     const [email, setEmail] = useState("");
 

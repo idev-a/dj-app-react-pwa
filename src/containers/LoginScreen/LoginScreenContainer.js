@@ -4,7 +4,7 @@ import LoginScreen from '../../components/LoginScreen/LoginScreen'
 const LoginScreenContainer = (props) => {
   useEffect(() => {
     window.scrollTo(0, 0);
-  });
+  }, []);
 
   const loginBack = useCallback(() => props.history.push("/"), [
     props.history,
