@@ -155,6 +155,7 @@ export const getUserDetails = () => dispatch =>
       toast.error("Failed to fetch user details");
     })
     .then(requestData => {
+      console.log(requestData)
       dispatch({
         type: GET_USER_DETAILS_SUCCESS,
         payload: requestData

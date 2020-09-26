@@ -155,6 +155,7 @@ const UploadContainer = ({
                     !cardInfo ?.paymentFromSavedCard &&
                     !(cardInfo && cardInfo.id && accountName.length > 0)
             ) {
+                debugger
                 toast.error("Enter valid card details");
                 return;
             }
@@ -237,6 +238,7 @@ const UploadContainer = ({
     }, []);
 
     const handleOrderNowClick = useCallback(() => {
+        debugger;
         if (selectedPaymentId) {
             onSubmitPayment({ id: selectedPaymentId, paymentFromSavedCard: true });
         } else {
